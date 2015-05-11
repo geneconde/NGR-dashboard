@@ -1,0 +1,29 @@
+1. View base_code.html
+
+2. Add MOVING CLOUDS at top at the back of "thinking cloud" and "Food chain" title
+* cloud-left moves slowly to the left
+* cloud-right moves slowly to the right
+* Please edit the image so that they are a bit small and fit the sky area
+
+Please choose from the following:
+Jquery Example at: http://www.opresume.com/
+- Check code in http://www.opresume.com/js/engine.js
+
+CSS3 with Image Example at http://stuffandnonsense.co.uk/
+-Code:
+background-position: 0 0;
+-webkit-animation: slide 600s linear infinite;
+-moz-animation: slide 600s linear infinite;
+-ms-animation: slide 600s linear infinite;
+-o-animation: slide 600s linear infinite;
+animation: slide 600s linear infinite;
+
+Pure CSS3 Example at  http://thecodeplayer.com/walkthrough/pure-css3-animated-clouds-background
+
+3. Add Thinking Cloud (static)
+
+4. Float other fishes and bubbles using JQFloat (http://www.inwebson.com/demo/jqfloat/)
+- View underwater-world image for example of location or put in places as you see fit
+- Can you arrange them from big to small and arrange them to a curvy path starting from the shark to any of the small gray fishes
+
+5. Add a box at the right side of the ocean that will contain the text form the old design

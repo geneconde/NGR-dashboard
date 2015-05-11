@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Food Chain</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../fonts.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>
+//preload images
+//loading icon
+
+$(document).ready(function() {
+	$('.fox-toggle').click(function() { $('img', this).attr('src', function(i, oldSrc) { return oldSrc == 'fox-b.png' ? 'fox-a.png' : 'fox-b.png'; }); return false; });
+	$('.rabbit-toggle').click(function() { $('img', this).attr('src', function(i, oldSrc) { return oldSrc == 'rabbit-b.png' ? 'rabbit-a.png' : 'rabbit-b.png'; }); return false; });
+	$('.grass-toggle').click(function() { $('img', this).attr('src', function(i, oldSrc) { return oldSrc == 'grass-b.png' ? 'grass-a.png' : 'grass-b.png'; }); return false; });
+	$('.sun-toggle').click(function() { $('img', this).attr('src', function(i, oldSrc) { return oldSrc == 'sun-b.png' ? 'sun-a.png' : 'sun-b.png'; }); return false; });
+	
+	//Jaypee: change this code so that in the last question, when one image is activated, all other images will go back to inactive state
+	$('.last-toggle').click(function() { return false; });
+	
+	makeHexa();
+});
+
+$(window).load(function(){  
+	checkRes();
+}); 
+
+$(window).resize(function() {
+	checkRes();
+	makeHexa();
+});
+
+
+
+(function($) {
+    $.fn.hasScrollBar = function() {
+		alert ($(window).height());
+		//return $('.bg').height() > $(window).height();
+		//return totalHeight() > 450;
+    }
+})(jQuery);
+
+
+function checkRes() {
+	//var hasScroll = $('html').hasScrollBar(); 
+	//if(hasScroll) {
+	/*if ($('.bg').height() == 450 && $(document).width() > 640) {
+		$('#choices ul li img').css({'max-width': '50%' });
+		$('.col ul li img').css({'max-width': '55%' });
+		$('.col').css({'margin-bottom': '10px' });
+		$('h2').css({'font-size': '15px' });
+	} else {
+		$('#choices ul li img').css({'max-width': '100%' });
+		$('.col ul li img').css({'max-width': '100%' });
+		$('.col').css({'margin-bottom': '20px' });
+	}
+	
+	/*
+		if ($(document).width() > 578) {
+			$('#choices ul li img').css({'max-width': '50%' });
+			$('.col ul li img').css({'max-width': '50%' });
+			$('.col').css({'margin-bottom': '10px' });
+		} else {
+			$('#choices ul li img').css({'max-width': '100%' });
+			$('.col ul li img').css({'max-width': '50%' });
+			$('.col').css({'margin-bottom': '20px' });
+		}
+	} else {
+		$('#choices ul li img').css({'max-width': '100%' });
+		$('.col ul li img').css({'max-width': '100%' });
+		$('.col').css({'margin-bottom': '10px' });
+	}*/
+}
+
+function totalHeight() {
+	var totalHeight = 0;
+	$(".bg").children().each(function(){
+		totalHeight += $(this).outerHeight(true); // true = include margins
+	});
+	return totalHeight;
+}
+</script>
+<style>
+html,body {height:100%;padding:0;margin:0;font-family: georgia;min-height: 450px;  }
+img { border : none; }
+.wrap { margin: 0 auto 0; max-width:900px; height:100%; border-left: 1px dashed #009FE8; border-right: 1px dashed #009FE8; padding: 0 2px;}
+.bg { background-image: url('bg.png');  background-repeat: no-repeat; background-size: 100% 100%; width:100%; height:100%; position:relative; }
+
+h1 { margin:0; font-style: italic; font-size: 35px; padding: 10px; font-weight:normal; }
+h2 { margin:0; padding: 0 10px; font-weight:normal; }
+h2.b { width: 50%; text-align:left; float:left;}
+#choices { text-align: center; margin-top:10px;}
+#choices ul, .col ul { width: 100%; margin:0;padding:0;}
+#choices ul li { float:left; display:inline; list-style-type: none; width:25%;}
+#choices ul li img,.col ul li img { max-width:100%; height:auto;}
+.clear { clear:both;}
+
+#grid { overflow: hidden; margin: 10px; text-align:center;}
+#grid .col:nth-of-type(2n+1) { margin-left: 0; clear: left; }
+.col { background: #FFF2D2; float: left; margin-left: 3.2%; margin-bottom: 20px; -webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px; padding:10px; width: 45%;}
+.col2 { background: none; margin-bottom: 0px; padding:0px; width:40%; clear:none !important;}
+.col ul li { float:left;display:inline;list-style-type:none; width:20%;}
+
+@media screen and (max-width:900px) {
+	/*html,body {border:1px solid green; }*/
+	h1 { font-size: 30px; }
+}
+
+@media screen and (max-width:768px) {
+	/*html,body {border:1px solid red; }*/
+	h1 { font-size: 20px; }
+	h2 { font-size: 18px; }
+	.col { width: 44%; }
+	h2.b { width: 100%;  padding: 0px; }
+	.col { width: 93% !important; margin-left: 0 !important; clear: none !important; margin-bottom: 10px; }
+	.col2 { margin-top:20px; }
+	
+}
+
+@media screen and (max-width:577px) {
+	/*html,body {border:1px solid orange; }*/
+	h1 { font-size: 20px; }
+	h2 { font-size: 15px; padding: 10px; }
+	
+}
+
+@media screen and (max-width:480px) {
+	/*html,body {border:1px solid pink; }*/
+	h1 { font-size: 17px; }
+	h2 { font-size: 12px; }
+	
+}
+
+@media screen and (max-width:400px) {
+	/*html,body {border:1px solid yellow; }*/
+	h1 { width: 270px; }
+	
+}
+
+@media screen and (max-height:627px) {
+	.wrap { height:auto; }
+}
+
+.hexaflip-cube { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; cursor: move; cursor: -webkit-grab; cursor: -moz-grab; display: inline-block; position: relative; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; -o-transform-style: preserve-3d; -ms-transform-style: preserve-3d; transform-style: preserve-3d; -webkit-transition: -webkit-transform 0.4s; -moz-transition: -moz-transform 0.4s; -o-transition: -o-transform 0.4s; -ms-transition: -ms-transform 0.4s; transition: transform 0.4s;}
+.hexaflip-cube.no-tween { -webkit-transition-duration: 0; -moz-transition-duration: 0; -o-transition-duration: 0; -ms-transition-duration: 0; transition-duration: 0; }
+.hexaflip-cube > div { width: 100%; overflow: hidden; height: 100.5%; position: absolute; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-background-size: cover; -moz-background-size: cover; background-size: cover; text-align: center; background-color: #ff1319; color: #fff; font-weight: 100; text-shadow: 0 -2px 0 rgba(0,0,0,0.2); line-height: 1.5; }
+.hexaflip-left, .hexaflip-right { background-color: #ff575b !important; }
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="bg">
+			<h1>Checking what you already know... about food chains.</h1>
+			<div id="choices">
+				<ul>
+					<li><img src="grassbg.png"></li>
+					<li><img src="sunbg.png"></li>
+					<li><img src="foxbg.png"></li>
+					<li><img src="rabbitbg.png"></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			
+			<h2>Look at the pictures and words above. In the boxes below, tap all the things on th left that depend directly or indirectly on the thing on the right.</h2>
+			<div id="grid">
+				<article class="col">
+					<ul>
+						<li><a href="#" class="rabbit-toggle"><img src="rabbit-b.png"></a></li>
+						<li><a href="#" class="grass-toggle"><img src="grass-b.png"></a></li>
+						<li><a href="#" class="fox-toggle"><img src="fox-b.png"></a></li>
+						<li>depends on</li>
+						<li><img src="sun-a.png"></li>
+					</ul>
+				</article>
+				<article class="col">
+					<ul>
+						<li><a href="#" class="grass-toggle"><img src="grass-b.png"></a></li>
+						<li><a href="#" class="fox-toggle"><img src="fox-b.png"></a></li>
+						<li><a href="#" class="sun-toggle"><img src="sun-b.png"></a></li>
+						<li>depends on</li>
+						<li><img src="rabbit-a.png"></li>
+					</ul>
+				</article>
+				<article class="col">
+					<ul>
+						<li><a href="#" class="fox-toggle"><img src="fox-b.png"></a></li>
+						<li><a href="#" class="sun-toggle"><img src="sun-b.png"></a></li>
+						<li><a href="#" class="rabbit-toggle"><img src="rabbit-b.png"></a></li>
+						<li>depends on</li>
+						<li><img src="grass-a.png"></li>
+					</ul>
+				</article>
+				<article class="col">
+					<ul>
+						<li><a href="#" class="sun-toggle"><img src="sun-b.png"></a></li>
+						<li><a href="#" class="rabbit-toggle"><img src="rabbit-b.png"></a></li>
+						<li><a href="#" class="grass-toggle"><img src="grass-b.png"></a></li>
+						<li>depends on</li>
+						<li><img src="fox-a.png"></li>
+					</ul>
+				</article>
+				<h2 class="b">Which could NOT be removed without affecting ALL of the remaining things?</h2>
+				<article class="col col2">
+					<ul>
+						
+						<li><a href="#" class="last-toggle"><img src="sun-b.png"></a></li>
+						<li><a href="#" class="last-toggle"><img src="fox-b.png"></a></li>
+						<li><a href="#" class="last-toggle"><img src="grass-b.png"></a></li>
+						<li><a href="#" class="last-toggle"><img src="rabbit-b.png"></a></li>
+					</ul>
+				</article>
+			</div>
+		</div>
+	</div>
+	<script src="hexaflip.js"></script>
+	  <script>
+        var hexa;
+		set = [
+			'./images/1.jpg',
+            './images/2.jpg',
+            './images/3.jpg',
+            './images/4.jpg',
+        ];
+        function resize(){
+            var size, margin = 20;
+            size = 100;
+    	    var settings = { size: size, margin: margin, perspective: 1000, touchSensitivity: 1 };
+            return settings;
+        }
+        function makeHexa(){
+            var settings = resize();
+            $('#hexaflip').empty();
+            hexa = new HexaFlip(document.getElementById('hexaflip'),  {set1: set}, settings);
+            
+        }
+    </script>
+</body>
+</html>

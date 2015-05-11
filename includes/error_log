@@ -1,0 +1,5 @@
+[19-Oct-2014 07:53:28 America/Denver] PHP Fatal error:  Cannot redeclare Question::setQexid() in /home4/corescie/public_html/dashboard/includes/Question.class.php on line 23
+[21-Oct-2014 20:59:45 America/Denver] PHP Fatal error:  Cannot redeclare Question::setQexid() in /home4/corescie/public_html/dashboard/includes/Question.class.php on line 23
+[22-Oct-2014 14:56:36 America/Denver] PHP Fatal error:  Cannot redeclare Question::setQexid() in /home4/corescie/public_html/dashboard/includes/Question.class.php on line 23
+[24-Oct-2014 13:57:58 America/Denver] PHP Fatal error:  Cannot redeclare Question::setQexid() in /home4/corescie/public_html/dashboard/includes/Question.class.php on line 23
+[27-Oct-2014 02:33:54 America/Denver] PHP Fatal error:  Cannot redeclare Question::setQexid() in /home4/corescie/public_html/dashboard/includes/Question.class.php on line 23
