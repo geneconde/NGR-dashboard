@@ -23,7 +23,7 @@
 			$subscriber = $sc->loadSubscriber($subid);
 
 			if($subscriber->getActive() == 1) {
-				if($retObj->getType() == '0' || $retObj->getType() == '4') {
+				if($retObj->getType() == '0') {
 					$_SESSION['uname'] = $_POST['username'];
 					
 					//added for language
@@ -58,6 +58,21 @@
 					}
 
 					header("Location: subscriber/index.php?lang=$lang");
+				} elseif($retObj->getType() == '4'){
+					$_SESSION['uname'] = $_POST['username'];
+
+					$subscriber = $uc->loadUser($_SESSION['uname']);
+
+					$gdl = $lc->getDefaultLanguage($subscriber->getUserid(), 1);
+					if($gdl != null)
+					{
+						$default_lang = $lc->getLanguage($gdl->getLanguage_id());
+						$lang = $default_lang->getLanguage_code();
+					} else {
+						$lang = 'en_US';
+					}
+
+					header("Location: phpgrid/manage-subhead.php?lang=$lang");
 				} else {
 					$_SESSION['uname'] = $_POST['username'];	  
 					
