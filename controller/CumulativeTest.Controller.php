@@ -18,7 +18,6 @@ if(!class_exists('DB')) {
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/CumulativeTest.class.php');
 
-
 ini_set('track_errors', true);
 
 class CumulativeTestController {

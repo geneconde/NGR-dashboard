@@ -3,12 +3,28 @@
 	require_once 'locale.php';
 	require_once 'header.php';
 	require_once 'controller/User.Controller.php';
-	
+	require_once 'controller/Security.Controller.php';
+
+	$sc = new SecurityController();
 	$userid		= $_GET['user_id'];
 	$user_set	= $uc->getUser($userid);
 	$gender 	= $user_set->getGender();
 	$type		= $user_set->getType();
+
+	$questions = $sc->getAllQuestions();
+	$securityRecord = $sc->getSecurityRecord($userid);
+
+	$answer = "";
+	$questionID = "";
+	if(sizeof($securityRecord) == 1){
+		$questionID = $securityRecord[0]['question_id'];
+		$answer = $securityRecord[0]['answer'];
+	}
 ?>
+<style>
+	select { width: 295px; }
+	.answer { width: 290px !important; }
+</style>
 <div id="container">
 <?php if($type == 2) { ?>
 <a class="link" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
@@ -78,6 +94,37 @@
 				<td>
 					<input type="radio" name="gender" id="m" class="gender editable"  <?php if($gender == "m") { ?> checked <?php } ?> value="M"><label for="m"> <?php echo _("Male"); ?></label>
 					<input type="radio" name="gender" id="f" class="gender editable"  <?php if($gender == "f") { ?> checked <?php } ?> value="F"><label for="f"> <?php echo _("Female"); ?></label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<strong><center><?php echo _("Security Information"); ?></center></strong>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<?php echo _('Security Question'); ?>:
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<select name="squestion">
+						<?php
+						$i = 1;
+						foreach ($questions as $question) { ?>
+						   <option <?php if($questionID == $i) { ?> selected <?php } ?> value="<?php echo $question['question_id']; ?>"><?php echo $question["question"]; ?></option> 
+						<?php $i++; } ?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<?php echo _('Security Answer'); ?>:
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input class="answer" id="sanswer" name="sanswer" type="text" placeholder="Enter your answer..." value="<?php echo $answer; ?>" required/>
 				</td>
 			</tr>
 			<tr>
