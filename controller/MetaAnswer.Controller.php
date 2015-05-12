@@ -5,15 +5,15 @@
 */
 
 if(!class_exists('Error')) {
-	require_once($_SERVER['DOCUMENT_ROOT'].'/shymansky/dashboard/model/Error.class.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/model/Error.class.php');
 }
 
 if(!class_exists('Utils')) {
-	require_once($_SERVER['DOCUMENT_ROOT'].'/shymansky/dashboard/model/Utils.class.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/model/Utils.class.php');
 }
 
 if(!class_exists('DB')) {
-	require_once($_SERVER['DOCUMENT_ROOT'].'/shymansky/dashboard/model/db.inc.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/model/db.inc.php');
 }
 
 ini_set('track_errors', true);
