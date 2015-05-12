@@ -7,9 +7,14 @@
  * @license: see license.txt included in package
  */
  
+ include_once("config.php");
 // include db config
-include_once("../../config.php");
-
+ini_set('display_errors', 1);
+	require_once '../session.php';
+	require_once '../locale.php';
+	include_once '../controller/Language.Controller.php';
+	include_once('../controller/Subscriber.Controller.php');
+	
 // set up DB
 mysql_connect(PHPGRID_DBHOST, PHPGRID_DBUSER, PHPGRID_DBPASS);
 mysql_select_db(PHPGRID_DBNAME);
@@ -17,18 +22,26 @@ mysql_select_db(PHPGRID_DBNAME);
 // include and create object
 include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
 
+	$sc = new SubscriberController();
+	$sub = $sc->loadSubscriber($user->getSubscriber());
+
+	$userid 			= $user->getUserid();
+	$usertype			= $user->getType();
+	$subid				= $user->getSubscriber();
+	$create_date		= date('Y-m-d');
+	$current_date		= date('Y-m-d');
+	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$updated_at 		= date('Y-m-d H:i:s');
+
+	$lc = new LanguageController();
+	$teacher_languages = $lc->getLanguageByTeacher($userid);
+
 $g = new jqgrid();
 
-// custom data (if passed) need to be filled in URL as query string ($_REQUEST);
-//$grid["url"] = "subgrid_detail.php?rowid=".$_REQUEST["rowid"]."&subgrid=".$_REQUEST["subgrid"]."&closed=".$_REQUEST["closed"];
-
-// if no custom param, it is auto set inside lib -- dont need to set
-//$grid["url"] = "subgrid_detail.php?rowid=".$_REQUEST["rowid"]."&subgrid=".$_REQUEST["subgrid"];
-
-$grid["sortname"] = 'id'; // by default sort grid by this field
+$grid["sortname"] = 'user_ID'; // by default sort grid by this field
 $grid["sortorder"] = "desc"; // ASC or DESC
 $grid["height"] = ""; // autofit height of subgrid
-$grid["caption"] = "Item Data"; // caption of grid
+$grid["caption"] = "Tier 2 Data"; // caption of grid
 $grid["autowidth"] = true; // expand grid to screen width
 $grid["multiselect"] = true; // allow you to multi-select through checkboxes
 $grid["export"] = array("filename"=>"my-file", "sheetname"=>"test"); // export to excel parameters
@@ -49,13 +62,12 @@ $g->set_actions(array(
 $c_id = $_REQUEST["rowid"];
 
 # composite key implementation
-$g->select_command = "select concat(id,'-',num) as `key`, i.* FROM invlines i
-						WHERE id = $c_id";
+$g->select_command = "SELECT * FROM users WHERE teacher_ID = $userid AND type = 2 AND subhead_id = $userid";
 
 // this db table will be used for add,edit,delete
-$g->table = "invlines";
+$g->table = "users";
 
 // generate grid output, with unique grid name as 'list1'
-$out = $g->render("sub2");
-echo $out;
+$display_table = $g->render("sub2");
+echo $display_table;
 ?>

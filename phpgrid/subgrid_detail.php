@@ -8,8 +8,14 @@
  */
  
 // include db config
-include_once("../../config.php");
+include_once("config.php");
 
+ini_set('display_errors', 1);
+	require_once '../session.php';
+	require_once '../locale.php';
+	include_once '../controller/Language.Controller.php';
+	include_once('../controller/Subscriber.Controller.php');
+	
 // set up DB
 mysql_connect(PHPGRID_DBHOST, PHPGRID_DBUSER, PHPGRID_DBPASS);
 mysql_select_db(PHPGRID_DBNAME);
@@ -17,131 +23,169 @@ mysql_select_db(PHPGRID_DBNAME);
 // include and create object
 include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
 
+	$sc = new SubscriberController();
+	$sub = $sc->loadSubscriber($user->getSubscriber());
+
+	$userid 			= $user->getUserid();
+	$usertype			= $user->getType();
+	$subid				= $user->getSubscriber();
+	$create_date		= date('Y-m-d');
+	$current_date		= date('Y-m-d');
+	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$updated_at 		= date('Y-m-d H:i:s');
+
+	$lc = new LanguageController();
+	$teacher_languages = $lc->getLanguageByTeacher($userid);
+
 $g = new jqgrid();
 
 // passed from parent grid
 $c_id = $_REQUEST["rowid"];
 if (empty($c_id)) $c_id = 0;
 
-// you can customize your own columns ...
+	$username = _('Username');
+	$password = _('Password');
+	$first_name = _('First Name');
+	$last_name = _('Last Name');
+	$gender = _('Gender');
+	$grade_level = _('Grade Level');
+	//$student_portfolio = _('Student Portfolio');
+	$teacher_information = _('Teacher Information');
+	$view_portfolio = _('View Portfolio');
 
-$col = array();
-$col["title"] = "Id"; // caption of column
-$col["name"] = "id"; // field name, must be exactly same as with SQL prefix or db field
-$col["width"] = "10";
-$cols[] = $col;	
+	/** Main Grid Table **/
+	$col = array();
+	$col["title"] = "User ID"; // caption of column
+	$col["name"] = "user_id";
+	$col["editable"] = false;
+	$col["export"] = false; // this column will not be exported
+	$col["name"] = "user_ID"; 
+	$col["width"] = "10";
+	$col["hidden"] = true;
+	$cols[] = $col;
 
-$col = array();
-$col["title"] = "Client Id";
-$col["name"] = "client_id";
-$col["width"] = "10";
-$col["editable"] = true;
-$col["hidden"] = true;
-$col["editoptions"] = array("defaultValue" => $c_id); // set default value
-$cols[] = $col;		
+	$col = array();
+	$col["title"] = $username;
+	$col["name"] = "username";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; // this column will not be exported
+	$cols[] = $col;
 
-$col = array();
-$col["title"] = "Date";
-$col["name"] = "invdate";
-$col["width"] = "50";
-$col["editable"] = true; // this column is editable
-$col["editoptions"] = array("size"=>20); // with default display of textbox with size 20
-$col["editrules"] = array("required"=>true); // and is required
-$cols[] = $col;
-		
-$col = array();
-$col["title"] = "Client";
-$col["name"] = "name";
-$col["width"] = "100";
-$col["editable"] = false; // this column is not editable
-$cols[] = $col;
+	$col = array();
+	$col["title"] = $password;
+	$col["name"] = "password";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; // this column will not be exported
+	$cols[] = $col;
 
-$col = array();
-$col["title"] = "Note";
-$col["name"] = "note";
-$col["width"] = "100"; // not specifying width will expand to fill space
-$col["sortable"] = false; // this column is not sortable
-$col["search"] = false; // this column is not searchable
-$col["editable"] = true;
-$col["edittype"] = "textarea"; // render as textarea on edit
-$col["editoptions"] = array("rows"=>2, "cols"=>20); // with these attributes
-$cols[] = $col;
+	$col = array();
+	$col["title"] = "Type";
+	$col["name"]  = "type";
+	$col["editable"] = true;
+	$col["width"] = "10";
+	$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");
+	$col["viewable"] = false;
+	$col["hidden"] = true;
+	$col["editrules"] = array("edithidden"=>hidden); 
+	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
 
-$col = array();
-$col["title"] = "Total";
-$col["name"] = "total";
-$col["width"] = "50";
-$col["editable"] = true;
-$cols[] = $col;
+	$col = array();
+	$col["title"] = "Teacher ID"; // caption of column
+	$col["name"] = "teacher_id";
+	$col["editable"] = false;
+	$col["export"] = false; // this column will not be exported	
+	$col["width"] = "10";
+	$cols[] = $col;
 
-$col = array();
-$col["title"] = "Closed";
-$col["name"] = "closed";
-$col["width"] = "50";
-$col["editable"] = true;
-$col["edittype"] = "checkbox"; // render as checkbox
-$col["editoptions"] = array("value"=>"Yes:No"); // with these values "checked_value:unchecked_value"
-$cols[] = $col;
+	$col = array();
+	$col["title"] = $first_name;
+	$col["name"] = "first_name";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; 
+	$cols[] = $col;
 
-// custom data (if passed) need to be filled in URL as query string ($_REQUEST);
-//$grid["url"] = "subgrid_detail.php?rowid=".$_REQUEST["rowid"]."&subgrid=".$_REQUEST["subgrid"]."&gender=".$_REQUEST["gender"];
+	$col = array();
+	$col["title"] = $last_name;
+	$col["name"] = "last_name";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; 
+	$cols[] = $col;
 
-// if no custom param, it is auto set inside lib -- dont need to set
-//$grid["url"] = "subgrid_detail.php?rowid=".$_REQUEST["rowid"]."&subgrid=".$_REQUEST["subgrid"];
+	$grid["sortname"] = 'user_ID'; // by default sort grid by this field
+	$grid["sortorder"] = "desc"; // ASC or DESC
+	$grid["height"] = ""; // autofit height of subgrid
+	$grid["caption"] = "Tier 1 Data"; // caption of grid
+	$grid["autowidth"] = true; // expand grid to screen width
+	$grid["multiselect"] = true; // allow you to multi-select through checkboxes
+	$grid["export"] = array("filename"=>"my-file", "sheetname"=>"test"); // export to excel parameters
 
-$grid["sortname"] = 'id'; // by default sort grid by this field
-$grid["sortorder"] = "desc"; // ASC or DESC
-$grid["height"] = ""; // autofit height of subgrid
-$grid["caption"] = "Invoice Data"; // caption of grid
-$grid["autowidth"] = true; // expand grid to screen width
-$grid["multiselect"] = true; // allow you to multi-select through checkboxes
-$grid["export"] = array("filename"=>"my-file", "sheetname"=>"test"); // export to excel parameters
-$grid["subGrid"] = true;
-$grid["subgridurl"] = "subgrid_sub_detail.php";
-// $grid["subgridparams"] = "closed"; // extra data for sub grid
+	$grid["subGrid"] = true;
+	$grid["subgridurl"] = "subgrid_sub_detail.php";
+	
+	//Export Options
+/*	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Student Information";
+	$opt["export"]["range"] = "filtered";*/
 
-// $grid["cellEdit"] = true;
-// to refresh parent after subgrid edit
-// $grid["afterSubmitCell"] = "function(serverresponse, rowid, cellname, value, iRow, iCol) { jQuery('#list1').trigger('reloadGrid',[{jqgrid_page:1}]); return [true, '']; }";
 
-$g->set_options($grid);
+	$g->select_command = "SELECT * FROM users WHERE subhead_id = $userid";
 
-$g->set_actions(array(	
-						"add"=>true, // allow/disallow add
-						"edit"=>true, // allow/disallow edit
-						"delete"=>true, // allow/disallow delete
-						"rowactions"=>true, // show/hide row wise edit/del/save option
-						"export"=>true, // show/hide export to excel option
-						"autofilter" => true, // show/hide autofilter for search
-						"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-					) 
-				);
+	$g->table = "users";
 
-// you can provide custom SQL query to display data
-$g->select_command = "select i.id, i.client_id, i.invdate, c.name,
-						i.note, i.total, i.closed FROM invheader i
-						INNER JOIN clients c ON c.client_id = i.client_id
-						WHERE c.client_id = $c_id";
+	$g->set_columns($cols); // pass the cooked columns to grid
 
-// this db table will be used for add,edit,delete
-$g->table = "invheader";
+	//$main_view = $grid->render("list1");
 
-// pass the cooked columns to grid
-$g->set_columns($cols);
-// group columns header
-$g->set_group_header( array(
-   "useColSpanStyle"=>true,
-   "groupHeaders"=>array(
-       array(
-           "startColumnName"=>'invdate', // group starts from this column
-           "numberOfColumns"=>2, // group span to next 2 columns
-           "titleText"=>'Company Details' // caption of group header
-       )
-   )
-)
-);
+/*	if(isset($_POST['addmultiple'])){
+		if($_POST['student_num'] != "") {
+			if($_POST['student_num'] > $difference){
+				header("Location: manage-students.php?err=1");
+			} else {
+				generateStudents($_POST['student_num'], $user->getSubscriber(), $user->getUserid());
+				header("Location: manage-students.php?msg=1");
+			}
+		} else {
+			header("Location: manage-students.php?err=2");
+		}
+			
+	}
+*/
+	$g->set_options($grid);
+	$g->set_actions(array(	
+			"add"=>true, // allow/disallow add
+			"edit"=>true, // allow/disallow edit
+			"delete"=>true, // allow/disallow delete
+			"rowactions"=>true, // show/hide row wise edit/del/save option
+			"export"=>true, // show/hide export to excel option
+			"autofilter" => true, // show/hide autofilter for search
+			"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
+		) 
+	);
 
-// generate grid output, with unique grid name as 'list1'
+	$g->set_group_header( array(
+		   "useColSpanStyle"=>true,
+		   "groupHeaders"=>array(
+		       array(
+		           "startColumnName"=>'invdate', // group starts from this column
+		           "numberOfColumns"=>2, // group span to next 2 columns
+		           "titleText"=>'Student Details' // caption of group header
+		       )
+		   )
+		)
+	);
 $out = $g->render("sub1");
 echo $out;
 ?>
