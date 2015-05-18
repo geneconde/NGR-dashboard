@@ -36,7 +36,7 @@
 
         } else { 
             $data['success'] = false;
-            $data['message'] = 'Sorry, the names that you have entered is not registered.';
+            $data['message'] = 'Sorry, the email you have entered is not registered.';
         } 
     }
 
@@ -71,7 +71,7 @@
 
         } else { 
             $data['success'] = false;
-            $data['message'] = 'Sorry, the names that you have entered is not registered.';
+            $data['message'] = 'Sorry, the username that you have entered is not registered.';
         } 
     }
 
@@ -109,32 +109,32 @@
             $new_pass = generatePassword();
             $uc->updateUserPassword($uid, $new_pass); 
 
-            // $to         = $email;
-            // $from       = 'nexgen@nexgenready.com';
-            // $subject    = 'Your New Password (NexGenReady)';
+            $to         = $email;
+            $from       = 'nexgen@nexgenready.com';
+            $subject    = 'Your New Password (NexGenReady)';
 
-            // $message = '<html><body>';
-            // $message .= '<div style="width: 70%; margin: 0 auto;">';
-            // $message .= '<div style="background: #083B91; padding: 10px 0;">' . '<img src="http://nexgenready.com/img/logo/logo2.png" />';
-            // $message .= '</div>';
-            // $message .= '<div style="margin-top: 10px; padding: 15px 0 10px 0;">';
-            // $message .= '<p>Hi '. $email .'!</p>' . '</br>';
-            // $message .= '<p>Your New Password is: '. $new_pass .'</p>';
-            // $message .= '<p style="margin-bottom: 0;">Best Regards,</p>';
-            // $message .= '<p style="margin: 0;">NexGenReady Team</p>';
-            // $message .= '</div>';
-            // $message .= '<div style="background: #272626; color: white; padding: 5px; text-align: center;">';
-            // $message .= '<p sytle="color: white;">&copy; 2014 Interactive Learning Online, LLC. ALL Rights Reserved. <a style="color: #f79539;" href="http://nexgenready.com/privacy-policy">Privacy Policy</a> | <a style="color: #f79539;" href="http://nexgenready.com/terms-of-service">Terms of Service</a></p>';
-            // $message .= '</div>';
-            // $message .= '</div>';
-            // $message .= '<body></html>';
+            $message = '<html><body>';
+            $message .= '<div style="width: 70%; margin: 0 auto;">';
+            $message .= '<div style="background: #083B91; padding: 10px 0;">' . '<img src="http://nexgenready.com/img/logo/logo2.png" />';
+            $message .= '</div>';
+            $message .= '<div style="margin-top: 10px; padding: 15px 0 10px 0;">';
+            $message .= '<p>Hi '. $email .'!</p>' . '</br>';
+            $message .= '<p>Your New Password is: '. $new_pass .'</p>';
+            $message .= '<p style="margin-bottom: 0;">Best Regards,</p>';
+            $message .= '<p style="margin: 0;">NexGenReady Team</p>';
+            $message .= '</div>';
+            $message .= '<div style="background: #272626; color: white; padding: 5px; text-align: center;">';
+            $message .= '<p sytle="color: white;">&copy; 2014 Interactive Learning Online, LLC. ALL Rights Reserved. <a style="color: #f79539;" href="http://nexgenready.com/privacy-policy">Privacy Policy</a> | <a style="color: #f79539;" href="http://nexgenready.com/terms-of-service">Terms of Service</a></p>';
+            $message .= '</div>';
+            $message .= '</div>';
+            $message .= '<body></html>';
 
-            // // To send HTML mail, the Content-type header must be set
-            // $headers = "From: ".'NexGenReady'. '<webmaster@nexgenready.com>'. "\r\n";
-            // $headers .= 'MIME-Version: 1.0' . "\r\n";
-            // $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            // To send HTML mail, the Content-type header must be set
+            $headers = "From: ".'NexGenReady'. '<webmaster@nexgenready.com>'. "\r\n";
+            $headers .= 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-            // $mail = @mail($to, $subject, $message, $headers);
+            $mail = @mail($to, $subject, $message, $headers);
 
             $data['success'] = true;
             $data['message'] = "Your new password has been sent to your email ".$email.".";

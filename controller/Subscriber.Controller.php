@@ -49,7 +49,7 @@ class SubscriberController {
 	public function getUserIdbySubId($sid){
 		$where = array();
 		$where['subscriber_id'] = $sid;
-		$where['type'] = 4;
+		$where['type'] = 3;
 
 		$db = new DB();
 		$db->connect();
