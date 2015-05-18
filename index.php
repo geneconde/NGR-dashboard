@@ -3,8 +3,8 @@ session_start();
 if (isset($_SESSION['uname'])) {
 	include_once('controller/User.Controller.php'); 
 	include_once('controller/Subscriber.Controller.php');
+	include_once 'controller/Security.Controller.php';
 
-	
 	$user = null;
 	
 	$uc = new UserController();
@@ -26,6 +26,7 @@ if (isset($_SESSION['uname'])) {
 }
 	include_once('controller/User.Controller.php'); 
 	include_once('controller/Subscriber.Controller.php');
+	include_once 'controller/Security.Controller.php';
 
 	require_once "locale.php";
 	include_once "header.php";
@@ -33,131 +34,11 @@ if (isset($_SESSION['uname'])) {
 
 	$uc = new UserController();
 	$sc = new SubscriberController();
+	$sec = new SecurityController();
 
 	// $exist = $sc->checkEmailExistsSubscribe('julius.caluminga@jigzen.com');
+?>
 
-
-
-	if(isset($_POST['submit-email'])){
-
-		$email = $_POST['email'];
-		$new_pass = generatePassword();
-
-		$exists = $sc->checkEmailExistsSubscribe($email);
-
-		if($exists == 1) {
-
-			$sid = $sc->getIdByEmail($email);
-
-			$userid = $sid[0]['id'];
-
-			$uc->updatePasswordByEmail($userid, $new_pass);
-
-			$to 		= $email;
-			$from 		= 'nexgen@nexgenready.com';
-			$subject	= 'Your New Password (NexGenReady)';
-
-			$message = '<html><body>';
-	        $message .= '<div style="width: 70%; margin: 0 auto;">';
-	        $message .= '<div style="background: #083B91; padding: 10px 0;">' . '<img src="http://nexgenready.com/img/logo/logo2.png" />';
-	        $message .= '</div>';
-	        $message .= '<div style="margin-top: 10px; padding: 15px 0 10px 0;">';
-	        $message .= '<p>Hi '. $email .'!</p>' . '</br>';
-	        $message .= '<p>Your New Password is: '. $new_pass .'</p>';
-	        $message .= '<p style="margin-bottom: 0;">Best Regards,</p>';
-	        $message .= '<p style="margin: 0;">NexGenReady Team</p>';
-	        $message .= '</div>';
-	        $message .= '<div style="background: #272626; color: white; padding: 5px; text-align: center;">';
-	        $message .= '<p sytle="color: white;">&copy; 2014 Interactive Learning Online, LLC. ALL Rights Reserved. <a style="color: #f79539;" href="http://nexgenready.com/privacy-policy">Privacy Policy</a> | <a style="color: #f79539;" href="http://nexgenready.com/terms-of-service">Terms of Service</a></p>';
-	        $message .= '</div>';
-	        $message .= '</div>';
-	        $message .= '<body></html>';
-
-	        // To send HTML mail, the Content-type header must be set
-			$headers = "From: ".'NexGenReady'. '<webmaster@nexgenready.com>'. "\r\n";
-			$headers .= 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	        $mail = @mail($to, $subject, $message, $headers);
-
-	        if($mail){ ?>
-				<script type="text/javascript">
-					alert("<?php echo 'Your new password was sent to your email address '. $email; ?>");
-				</script>
-			<?php } ?>
-		<?php } else { ?>
-				<script type="text/javascript">
-					alert("<?php echo 'Sorry, the email address that you have entered is not registered.' ?>");
-				</script>
-	<?php
-			}	
-	}
-
-	if(isset($_POST['submit-teacher'])){
-		if($_POST['tfname'] != '' && $_POST['tlname'] != '')
-		{
-			$tfname = $_POST['tfname'];
-			$tlname = $_POST['tlname'];
-
-			$exists = $uc->checkNameExistsTeacher($tfname, $tlname, 0);
-
-			if($exists){
-
-			$new_pass = generatePassword();
-
-			$uc->updatePasswordByNames($tfname, $tlname, 0, $new_pass); ?>
-
-			<script type="text/javascript">
-				alert("<?php echo 'Your New Password is: '. $new_pass; ?>");
-			</script>
-
-			<?php } else { ?>
-
-			<script type="text/javascript">
-				alert("<?php echo 'Sorry, the names that you have entered is not registered.'; ?>");
-			</script>
-		<?php } ?>
-
-	<?php } else { ?>	
-		<script type="text/javascript">
-			alert("<?php echo 'Please input a correct value.'; ?>");
-		</script>
-	<?php } ?>
-	
-
-<?php }
-
-	if(isset($_POST['submit-student'])){
-
-		if($_POST['sfname'] != '' && $_POST['slname'] != '') {
-			$sfname = $_POST['sfname'];
-			$slname = $_POST['slname'];
-
-			$exists = $uc->checkNameExistsStudent($sfname, $slname, 2);
-
-			if($exists){
-
-			$new_pass = generatePassword();
-
-			$uc->updatePasswordByNames($sfname, $slname, 2, $new_pass); ?>
-
-				<script type="text/javascript">
-					alert("<?php echo 'Your New Password is: '. $new_pass; ?>");
-				</script>
-
-			<?php } else { ?>
-
-				<script type="text/javascript">
-					alert("<?php echo 'Sorry, the names that you have entered is not registered.'; ?>");
-				</script>
-			<?php } ?>
-
-		<?php } else { ?>	
-			<script type="text/javascript">
-				alert("<?php echo 'Please input a correct value.'; ?>");
-			</script>
-		<?php } ?>
-	<?php } ?>
 <div class="grey"></div>
 
 <div class="mod-desc">
@@ -172,7 +53,7 @@ if (isset($_SESSION['uname'])) {
 
 		<div id="desc-subscriber" class="desc-forgot">
 			<h3>Forgot Password for Subscriber</h3>
-			<form method="post" >
+			<form method="post" class="email" action="security-question.php">
 				<label for="email">Enter your email address: </label>
 				<input type="text" name="email" />
 
@@ -182,12 +63,10 @@ if (isset($_SESSION['uname'])) {
 
 		<div id="desc-teacher" class="desc-forgot">
 			<h3>Forgot Password for Teacher</h3>
-			<form method="post">
-				<label for="tfname">Enter your First Name: </label>
-				<input type="text" name="tfname" />
-
-				<label for="tlname">Enter your Last Name: </label>
-				<input type="text" name="tlname" />
+			<form method="post" class="teacher" action="security-question.php">
+				<label for="tUsername">Enter your username: </label>
+				<input type="text" name="tUsername" />
+				<input type="hidden" name="teacher" value="teacher">
 
 				<input type="submit" class="button1" name="submit-teacher">
 			</form>	
@@ -195,45 +74,47 @@ if (isset($_SESSION['uname'])) {
 
 		<div id="desc-student" class="desc-forgot">
 			<h3>Forgot Password for Student</h3>
-			<form method="post">
-				<label for="sfname">Enter your First Name: </label>
-				<input type="text" name="sfname" />
-
-				<label for="slname">Enter your Last Name: </label>
-				<input type="text" name="slname" />
+			<form method="POST" class="student" action="security-question.php">
+				<label for="sUsername">Enter your username: </label>
+				<input type="text" name="sUsername" />
+				<input type="hidden" name="student" value="student">
 
 				<input type="submit" class="button1" name="submit-student">
 			</form>	
 		</div>
 
+		<div id="sq" class="desc-forgot">
+			<h3>Security Question</h3>
+			<form method="POST" class="securityQuestionForm" action="security-question.php">
+				<p class="sQuestion"></p>
+				<label for="sqAnswer">Answer: </label>
+				<input type="text" name="sqAnswer" />
+				<input type="hidden" name="id" value="">
+				<input type="submit" class="button1" name="submit-sqAnswer">
+			</form>	
+		</div>
+
+		<div id="esq" class="desc-forgot">
+			<h3>Security Question</h3>
+			<form method="POST" class="emailQuestionForm" action="security-question.php">
+				<p class="esQuestion"></p>
+				<label for="esqAnswer">Answer: </label>
+				<input type="text" name="esqAnswer" />
+				<input type="hidden" name="eid" value="">
+				<input type="hidden" name="email2" value="">
+				<input type="submit" class="button1" name="submit-esqAnswer">
+			</form>	
+		</div>
+
+		<div id="message" class="desc-forgot">
+			<p></p>
+		</div>
 	</div>
-	
 	<span class="close-btn"><?php echo _("Close!"); ?></span>
 </div>
 
 <center><?php echo _("Welcome to NextGenReady! Please log in to your account."); ?></center>
-<?php 
-	// $test = $sc->loadSubscriber();
-// 	$tfname = 'Julius';
-// 	$tlname = 'Caluminga';
-// // 	// $test = $uc->checkNameExists($fname,$lname);
-// $exists = $uc->checkNameExistsTeacher($tfname,$tlname);
 
-// if($exists)
-// {
-// 	echo '1';
-// } 
-// else 
-// {
-// 	echo '0';
-// }
-
-	// // $test = $sc->getIdByEmail('julius.caluminga@jigzen.com');
-	// // echo $test[0]['id'];
-	// echo '<pre>';
-	// print_r($test);
-	// echo '</pre>';
-?>
 <form method="post" action="login.php" name="login" id="login" class="box-shadow">
 	<?php if (isset($_GET['msg'])) { ?>
 		<?php if($_GET['msg']== 1) {?>
@@ -263,6 +144,149 @@ if (isset($_SESSION['uname'])) {
 
 	$(document).ready(function(){
 
+		$('form.email').on('submit', function (e) {
+			var formData = {
+	            'email' : $('input[name=email]').val()
+	        };
+			$.ajax({
+				type : 'POST',
+				url : 'security-question.php',
+				data : formData,
+				dataType    : 'json',
+				encode : true
+			})
+				.done(function(data) {
+					if(data['success']){
+						$('#esq').css('display', 'block');
+						$('input[name="eid"]').attr('value', data['id']);
+						$('input[name="email2"]').attr('value', data['email']);
+						$('.esQuestion').html(data['message']);
+						$('#message').css('display', 'none');
+					} else {
+
+						if($("#esq").is(":visible")){
+							$("#esq").css('display', 'none');
+						}
+						$('#message').css('display', 'block');
+						$('#message p').html(data['message']);
+						$('#message').removeClass("success-div").addClass("error-div");
+					}
+				});
+			e.preventDefault();
+        });
+
+		$('form.student').on('submit', function (e) {
+			var formData = {
+	            'username' : $('input[name=sUsername]').val(),
+	            'type' : $('input[name=student]').val()
+	        };
+			$.ajax({
+				type : 'POST',
+				url : 'security-question.php',
+				data : formData,
+				dataType    : 'json',
+				encode : true
+			})
+				.done(function(data) {
+					if(data['success']){
+						$('#sq').css('display', 'block');
+						$('input[name="id"]').attr('value', data['id']);
+						$('.sQuestion').html(data['message']);
+						$('#message').css('display', 'none');
+					} else {
+
+						if($("#sq").is(":visible")){
+							$("#sq").css('display', 'none');
+						}
+						$('#message').css('display', 'block');
+						$('#message p').html(data['message']);
+						$('#message').removeClass("success-div").addClass("error-div");
+					}
+				});
+			e.preventDefault();
+        });
+
+		$('form.teacher').on('submit', function (e) {
+			var formData = {
+	            'username' : $('input[name=tUsername]').val(),
+	            'type' : $('input[name=teacher]').val()
+	        };
+			$.ajax({
+				type : 'POST',
+				url : 'security-question.php',
+				data : formData,
+				dataType    : 'json',
+				encode : true
+			})
+				.done(function(data) {
+					if(data['success']){
+						$('#sq').css('display', 'block');
+						$('input[name="id"]').attr('value', data['id']);
+						$('.sQuestion').html(data['message']);
+						$('#message').css('display', 'none');
+						$('#message').removeClass("success-div").addClass("error-div");
+					} else {
+
+						if($("#sq").is(":visible")){
+							$("#sq").css('display', 'none');
+						}
+						$('#message').css('display', 'block');
+						$('#message p').html(data['message']);
+					}
+				});
+			e.preventDefault();
+        });
+
+		$('form.securityQuestionForm').on('submit', function (e) {
+			var formData = {
+	            'sqAnswer' : $('input[name="sqAnswer"]').val(),
+	            'id' : $('input[name="id"]').val()
+	        };
+			$.ajax({
+				type : 'POST',
+				url : 'security-question.php',
+				data : formData,
+				dataType    : 'json',
+				encode : true
+			})
+				.done(function(data) {
+					$('#message').css('display', 'block');
+					$('#message p').html(data['message']);
+					if(data['success']){
+						$('#message').removeClass("error-div").addClass("success-div");
+					} else {
+						$('#message').removeClass("success-div").addClass("error-div");
+					}
+				});
+			e.preventDefault();
+        });
+
+		$('form.emailQuestionForm').on('submit', function (e) {
+			var formData = {
+	            'email2' : $('input[name=email2]').val(),
+	            'esqAnswer' : $('input[name="esqAnswer"]').val(),
+	            'eid' : $('input[name="eid"]').val()
+	        };
+			$.ajax({
+				type : 'POST',
+				url : 'security-question.php',
+				data : formData,
+				dataType    : 'json',
+				encode : true
+			})
+				.done(function(data) {
+					$('#message').css('display', 'block');
+					$('#message p').html(data['message']);
+					if(data['success']){
+						$('#message').removeClass("error-div").addClass("success-div");
+					} else {
+						$('#message').removeClass("success-div").addClass("error-div");
+					}
+				});
+			e.preventDefault();
+        });
+
+
 		$('#type').change(function(){
 
 			type = $(this).val();
@@ -279,7 +303,6 @@ if (isset($_SESSION['uname'])) {
 				$('.desc-forgot').css('display', 'none');
 				$('#desc-student').css('display', 'block');
 			}
-
 		});	
 	});	
 
@@ -294,6 +317,19 @@ if (isset($_SESSION['uname'])) {
 		//$(".mod-desc").css("display", "block");
 		$(".grey").css("display", "block");
 	});
+	
+	$(".grey").on("click", function(){
+		if($('.security-wrapper').is(":visible")){
+			$(".security-wrapper").css("display", "none");
+		} else {
+			$(".mod-desc").css("display", "none");
+		}
+		$(".grey").css("display", "none");
+	});
 
+	$("input[name='check-answer']").on("click", function(){
+		$(".security-wrapper").css("display", "none");
+		$(".grey").css("display", "none");
+	});
 </script>
 <?php require_once "footer.php"; ?>

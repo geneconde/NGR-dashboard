@@ -81,10 +81,21 @@ class UserController {
 		}
 	}
 
-	public function checkNameExistsTeacher($fname, $lname, $type) {
+	public function getUserByUsername($username) {
 		$where = array();
-		$where['first_name'] = $fname;
-		$where['last_name'] = $lname;
+		$where['username'] = $username;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where);
+		$db->disconnect();
+
+		return $result;
+	}
+
+	public function checkNameExistsTeacher($username, $type) {
+		$where = array();
+		$where['username'] = $username;
 		$where['type'] = $type;
 
 		$db = new DB();
@@ -97,10 +108,9 @@ class UserController {
 		return false;
 	}
 
-	public function checkNameExistsStudent($fname, $lname, $type) {
+	public function checkNameExistsStudent($username, $type) {
 		$where = array();
-		$where['first_name'] = $fname;
-		$where['last_name'] = $lname;
+		$where['username'] = $username;
 		$where['type'] = $type;
 
 		$db = new DB();
@@ -184,10 +194,9 @@ class UserController {
 		$db->disconnect();
 	}
 
-	public function updatePasswordByNames($fname, $lname, $type, $newpassword){
+	public function updatePasswordByUsername($username, $type, $newpassword){
 		$where = array();
-		$where['first_name'] = $fname;
-		$where['last_name'] = $lname;
+		$where['username'] = $username;
 		$where['type'] = $type;
 
 		$data = array();
@@ -198,7 +207,7 @@ class UserController {
 		$result = $db->update("users", $where, $data);
 		$db->disconnect();
 	}
-	
+
 	public function updateUserPassword($userid, $password){
 		$where = array();
 		$where['user_ID'] = $userid;

@@ -46,6 +46,20 @@ class SubscriberController {
 		return $result;
 	}
 
+	public function getUserIdbySubId($sid){
+		$where = array();
+		$where['subscriber_id'] = $sid;
+		$where['type'] = 4;
+
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where);
+
+		$db->disconnect();		
+
+		return $result;
+	}
+
 	public function checkEmailExistsSubscribe($email) {
 		$where = array();
 		$where['email'] = $email;

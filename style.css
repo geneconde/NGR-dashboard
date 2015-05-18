@@ -1602,3 +1602,10 @@ input[type=checkbox] {
 #forgot .desc-forgot {
     display: none;
 }
+
+.mod-desc .success-div{
+    background-color: green; padding: 5px; text-align: center; color: white;
+}
+.mod-desc .error-div{
+    background-color: red; padding: 5px; text-align: center; color: white;
+}
