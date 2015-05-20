@@ -146,6 +146,8 @@ if (empty($c_id)) $c_id = 0;
 	$g->table = "users";
 
 	$g->set_columns($cols); // pass the cooked columns to grid
+	$e["js_on_select_row"] = "grid_select";
+	$g->set_events($e);
 
 	//$main_view = $grid->render("list1");
 

@@ -3,7 +3,7 @@
 define("PHPGRID_DBTYPE","Mysql"); // or mysqli
 define("PHPGRID_DBHOST","localhost");
 define("PHPGRID_DBUSER","root");
-define("PHPGRID_DBPASS","password");
+define("PHPGRID_DBPASS","");
 define("PHPGRID_DBNAME","jigzenco_dashboard_live");
 
 // Automatically make db connection inside lib
