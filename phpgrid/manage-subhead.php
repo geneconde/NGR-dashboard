@@ -242,6 +242,8 @@ ini_set('display_errors', 1);
 	 endif;*/
 	//$getStudent = true;
 /*	 echo "<h1>".$usertype."</h1>";*/
+$manage = "";
+$subhead = false;
 	if(isset($_GET['user_id']))
 	{
 		$query = $uc->getUserLevel($_GET['user_id']);
@@ -290,7 +292,18 @@ ini_set('display_errors', 1);
 		elseif ($usertype == 3) 
 		{
 			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
-			$grid->select_command = $q;		
+			$grid->select_command = $q;	
+
+			$result = mysql_query($q);
+			$count = mysql_num_rows($result);
+			$subhead = true;
+			if($count == 0)
+			{
+				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
+				$grid->select_command = $q2;
+				$manage = "teachers";
+				$subhead = false;
+			} 	
 		}		
 	}
 		
@@ -376,12 +389,12 @@ ini_set('display_errors', 1);
 	<div class="clear"></div>
 	
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
-	<?php if($usertype == 3) : ?>
+	<?php if($usertype == 3 && $subhead == true) : ?>
 		<p><?php echo _("This is your Dashboard. In this page, you can manage your sub heads"); ?>
+	<?php elseif($usertype == 3 && $subhead == false) : ?>
+		<p><?php echo _("This is your Dashboard. In this page, you can manage your students"); ?>
 	<?php elseif($usertype == 4) : ?>
 		<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers"); ?>
-	<?php elseif($usertype == 3) : ?>
-		<p><?php echo _("This is your Dashboard. In this page, you can manage your students"); ?>
 	<?php endif; ?>
 	<div class="wrap-container">
 		<div id="wrap">
