@@ -34,7 +34,6 @@ ini_set('display_errors', 1);
 	$current_date		= date('Y-m-d');
 	$expire_date		= date('Y-m-d', strtotime("+30 days"));
 	$updated_at 		= date('Y-m-d H:i:s');
-	$tier 				= 2;
 
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
@@ -49,15 +48,16 @@ ini_set('display_errors', 1);
 	// include and create object
 	include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
 
+    $url = $_SERVER['REQUEST_URI'];
+
 	$username = _('Username');
 	$password = _('Password');
 	$first_name = _('First Name');
 	$last_name = _('Last Name');
 	$gender = _('Gender');
 	$grade_level = _('Grade Level');
-	//$student_portfolio = _('Student Portfolio');
 	$student_information = _('Sub head');
-	$view_tier = _('View Tier');
+	$view_tier = _('View Level');
 
 	/** Main Grid Table **/
 	$col = array();
@@ -99,7 +99,6 @@ ini_set('display_errors', 1);
 	$col["width"] = "10";
 	$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");
 	$col["viewable"] = false;
-	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
@@ -167,23 +166,13 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Is Deleted";
-	$col["name"]  = "is_deleted";
-	$col["editable"] = false;
-	$col["viewable"] = true;
-	$col["hidden"] = true;
-	$col["editrules"] = array("edithidden"=>true); 
-	$col["export"] = false; // this column will not be exported
-	$cols[] = $col;
-
-	$col = array();
 	$col["title"] = "Tiers";
 	$col["name"] = "view_more";
 	$col["width"] = "25";
 	$col["align"] = "center";
 	$col["search"] = false;
 	$col["sortable"] = false;
-	$col["link"] = "../view-tier.php?user_id={user_ID}/tier=$tier"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+	$col["link"] = "manage-subhead.php?lang=en_US&user_id={user_ID}&type={type}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
 	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
 	$col["default"] = $view_tier; // default link text
 	$col["export"] = false; // this column will not be exported
@@ -204,10 +193,14 @@ ini_set('display_errors', 1);
 	$opt["export"]["range"] = "filtered";
 
 	$grid->set_options($opt);
+	/*$grid->debug = 0;
+	$grid->error_msg = "Username Already Exists.";*/
+
+	/*$grid->set_options($opt);
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 
-	$result = mysql_query("SELECT * FROM users WHERE teacher_id = $userid AND type = 2");
+	$result = mysql_query("SELECT * FROM users WHERE teacher_id = $userid AND type = 3");
 	$student_count = mysql_num_rows($result);
 
 	$result2 = mysql_query("SELECT * FROM users WHERE user_ID = $userid");
@@ -246,9 +239,61 @@ ini_set('display_errors', 1);
 	 				// "showhidecolumns" => true,
 	 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
 	 		));
-	 endif;
+	 endif;*/
+	//$getStudent = true;
+/*	 echo "<h1>".$usertype."</h1>";*/
+	if(isset($_GET['user_id']))
+	{
+		$query = $uc->getUserLevel($_GET['user_id']);
+		$grid->select_command = $query;
+		$result = mysql_query($uc->getUserLevel($_GET['user_id']));
+		$count = mysql_num_rows($result);
 
-	$grid->select_command = $uc->getUserLevel(1);
+		if(isset($_GET['type']))
+		{
+			if( $_GET['type'] == 0 )
+			{				
+				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
+				$grid->select_command = $q;
+			}
+		}
+
+
+	} else {
+		
+		if($usertype == 4)
+		{
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND user_id=".$userid." AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
+			$grid->select_command = $q;
+
+			//if there are no subhead get teachers
+			$result = mysql_query($q);
+			$count = mysql_num_rows($result);
+			
+			if($count == 0)
+			{
+				$q = "SELECT * FROM users WHERE user_id =" . $userid  . " AND type = 0";
+				$grid->select_command = $q;
+			} 
+
+			//Check if it has a subhead get their levels
+			$q1 = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND user_id=".$userid." AND type = 4 AND teacher_id = 0";
+			$result1 = mysql_query($q1);
+			$count1 = mysql_num_rows($result1);
+
+			if ($count1 != 0) 
+			{
+				$grid->select_command = $q1;
+			}
+		}
+		
+		elseif ($usertype == 3) 
+		{
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
+			$grid->select_command = $q;		
+		}		
+	}
+		
 
 	$grid->table = "users";
 
@@ -331,15 +376,18 @@ ini_set('display_errors', 1);
 	<div class="clear"></div>
 	
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>
-	<!-- <p><?php echo _("You are only allowed to create " . $student_limit . " students"); ?> -->
-
+	<?php if($usertype == 3) : ?>
+		<p><?php echo _("This is your Dashboard. In this page, you can manage your sub heads"); ?>
+	<?php elseif($usertype == 4) : ?>
+		<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers"); ?>
+	<?php elseif($usertype == 3) : ?>
+		<p><?php echo _("This is your Dashboard. In this page, you can manage your students"); ?>
+	<?php endif; ?>
 	<div class="wrap-container">
 		<div id="wrap">
 			
 			<div class="sub-headers">
-				<h1><?php echo _('List of Sub head'); ?></h1>
-				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
+				<h1><?php echo _('List of Sub head'); ?></h1>				
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				
 			</div>		
@@ -358,13 +406,11 @@ ini_set('display_errors', 1);
 				};	
 			</script>
 		
-			<div style="margin:10px 0">
-				<h1><?php $uc->getUserLevel(1); ?></h1>
-				<h1><?php echo $user->getSubheadid(); ?></h1>
-
-				<?php echo $main_view; ?>
-
-				
+			<div style="margin:10px 0">	
+				<!-- <?php if(isset($_GET['user_id'])) : ?>				
+					<h1><?php echo $uc->getUserLevel($_GET['user_id']); ?></h1>
+				<?php endif; ?> -->				
+				<?php echo $main_view; ?>				
 			</div>
 		</div>
 	</div>

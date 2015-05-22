@@ -375,22 +375,12 @@ class UserController {
 	}
 
 	/* For retrieving level of accounts */
-	public function getUserLevel($user, $type, $subhead_id) {
-		//echo 'user';
-		$q = "SELECT * FROM users WHERE type=3";
-		/*$where = array();
-		$where['user_ID'] = $userid;
+	public function getUserLevel($user) {
+		$custom_query = "";
 		
-		$db = new DB();
-		$db->connect();
-		$result = $db->select("users", $where);
-		$db->disconnect();
-		
-		foreach($result as $row) {
-			$user = $this->setUser($row);
-			return $user;
-		}	*/
-		return $q;
+		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
+
+		return $custom_query;
 	}
 	
 	private function setUserValues($values) {
