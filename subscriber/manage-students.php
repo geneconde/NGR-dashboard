@@ -330,8 +330,9 @@ ini_set('display_errors', 1);
 				<h1>List of Students</h1>
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> | 
-					<a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a>
+					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="index.php" class="link" style="display: inline-block;">Manage Accounts</a>   
+					<!-- <a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a> -->
 				</div>
 			</div>		
 			<div class="clear"></div>
