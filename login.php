@@ -43,7 +43,7 @@
 				} elseif($retObj->getType() == '1'){
 					$_SESSION['uname'] = $_POST['username'];	  
 					header("Location:parent/parent.php");exit;
-				} elseif($retObj->getType() == '3'){
+				} elseif($retObj->getType() == '3' || $retObj->getType() == '4'){
 					$_SESSION['uname'] = $_POST['username'];
 
 					$subscriber = $uc->loadUser($_SESSION['uname']);
@@ -58,7 +58,7 @@
 					}
 
 					header("Location: subscriber/index.php?lang=$lang");
-				} elseif($retObj->getType() == '4'){
+				} /*elseif($retObj->getType() == '4'){
 					$_SESSION['uname'] = $_POST['username'];
 
 					$subscriber = $uc->loadUser($_SESSION['uname']);
@@ -73,7 +73,7 @@
 					}
 
 					header("Location: phpgrid/manage-subhead.php?lang=$lang");
-				} else {
+				}*/ else {
 					$_SESSION['uname'] = $_POST['username'];	  
 					
 					//added for language

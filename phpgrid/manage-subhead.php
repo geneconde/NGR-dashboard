@@ -193,55 +193,7 @@ ini_set('display_errors', 1);
 	$opt["export"]["range"] = "filtered";
 
 	$grid->set_options($opt);
-	/*$grid->debug = 0;
-	$grid->error_msg = "Username Already Exists.";*/
 
-	/*$grid->set_options($opt);
-	$grid->debug = 0;
-	$grid->error_msg = "Username Already Exists.";
-
-	$result = mysql_query("SELECT * FROM users WHERE teacher_id = $userid AND type = 3");
-	$student_count = mysql_num_rows($result);
-
-	$result2 = mysql_query("SELECT * FROM users WHERE user_ID = $userid");
-
-	// count teachers no of students and the limit of students
-	$row = mysql_fetch_assoc($result2);
-	$student_limit = $row['students'];
-
-	$difference = $student_limit - $student_count;
-
-	if($student_limit != $student_count && $student_limit >= $student_count) :
-	$grid->set_actions(array(
-				"add"=>true, // allow/disallow add
-				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
-				"bulkedit"=>true, // allow/disallow edit
-				"export_excel"=>true, // export excel button
-				//"export_pdf"=>true, // export pdf button
-				//"export_csv"=>true, // export csv button
-				//"autofilter" => true, // show/hide autofilter for search
-				"rowactions"=>true, // show/hide row wise edit/del/save option
-				// "showhidecolumns" => true,
-				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-		));
-	else :
-	 	$grid->set_actions(array(
-	 				"add"=>false, // allow/disallow add
-	 				"edit"=>true, // allow/disallow edit
-	 				"delete"=>true, // allow/disallow delete
-	 				"bulkedit"=>true, // allow/disallow edit
-	 				"export_excel"=>true, // export excel button
-	 				//"export_pdf"=>true, // export pdf button
-	 				//"export_csv"=>true, // export csv button
-	 				//"autofilter" => true, // show/hide autofilter for search
-	 				"rowactions"=>true, // show/hide row wise edit/del/save option
-	 				// "showhidecolumns" => true,
-	 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-	 		));
-	 endif;*/
-	//$getStudent = true;
-/*	 echo "<h1>".$usertype."</h1>";*/
 $manage = "";
 $subhead = false;
 	if(isset($_GET['user_id']))
