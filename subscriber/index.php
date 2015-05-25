@@ -392,7 +392,7 @@ $student_account = false;
 		<div id="wrap">
 			
 			<div class="sub-headers">
-				<h1>List of accounts</h1>
+				<h1>List of Accounts</h1>
 				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Teachers'); ?></a><br/><br/> -->
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p>
 				<div class="fright">
