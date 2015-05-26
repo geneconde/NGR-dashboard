@@ -48,7 +48,7 @@
 		<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
 	<?php endif; ?>
 
-	<a href="teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 </div>
 <!-- <div class="fright m-top10" id="accounts">
 	<div id="manage-container">
