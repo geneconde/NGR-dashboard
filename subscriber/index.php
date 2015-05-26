@@ -378,14 +378,14 @@ $student_account = false;
 			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
 		<?php endif; ?>
 
-	<a href="teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
 <!-- 	<div class="fright m-top10" id="accounts">
 	<a class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>	
 </div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your accounts"); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage all accounts under you."); ?>
 	<!-- <p><?php echo _("You are only allowed to create " . $sub->getStudents() . " students"); ?></p> -->
 
 	<div class="wrap-container">

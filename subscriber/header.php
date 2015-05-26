@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 <!-- <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen" /> -->
-
+<script src="scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="../scripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../scripts/FixedColumns.js"></script>
 <script type="text/javascript" src="../scripts/jquery.form-validator.min.js"></script>
@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 
-<link rel="stylesheet" type="text/css" href="../style.css" />
+<!-- <link rel="stylesheet" type="text/css" href="../style.css" /> -->
 
 <script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
