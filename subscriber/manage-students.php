@@ -223,36 +223,38 @@ ini_set('display_errors', 1);
 
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
-	// if($sub->getStudents() != $student_count && $sub->getStudents() > $student_count) :
-	$grid->set_actions(array(
-			"add"=>false, // allow/disallow add
-			"edit"=>true, // allow/disallow edit
-			"delete"=>false, // allow/disallow delete
-			"bulkedit"=>true, // allow/disallow edit
-			"export_excel"=>true, // export excel button
-			//"export_pdf"=>true, // export pdf button
-			//"export_csv"=>true, // export csv button
-			//"autofilter" => true, // show/hide autofilter for search
-			// "rowactions"=>true, // show/hide row wise edit/del/save option
-			// "showhidecolumns" => true,
-			"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-	));
-	// else :
-	// 	$grid->set_actions(array(
-	// 			"add"=>false, // allow/disallow add
-	// 			"edit"=>true, // allow/disallow edit
-	// 			"delete"=>true, // allow/disallow delete
-	// 			"bulkedit"=>true, // allow/disallow edit
-	// 			"export_excel"=>true, // export excel button
-	// 			//"export_pdf"=>true, // export pdf button
-	// 			//"export_csv"=>true, // export csv button
-	// 			//"autofilter" => true, // show/hide autofilter for search
-	// 			// "rowactions"=>true, // show/hide row wise edit/del/save option
-	// 			// "showhidecolumns" => true,
-	// 			"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-	// 	));
-	// endif;
+	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
+	if($sub->getStudents() != $student_count && $sub->getStudents() <= $student_count) :
+		
+		$grid->set_actions(array(
+				"add"=>false, // allow/disallow add
+				"edit"=>true, // allow/disallow edit
+				"delete"=>true, // allow/disallow delete
+				"bulkedit"=>true, // allow/disallow edit
+				"export_excel"=>true, // export excel button
+				//"export_pdf"=>true, // export pdf button
+				//"export_csv"=>true, // export csv button
+				//"autofilter" => true, // show/hide autofilter for search
+				// "rowactions"=>true, // show/hide row wise edit/del/save option
+				// "showhidecolumns" => true,
+				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
+			));
 
+	else :	
+		//echo '<h1>'. $student_count . '</h1>';	
+		$grid->set_actions(array(
+				"add"=>true, // allow/disallow add
+				"edit"=>true, // allow/disallow edit
+				"delete"=>true, // allow/disallow delete
+				"bulkedit"=>true, // allow/disallow edit
+				"export_excel"=>true, // export excel button
+				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
+		));
+
+	endif;
+	
+
+	//$grid["add_options"]["afterSubmit"] = "function(){jQuery('#list1').trigger('reloadGrid',[{page:1}]); return [true, ''];}";
 	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2";
 
 	$grid->table = "users";
@@ -300,38 +302,39 @@ ini_set('display_errors', 1);
 
 	<div class="fleft" id="language">
 		<?php echo _("Language"); ?>:
-		<select id="language-menu">
-			<?php
-				if(!empty($teacher_languages)) :
-					foreach($teacher_languages as $tl) : 
-						$lang = $lc->getLanguage($tl['language_id']);
-			?>
-						<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-			<?php 
-					endforeach; 
-				else :
-			?>
-				<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-			<?php endif; ?>
-		</select>
-		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+	
+		<?php
+			if(!empty($teacher_languages)) :
+				foreach($teacher_languages as $tl) : 
+					$lang = $lc->getLanguage($tl['language_id']);
+		?>
+					<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
+		<?php 
+				endforeach; 
+			else :
+
+		?>
+			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
+		<?php endif; ?>
+
+	<a href="teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
-	<div class="fright m-top10" id="accounts">
+	<!-- <div class="fright m-top10" id="accounts">
 		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
-	</div>
+	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers and students information"); ?>
-	<!-- <p><?php echo _("You are only allowed to create " . $sub->getTeachers() . " teachers and " . $sub->getStudents() . " students"); ?> -->
-	<p><?php echo _("You are only allowed to create " . $sub->getStudents() . " students"); ?></p>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers and students information."); ?>
+	<p><br/><?php echo _("You are only allowed to create " . $sub->getStudents() . " students."); ?></p>
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
 				<h1>List of Students</h1>
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> | 
-					<a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a>
+					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="index.php" class="link" style="display: inline-block;">Manage Accounts</a>   
+					<!-- <a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a> -->
 				</div>
 			</div>		
 			<div class="clear"></div>

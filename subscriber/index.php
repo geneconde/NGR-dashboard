@@ -19,6 +19,7 @@ ini_set('display_errors', 1);
 	include_once 'php/auto-generate.php';
 	
 	$sc = new SubscriberController();
+	$uc = new UserController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
 	//add parameter for is_deleted and is_archived later on method is under userController
@@ -27,6 +28,11 @@ ini_set('display_errors', 1);
 	$userid 			= $user->getUserid();
 	$usertype			= $user->getType();
 	$subid				= $user->getSubscriber();
+	$subhead_id			= $user->getSubheadid();
+	$create_date		= date('Y-m-d');
+	$current_date		= date('Y-m-d');
+	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$updated_at 		= date('Y-m-d H:i:s');
 
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
@@ -35,17 +41,12 @@ ini_set('display_errors', 1);
 
 	if(isset($_POST['addmultiple'])){
 		if($_POST['teacher_num'] != "") {
-			// if($_POST['teacher_num'] > $difference){
-			// 	header("Location: index.php?err=1");
-			// } else {
-				generateTeachers($_POST['teacher_num'], $sub->getID());
-				header("Location: index.php?msg=1");
-				//echo("<meta http-equiv='refresh' content='1'>");
-			// }
+			generateTeachers($_POST['teacher_num'], $sub->getID());
+			header("Location: index.php?msg=1");
+
 		} else {
 			header("Location: index.php?err=2");
-		}
-			
+		}			
 	}
 
 	// include db config
@@ -59,6 +60,16 @@ ini_set('display_errors', 1);
 	include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
 
 	/** Main Grid Table **/
+	$username = _('Username');
+	$password = _('Password');
+	$first_name = _('First Name');
+	$last_name = _('Last Name');
+	$gender = _('Gender');
+	$grade_level = _('Grade Level');
+	$accounts = _('Accounts');
+	$view_tier = _('View Account');
+
+	/** Main Grid Table **/
 	$col = array();
 	$col["title"] = "User ID"; // caption of column
 	$col["name"] = "user_id";
@@ -70,7 +81,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Username";
+	$col["title"] = $username;
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -81,7 +92,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Password";
+	$col["title"] = $password;
 	$col["name"] = "password";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -96,15 +107,14 @@ ini_set('display_errors', 1);
 	$col["name"]  = "type";
 	$col["editable"] = true;
 	$col["width"] = "10";
-	$col["editoptions"] = array("defaultValue"=>"0","readonly"=>"readonly", "style"=>"border:0");
+	$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");
 	$col["viewable"] = false;
-	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "First Name";
+	$col["title"] = $first_name;
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -114,7 +124,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Last Name";
+	$col["title"] = $last_name;
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -124,7 +134,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Gender";
+	$col["title"] = $gender;
 	$col["name"] = "gender";
 	$col["width"] = "10";
 	$col["search"] = true;
@@ -133,18 +143,6 @@ ini_set('display_errors', 1);
 	$col["export"] = true;
 	$col["edittype"] = "select";
 	$col["editoptions"] = array("value"=>'M:M;F:F');
-	$cols[] = $col;
-
-	$col = array();
-	$col["title"] = "Students";
-	$col["name"] = "students";
-	$col["width"] = "10";
-	$col["editrules"] = array("number"=>true); 
-	$col["search"] = false;
-	$col["editable"] = true;
-	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
 
 	$col = array();
@@ -163,60 +161,40 @@ ini_set('display_errors', 1);
 	$col["title"] = "Subscriber ID";
 	$col["name"]  = "subscriber_id";
 	$col["editable"] = true;
-	$col["editoptions"] = array("defaultValue"=>"$subid","readonly"=>"readonly", "style"=>"border:0");
+	$col["editoptions"] = array("defaultValue"=>"$userid","readonly"=>"readonly", "style"=>"border:0");
 	$col["viewable"] = false;
 	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>false); 
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	// $col = array();
-	// $col["title"] = "Grade Level"; // caption of column
-	// $col["name"] = "grade_level"; 
-	// $col["width"] = "15";
-	// $col["editable"] = true;
-	// $col["align"] = "center";
-	// $cols[] = $col;
-
 	$col = array();
-	$col["title"] = "Is Deleted";
-	$col["name"]  = "is_deleted";
-	$col["editable"] = false;
-	$col["viewable"] = true;
-	$col["hidden"] = true;
-	$col["editrules"] = array("edithidden"=>true); 
-	$col["export"] = false; // this column will not be exported
-	$cols[] = $col;
-
-	$col = array();
-	$col["title"] = "View Students";
-	$col["name"] = "view_students";
-	$col["width"] = "25";
+	$col["title"] = $grade_level; // caption of column
+	$col["width"] = "15";
+	$col["editable"] = true;
 	$col["align"] = "center";
-	$col["search"] = false;
-	$col["sortable"] = false;
-	$col["link"] = "view-teacher-students.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	//$col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
-	$col["default"] = "View"; // default link text
-	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	// $col = array();
-	// $col["title"] = "Student Portfolio";
-	// $col["name"] = "view_more";
-	// $col["width"] = "25";
-	// $col["align"] = "center";
-	// $col["search"] = false;
-	// $col["sortable"] = false;
-	// $col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
-	// $col["default"] = "View Portfolio"; // default link text
-	// $col["export"] = false; // this column will not be exported
-	// $cols[] = $col;
+
+	if( !isset($_GET['type']) || $_GET['type'] != 0 ) :
+			
+		$col = array();
+		$col["title"] = "Accounts";
+		$col["name"] = "view_more";
+		$col["width"] = "25";
+		$col["align"] = "center";
+		$col["search"] = false;
+		$col["sortable"] = false;
+		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+		$col["default"] = $view_tier; // default link text
+		$col["export"] = false; // this column will not be exported
+		$cols[] = $col;
+	endif;
+
 
 	$grid = new jqgrid();
 
-	$opt["caption"] = "Teacher Information";
+	$opt["caption"] = $accounts;
 	$opt["height"] = "";
 	$opt["autowidth"] = true; // expand grid to screen width
 	$opt["multiselect"] = true; // allow you to multi-select through checkboxes
@@ -224,51 +202,110 @@ ini_set('display_errors', 1);
 	$opt["reloadedit"] = true;
 
 	//Export Options
-	$opt["export"] = array("filename"=>"Teacher Information", "heading"=>"Teacher Information", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Teacher Information";
+	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
 
 	$grid->set_options($opt);
-	$grid->debug = 0;
-	$grid->error_msg = "Username Already Exists.";
 
-	// if($sub->getTeachers() != $teacher_count && $sub->getTeachers() >= $teacher_count) :
-	$grid->set_actions(array(
-				"add"=>true, // allow/disallow add
-				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
-				"bulkedit"=>true, // allow/disallow edit
-				"export_excel"=>true, // export excel button
-				//"export_pdf"=>true, // export pdf button
-				//"export_csv"=>true, // export csv button
-				//"autofilter" => true, // show/hide autofilter for search
-				// "rowactions"=>true, // show/hide row wise edit/del/save option
-				// "showhidecolumns" => true,
-				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-		));
-	// else :
-	 	// $grid->set_actions(array(
-	 	// 			"add"=>false, // allow/disallow add
-	 	// 			"edit"=>true, // allow/disallow edit
-	 	// 			"delete"=>true, // allow/disallow delete
-	 	// 			"bulkedit"=>true, // allow/disallow edit
-	 	// 			"export_excel"=>true, // export excel button
-	 	// 			//"export_pdf"=>true, // export pdf button
-	 	// 			//"export_csv"=>true, // export csv button
-	 	// 			//"autofilter" => true, // show/hide autofilter for search
-	 	// 			// "rowactions"=>true, // show/hide row wise edit/del/save option
-	 	// 			// "showhidecolumns" => true,
-	 	// 			"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
-	 	// 	));
-	 // endif;
+$student_account = false;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 0";
+	if(isset($_GET['user_id']))
+	{
+		$query = $uc->getUserLevel($_GET['user_id']);
+		$grid->select_command = $query;
+		$result = mysql_query($uc->getUserLevel($_GET['user_id']));
+		$count = mysql_num_rows($result);
+
+		if(isset($_GET['type']))
+		{
+			if( $_GET['type'] == 0 )
+			{				
+				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
+				$grid->select_command = $q;
+				$student_account = true;
+			}
+		}
+
+
+	} else {
+		//echo '<h1>'. $subhead_id.'</h1>';
+		if($usertype == 4 && $subhead_id == null)
+		{
+			//echo '<h1>'. $uc->getUserLevel($userid).'</h1>';
+			$q = $uc->getUserLevel($userid);
+			$grid->select_command =$q;
+
+			//if there are no subhead get teachers
+			$result = mysql_query($q);
+			$count = mysql_num_rows($result);
+			
+			if($count == 0)
+			{
+				$q = "SELECT * FROM users WHERE user_id =" . $userid  . " AND type = 0";
+				$grid->select_command = $q;
+			} 
+
+			//Check if it has a subhead get their levels
+		/*	$q1 = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND user_id=".$userid." AND type = 4 AND teacher_id = 0";
+			$result1 = mysql_query($q1);
+			$count1 = mysql_num_rows($result1);
+
+			if ($count1 != 0) 
+			{
+				$grid->select_command = $q1;
+			}*/
+		} 
+		elseif($usertype == 4 && $subhead_id != null) 
+		{
+			//echo '<h1>'. $subhead_id.'</h1>';
+			$q1 = "SELECT * FROM users WHERE subhead_id =". $userid;
+			$grid->select_command = $q1;
+			$result1 = mysql_query($q1);
+			$count1 = mysql_num_rows($result1);
+
+			if ($count1 != 0) 
+			{
+				$grid->select_command = $q1;
+			}
+		}
+		
+		elseif ($usertype == 3) 
+		{
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
+			$grid->select_command = $q;	
+
+			$result = mysql_query($q);
+			$count = mysql_num_rows($result);
+			if($count == 0)
+			{
+				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
+				$grid->select_command = $q2;
+			} 	
+		}		
+	}
+		
 
 	$grid->table = "users";
 
 	$grid->set_columns($cols); // pass the cooked columns to grid
 
 	$main_view = $grid->render("list1");
+
+	if(isset($_POST['addmultiple'])){
+		if($_POST['student_num'] != "") {
+			if($_POST['student_num'] > $difference){
+				header("Location: manage-students.php?err=1");
+			} else {
+				generateStudents($_POST['student_num'], $user->getSubscriber(), $user->getUserid());
+				header("Location: manage-students.php?msg=1");
+			}
+		} else {
+			header("Location: manage-students.php?err=2");
+		}
+			
+	}
+
 
 ?>
 <!DOCTYPE html>
@@ -292,7 +329,6 @@ ini_set('display_errors', 1);
 </head>
 
 <body>
-	<!-- <div class="grey"></div> -->
 	<div id="header">
 
 		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
@@ -315,15 +351,6 @@ ini_set('display_errors', 1);
 
 		<?php endif; ?>
 	<?php endif; ?>
-
-	<!-- <div class="forgot-password mod-desc">
-		<div>
-			<legend>Forgot Password</legend>
-			<label for="email-add">Enter your email address: </label>
-			<input type="password" name="password">
-		</div>
-		<span class="close-btn"><?php echo _("Close!"); ?></span>
-	</div> -->
 
 	<div id="content">
 	<br>
@@ -351,44 +378,27 @@ ini_set('display_errors', 1);
 			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
 		<?php endif; ?>
 
-	<!-- <select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select> -->
-	<a href="teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
-	<div class="fright m-top10" id="accounts">
-		<a class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>
-		<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a> -->
-	</div>
+<!-- 	<div class="fright m-top10" id="accounts">
+	<a class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>	
+</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers and students information"); ?>
-	<!-- <p><?php echo _("You are only allowed to create " . $sub->getTeachers() . " teachers and " . $sub->getStudents() . " students"); ?> -->
-	<p><?php echo _("You are only allowed to create " . $sub->getStudents() . " students"); ?></p>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage all accounts under you."); ?>
+	<!-- <p><?php echo _("You are only allowed to create " . $sub->getStudents() . " students"); ?></p> -->
 
 	<div class="wrap-container">
 		<div id="wrap">
 			
 			<div class="sub-headers">
-				<h1>List of Teachers</h1>
-				<a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Teachers'); ?></a><br/><br/>
+				<h1>List of Accounts</h1>
+				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Teachers'); ?></a><br/><br/> -->
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p>
 				<div class="fright">
-					<a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> |
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> | 
+					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
+					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a>
-					<!-- <a href="#" class="link desc-btn" style="display: inline-block;">Forget Password</a> -->
 				</div>
 			</div>		
 			<div class="clear"></div>
@@ -405,10 +415,8 @@ ini_set('display_errors', 1);
 				    }
 				};	
 			</script>
-			<!-- <div style="margin:10px 0">
-				<?php echo $excel_view; ?>
-			</div> -->
-			<div style="margin:10px 0">
+
+			<div style="margin:10px 0">				
 				<?php echo $main_view; ?>
 			</div>
 		</div>
@@ -463,23 +471,10 @@ ini_set('display_errors', 1);
          		showMultipleAddForm();
 	        });
 
-		// $(".close-btn").on("click", function(){
-		// 	$(".mod-desc").css("display", "none");
-		// 	$(".grey").css("display", "none");
-		// });
-		
-		// $(".desc-btn").on("click", function(){
-		// 	$('.forgot-password').css("display", "block");
-			
-		// 	//$(".mod-desc").css("display", "block");
-		// 	$(".grey").css("display", "block");
-		// });
 	</script>
 	
 	<!-- jQuery Validation Engine -->
 	<link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
-	<!--<link rel="stylesheet" href="css/template.css" type="text/css"/>-->
-	<!-- <script src="scripts/jquery-1.8.2.min.js" type="text/javascript"></script> -->
 	<script src="scripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
 	<script src="scripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 	

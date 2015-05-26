@@ -335,6 +335,7 @@ class UserController {
 		$data['teacher_id']			= $user->getTeacher();
 		$data['grade_level']		= $user->getGrade_level();
 		$data['students']			= $user->getStudents_limit();
+		$data['subhead_id']			= $user->getSubheadid();
 		return $data;
 	}
 	
@@ -349,6 +350,7 @@ class UserController {
 		$user->setType($row['type']);
 		$user->setTeacher($row['teacher_id']);
 		$user->setSubscriber($row['subscriber_id']);
+		$user->setSubheadid($row['subhead_id']);
 		$user->setGrade_level($row['grade_level']);
 		$user->setStudents_limit($row['students']);
 		return $user;
@@ -364,6 +366,15 @@ class UserController {
 		$db->connect();
 		$db->insert("users", $data);
 		$db->disconnect();
+	}
+
+	/* For retrieving level of accounts */
+	public function getUserLevel($user) {
+		$custom_query = "";
+		
+		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
+
+		return $custom_query;
 	}
 	
 	private function setUserValues($values) {
