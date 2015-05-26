@@ -93,22 +93,7 @@ class UserController {
 		return $result;
 	}
 
-	public function checkNameExistsTeacher($username, $type) {
-		$where = array();
-		$where['username'] = $username;
-		$where['type'] = $type;
-
-		$db = new DB();
-		$db->connect();
-		$result = $db->select("users", $where);
-		
-		if ($db->dbgetrowcount() > 0)
-			return true;		
-		$db->disconnect();		
-		return false;
-	}
-
-	public function checkNameExistsStudent($username, $type) {
+	public function checkNameExists($username, $type) {
 		$where = array();
 		$where['username'] = $username;
 		$where['type'] = $type;

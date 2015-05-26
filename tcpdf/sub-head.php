@@ -99,7 +99,7 @@ if (isset($_SESSION['uname'])) {
 			$tfname = $_POST['tfname'];
 			$tlname = $_POST['tlname'];
 
-			$exists = $uc->checkNameExistsTeacher($tfname, $tlname, 0);
+			$exists = $uc->checkNameExists($tfname, $tlname, 0);
 
 			if($exists){
 
@@ -133,7 +133,7 @@ if (isset($_SESSION['uname'])) {
 			$sfname = $_POST['sfname'];
 			$slname = $_POST['slname'];
 
-			$exists = $uc->checkNameExistsStudent($sfname, $slname, 2);
+			$exists = $uc->checkNameExists($sfname, $slname, 2);
 
 			if($exists){
 
@@ -217,7 +217,7 @@ if (isset($_SESSION['uname'])) {
 // 	$tfname = 'Julius';
 // 	$tlname = 'Caluminga';
 // // 	// $test = $uc->checkNameExists($fname,$lname);
-// $exists = $uc->checkNameExistsTeacher($tfname,$tlname);
+// $exists = $uc->checkNameExists($tfname,$tlname);
 
 // if($exists)
 // {
