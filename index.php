@@ -116,21 +116,34 @@ if (isset($_SESSION['uname'])) {
 				encode : true
 			})
 				.done(function(data) {
-					if(data['success']){
-						
-						$('#sq').css('display', 'block');
-						$('input[name="id"]').attr('value', data['id']);
-						$('input[name="uType"]').attr('value', data['uType']);
-						$('.sQuestion').html(data['message']);
-						$('#message').css('display', 'none');
-					} else {
-
-						if($("#sq").is(":visible")){
+					if(data['type'])
+					{ //if student
+						if($("#sq").is(":visible"))
+						{
 							$("#sq").css('display', 'none');
 						}
 						$('#message').css('display', 'block');
 						$('#message p').html(data['message']);
-						$('#message').removeClass("success-div").addClass("error-div");
+						$('#message').removeClass("error-div").addClass("info-div");
+					} else
+					{
+						if(data['success'])
+						{
+							$('#sq').css('display', 'block');
+							$('input[name="id"]').attr('value', data['id']);
+							$('input[name="uType"]').attr('value', data['uType']);
+							$('.sQuestion').html(data['message']);
+							$('#message').css('display', 'none');
+						} else {
+
+							if($("#sq").is(":visible"))
+							{
+								$("#sq").css('display', 'none');
+							}
+							$('#message').css('display', 'block');
+							$('#message p').html(data['message']);
+							$('#message').removeClass("success-div").addClass("error-div");
+						}
 					}
 				}).fail(function (jqXHR, textStatus) {
 				    console.log(JSON.stringify(textStatus, null, 4) + " " + JSON.stringify(jqXHR, null, 4));

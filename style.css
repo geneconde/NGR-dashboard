@@ -1597,7 +1597,10 @@ input[type=checkbox] {
 .error-msg{
     background-color: red; padding: 5px; text-align: center;
 }
-.success-msg p, .error-msg p{color: #fff;}
+.infor-msg{
+    background-color: orange; padding: 5px; text-align: center;
+}
+.success-msg p, .error-msg p, .info-msg{color: #fff;}
 
 #forgot .desc-forgot {
     display: none;

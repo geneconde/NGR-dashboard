@@ -15,26 +15,38 @@
         $username = $_POST['username'];
         $user = $uc->loadUser($username);
 
-        if($user){
+        if($user)
+        {
             $type = $user->getType();
 
-            $uid = $uc->getUserByUsername($username);
-            $secid = $sec->getSecurityRecord($uid[0]["user_ID"]);
-            
-            if (isset($secid[0]['question_id']))
-            {
-                foreach ($questions as $question) {
-                    if($secid[0]['question_id'] == $question['question_id']) 
-                        $sQuestion = $question["question"]; 
-                }
+            if($type == 2)
+            { //if student
                 $data['success'] = true;
-                $data['message'] = $sQuestion;
-                $data['id'] = $uid[0]["user_ID"];
-                $data['uType'] = $type;
-            } else {
-                $data['success'] = false;
-                $data['message'] = 'Sorry, no security question found.';
+                $data['type'] = "student";
+                $data['message'] = "Please request a password reset from your teacher.";
+            } else 
+            {
+                $uid = $uc->getUserByUsername($username);
+                $secid = $sec->getSecurityRecord($uid[0]["user_ID"]);
+                
+                if (isset($secid[0]['question_id']))
+                {
+                    foreach ($questions as $question) 
+                    {
+                        if($secid[0]['question_id'] == $question['question_id']) 
+                            $sQuestion = $question["question"]; 
+                    }
+                    $data['success'] = true;
+                    $data['message'] = $sQuestion;
+                    $data['id'] = $uid[0]["user_ID"];
+                    $data['uType'] = $type;
+                } else 
+                {
+                    $data['success'] = false;
+                    $data['message'] = 'Sorry, no security question found.';
+                }
             }
+
         } else { //user not in db
 
             $data['success'] = false;
