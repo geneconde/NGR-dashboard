@@ -15,26 +15,38 @@
         $username = $_POST['username'];
         $user = $uc->loadUser($username);
 
-        if($user){
+        if($user)
+        {
             $type = $user->getType();
 
-            $uid = $uc->getUserByUsername($username);
-            $secid = $sec->getSecurityRecord($uid[0]["user_ID"]);
-            
-            if (isset($secid[0]['question_id']))
-            {
-                foreach ($questions as $question) {
-                    if($secid[0]['question_id'] == $question['question_id']) 
-                        $sQuestion = $question["question"]; 
-                }
+            if($type == 2)
+            { //if student
                 $data['success'] = true;
-                $data['message'] = $sQuestion;
-                $data['id'] = $uid[0]["user_ID"];
-                $data['uType'] = $type;
-            } else {
-                $data['success'] = false;
-                $data['message'] = 'Sorry, no security question found.';
+                $data['type'] = "student";
+                $data['message'] = "Please request a password reset from your teacher.";
+            } else 
+            {
+                $uid = $uc->getUserByUsername($username);
+                $secid = $sec->getSecurityRecord($uid[0]["user_ID"]);
+                
+                if (isset($secid[0]['question_id']))
+                {
+                    foreach ($questions as $question) 
+                    {
+                        if($secid[0]['question_id'] == $question['question_id']) 
+                            $sQuestion = $question["question"]; 
+                    }
+                    $data['success'] = true;
+                    $data['message'] = $sQuestion;
+                    $data['id'] = $uid[0]["user_ID"];
+                    $data['uType'] = $type;
+                } else 
+                {
+                    $data['success'] = false;
+                    $data['message'] = 'Sorry, no security question found.';
+                }
             }
+
         } else { //user not in db
 
             $data['success'] = false;
@@ -98,26 +110,6 @@
                 $data['message'] = "Your new password has been sent to your email ".$email.".";
 
             }
-        } else {
-            $data['success'] = false;
-            $data['message'] = "Sorry, your answer is incorrect.";
-        }
-    }
-
-//security check for email
-    if(isset($_POST['esqAnswer'])){
-        $email = $_POST['email2'];
-        $userAnswer = $_POST['esqAnswer'];
-        $uid = $_POST['eid'];
-        $secid = $sec->getSecurityRecord($uid);
-        $secAnswer = $secid[0]['answer'];
-      
-        if($userAnswer == $secAnswer){
-
-            // $sid = $sc->getIdByEmail($email);
-            // $userid = $sid[0]['id'];
-
-
         } else {
             $data['success'] = false;
             $data['message'] = "Sorry, your answer is incorrect.";

@@ -1609,3 +1609,7 @@ input[type=checkbox] {
 .mod-desc .error-div{
     background-color: red; padding: 5px; text-align: center; color: white;
 }
+
+.mod-desc .info-div{
+    background-color: orange; padding: 5px; text-align: center; color: white;
+}
