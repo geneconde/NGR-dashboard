@@ -224,7 +224,7 @@ ini_set('display_errors', 1);
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
-	if($sub->getStudents() != $student_count && $sub->getStudents() <= $student_count) :
+	if($sub->getStudents() <= $student_count) :
 		
 		$grid->set_actions(array(
 				"add"=>false, // allow/disallow add
@@ -268,7 +268,7 @@ ini_set('display_errors', 1);
 <html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 
 <head>
-	<title>NextGenReady</title>
+	<title>NexGenReady</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

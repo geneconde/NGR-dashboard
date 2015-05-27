@@ -613,8 +613,8 @@ msgid "Language"
 msgstr "Lenguaje"
 
 # index.php
-msgid "Welcome to NextGenReady! Please log in to your account."
-msgstr "¡Bienvenidos a NextGenReady! Por favor, inicie sesión en su cuenta."
+msgid "Welcome to NexGenReady! Please log in to your account."
+msgstr "¡Bienvenidos a NexGenReady! Por favor, inicie sesión en su cuenta."
 
 msgid "Registration Sucessful. We sent you an email. Please verify your account."
 msgstr "Registro exitoso. Le enviamos un correo electrónico. Por favor verifique su cuenta."

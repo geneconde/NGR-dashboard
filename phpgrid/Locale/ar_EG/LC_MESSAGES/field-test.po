@@ -650,7 +650,7 @@ msgid "Language"
 msgstr "لغة"
 
 # index.php
-msgid "Welcome to NextGenReady! Please log in to your account."
+msgid "Welcome to NexGenReady! Please log in to your account."
 msgstr "أهلاً بكم في علوم الجيل الجديد! يرجى الدخول إلى حسابك."
 
 msgid "Registration Sucessful. We sent you an email. Please verify your account."

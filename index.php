@@ -73,7 +73,7 @@ if (isset($_SESSION['uname'])) {
 	<span class="close-btn"><?php echo _("Close!"); ?></span>
 </div>
 
-<center><?php echo _("Welcome to NextGenReady! Please log in to your account."); ?></center>
+<center><?php echo _("Welcome to NexGenReady! Please log in to your account."); ?></center>
 
 <form method="post" action="login.php" name="login" id="login" class="box-shadow">
 	<?php if (isset($_GET['msg'])) { ?>

@@ -492,8 +492,8 @@ msgid "Language"
 msgstr "語言"
 
 # index.php
-msgid "Welcome to NextGenReady! Please log in to your account."
-msgstr "歡迎來到NextGenReady！請登錄您的帳號。"
+msgid "Welcome to NexGenReady! Please log in to your account."
+msgstr "歡迎來到NexGenReady！請登錄您的帳號。"
 
 msgid "Registration Sucessful. We sent you an email. Please verify your account."
 msgstr "已成功註冊。我們已經向您發送電子郵件。請開啟你的電子郵件並進行驗證。"

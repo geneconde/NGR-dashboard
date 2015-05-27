@@ -67,7 +67,7 @@ ini_set('display_errors', 1);
 	$gender = _('Gender');
 	$grade_level = _('Grade Level');
 	$accounts = _('Accounts');
-	$view_tier = _('View Account');
+	$view_tier = _('View Accounts');
 
 	/** Main Grid Table **/
 	$col = array();
@@ -107,7 +107,7 @@ ini_set('display_errors', 1);
 	$col["name"]  = "type";
 	$col["editable"] = true;
 	$col["width"] = "10";
-	$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");
+	/*$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");*/
 	$col["viewable"] = false;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
@@ -131,6 +131,19 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
+	$cols[] = $col;
+
+//ttest
+	$col = array();
+	$col["title"] = "Sub Head";
+	$col["name"] = "subhead_id";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; 
+	$col["editoptions"] = array("defaultValue"=>$_GET['user_id'],"readonly"=>"readonly", "style"=>"border:0");
+
 	$cols[] = $col;
 
 	$col = array();
@@ -168,16 +181,17 @@ ini_set('display_errors', 1);
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	$col = array();
-	$col["title"] = $grade_level; // caption of column
-	$col["width"] = "15";
-	$col["editable"] = true;
-	$col["align"] = "center";
-	$cols[] = $col;
-
+	if( !isset($_GET['type']) || $_GET['type'] != 4 ) :
+		$col = array();
+		$col["title"] = $grade_level; // caption of column
+		$col["width"] = "15";
+		$col["editable"] = true;
+		$col["align"] = "center";
+		$cols[] = $col;
+	endif;
 
 	if( !isset($_GET['type']) || $_GET['type'] != 0 ) :
-			
+		
 		$col = array();
 		$col["title"] = "Accounts";
 		$col["name"] = "view_more";
@@ -185,31 +199,28 @@ ini_set('display_errors', 1);
 		$col["align"] = "center";
 		$col["search"] = false;
 		$col["sortable"] = false;
-		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
 		$col["default"] = $view_tier; // default link text
-		$col["export"] = false; // this column will not be exported
-		$cols[] = $col;
+		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}";
+	
+	/*if($has_sub_accounts == false)
+	{
+		$col["default"] = "No Accounts"; // default link text
+		$col["link"] = null;  
+	}	*/
+	
+	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
+
 	endif;
 
-
+	//$has_sub_accounts = true;
+	
 	$grid = new jqgrid();
 
-	$opt["caption"] = $accounts;
-	$opt["height"] = "";
-	$opt["autowidth"] = true; // expand grid to screen width
-	$opt["multiselect"] = true; // allow you to multi-select through checkboxes
-	$opt["hiddengrid"] = false;
-	$opt["reloadedit"] = true;
-
-	//Export Options
-	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Student Information";
-	$opt["export"]["range"] = "filtered";
-
-	$grid->set_options($opt);
-
-$student_account = false;
-
+	//$student_account = false;
+	//Export filename
+	$filename = "";
+	
 	if(isset($_GET['user_id']))
 	{
 		$query = $uc->getUserLevel($_GET['user_id']);
@@ -223,16 +234,47 @@ $student_account = false;
 			{				
 				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
 				$grid->select_command = $q;
-				$student_account = true;
+				//$student_account = true;
+			}
+
+			if( $_GET['type'] == 4 )
+			{	
+				$q = "SELECT * FROM users WHERE subhead_id =". $_GET['user_id'];			
+				$grid->select_command = $q;
+				$result = mysql_query($q);
+				$count = mysql_num_rows($result);				
+				
+
+				/** 		   
+			 		* Purpose: For detecting accounts that has accounts under them.
+			  		* Date: 01/16/2015
+				*/				
+				/*while($row = mysql_fetch_array($result)) 
+				{
+					$query = "SELECT * FROM users WHERE subhead_id =". $row[0];
+				}
+				$rs = mysql_query($query);
+				$ctr = mysql_num_rows($rs);
+
+				if($ctr == 0)
+				{
+					$has_sub_accounts = false;
+				}*/
+				//END
+
+				if ($count != 0) 
+				{
+					$grid->select_command = $q;
+				}
+
 			}
 		}
 
 
 	} else {
-		//echo '<h1>'. $subhead_id.'</h1>';
+
 		if($usertype == 4 && $subhead_id == null)
-		{
-			//echo '<h1>'. $uc->getUserLevel($userid).'</h1>';
+		{			
 			$q = $uc->getUserLevel($userid);
 			$grid->select_command =$q;
 
@@ -244,26 +286,19 @@ $student_account = false;
 			{
 				$q = "SELECT * FROM users WHERE user_id =" . $userid  . " AND type = 0";
 				$grid->select_command = $q;
+
 			} 
+			$filename = "Subhead Accounts";
 
-			//Check if it has a subhead get their levels
-		/*	$q1 = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND user_id=".$userid." AND type = 4 AND teacher_id = 0";
-			$result1 = mysql_query($q1);
-			$count1 = mysql_num_rows($result1);
-
-			if ($count1 != 0) 
-			{
-				$grid->select_command = $q1;
-			}*/
 		} 
 		elseif($usertype == 4 && $subhead_id != null) 
 		{
-			//echo '<h1>'. $subhead_id.'</h1>';
 			$q1 = "SELECT * FROM users WHERE subhead_id =". $userid;
 			$grid->select_command = $q1;
 			$result1 = mysql_query($q1);
 			$count1 = mysql_num_rows($result1);
-
+			
+			$filename = "Teacher Accounts";
 			if ($count1 != 0) 
 			{
 				$grid->select_command = $q1;
@@ -274,17 +309,50 @@ $student_account = false;
 		{
 			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
 			$grid->select_command = $q;	
-
+			$filename = "Subhead Accounts";
+			
 			$result = mysql_query($q);
 			$count = mysql_num_rows($result);
 			if($count == 0)
 			{
 				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
 				$grid->select_command = $q2;
+				$filename = "Teacher Accounts";
 			} 	
 		}		
 	}
-		
+		//For exporting
+		$opt["caption"] = $accounts;
+		$opt["height"] = "";
+		$opt["autowidth"] = true; // expand grid to screen width
+		$opt["multiselect"] = true; // allow you to multi-select through checkboxes
+		$opt["hiddengrid"] = false;
+		$opt["reloadedit"] = true;
+
+		if($filename == null)
+		{
+			$filename = "Accounts";
+		}
+		$opt["export"] = array("filename"=>$filename, "heading"=>$filename, "orientation"=>"landscape", "paper"=>"a4");
+		$opt["export"]["sheetname"] = $filename;
+		$opt["export"]["range"] = "filtered";
+
+		$grid->set_options($opt);
+
+	$grid->set_actions(array(
+		"add"=>true, // allow/disallow add
+		"edit"=>true, // allow/disallow edit
+		"delete"=>true, // allow/disallow delete
+		"bulkedit"=>true, // allow/disallow edit
+		"export_excel"=>true, // export excel button
+		//"export_pdf"=>true, // export pdf button
+		//"export_csv"=>true, // export csv button
+		//"autofilter" => true, // show/hide autofilter for search
+		// "rowactions"=>true, // show/hide row wise edit/del/save option
+		// "showhidecolumns" => true,
+		"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
+	));
+
 
 	$grid->table = "users";
 
@@ -312,7 +380,7 @@ $student_account = false;
 <html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 
 <head>
-	<title>NextGenReady</title>
+	<title>NexGenReady</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
