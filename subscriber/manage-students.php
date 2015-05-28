@@ -33,6 +33,7 @@ ini_set('display_errors', 1);
 
 	$difference = $sub->getStudents() - $student_count;
 
+
 	// include db config
 	include_once("../phpgrid/config.php");
 
@@ -63,8 +64,7 @@ ini_set('display_errors', 1);
 	$col["search"] = true;
 	$col["editable"] = true;
 	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
+	$col["export"] = true; // this column will not be exported	
 	$cols[] = $col;
 
 	$col = array();
@@ -75,7 +75,6 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
 
 	$col = array();
@@ -121,18 +120,6 @@ ini_set('display_errors', 1);
 	$col["edittype"] = "select";
 	$col["editoptions"] = array("value"=>'M:M;F:F');
 	$cols[] = $col;
-
-	// $col = array();
-	// $col["title"] = "Teacher ID";
-	// $col["name"]  = "teacher_id";
-	// $col["editable"] = true;
-	// $col["width"] = "20";
-	// $col["editoptions"] = array("defaultValue"=>"","readonly"=>"readonly", "style"=>"border:0");
-	// $col["viewable"] = true;
-	// $col["hidden"] = true;
-	// $col["editrules"] = array("edithidden"=>false); 
-	// $col["export"] = false; // this column will not be exported
-	// $cols[] = $col;
 
 	$col = array();
 	$col["title"] = "Subscriber ID";
@@ -206,24 +193,31 @@ ini_set('display_errors', 1);
 
 	$grid->set_options($opt);
 
-	// $e["on_insert"] = array("add_client", null, false);
-	// $grid->set_events($e);
+	$e["on_insert"] = array("add_student", null, true);
+	$grid->set_events($e);
 
-	// function add_client($data)
-	// {
-	// 	$check_sql = "SELECT count(*) as c from users where subscriber_id = $subid AND type = 2";
-		
-	// 	$rs = mysql_fetch_assoc(mysql_query($check_sql));
+	$_SESSION["sid"] = $subid;
+	$_SESSION["count"] = $student_count;
+	$_SESSION["max_student"] = $sub->getStudents();
 
-	// 	if ($rs["c"] >= $sub->getStudents())
-	// 		phpgrid_error("You have reached the maximum number of students.");
+	function add_student($data)
+	{
+		$subid = $_SESSION["sid"];
+		$max_student = $_SESSION["max_student"];
+		$count = $_SESSION["count"];
 
-	// 	mysql_query("INSERT INTO clients VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
-	// }
+	    if ($count >= $max_student) {
+	    	 phpgrid_error("You have reached the maximum number of students."); 
+	    }
 
-	$grid->debug = 0;
+		mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
+	}
+
+	//$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
+
+
 	if($sub->getStudents() <= $student_count) :
 		
 		$grid->set_actions(array(
@@ -232,16 +226,10 @@ ini_set('display_errors', 1);
 				"delete"=>true, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
-				//"export_pdf"=>true, // export pdf button
-				//"export_csv"=>true, // export csv button
-				//"autofilter" => true, // show/hide autofilter for search
-				// "rowactions"=>true, // show/hide row wise edit/del/save option
-				// "showhidecolumns" => true,
 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
 			));
 
-	else :	
-		//echo '<h1>'. $student_count . '</h1>';	
+	else :			
 		$grid->set_actions(array(
 				"add"=>true, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
@@ -252,9 +240,7 @@ ini_set('display_errors', 1);
 		));
 
 	endif;
-	
 
-	//$grid["add_options"]["afterSubmit"] = "function(){jQuery('#list1').trigger('reloadGrid',[{page:1}]); return [true, ''];}";
 	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2";
 
 	$grid->table = "users";
@@ -386,7 +372,7 @@ ini_set('display_errors', 1);
 			<div class="clear"></div>
 
 			<script>
-				var opts = {
+				/*var opts = {
 				    errorCell: function(res,stat,err)
 				    {
 						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
@@ -395,7 +381,7 @@ ini_set('display_errors', 1);
 									{buttonalign:'right'}
 						);		    	
 				    }
-				};	
+				};	*/
 			</script>
 
 			<div style="margin:10px 0">
