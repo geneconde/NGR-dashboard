@@ -92,7 +92,7 @@
 						$img = 'correct';
 						$totalcorrect++;
 					}
-				?> 
+				?>
 				<tr>
 					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $counter; ?></td>
 					<td>
