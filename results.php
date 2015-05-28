@@ -122,7 +122,7 @@
 						$img = 'correct';
 						$totalcorrect++;
 					}
-				?> 
+				?>
 				<tr>
 					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $question['title']; ?></td>
 					<td>
