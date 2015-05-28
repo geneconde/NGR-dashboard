@@ -93,7 +93,7 @@
 					}
 				?> 
 				<tr>
-					<td><?php echo _($exercise['shortcode']); ?> - <?php echo $question['title']; ?></td>
+					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $question['title']; ?></td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
@@ -124,7 +124,7 @@
 					}
 				?> 
 				<tr>
-					<td><?php echo _($exercise['shortcode']); ?> - <?php echo $question['title']; ?></td>
+					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $question['title']; ?></td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
