@@ -324,7 +324,7 @@ ini_set('display_errors', 1);
 	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers and students information."); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information."); ?>
 	<p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p>
 	<div class="wrap-container">
 		<div id="wrap">
