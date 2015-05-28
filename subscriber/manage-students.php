@@ -277,11 +277,57 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+	<style>
+	.ui-search-toolbar { display: none; }
+	.fleft { margin-top: -16px; }
+	.tguide { float: left; margin-top: -15px; }
+	.guide {
+		padding: 5px;
+		background-color: orange;
+		border-radius: 5px;
+		margin-right: 1px;
+		margin-left: 1px;
+		border: none;
+		font-size: 10px;
+		color: #000;
+		cursor: pointer;
+	}
+	.guide:hover {
+		background-color: orange;
+	}
+	.joytest2 ~ div a:nth-child(3){
+	    display: none;
+	}
+	.ui-icon {
+	  display: inline-block !important;
+	}
+	<?php if($language == "ar_EG") { ?>
+	.tguide { float: right; }
+	<?php } ?>
+
+
+	/*End custom joyride*/
+	#dbguide {margin-top: 16px;}
+	</style>
+
+	<!-- Run the plugin -->
+    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
+    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
+	<?php
+	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 </head>
 
 <body>
@@ -319,6 +365,7 @@ ini_set('display_errors', 1);
 
 	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
+	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 	<!-- <div class="fright m-top10" id="accounts">
 		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
 	</div> -->
@@ -334,7 +381,6 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
 					<a href="index.php" class="link" style="display: inline-block;">Manage Accounts</a>   
-					<!-- <a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a> -->
 				</div>
 			</div>		
 			<div class="clear"></div>
@@ -351,16 +397,48 @@ ini_set('display_errors', 1);
 				    }
 				};	
 			</script>
-			<!-- <div style="margin:10px 0">
-				<?php echo $excel_view; ?>
-			</div> -->
+
 			<div style="margin:10px 0">
 				<?php echo $main_view; ?>
 			</div>
 		</div>
 	</div>	
+		<!-- Tip Content -->
+	    <ol id="joyRideTipContent">
+			<li data-id="jqgh_list1_username" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>To update information, you can do any of the following:</p>
+				<p>1. Double click on a cell to update the information then click Enter</p>
+			</li>
+			<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
+				<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+			</li>
+			<li data-class="cbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+			</li>
+			<li data-id="cb_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
+			</li>
+			<li data-id="search_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+			</li>
+			<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+			</li>
+			<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>Go to the next set of accounts by clicking the left and right arrows; or</p>
+			</li>
+			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>Type in the page number and press Enter.</p>
+			</li>
+			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>You can also modify the number of accounts you want to show in a page.</p>
+			</li>
+			<li data-id="jqgh_list1_view_more" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+				<p>You may also view the portfolio of student.</p>
+			</li>
+	    </ol>
+	</div> <!-- End of content -->
 
-	</div>
 	<!-- start footer -->
 	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 		<div class="copyright">
@@ -383,6 +461,18 @@ ini_set('display_errors', 1);
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
 	});
+	function guide() {
+	  	$('#joyRideTipContent').joyride({
+		      autoStart : true,
+		      postStepCallback : function (index, tip) {
+		      if (index == 10) {
+		        $(this).joyride('set_li', false, 1);
+		      }
+		    },
+		    // modal:true,
+		    // expose: true
+		    });
+		  }
 	</script>
 </body>
 </html>
