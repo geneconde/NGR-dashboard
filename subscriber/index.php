@@ -434,9 +434,9 @@ ini_set('display_errors', 1);
 	.tguide { float: right; }
 	<?php } ?>
 
-
 	/*End custom joyride*/
-	#dbguide {margin-top: 16px;}
+	#dbguide {margin-top: 16px; float: left;}
+	#accounts {margin-top: 3px;}
 	</style>
 
 	<!-- Run the plugin -->
@@ -504,21 +504,27 @@ ini_set('display_errors', 1);
 		<?php endif; ?>
 		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>	
 	</div>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-<!-- 	<div class="fright m-top10" id="accounts">
-	<a class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>	
-</div> -->
+	
+	<div id="dbguide">
+		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
+	</div>
+
+	<div class="fright" id="accounts"> 
+		<a id="my_account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>
+	</div>
+	
+	
+
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, You can manage all accounts under you."); ?>
-	<!-- <p><?php echo _("You are only allowed to create " . $sub->getStudents() . " students"); ?></p> -->
 
 	<div class="wrap-container">
 		<div id="wrap">
 			
 			<div class="sub-headers">
 				<h1>List of Accounts</h1>
-				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Teachers'); ?></a><br/><br/> -->
+				
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p>
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
