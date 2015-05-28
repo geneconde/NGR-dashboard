@@ -416,7 +416,7 @@ ini_set('display_errors', 1);
 				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 			</li>
 			<li data-id="cb_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
+				<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
 			</li>
 			<li data-id="search_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
@@ -425,13 +425,10 @@ ini_set('display_errors', 1);
 				<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
 			</li>
 			<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>Go to the next set of accounts by clicking the left and right arrows; or</p>
+				<p>Go to the next set of students by clicking the left and right arrows; or</p>
 			</li>
 			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<p>Type in the page number and press Enter.</p>
-			</li>
-			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>You can also modify the number of accounts you want to show in a page.</p>
 			</li>
 			<li data-id="jqgh_list1_view_more" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
 				<p>You may also view the portfolio of student.</p>
