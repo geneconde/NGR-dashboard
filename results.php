@@ -76,6 +76,7 @@
 			<br/>
 			<h3><?php echo _("Quick Check Results"); ?></h3>
 			<?php foreach ($qc as $exercise) {
+				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 			?>
 			<table border="0" class="result fleft">
@@ -93,7 +94,7 @@
 					}
 				?> 
 				<tr>
-					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $question['title']; ?></td>
+					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $counter; ?></td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
@@ -102,12 +103,13 @@
 						<?php } ?>
 					</td>
 				</tr>
-				<?php } ?>
+				<?php $counter++; } ?>
 			</table>
 			<?php } ?>
 			<div class="clear"></div>
 			<h3><?php echo _("Quiz Question Results"); ?></h3>
 			<?php foreach ($qq as $exercise) {
+				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 			?>
 			<table border="0" class="result fleft">
@@ -124,7 +126,7 @@
 					}
 				?>
 				<tr>
-					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $question['title']; ?></td>
+					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $counter; ?></td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
@@ -133,7 +135,7 @@
 						<?php } ?>
 					</td>
 				</tr>
-				<?php } ?>
+				<?php $counter++; } ?>
 			</table>
 			<?php } ?>
 			<div class="clear"></div>
