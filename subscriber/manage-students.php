@@ -207,13 +207,14 @@ ini_set('display_errors', 1);
 		$count = $_SESSION["count"];
 
 	    if ($count >= $max_student) {
-	    	 phpgrid_error("You have reached the maximum number of students."); 
+	    	phpgrid_error("You have reached the maximum number of students."); 
 	    }
 
-		mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
+		//mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
+
 	}
 
-	//$grid->debug = 0;
+	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
 
