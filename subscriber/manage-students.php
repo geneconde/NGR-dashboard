@@ -33,6 +33,7 @@ ini_set('display_errors', 1);
 
 	$difference = $sub->getStudents() - $student_count;
 
+
 	// include db config
 	include_once("../phpgrid/config.php");
 
@@ -63,8 +64,7 @@ ini_set('display_errors', 1);
 	$col["search"] = true;
 	$col["editable"] = true;
 	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
+	$col["export"] = true; // this column will not be exported	
 	$cols[] = $col;
 
 	$col = array();
@@ -75,7 +75,6 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
 
 	$col = array();
@@ -121,18 +120,6 @@ ini_set('display_errors', 1);
 	$col["edittype"] = "select";
 	$col["editoptions"] = array("value"=>'M:M;F:F');
 	$cols[] = $col;
-
-	// $col = array();
-	// $col["title"] = "Teacher ID";
-	// $col["name"]  = "teacher_id";
-	// $col["editable"] = true;
-	// $col["width"] = "20";
-	// $col["editoptions"] = array("defaultValue"=>"","readonly"=>"readonly", "style"=>"border:0");
-	// $col["viewable"] = true;
-	// $col["hidden"] = true;
-	// $col["editrules"] = array("edithidden"=>false); 
-	// $col["export"] = false; // this column will not be exported
-	// $cols[] = $col;
 
 	$col = array();
 	$col["title"] = "Subscriber ID";
@@ -187,7 +174,8 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	$col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["linkoptions"] = "target='_blank' class='c-link'"; // extra params with <a> tag
+
 	$col["default"] = "View Portfolio"; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
@@ -206,24 +194,32 @@ ini_set('display_errors', 1);
 
 	$grid->set_options($opt);
 
-	// $e["on_insert"] = array("add_client", null, false);
-	// $grid->set_events($e);
+	$e["on_insert"] = array("add_student", null, true);
+	$grid->set_events($e);
 
-	// function add_client($data)
-	// {
-	// 	$check_sql = "SELECT count(*) as c from users where subscriber_id = $subid AND type = 2";
-		
-	// 	$rs = mysql_fetch_assoc(mysql_query($check_sql));
+	$_SESSION["sid"] = $subid;
+	$_SESSION["count"] = $student_count;
+	$_SESSION["max_student"] = $sub->getStudents();
 
-	// 	if ($rs["c"] >= $sub->getStudents())
-	// 		phpgrid_error("You have reached the maximum number of students.");
+	function add_student($data)
+	{
+		$subid = $_SESSION["sid"];
+		$max_student = $_SESSION["max_student"];
+		$count = $_SESSION["count"];
 
-	// 	mysql_query("INSERT INTO clients VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
-	// }
+	    if ($count >= $max_student) {
+	    	phpgrid_error("You have reached the maximum number of students."); 
+	    }
+
+		//mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
+
+	}
 
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
+
+
 	if($sub->getStudents() <= $student_count) :
 		
 		$grid->set_actions(array(
@@ -232,16 +228,10 @@ ini_set('display_errors', 1);
 				"delete"=>true, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
-				//"export_pdf"=>true, // export pdf button
-				//"export_csv"=>true, // export csv button
-				//"autofilter" => true, // show/hide autofilter for search
-				// "rowactions"=>true, // show/hide row wise edit/del/save option
-				// "showhidecolumns" => true,
 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
 			));
 
-	else :	
-		//echo '<h1>'. $student_count . '</h1>';	
+	else :			
 		$grid->set_actions(array(
 				"add"=>true, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
@@ -252,9 +242,7 @@ ini_set('display_errors', 1);
 		));
 
 	endif;
-	
 
-	//$grid["add_options"]["afterSubmit"] = "function(){jQuery('#list1').trigger('reloadGrid',[{page:1}]); return [true, ''];}";
 	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2";
 
 	$grid->table = "users";
@@ -277,11 +265,57 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+	<style>
+	.ui-search-toolbar { display: none; }
+	.fleft { margin-top: -16px; }
+	.tguide { float: left; margin-top: -15px; }
+	.guide {
+		padding: 5px;
+		background-color: orange;
+		border-radius: 5px;
+		margin-right: 1px;
+		margin-left: 1px;
+		border: none;
+		font-size: 10px;
+		color: #000;
+		cursor: pointer;
+	}
+	.guide:hover {
+		background-color: orange;
+	}
+	.joytest2 ~ div a:nth-child(3){
+	    display: none;
+	}
+	.ui-icon {
+	  display: inline-block !important;
+	}
+	<?php if($language == "ar_EG") { ?>
+	.tguide { float: right; }
+	<?php } ?>
+
+
+	/*End custom joyride*/
+	#dbguide {margin-top: 16px;}
+	</style>
+
+	<!-- Run the plugin -->
+    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
+    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
+	<?php
+	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 </head>
 
 <body>
@@ -319,12 +353,13 @@ ini_set('display_errors', 1);
 
 	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
+	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 	<!-- <div class="fright m-top10" id="accounts">
 		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
 	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your teachers and students information."); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information."); ?>
 	<p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p>
 	<div class="wrap-container">
 		<div id="wrap">
@@ -334,13 +369,12 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
 					<a href="index.php" class="link" style="display: inline-block;">Manage Accounts</a>   
-					<!-- <a href="index.php" class="link" style="display: inline-block;">Manage Teachers</a> -->
 				</div>
 			</div>		
 			<div class="clear"></div>
 
 			<script>
-				var opts = {
+				/*var opts = {
 				    errorCell: function(res,stat,err)
 				    {
 						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
@@ -349,18 +383,50 @@ ini_set('display_errors', 1);
 									{buttonalign:'right'}
 						);		    	
 				    }
-				};	
+				};	*/
 			</script>
-			<!-- <div style="margin:10px 0">
-				<?php echo $excel_view; ?>
-			</div> -->
+
 			<div style="margin:10px 0">
 				<?php echo $main_view; ?>
 			</div>
 		</div>
 	</div>	
+		<!-- Tip Content -->
+	    <ol id="joyRideTipContent">
+			<li data-id="jqgh_list1_username" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>To update information, you can do any of the following:</p>
+				<p>1. Double click on a cell to update the information then click Enter</p>
+			</li>
+			<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
+				<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+			</li>
+			<li data-id="jqg_list1_16" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+			</li>
+			<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+				<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
+			</li>
+			<li data-class="ui-icon-search" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+				<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+			</li>
+			<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+			</li>
+			<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>Go to the next set of students by clicking the left and right arrows; or</p>
+			</li>
+			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+				<p>Type in the page number and press Enter.</p>
+			</li>
+			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>You can also modify the number of accounts you want to show in a page.:</p>
+			</li>
+			<li data-class="c-link" data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+				<p>You may also view the portfolio of student.</p>
+			</li>
+	    </ol>
+	</div> <!-- End of content -->
 
-	</div>
 	<!-- start footer -->
 	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 		<div class="copyright">
@@ -383,6 +449,18 @@ ini_set('display_errors', 1);
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
 	});
+	function guide() {
+	  	$('#joyRideTipContent').joyride({
+		      autoStart : true,
+		      postStepCallback : function (index, tip) {
+		      if (index == 10) {
+		        $(this).joyride('set_li', false, 1);
+		      }
+		    },
+		    // modal:true,
+		    // expose: true
+		    });
+		  }
 	</script>
 </body>
 </html>

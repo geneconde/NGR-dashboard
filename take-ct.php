@@ -42,7 +42,9 @@
 <div id="container">
 <a class="link" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
 <h1><?php echo _("Cumulative Test"); ?></h1>
-<?php echo _("This cumulative test consists of"); ?> <strong><?php echo $count; ?> <?php echo _("questions"); ?></strong> <?php echo _("from different modules. You have"); ?> <strong><?php echo $timelimit; ?> <?php echo _("minutes"); ?></strong>. <?php echo _(" to answer all these questions. Only the answers that are completed within the time limit will be recorded.  Click the button below to start the test."); ?>
+<p><?php echo _("Read the instructions carefully and click <strong>Start Test</strong> when you're ready to take the test. Please note that the timer will start running once you click the button."); ?></p>
+<br/>
+<p><?php echo _("This cumulative test consists of"); ?> <strong><?php echo $count; ?> <?php echo _("questions"); ?></strong> <?php echo _("from different modules. You have"); ?> <strong><?php echo $timelimit; ?> <?php echo _("minutes"); ?></strong>. <?php echo _(" to answer all these questions. Only the answers that are completed within the time limit will be recorded.  Click the button below to start the test."); ?></p>
 <br/><br/><br/><br/>
 <div class="center">
 	<a class="take-box" href="ct.php?ctid=<?php echo $ctid; if(isset($index)) { ?>&i=<?php echo $index; } ?>"><?php echo _("START TEST"); ?></a></div>
