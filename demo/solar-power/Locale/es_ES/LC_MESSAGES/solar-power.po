@@ -1,0 +1,1103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: solar-power\n"
+"POT-Creation-Date: 2013-09-06 17:31+0800\n"
+"PO-Revision-Date: 2015-04-14 13:32+0800\n"
+"Last-Translator: Ana Pardo <anapr88@gmail.com>\n"
+"Language-Team: James Shymansky, <ask@jigzen.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: ar\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+# Globals
+msgid "How did I do?"
+msgstr "¿Cómo lo he hecho?"
+
+msgid "Solar Power"
+msgstr "Energía solar"
+
+msgid "More big ideas... about solar power"
+msgstr "Más ideas principales... sobre la energía solar"
+
+msgid "You answered..."
+msgstr "Tú respondiste..."
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Check Answer"
+msgstr "Comprobar respuesta"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Read More"
+msgstr "Leer más"
+
+msgid "Please select your answers."
+msgstr "Por favor, selecciona tus respuestas."
+
+msgid "Please select your answer."
+msgstr "Por favor, selecciona tu respuesta."
+
+msgid "Please type your answer."
+msgstr "Por favor, escribe tu respuesta."
+
+msgid "Click the NEXT button when you are ready."
+msgstr "Haga clic en el botón SIGUIENTE cuando esté listo."
+
+msgid "Close me!"
+msgstr "¡Ciérrame!"
+
+msgid "Rotate or flip the box below either up or down to set your answer. Click, hold and slide mouse up or down."
+msgstr "Gira la siguiente caja hacia arriba o hacia abajo para marcar tu respuesta. Haz clic, mantén pulsado y arrastra hacia arriba o abajo."
+
+# 1
+msgid "Start"
+msgstr "Inicio"
+
+msgid "Welcome to the Solar Power module"
+msgstr "Bienvenido/a al repaso de Energía Solar"
+
+msgid "Let's begin"
+msgstr "Empecemos"
+
+# 2
+msgid "Thinking about... solar power"
+msgstr "Pensemos en... energía solar"
+
+msgid ""
+"When you think about energy resources found on Earth, such things as oil, coal and natural gas may come to mind. The energy stored in those fuels can be changed to useful forms of "
+"energy to produce electricity, drive cars and heat homes. But have you ever wondered where the energy stored in oil, coal and natural gas fuels, even the food that you ate today, "
+"came from? If you said the Sun, you are correct!"
+msgstr ""
+"Cuando piensas en las fuentes de energía que hay en la Tierra, te pueden venir a la mente cosas como el petróleo, el carbón y el gas natural. La energía almacenada en esos "
+"combustibles puede transformarse a formas de energía útiles para producir electricidad, conducir vehículos y calentar hogares. ¿Pero te has preguntado alguna vez de dónde viene la "
+"energía almacenada en el petróleo, el carbón y el gas natural, e incluso en lo que has comido hoy? Si has dicho el Sol, ¡estás en lo cierto!"
+
+msgid "Are you ready"
+msgstr "Estás preparado/a"
+
+# 3
+msgid "Checking what you know... about solar power"
+msgstr "Comprobemos lo que sabes... sobre energía solar"
+
+msgid ""
+"At one time or another you have probably walked on a paved road in the early evening after a very hot day and had the sensation that heat energy was coming from the road. "
+"<span>Which of the following do you think is original source of the heat coming from the pavement?</span>"
+msgstr ""
+"Seguro que alguna que otra vez has caminado por una calle asfaltada por la noche tras un día muy caluroso y has tenido la sensación de que estaba saliendo calor de la carretera. "
+"<span>¿Cuál de las siguientes crees que es la fuente original del calor que sale de la carretera?</span>"
+
+msgid "Geothermal energy"
+msgstr "Energía geotérmica"
+
+msgid "Nuclear energy from Earth's core"
+msgstr "Energía nuclear del núcleo de la Tierra"
+
+msgid "Radiant energy from the sun"
+msgstr "Energía radiante del sol"
+
+msgid "Heat from the friction of traffic during the day"
+msgstr "Calor por la fricción del tráfico durante el día"
+
+msgid ""
+"Dark pavements heat up in the sun because they absorb 80-95% of sunlight. Radiant energy from the sun is the original source of this heat. Read on to module more about solar power."
+msgstr ""
+"Las carreteras oscuras se calientan al sol porque absorben un 80-95% de la luz del sol. La energía radiante del sol es la fuente original de este calor. Sigue leyendo para repasar "
+"más la energía solar."
+
+msgid "Putting on sunblock..."
+msgstr "Aplicando protector solar..."
+
+# 4
+msgid "Reviewing big ideas... about solar power"
+msgstr "Repasemos ideas principales... sobre la energía solar"
+
+msgid ""
+"The sun is a large ball of exploding gas. The sun can be considered a giant nuclear power plant within the solar system. Inside the sun, atoms of hydrogen gas are constantly "
+"smashed together (or fused) to form another gas called helium. This is called <span class='key'>fusion</span>. When that happens, energy is released. Because the Sun is so large "
+"and contains so much material, the amount of energy released by this process is tremendous. The Sun <span class='key'>radiates</span>, or sends out, huge amounts of energy in all "
+"directions in space. While only a very small amount of that energy reaches us on Earth, it is just the right amount to meet the needs of life on Earth."
+msgstr ""
+"El sol es una gran bola de gas en explosión. El sol puede considerarse una central nuclear gigante dentro del sistema solar. Dentro del sol, los átomos de gas de hidrógeno se "
+"juntan (o fusionan) constantemente para formar otro gas llamado helio. Esto se llama <span class='key'>fusión</span>. Cuando eso ocurre, se libera energía. Como el Sol es tan "
+"grande y contiene tanto material, la cantidad de energía liberada mediante este proceso es enorme. El Sol <span class='key'>irradia</span>, o envía, enormes cantidades de energía "
+"en todas las direcciones del espacio. Aunque sólo nos llega una pequeñísima parte de esa energía a la Tierra, es la cantidad justa para cubrir las necesidades de la vida en la "
+"Tierra."
+
+msgid ""
+"The sun produces many different kinds of energy. In fact, the sun produces a wide <span class='key'>spectrum</span> (or range) of <span class='key'>radiant</span> energies that "
+"can move through empty space. Most of the radiant energy from the sun that reaches us on Earth is in the form of <span class='key'>visible light</span> and <span "
+"class='key'>infrared light</span>. The visible light from the sun gives us the colors (including white) that we see. Infrared light is a kind of heat light. It is not as energetic "
+"as visible light, but it is the most abundant kind of sunlight. People can't see infrared light without special \"night vision\" glasses, but some insects and some animals can see "
+"infrared light through special sense devices that act like eyes."
+msgstr ""
+"El sol produce muchos tipos diferentes de energía. De hecho, el sol produce un amplio <span class='key'>espectro</span> (o rango) de energías <span class='key'>radiantes</span> "
+"que se pueden mover a través del espacio vacío. La mayoría de la energía radiante del sol que nos llega a la Tierra es en forma de <span class='key'>luz visible</span> y <span "
+"class='key'>luz infrarroja</span>. La luz visible procedente del sol nos da los colores que vemos (incluyendo el blanco). La luz infrarroja es un tipo de luz caliente. No es tan "
+"energética como la luz visible, pero es el tipo de luz solar más abundante. Las personas no pueden ver la luz infrarroja sin gafas especiales de \"visión nocturna\", pero algunos "
+"insectos y animales pueden ver la luz infrarroja con órganos especiales que actúan como ojos."
+
+msgid "Move your mouse around the black screen to see the effect of night vision goggles and see what's hidden in the dark."
+msgstr "Mueve el ratón por la pantalla negra para ver el efecto de las gafas de visión nocturna y descubrir qué se esconde en la oscuridad."
+
+msgid "Put on some sunblock"
+msgstr "Aplica protector solar"
+
+# 5
+msgid "Quick Check #1"
+msgstr "Repaso rápido nº1"
+
+msgid "Question A. What can you infer about helium from the fact that it's made by nuclear fusion reactions inside the sun?"
+msgstr "Pregunta A. ¿Qué puedes deducir sobre el helio a partir del hecho de que se forma mediante reacciones de fusión nuclear dentro del sol?"
+
+msgid "It's heavier than hydrogen."
+msgstr "Es más pesado que el hidrógeno."
+
+msgid "It's lighter than hydrogen."
+msgstr "Es más ligero que el hidrógeno."
+
+msgid "It's heavier than oxygen."
+msgstr "Es más pesado que el oxígeno."
+
+msgid "It's heavier than carbon."
+msgstr "Es más pesado que el carbono."
+
+msgid ""
+"Question B. Some snakes have the ability to hunt prey in the darkness by using specialized pit organs on their face which allow them to \"see\" the body heat of their intended "
+"meal. Click on the part of the spectrum that can be detected by those pit organs."
+msgstr ""
+"Pregunta B. Algunas serpientes tienen la capacidad de cazar a sus presas en la oscuridad usando unas fosetas especializadas en su cara que les permiten \"ver\" el calor corporal "
+"de su futura comida. Haz clic en la parte del espectro que puede ser detectado con esos órganos."
+
+msgid "Radio waves"
+msgstr "Ondas de radio"
+
+msgid "Microwave"
+msgstr "Microondas"
+
+msgid "Infrared"
+msgstr "Infrarrojo"
+
+msgid "Ultraviolet"
+msgstr "Ultravioleta"
+
+msgid "X-Rays"
+msgstr "Rayos X"
+
+msgid "Gamma Rays"
+msgstr "Rayos gamma"
+
+msgid "Visible Light"
+msgstr "Luz visible"
+
+msgid "Ready for your first quick check!"
+msgstr "¡Listo/a para tu primer repaso rápido!"
+
+msgid "Correct! Hydrogen atoms combine and make helium, so helium is heavier."
+msgstr "¡Correcto! Los átomos de hidrógeno se combinan y forman helio, así que el helio es más pesado."
+
+msgid "Not quite! Helium is made up of hydrogen atoms fusing, so helium is heavier than hydrogen."
+msgstr "¡No exactamente! El helio se forma a partir de la fusión de átomos de hidrógeno, así que el helio es más pesado que el hidrógeno."
+
+msgid "Nope! Oxygen is heavier than helium, but nuclear fusion in the sun involves hydrogen and helium."
+msgstr "¡No! El oxígeno es más pesado que el helio, y en la fusión nuclear del sol participan hidrógeno y helio."
+
+msgid "Think again! Carbon is heavier than helium, but nuclear fusion in the sun involves hydrogen and helium."
+msgstr "¡Piénsalo de nuevo! El carbono es más pesado que el helio, y en la fusión nuclear del sol participan hidrógeno y helio."
+
+msgid "Correct! Certain types of snakes have holes on their faces called pit organs. The pit organ can detect infrared radiation from warm bodies up to three feet away."
+msgstr ""
+"¡Correcto! Ciertos tipos de serpientes tienen agujeros en su cara llamados fosetas. La foseta puede detectar radiación infrarroja de cuerpos calientes hasta a un metro (tres pies) "
+"de distancia."
+
+msgid ""
+"Nope! Visible light gives us the colors that we see, and infrared light is a kind of heat light. Certain types of snakes have holes on their faces called pit organs. The pit organ "
+"can detect infrared radiation from warm bodies up to three feet away. This is how the snakes hunt at night."
+msgstr ""
+"¡No! La luz visible nos da los colores que vemos, y la luz infrarroja es un tipo de luz caliente. Algunos tipos de serpientes tienen agujeros en su cara llamados fosetas. La "
+"foseta puede detectar radiación infrarroja de cuerpos calientes hasta a un metro (tres pies) de distancia. Así es cómo cazan las serpientes por la noche."
+
+# 6
+msgid ""
+"The sun's energy drives many phenomena found on earth's surface. The water cycle and food chain both depend on solar energy to fully work properly. We depend on the sun every day, "
+"every time we eat in fact. We eat to get energy from food, and that energy was once energy from the sun that was captured by plants in the chemical process that forms plant. So if "
+"you trace the energy in food, it always starts with the sun."
+msgstr ""
+"La energía del sol provoca muchos fenómenos en la superficie de la Tierra. Tanto el ciclo del agua como la cadena alimenticia dependen de la energía solar para funcionar "
+"correctamente. Nosotros dependemos del sol a diario, en realidad cada vez que comemos. Comemos para obtener energía de la comida, y esa energía fue una vez energía solar capturada "
+"por plantas en el proceso químico que crea las plantas. Así que si rastreas de dónde viene la energía de la comida, siempre empieza en el sol."
+
+msgid ""
+"For example, think about eating an apple. The apple has sugars that provide energy when you eat it. The apple gets its energy from the apple tree and the apple tree gets its "
+"energy from sun (and air and water) through a process called <span class='key'>photosynthesis.</span> This flow of energy from the sun to the apple can be represented with arrows:"
+msgstr ""
+"Por ejemplo, piensa en comer una manzana. La manzana tiene azúcares que proporcionan energía cuando la comes. La manzana obtiene su energía del manzano, y el manzano obtiene su "
+"energía del sol (y el aire y el agua) mediante un proceso llamado <span class='key'>fotosíntesis</span>. Este flujo de energía del sol a la manzana se puede representar con "
+"flechas:"
+
+msgid "Sun -> apple tree -> apple -> you!!!"
+msgstr "Sol -> manzano -> manzana -> ¡¡¡tú!!!"
+
+msgid ""
+"The <span class='key'>water cycle</span> also depends on solar energy. Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in "
+"glaciers, snow cover and ice."
+msgstr ""
+"El <span class='key'>ciclo del agua</span> también depende de la energía solar. El agua se encuentra en la superficie de la Tierra como líquido en lagos, ríos, arroyos y océanos, "
+"y como sólido en glaciares, hielo y nieve."
+
+msgid "Browse through the slides below by clicking the left and right arrows"
+msgstr "Explora las diapositivas a continuación pulsando las flechas izquierda y derecha"
+
+msgid "The radiant energy of the sun heats water and causes it to <span class='key'>evaporate</span>—to change from a liquid into a water vapor."
+msgstr "La energía radiante del sol calienta el agua y la hace <span class='key'>evaporar</span>: transformarse de líquido a vapor de agua."
+
+msgid ""
+"The water vapor then rises into the air and collects in clouds. Eventually, the water vapor cools enough <span class='key'>condense</span> or change back into very small droplets "
+"of water."
+msgstr ""
+"Después, el vapor de agua se eleva en el aire y se acumula en las nubes. Tras un tiempo, el vapor de agua se enfría lo suficiente y se <span class='key'>condensa</span> o vuelve a "
+"transformarse en gotitas muy pequeñas de agua."
+
+msgid "These small droplets collect into bigger droplets and fall back to earth's surface or <span class='key'>precipitate</span> as liquid rain or solid snow, hail, or sleet."
+msgstr ""
+"Estas pequeñas gotitas forman gotas más grandes y vuelven a caer a la superficie de la Tierra o <span class='key'>precipitar</span> como lluvia líquida, o como nieve, granizo o "
+"aguanieve sólidos."
+
+msgid "The water cycle of evaporation, condensation and precipitation is driven by energy from the sun and operates continually."
+msgstr "El ciclo del agua de evaporación, condensación y precipitación se lleva a cabo gracias a la energía del sol y funciona continuamente."
+
+msgid ""
+"Without the sun, there would be no water cycle. The water would not evaporate and clouds would not form.  More importantly, without the Sun, most if not all the water on Earth "
+"would simply freeze."
+msgstr ""
+"Sin el sol, no existiría el ciclo del agua. El agua no se evaporaría ni se formarían nubes. Aún más importante, sin el Sol la mayoría, si no toda el agua de la Tierra simplemente "
+"se congelaría."
+
+msgid "Catching solar energy"
+msgstr "Capturando energía solar"
+
+# 7
+msgid "Quick Check #2"
+msgstr "Repaso rápido nº2"
+
+msgid "Question A. Which part of the water cycle does the sun directly effect?"
+msgstr "Pregunta A. ¿En qué parte del ciclo del agua influye el sol directamente?"
+
+msgid "Evaporation"
+msgstr "Evaporación"
+
+msgid "Condensation"
+msgstr "Condensación"
+
+msgid "Precipitation"
+msgstr "Precipitación"
+
+msgid "None of the above"
+msgstr "Ninguna de las anteriores"
+
+msgid "Question B. Which statement best describes the relationship between the sun and life on earth?"
+msgstr "Pregunta B. ¿Qué frase describe mejor la relación entre el sol y la vida en la Tierra?"
+
+msgid "The sun damages life on earth."
+msgstr "El sol daña la vida en la Tierra."
+
+msgid "The sun powers life on earth."
+msgstr "El sol alimenta la vida en la Tierra."
+
+msgid "The sun protects life on earth."
+msgstr "El sol protege la vida en la Tierra."
+
+msgid "All of the above"
+msgstr "Todas las anteriores"
+
+msgid "It's a sunny day..."
+msgstr "Es un día soleado..."
+
+msgid "You got it! The sun provides heat which causes water to evaporate."
+msgstr "¡Lo tienes! El sol proporciona calor, que provoca que el agua se evapore."
+
+msgid "Not quite! Once ocean water is evaporated, it condenses into clouds. So the sun plays a role in condensation, but is an indirect role."
+msgstr "¡No exactamente! Una vez el agua oceánica se evapora, se condensa en las nubes. Así que el sol influye en la condensación, pero indirectamente."
+
+msgid ""
+"Nope! The sun directly affects evaporation. But evaporation leads to condensation then precipitation. So the sun affects the entire water cycle, but directly affects evaporation."
+msgstr ""
+"¡No! El sol influye directamente en la evaporación. Pero tras la evaporación viene la condensación y luego la precipitación. Así que el sol influye en todo el ciclo del agua, pero "
+"sólo afecta directamente a la evaporación."
+
+msgid "Think again! The sun affects the entire water cycle, but directly affects evaporation."
+msgstr "¡Piénsalo de nuevo! El sol influye en todo el ciclo del agua, pero sólo afecta directamente a la evaporación."
+
+msgid "Right on! The sun gives life to everything on earth."
+msgstr "¡Exacto! El sol da vida a todo lo que hay en la Tierra."
+
+msgid "Nope! The opposite; the sun powers life on earth."
+msgstr "¡No! Al contrario: el sol alimenta la vida en la Tierra."
+
+msgid "Not quite! The sun doesn't protect things on earth, it gives life to them."
+msgstr "¡No exactamente! El sol no protege las cosas de la Tierra, les da vida."
+
+msgid "Think again! The sun does not damage or protect life on earth, it powers it."
+msgstr "¡Piénsalo de nuevo! El sol no daña ni protege la vida en la Tierra, la alimenta."
+
+# 8
+msgid ""
+"A cycle, like the water cycle we reviewed, can be defined as a series of events that continually repeats. Another cycle that depends on the sun is the day and night cycle. The sun "
+"rising and setting signals us to begin and end our day with work and rest. This cycle is related to the way the earth moves. The earth rotates around itself at the same time it "
+"orbits around the sun. It takes earth 24 hours to completely rotate one time. As it rotates, one half of the earth faces the sun and has sunlight, and the other half faces away "
+"from the sun and experiences night."
+msgstr ""
+"Un ciclo, como el ciclo del agua que ya hemos visto, puede definirse como una serie de eventos que se repite continuamente. Otro ciclo que depende del sol es el ciclo del día y la "
+"noche. El amanecer y el atardecer nos señalan que empecemos y terminemos nuestro día con trabajo o descanso. Este ciclo se debe a la forma en que se mueve la Tierra. La Tierra "
+"gira sobre sí misma a la vez que orbita el sol. La Tierra tarda 24 horas en rotar una vez por completo. A medida que rota, la mitad de la Tierra mira al sol y tiene luz solar, y "
+"la otra mitad mira hacia el otro lado y es de noche."
+
+msgid "Venus"
+msgstr "Venus"
+
+msgid "Earth"
+msgstr "Tierra"
+
+msgid "Mars"
+msgstr "Marte"
+
+msgid "Jupiter"
+msgstr "Júpiter"
+
+msgid "Saturn"
+msgstr "Saturno"
+
+msgid "Uranus"
+msgstr "Urano"
+
+msgid "Neptune"
+msgstr "Neptuno"
+
+msgid "Mercury"
+msgstr "Mercurio"
+
+msgid "Sun"
+msgstr "Sol"
+
+msgid "venus"
+msgstr "Venus"
+
+msgid "earth"
+msgstr "Tierra"
+
+msgid "mars"
+msgstr "Marte"
+
+msgid "jupiter"
+msgstr "Júpiter"
+
+msgid "saturn"
+msgstr "Saturno"
+
+msgid "uranus"
+msgstr "Urano"
+
+msgid "neptune"
+msgstr "Neptuno"
+
+msgid "mercury"
+msgstr "Mercurio"
+
+msgid "sun"
+msgstr "Sol"
+
+msgid ""
+"The rising and setting of the sun has another effect we see everyday - shadows that change as the sun moves across our sky. Shadows change during the day as the sun appears to "
+"move. The lower the sun the longer the shadow - the higher the sun the shorter the shadow. The length of a shadow can change dramatically through a day. At sunrise the shadow of "
+"the object blocking the sun will be longer than in the middle of the day. Similarly, at sunset the shadow will be longer than in the middle of the day, although the shadow will "
+"form in the opposite direction to the shadow at sunrise."
+msgstr ""
+"La salida y la puesta del sol tienen otro efecto que vemos todos los días: las sombras cambian a medida que el sol se mueve en el cielo. Las sombras cambian a lo largo del día a "
+"medida que el sol parece moverse. Cuanto más bajo esté el sol, más larga es la sombra; cuanto más alto esté, más corta es. La longitud de una sombra puede cambiar radicalmente a "
+"lo largo del día. Al amanecer, la sombra del objeto que bloquea el sol será más larga que a mediodía. Del mismo modo, al atardecer la sombra será más larga que al mediodía, aunque "
+"la sombra se formará en dirección opuesta a la sombra del amanecer."
+
+msgid ""
+"The size of the shadow depends on a variety of factors including the time of the day, the size of the object blocking the light and the position of the sun at the time the shadow "
+"is created."
+msgstr ""
+"El tamaño de una sombra depende de varios factores, incluyendo la hora del día, el tamaño del objeto que bloquea la luz y la posición del sol en el momento en que la sombra es "
+"creada."
+
+msgid "Round and round it goes..."
+msgstr "Gira y sigue girando..."
+
+# 9
+msgid "Quick Check #3"
+msgstr "Repaso rápido nº3"
+
+msgid "Question A. How long does it take the moon to travel once around the earth?"
+msgstr "Pregunta A. ¿Cuánto tarda la luna en viajar una vez alrededor de la Tierra?"
+
+msgid "24 hours"
+msgstr "24 horas"
+
+msgid "28 days"
+msgstr "28 días"
+
+msgid "12 months"
+msgstr "12 meses"
+
+msgid "Questions B. Look at the two pictures of the same runner and click on <span class='red blink'>all</span> the correct statements below."
+msgstr "Pregunta B. Mira las dos imágenes del mismo corredor y pulsa <span class='red blink'>todas</span> las respuestas correctas a continuación."
+
+msgid "In both pictures the runner is running at the same time of the day."
+msgstr "En ambas imágenes el corredor corre a la misma hora del día."
+
+msgid "The shadows for both runners will not change as the people walk."
+msgstr "Las sombras de ambos corredores no cambiarán a medida que la gente camine."
+
+msgid "Knowing the position of the sun at the same time the shadows are created, the time of the day can be estimated."
+msgstr "Sabiendo la posición del sol a la hora en que las sombras han sido creadas, se puede estimar la hora del día."
+
+msgid "Both runners are facing the sun."
+msgstr "Ambos corredores están mirando al sol."
+
+msgid "The shadow created in the picture on the right is most likely created closer to noon than the shadow on the left."
+msgstr "La sombra de la imagen de la derecha ha sido creada seguramente más cerca del mediodía que la sombra de la izquierda."
+
+msgid "Checking, checking..."
+msgstr "Comprobemos, comprobemos..."
+
+msgid "Right on! It takes 28 days for the moon to travel once around the earth."
+msgstr "¡Exacto! La luna tarda 28 días en viajar una vez alrededor de la Tierra."
+
+msgid "Nope! It takes 24 hours for the earth to turn once in its axis."
+msgstr "¡No! La Tierra tarda 24 horas en girar una vez sobre su eje."
+
+msgid "Not quite! It takes 12 months for the earth to revolve around the sun."
+msgstr "¡No exactamente! La Tierra tarda 12 meses en girar alrededor del sol."
+
+msgid ""
+"You got it! Both shadows are behind the runners, so you can tell they are facing the sun. Knowing the position of the sun at the time the shadow is created, the time of day can be "
+"estimated. The time of the shorter shadow is probably closer to noon."
+msgstr ""
+"¡Lo tienes! Ambas sombras están tras los corredores, así que sabes que están mirando al sol. Sabiendo la posición del sol a la hora en que las sombras han sido creadas, se puede "
+"estimar la hora del día. La hora de la sombra más corta es probablemente más cercana al mediodía."
+
+msgid ""
+"Not quite! Based on the shadows you can see it is not the same time of day. No matter the time, a person's shadow will always move with them. Knowing the position of the sun at "
+"the time the shadow is created, the time of day can be estimated. The time of the shorter shadow is probably closer to noon. Both shadows are behind the runners, so you can tell "
+"they are facing the sun."
+msgstr ""
+"¡No exactamente! Basándonos en las sombras, puedes ver que no es la misma hora del día. Sin importar la hora, la sombra de una persona siempre se moverá con ella. Sabiendo la "
+"posición del sol a la hora en que la sombra ha sido creada, se puede estimar la hora del día. La hora de la sombra más corta es probablemente más cercana al mediodía. Ambas "
+"sombras están tras los corredores, así que sabes que están mirando al sol."
+
+# 10
+msgid ""
+"Everyone knows it is hot in the summer and cold in the winter in the northern hemisphere even though the sun itself doesn't change. What everyone doesn't know is that the way the "
+"sun's light energy hits the earth, the shape of the earth and the tilt of the earth are what cause the different seasons."
+msgstr ""
+"Todo el mundo sabe que en verano hace calor y en invierno hace frío en el hemisferio norte, aunque el sol realmente no cambie. Lo que no sabe todo el mundo es que la forma en que "
+"la energía de la luz del sol llega a la Tierra, la forma de la Tierra y la inclinación de la Tierra son lo que causan las distintas estaciones."
+
+msgid ""
+"Let's start with the way the light energy from the sun strikes the earth and the earth's shape. It is useful to think of the sun's light as traveling in <span class='key'>parallel "
+"rays</span> when they strike the earth. Because the earth is shaped like a ball, the parallel rays do not hit all places on the earth's surface at the same angle. At or near the "
+"earth's <span class='key'>equator</span>, the sun's rays hit the earth with the greatest energy--like a ball thrown directly at a wall. Light rays hitting the earth further and "
+"further away from the equator hit the earth with less and less energy—like a ball thrown at more and more of a glancing angle at a wall. The less energy striking that part of the "
+"Earth, the colder that part of the Earth is."
+msgstr ""
+"Empecemos por la forma en que la energía de la luz del sol toca la Tierra y la forma de la Tierra. Es útil pensar en la luz del sol como si viajase en <span class='key'>rayos "
+"paralelos</span> cuando toca la Tierra. Como la Tierra tiene forma de pelota, los rayos paralelos no tocan todos los lugares de la superficie de la Tierra con el mismo ángulo. En "
+"el <span class='key'>ecuador</span> de la Tierra o cerca de él, los rayos del sol llegan a la Tierra con su máxima energía: como si lanzas una pelota directamente a un muro. "
+"Cuanto más lejos lleguen los rayos de luz a la Tierra, menos energía tendrán: como si lanzas una pelota con un ángulo cada vez mayor a un muro. Cuanta menos energía llegue a esa "
+"parte de la Tierra, más fría será."
+
+msgid ""
+"The tilt of the earth on its axis is the reason we have different seasons. As the earth revolves around the sun, the tilt means different places on the earth receive more or less "
+"energy from the parallel rays that hit the earth. So when the earth is tilted with its north pole toward the sun, it is summer in the northern hemisphere and winter in the "
+"southern hemisphere. When the earth is tilted with its south pole toward the sun, it is just the opposite--summer in the southern hemisphere and winter in the northern hemisphere."
+msgstr ""
+"La inclinación del eje de la Tierra es la razón por la que tenemos distintas estaciones. A medida que la Tierra gira alrededor del sol, la inclinación hace que distintos puntos de "
+"la Tierra reciban más o menos energía de los rayos paralelos que tocan la Tierra. Así que cuando la Tierra está inclinada con su Polo Norte hacia el sol, es verano en el "
+"hemisferio norte e invierno en el hemisferio sur. Cuando la Tierra está inclinada con su Polo Sur hacia el sol, es justo lo contrario: verano en el hemisferio sur e invierno en el "
+"hemisferio norte."
+
+msgid "Spring"
+msgstr "Primavera"
+
+msgid "Summer"
+msgstr "Verano"
+
+msgid "Winter"
+msgstr "Invierno"
+
+msgid "Autumn"
+msgstr "Otoño"
+
+msgid "Changing seasons..."
+msgstr "Cambiando estaciones..."
+
+# 11
+msgid "Quick Check #4"
+msgstr "Repaso rápido nº4"
+
+msgid "Question A. What cycle caused by the sun is the diagram trying to show? What is the cause of this cycle?"
+msgstr "Pregunta A. ¿Qué ciclo provocado por el sol se muestra en el diagrama? ¿Cuál es la causa de este ciclo?"
+
+msgid "Day and night cycle, tilt of the earth on its axis"
+msgstr "El ciclo del día y la noche, la inclinación del eje de la Tierra"
+
+msgid "Occurrence of seasons, tilt of the earth on its axis"
+msgstr "La existencia de estaciones, la inclinación del eje de la Tierra"
+
+msgid "Day and night cycle, rotation of the earth on its axis"
+msgstr "El ciclo del día y la noche, la rotación de la Tierra sobre su eje"
+
+msgid "Occurrence of seasons, rotation of the earth on its axis"
+msgstr "La existencia de estaciones, la rotación de la Tierra sobre su eje"
+
+msgid "Question B. Click on the answer that best describes the seasons when the North Pole is tilted towards the sun."
+msgstr "Pregunta B. Pulsa la respuesta que mejor describa las estaciones cuando el Polo Norte está orientado hacia el sol."
+
+msgid "It is summer time in countries in the Northern Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr "Es verano en los países del Hemisferio Norte. Es invierno en los países del Hemisferio Sur."
+
+msgid "It is winter time in countries in the Northern Hemisphere. It is summer time in countries in the Southern Hemisphere."
+msgstr "Es invierno en los países del Hemisferio Norte. Es verano en los países del Hemisferio Sur."
+
+msgid "It is winter time in countries in the Northern and Southern Hemisphere."
+msgstr "Es invierno en los países de los Hemisferios Norte y Sur."
+
+msgid "It is summer time in countries in the Northern and Southern Hemisphere."
+msgstr "Es verano en los países de los Hemisferios Norte y Sur."
+
+msgid "Rotate or flip the 3D box below either up or down to set your answer."
+msgstr "Gira la siguiente caja 3D hacia arriba o hacia abajo para marcar tu respuesta."
+
+msgid "Ready for last QC?"
+msgstr "¿Listo/a para el último repaso rápido?"
+
+msgid ""
+"You got it! The diagram is showing how seasons work. The tilt of the earth is what causes the difference in the amount of sunlight reaching the ground in the different hemispheres "
+"and different seasons."
+msgstr ""
+"¡Lo tienes! El diagrama muestra cómo funcionan las estaciones. La inclinación de la Tierra es lo que causa la diferencia en la cantidad de luz solar que alcanza el suelo en los "
+"distintos hemisferios y las distintas estaciones."
+
+msgid ""
+"Not quite! Day and night are caused by the rotation of the earth, not its tilt. The earth makes a complete turn on its axis, which makes the sun to shine on one half, while the "
+"other half will have no light."
+msgstr ""
+"¡No exactamente! El día y la noche son provocados por la rotación de la Tierra, no por su inclinación. La Tierra hace un giro completo sobre su eje, lo que hace que el sol brille "
+"en una mitad, mientras la otra mitad no tiene luz."
+
+msgid "Nope! Day and night are caused by the rotation of the earth, but the diagram is showing the occurrence of seasons due to the tilt of the earth."
+msgstr "¡No! El día y la noche son provocados por la rotación de la Tierra, pero el diagrama muestra la existencia de estaciones debida a la inclinación de la Tierra."
+
+msgid ""
+"Look again! The diagram is showing the occurrence of seasons, but it is due to the tilt of the earth which causes a difference in the amount of sunlight reaching the ground in the "
+"different hemispheres."
+msgstr ""
+"¡Mira otra vez! El diagrama muestra la existencia de estaciones, pero es la inclinación de la Tierra lo que causa una diferencia en la cantidad de luz solar que alcanza el suelo "
+"en los distintos hemisferios."
+
+msgid "Super! The Northern Hemisphere is getting all the sun, so it will be summer. The Southern Hemisphere is farther away from the sun and it will be winter in that area."
+msgstr "¡Genial! El Hemisferio Norte está recibiendo todo el sol, así que será verano. El Hemisferio Sur está más lejos del sol así que será invierno en esa zona."
+
+msgid ""
+"Nope! Exactly the other way around. The Northern Hemisphere is getting all the sun, so it will be summer. The Southern Hemisphere is farther away from the sun and it will be "
+"winter in that area."
+msgstr "¡No! Todo lo contrario. El Hemisferio Norte está recibiendo todo el sol, así que será verano. El Hemisferio Sur está más lejos del sol así que será invierno en esa zona."
+
+msgid ""
+"Think again! The earth is tilted so the same amount of sun will not reach the Northern and Southern Hemisphere at the same time. It is summer time in countries in the Northern "
+"Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr ""
+"¡Piénsalo de nuevo! La Tierra está inclinada así que no puede llegar la misma cantidad de sol a los Hemisferios Norte y Sur al mismo tiempo. Es verano en los países del Hemisferio "
+"Norte. Es invierno en los países del Hemisferio Sur."
+
+msgid ""
+"Not quite! The earth is tilted so the same amount of sun will not reach the Northern and Southern Hemisphere at the same time. It is summer time in countries in the Northern "
+"Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr ""
+"¡No exactamente! La Tierra está inclinada así que no puede llegar la misma cantidad de sol a los Hemisferios Norte y Sur al mismo tiempo. Es verano en los países del Hemisferio "
+"Norte. Es invierno en los países del Hemisferio Sur."
+
+# 12
+msgid "Using what you know... about solar power... to solve a problem"
+msgstr "Usemos lo que sabes... sobre energía solar... para resolver un problema"
+
+msgid "The Situation"
+msgstr "La situación"
+
+msgid ""
+"You work as an engineer for a company that consults (advises) on matters related to the purchase of  alternative energy equipment.  City officials in Anchorage, Alaska have "
+"contacted your company about installing solar panels to help generate electricity for their city office buildings."
+msgstr ""
+"Trabajas como ingeniero/a para una compañía que asesora (aconseja) en temas relacionados con la compra de equipamiento para energías alternativas. Funcionarios de la ciudad de "
+"Anchorage, en Alaska, han contactado a tu compañía para instalar paneles solares que ayuden a generar electricidad en los edificios de oficinas de su ciudad."
+
+msgid "The Problem"
+msgstr "El problema"
+
+msgid ""
+"Using what you know about solar energy and how the sun impacts different parts of the earth at different times of the year, what kind of information would you provide to and "
+"questions you would ask the city officials to help them make a decision on whether or not to install solar panels.  Place your information and questions in the text box provided."
+msgstr ""
+"Usando lo que sabes sobre energía solar y cómo el sol impacta diferentes partes de la Tierra en distintos momentos del año, explica qué tipo de información ofrecerías y qué "
+"preguntas harías a los funcionarios para ayudarles a tomar la mejor decisión acerca de instalar o no los paneles solares. Escribe tu información y preguntas en la caja de texto a "
+"continuación."
+
+msgid "Click here to start typing your answer..."
+msgstr "Haz clic aquí para escribir tu respuesta..."
+
+msgid "Hello, engineer..."
+msgstr "Hola, ingeniero/a..."
+
+# 13
+msgid "Summarizing big ideas... about solar power"
+msgstr "Resumamos las ideas principales... sobre energía solar"
+
+msgid ""
+"The sun is a giant nuclear power plant within the solar system. Energy is released from the fusion going on inside the sun. Then the sun <span class='key'>radiates</span> huge "
+"amounts of energy in all directions in space. This solar energy affects life on earth in many ways. The effect of the sun's energy is directly observable in the <span "
+"class='key'>water cycle</span>, weather, and oceans. In plants, solar effects are not only seen in their growth, but also in the energy that animals get from the plants when the "
+"plants are eaten as food. The cycle of day and night is another cycle affected by solar energy, which is related to the way the earth rotates around itself at the same time it "
+"orbits around the sun. As it rotates, one half of the earth faces the sun and has sunlight, and the other half faces away from the sun and experiences night. Differences in the "
+"amount of energy received from the sun at different places on the earth are due to earth's shape and its rotation on a tilted axis as it travels around the sun.  The tilt in the "
+"earth on its axis results in changes in how much of sun's energy is received as the earth moves around the sun. It is the difference in energy received that causes different "
+"places to be warm (near the equator) or cold (as you get closer and closer the north or south pole)."
+msgstr ""
+"El sol es una central nuclear gigante dentro del sistema solar. La energía se libera a partir de la fusión que tiene lugar dentro del sol. Luego, el sol <span class='key'>irradia</"
+"span> enormes cantidades de energía en todas las direcciones del espacio. Esta energía solar influye en la vida en la Tierra de muchas formas. El efecto de la energía del sol "
+"puede observarse directamente en el <span class='key'>ciclo del agua</span>, el tiempo meteorológico y los océanos. En las plantas, los efectos solares no sólo se ven en su "
+"crecimiento, sino también en la energía que los animales reciben de las plantas cuando las consumen como comida. El ciclo del día y la noche es otro ciclo afectado por la energía "
+"solar, relacionado con la forma en que la Tierra rota sobre sí misma a la vez que orbita alrededor del sol. A medida que rota, una mitad de la Tierra mira al sol y tiene luz "
+"solar, y la otra mitad mira hacia el otro lado y experimenta la noche. La diferencia en la cantidad de energía recibida del sol en distintos lugares de la Tierra se debe a la "
+"forma de la Tierra y a su rotación en un eje inclinado a medida que viaja alrededor del sol. La inclinación del eje de la Tierra supone cambios en cuánta energía del sol se recibe "
+"a medida que la Tierra se mueve alrededor del sol. La diferencia de energía recibida es lo que causa que distintos lugares sean cálidos (cerca del ecuador) o fríos (a medida que "
+"te acercas a los polos Norte y Sur)."
+
+msgid "Putting it all together..."
+msgstr "Juntemos todo lo aprendido..."
+
+# 14
+msgid "Reviewing key vocabulary... related to solar power"
+msgstr "Repasemos vocabulario clave... relacionado con la energía solar"
+
+msgid "Spectrum"
+msgstr "Espectro"
+
+msgid "The spectrum of energy is its range of types, or frequencies. The sun has a wide spectrum of radiant energies that can move through empty space."
+msgstr "El espectro de energía es su rango de tipos, o frecuencias. El sol tiene un amplio espectro de energía radiante que puede viajar a través del espacio vacío."
+
+msgid "Radiate"
+msgstr "Irradiar"
+
+msgid "To radiate is to emit energy through space. The sun radiates infrared, visible, and ultraviolet light."
+msgstr "Irradiar es emitir energía a través del espacio. El sol irradia luz infrarroja, visible y ultravioleta."
+
+msgid "Radiant energy"
+msgstr "Energía radiante"
+
+msgid ""
+"Radiant energy is energy transmitted via the process of radiation, or moving through space as electromagnetic waves. Most of the radiant energy of the sun that reaches Earth is "
+"visible and infrared light."
+msgstr ""
+"La energía radiante es la energía transmitida en el proceso de radiación, o de viajar a través del espacio como ondas electromagnéticas. La mayoría de la enegía radiante del sol "
+"que llega a la Tierra es luz visible e infrarroja."
+
+msgid "Visible light"
+msgstr "Luz visible"
+
+msgid "Visible light is the portion of the spectrum of electromagnetic radiation that is visible to the unaided eye."
+msgstr "La luz visible es la porción del espectro de radiación electromagnética que es visible al ojo desnudo."
+
+msgid "Infrared light"
+msgstr "Luz infrarroja"
+
+msgid ""
+"Infrared light is the portion of the spectrum of electromagnetic radiation that has longer wavelengths than visible light, and thus is undetectable by the unaided eye. About half "
+"of the light that the sun emits to Earth is in the form of infrared light."
+msgstr ""
+"La luz infrarroja es la porción del espectro de radiación electromagnética con longitudes de onda mayores que la luz visible, y por tanto es indetectable por el ojo desnudo. "
+"Aproximadamente la mitad de la luz que el sol emite a la Tierra está en forma de luz infrarroja."
+
+msgid "Water cycle"
+msgstr "Ciclo del agua"
+
+msgid ""
+"The water cycle is the natural process by which water is transferred from the ground to the atmosphere, and back again. There are three main steps in the water cycle: evaporation, "
+"condensation, and precipitation."
+msgstr ""
+"El ciclo del agua es el proceso natural por el cual el agua se transfiere del suelo a la atmósfera, y viceversa. Hay tres pasos principales en el ciclo del agua: evaporación, "
+"condensación y precipitación."
+
+msgid "Evaporate"
+msgstr "Evaporar"
+
+msgid ""
+"To evaporate means to change from a liquid state to a gas state. Evaporation is one of the main three steps of the water cycle, and occurs as liquid water rises into the "
+"atmosphere as it evaporates into water vapor gas."
+msgstr ""
+"Evaporar significa pasar de estado líquido a estado gaseoso. La evaporación es uno de los tres pasos principales del ciclo del agua, y ocurre cuando el agua líquida se eleva a la "
+"atmósfera al evaporarse en vapor de agua."
+
+msgid "Condense"
+msgstr "Condensar"
+
+msgid ""
+"To condense means to change from a gas state to a liquid state. Condensation is one of the main three steps of the water cycle, and occurs as liquid water that has risen into the "
+"atmosphere through evaporation, condenses into rain clouds that are ready to precipitate (rain)."
+msgstr ""
+"Condensar significa pasar de estado gaseoso a estado líquido. La condensación es uno de los tres pasos principales del ciclo del agua, y ocurre cuando el agua líquida que ha "
+"ascendido a la atmósfera mediante la evaporación se condensa en nubes de lluvia listas para precipitar (llover)."
+
+msgid "Precipitate"
+msgstr "Precipitar"
+
+msgid ""
+"To precipitate means to fall to the earth's surface, such as through liquid rain, solid snow, or other forms of precipitation. Precipitation is one of the main three steps of the "
+"water cycle, and occurs as condensed water vapor in the atmosphere falls under gravity to the ground."
+msgstr ""
+"Precipitar significa caer a la superficie de la Tierra, en forma de lluvia líquida, nieve sólida, u otras formas de precipitación. La precipitación es uno de los tres pasos "
+"principales del ciclo del agua, y ocurre cuando el vapor de agua condensado en la atmósfera cae al suelo debido a la gravedad."
+
+msgid "Photosynthesis"
+msgstr "Fotosíntesis"
+
+msgid ""
+"Photosynthesis is the process by which producer organisms, such as plants and phytoplankton, produce their food. These organisms undergo photosynthesis when they use carbon "
+"dioxide from the air, water, and light energy from the sun to produce sugar and give off a by-product of oxygen."
+msgstr ""
+"La fotosíntesis es el proceso por el cual los organismos productores, como las plantas y el fitoplancton, producen su comida. Esos organismos llevan a cabo la fotosíntesis cuando "
+"usan dióxido de carbono del aire, agua, y energía de la luz del sol para producir azúcar y desprender oxígeno como subproducto."
+
+msgid "Equator"
+msgstr "Ecuador"
+
+msgid ""
+"The equator is the imaginary center line, going horizontally, across Earth. The equator divides Earth into the northern and southern hemispheres. Earth's equator is about 24,901 "
+"miles long!"
+msgstr ""
+"El ecuador es la línea imaginaria que corta la Tierra horizontalmente. El ecuador divide la Tierra en los hemisferios norte y sur. ¡El ecuador de la Tierra es de aproximadamente "
+"40.075 kilómetros (24.901 millas) de largo!"
+
+msgid "Parallel rays"
+msgstr "Rayos paralelos"
+
+msgid "Two rays, or lines with an endpoint in one direction and no endpoint in the other, are parallel when they never intersect despite being on the same plane."
+msgstr "Dos rayos, o líneas con un extremo en una dirección pero sin extremo en la otra, son paralelos cuando nunca se cruzan a pesar de estar en el mismo plano."
+
+msgid "Words and explanations"
+msgstr "Palabras y explicaciones"
+
+# 15
+msgid "Checking what you now know... about solar power"
+msgstr "Comprobemos lo que sabes ahora... sobre energía solar"
+
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "Responder las siguientes seis (6) preguntas de examen te dará una idea de lo que sabes ahora y lo que necesitas seguir estudiando."
+
+msgid ">Click the NEXT button when you are ready."
+msgstr ">Haz clic en el botón SIGUIENTE cuando estés listo/a."
+
+msgid "Let's check what you now know"
+msgstr "Comprobemos lo que sabes"
+
+# 16
+msgid "Quiz Question #1"
+msgstr "Pregunta de examen nº1"
+
+msgid "Click on <span class='red blink'>all</span> the following statements that are <span class='red blink'>true</span>."
+msgstr "Haz clic en <span class='red blink'>todas</span> las respuestas a continuación que sean <span class='red blink'>ciertas</span>."
+
+msgid "The Sun warms the Earth on both clear and cloudy days."
+msgstr "El Sol calienta la Tierra tanto en días despejados como en días nubosos."
+
+msgid "The Sun is a huge ball of burning solids and gases."
+msgstr "El Sol es una enorme bola de sólidos y gases ardiendo."
+
+msgid "The Sun radiates energy in all directions."
+msgstr "El Sol irradia energía en todas las direcciones."
+
+msgid "The Sun strikes the earth the same in all seasons."
+msgstr "El Sol llega a la Tierra de la misma forma en todas las estaciones."
+
+msgid "The Sun affects our weather and water cycle."
+msgstr "El Sol influye en el tiempo meteorológico y en el ciclo del agua."
+
+msgid "Your first quiz question is..."
+msgstr "Tu primera pregunta de examen es..."
+
+msgid ""
+"Correct! The sun warms the earth no matter what the weather may be. The Sun radiates energy equally in all directions. It plays a very important role in the water cycle and our "
+"weather."
+msgstr ""
+"¡Correcta! El sol calienta la Tierra sin importar qué tiempo haga. El Sol irradia la misma energía en todas las direcciones. Juega un papel muy importante en el ciclo del agua y "
+"en el tiempo meteorológico."
+
+msgid "Nope! The sun is a large ball of superheated gas called plasma - not solid - its energy is released when hydrogen atoms are joined or fused together."
+msgstr "¡No! El Sol es una gran bola de gas sobrecalentado llamado plasma (no es sólido), su energía se libera cuando los átomos de hidrógeno se unen o fusionan."
+
+msgid "Nope! The Sun is not like a burning fire- its energy is released when hydrogen atoms are joined or fused together."
+msgstr "¡No! El Sol no es como un fuego ardiendo: su energía es liberada cuando átomos de hidrógeno se unen o fusionan."
+
+msgid ""
+"Not quite. The sun warms the earth no matter what the weather may be, the sun radiates energy in all directions, and the sun plays a very important role in the water cycle and our "
+"weather. But the sun is not like a burning fire—its energy is released when hydrogen atoms are joined or fused together and the sun does not strike all places on the earth at the "
+"same angle at all times of the year because the earth is tilted on its axis as it orbits the sun."
+msgstr ""
+"No exactamente. El sol calienta la Tierra sin importar qué tiempo haga, el sol irradia energía en todas las direcciones, y el sol juega un papel muy importante en el ciclo del "
+"agua y en el tiempo meteorológico. Pero el sol no es como un fuego ardiendo: su energía es liberada cuando átomos de hidrógeno se unen o fusionan, y el sol no llega a todos los "
+"lugares de la Tierra con el mismo ángulo a lo largo de todo el año porque la Tierra tiene un eje inclinado a medida que orbita el sol."
+
+# 17
+msgid "Quiz Question #2"
+msgstr "Pregunta de examen nº2"
+
+msgid "Which two elements make up the gas inside the sun?"
+msgstr "¿Qué dos elementos forman el gas del interior del sol?"
+
+msgid "Carbon and nitrogen"
+msgstr "Carbono y nitrógeno"
+
+msgid "Hydrogen and oxygen"
+msgstr "Hidrógeno y oxígeno"
+
+msgid "Oxygen and carbon"
+msgstr "Oxígeno y carbono"
+
+msgid "Hydrogen and helium"
+msgstr "Hidrógeno y helio"
+
+msgid "What the sun is made of..."
+msgstr "De qué está hecho el sol..."
+
+msgid "You got it! Hydrogen and helium are the gases inside the sun."
+msgstr "¡Lo tienes! Hidrógeno y helio son los gases del interior del sol."
+
+msgid "Try again! There is no carbon or nitrogen on the Sun."
+msgstr "¡Inténtalo de nuevo! No hay carbono ni nitrógeno en el Sol."
+
+msgid "Not quite! There is no oxygen on the Sun."
+msgstr "¡No exactamente! No hay oxígeno en el Sol."
+
+msgid "Nope! There is no oxygen or carbon on the Sun."
+msgstr "¡No! No hay oxígeno ni carbono en el Sol."
+
+# 18
+msgid "Quiz Question #3"
+msgstr "Pregunta de examen nº3"
+
+msgid "The Sun appears to move across the sky each day. What causes this?"
+msgstr "El Sol parece moverse a través del cielo todos los días. ¿A que se debe esto?"
+
+msgid "The spinning of Earth on its axis."
+msgstr "La rotación de la Tierra sobre su eje."
+
+msgid "The path of the Sun around Earth."
+msgstr "La trayectoria del Sol alrededor de la Tierra."
+
+msgid "The production of nuclear energy by the Sun."
+msgstr "La producción de energía nuclear por el Sol."
+
+msgid "The tilt of Earth on its axis."
+msgstr "La inclinación del eje de la Tierra."
+
+msgid "A brighter day"
+msgstr "Un día más soleado"
+
+msgid "Right on! The earth spins on its axis and that's what make it seem to moving across the sky."
+msgstr "¡Exacto! La Tierra gira sobre su eje y eso es lo que hace que parezca que se mueve por el cielo."
+
+msgid "Not quite! The Sun does not go around the Earth- the Earth orbits the Sun. But the orbiting does not explain the appearance of the Sun moving across the sky."
+msgstr "¡No exactamente! El Sol no gira alrededor de la Tierra: la Tierra orbita al Sol. Pero esa órbita no explica que parezca que el Sol se mueve por el cielo."
+
+msgid ""
+"Think again! Nuclear energy is produced in the Sun and some of that energy reaches the Earth. But that energy is coming in all the time- it does not explain the appearance of the "
+"Sun moving across the sky."
+msgstr ""
+"¡Piénsalo de nuevo! En el Sol se produce energía nuclear y parte de esa energía alcanza la Tierra. Pero esa energía está llegando todo el tiempo: eso no explica que parezca que el "
+"Sol se mueve por el cielo."
+
+msgid "Nope! The tilt of the Earth on its axis does cause the change in seasons. But the tilt does not explain the appearance of the Sun moving across the sky."
+msgstr "¡No! La inclinación del eje de la Tierra provoca los cambios de estaciones. Pero la inclinación no explica que parezca que el Sol se mueve por el cielo."
+
+# 19
+msgid "Quiz Question #4"
+msgstr "Pregunta de examen nº4"
+
+msgid "Click on the statement that is <span class='red blink'>not</span> <span class='red blink'>true</span>."
+msgstr "Haz clic en la respuesta que <span class='red blink'>no</span> es <span class='red blink'>cierta</span>."
+
+msgid "Every hour the earth makes one full rotation on its axis."
+msgstr "Cada hora, la Tierra hace una rotación completa sobre su eje."
+
+msgid "The earth's rotation causes the Sun's position in the sky to change."
+msgstr "La rotación de la Tierra hace que la posición del Sol en el cielo cambie."
+
+msgid "When we are on the side of the earth facing the sun, it is daytime."
+msgstr "Cuando estamos en el lado de la Tierra que mira al sol, es de día."
+
+msgid "The sun only seems to rise and set every day."
+msgstr "Sólo parece que el sol suba y baje a diario."
+
+msgid "Spinning...spinning..."
+msgstr "Gira...gira..."
+
+msgid "Super! The Earth makes one full rotation in 24 hours, not one hour"
+msgstr "¡Genial! La Tierra hace una rotación completa en 24 horas, no en una hora."
+
+msgid "Nope! This statement is true. The sun does not really rise and set every day, it is the earth's rotation that makes it seem this way."
+msgstr "¡No! Esta respuesta es cierta. El sol no sube y baja realmente todos los días, es la rotación de la Tierra lo que hace que parezca así."
+
+msgid "Not quite! This statement is true. It is daytime for the side of the Earth that faces the Sun."
+msgstr "¡No exactamente! Esta respuesta es cierta. Es de día en el lado de la Tierra que mira al Sol."
+
+msgid "Think again! This statement is true. The sun does not really rise and set every day, it is the earth's rotation that makes it seem this way."
+msgstr "¡Piénsalo de nuevo! Esta frase es cierta. El sol no sube y baja realmente todos los días, es la rotación de la Tierra lo que hace que parezca así."
+
+# 20
+msgid "Quiz Question #5"
+msgstr "Pregunta de examen nº5"
+
+msgid ""
+"As the sun seems to move across the sky during the day, the shape of the shadows it makes changes. Here are five pictures of a house showing its shadows changing with the position "
+"of the sun in the sky:"
+msgstr ""
+"A medida que el sol parece moverse a través del cielo durante el día, cambia la forma de las sombras que hace. Aquí hay cinco imágenes de una casa que muestran su sombra cambiando "
+"con la posición del sol en el cielo:"
+
+msgid ""
+"Connect the letters on the left, which represents the images above, to the time on the right by dragging any of the circles at the left column to another circle in the right "
+"column. Click the Start Over button to remove the lines and connect again."
+msgstr ""
+"Conecta las letras de la izquierda, que representan las imágenes de arriba, con las horas de la derecha arrastrando cualquiera de los círculos de la columna de la izquierda a otro "
+"círculo de la columna de la derecha. Haz clic en el botón Empezar de nuevo para borrar las líneas y conectarlas de nuevo."
+
+msgid "Column A"
+msgstr "Columna A"
+
+msgid "noon"
+msgstr "mediodía"
+
+msgid "or"
+msgstr "o"
+
+msgid "Column B"
+msgstr "Columna B"
+
+msgid "Start Over"
+msgstr "Empezar de nuevo"
+
+msgid "A black silhouette follows..."
+msgstr "Una silueta oscura te persigue..."
+
+msgid ""
+"Correct! When the earth is rotating on its axis, it seems that in the morning the sun is rising from the east. At noon, the sun is directly over the earth and the shadow is "
+"shortest. As the day goes on, the shadows begin to get longer again until the earth rotates in a way that it appears the sun is setting in the west. Knowing the position of the "
+"sun at the time the shadow is created, the time of day can be estimated."
+msgstr ""
+"¡Correcto! Cuando la Tierra rota sobre su eje, parece que por la mañana el sol sale por el este. Al mediodía, el sol está directamente sobre la Tierra y la sombra es mínima. A "
+"medida que pasa el día, las sombras empiezan a alargarse otra vez hasta que la Tierra rota de forma que parece que el sol se está poniendo por el oeste. Sabiendo la posición del "
+"sol en el momento en que la sombra es creada, puede estimarse la hora del día."
+
+msgid ""
+"Not quite! When the earth is rotating on its axis, it seems that in the morning the sun is rising from the east. At noon, the sun is directly over the earth and the shadow is "
+"shortest. As the day goes on, the shadows begin to get longer again until the earth rotates in a way that it appears the sun is setting in the west. Knowing the position of the "
+"sun at the time the shadow is created, the time of day can be estimated."
+msgstr ""
+"¡No exactamente! Cuando la Tierra rota sobre su eje, parece que por la mañana el sol sale por el este. Al mediodía, el sol está directamente sobre la Tierra y la sombra es mínima. "
+"A medida que pasa el día, las sombras empiezan a alargarse otra vez hasta que la Tierra rota de forma que parece que el sol se está poniendo por el oeste. Sabiendo la posición del "
+"sol en el momento en que la sombra es creada, puede estimarse la hora del día."
+
+# 21
+msgid "Quiz Question #6"
+msgstr "Pregunta de examen nº6"
+
+msgid "Select the correct words to fill in the blanks."
+msgstr "Selecciona las palabras correctas y completa los espacios."
+
+msgid ""
+"Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in glaciers, snow cover and ice. The radiant energy of the sun heats water and "
+"causes it to"
+msgstr ""
+"El agua se encuentra en la superficie de la Tierra como un líquido en lagos, ríos, arroyos y océanos, y como sólido en glaciares, hielo y nieve. La energía radiante del sol "
+"calienta el agua y la hace"
+
+msgid "select"
+msgstr "seleccionar"
+
+msgid "condense"
+msgstr "condensar"
+
+msgid "radiate"
+msgstr "irradiar"
+
+msgid "precipitate"
+msgstr "precipitar"
+
+msgid "evaporate"
+msgstr "evaporar"
+
+msgid "into water vapor. The water vapor then rises into the air and collects in clouds. Eventually, the water vapor cools enough to"
+msgstr "en vapor de agua. Después, el vapor de agua se eleva en el aire y se acumula en las nubes. Tras un tiempo, el vapor de agua se enfría lo suficiente para"
+
+msgid "or change back into very small droplets of water. These small droplets of water combine into bigger droplets that then fall back to Earth as"
+msgstr "o volver a transformarse en gotitas muy pequeñas de agua. Estas pequeñas gotitas forman gotas más grandes y vuelven a caer a la superficie de la Tierra al"
+
+msgid "in the form of rain, sleet, hail or snow."
+msgstr "en forma de lluvia, nieve, granizo o aguanieve."
+
+msgid ""
+"Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in glaciers, snow cover and ice. The radiant energy of the sun heats water and "
+"causes it to <span id='ans1'></span> (to change from a liquid into a water vapor). The water vapor then rises into the air and collects in clouds. Eventually, the water vapor "
+"cools enough <span id='ans2'></span> or change back into very small droplets of water. These small droplets collect into bigger droplet and fall back to earth's surface or <span "
+"id='ans3'></span> as liquid rain or solid snow, hail, or sleet."
+msgstr ""
+"El agua se encuentra en la superficie de la Tierra como un líquido en lagos, ríos, arroyos y océanos, y como sólido en glaciares, hielo y nieve. La energía radiante del sol "
+"calienta el agua y la hace <span id='ans1'></span> (transformarse de líquido a vapor de agua). Después, el vapor de agua se eleva en el aire y se acumula en las nubes. Tras un "
+"tiempo, el vapor de agua se enfría lo suficiente para <span id='ans2'></span> o volver a transformarse en gotitas muy pequeñas de agua. Estas pequeñas gotitas forman gotas más "
+"grandes y vuelven a caer a la superficie de la Tierra o <span id='ans3'></span> como lluvia líquida, o como nieve, granizo o aguanieve sólidos."
+
+msgid "Is it raining?"
+msgstr "¿Está lloviendo?"
+
+msgid ""
+"Correct! The water cycle consists of evaporation where water turns into vapor, condensation where the vapor turns into small droplets of water that combine into larger droplets "
+"that fall back to Earth as precipitation in the form of rain, sleet, hail and snow."
+msgstr ""
+"¡Correcto! El ciclo del agua consiste en la evaporación, donde el agua se convierte en vapor, la condensación, donde el vapor se convierte en pequeñas gotitas de agua, que se "
+"combinan en gotas más grandes y vuelven a caer a la Tierra como precipitación en forma de lluvia, nieve, granizo o aguanieve."
+
+msgid ""
+"Not quite! The water cycle consists of evaporation where water turns into vapor, condensation where the vapor turns into small droplets of water that combine into larger droplets "
+"that fall back to Earth as precipitation in the form of rain, sleet, hail and snow."
+msgstr ""
+"¡No exactamente! El ciclo del agua consiste en la evaporación, donde el agua se convierte en vapor, la condensación, donde el vapor se convierte en pequeñas gotitas de agua, que "
+"se combinan en gotas más grandes y vuelven a caer a la Tierra como precipitación en forma de lluvia, nieve, granizo o aguanieve."
+
+# 22
+msgid "Congratulations"
+msgstr "Felicidades"
+
+msgid "You've completed the Solar Power module."
+msgstr "Has completado el repaso de Energía Solar."
+
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "Puedes comprobar cómo lo has hecho en los 'Repasos rápidos' y las 'Preguntas de examen' de este repaso haciendo clic en el siguiente botón."
+
+msgid "Go to dashboard"
+msgstr "Ir al panel principal"
+
+msgid "You're done!"
+msgstr "¡Terminaste!"
+
+msgid "Go Back to Dashboard"
+msgstr "Ir al panel principal"

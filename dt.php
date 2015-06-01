@@ -118,7 +118,25 @@
 			?>
 			<td class="choices dt-<?php echo $choicetype; ?>">
 				<?php if($question[0]['image'] != null || $question[0]['image'] != ""): ?>
-					<img src="<?php echo $question[0]['image']; ?>" class="dtq-image"><br>
+					<?php
+						$image = $question[0]['image'];
+						$img = trim($image, "en.jpg");
+
+						if($language == 'ar_EG' && $question[0]['translate'] == 1) {
+							$img .= '-ar.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'es_ES' && $question[0]['translate'] == 1) {
+							$img .= '-es.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'zh_CN' && $question[0]['translate'] == 1) {
+							$img .= '-zh.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'en_US' && $question[0]['translate'] == 1) {
+							echo '<img src="'.$image.'" class="dtq-image">';
+						} else {
+							echo '<img src="'.$image.'" class="dtq-image">';
+						}
+					?>
 				<?php endif;
 
 					$ctr = 0;
@@ -150,7 +168,9 @@
 	</table>
 	<div class="clear"></div>
 	<br/>
-	<a href="dt.php?dtid=<?php echo $dtid; ?>&i=<?php echo ($index - 1); ?>" class="button1 fleft<?php if($index <= 0) { echo " hidden"; } ?>" id="dt-back"><?php echo _('Back'); ?></a>
+	<?php if( $index != 0 ) : ?>
+		<a href="dt.php?dtid=<?php echo $dtid; ?>&i=<?php echo ($index - 1); ?>" class="button1 fleft<?php if($index <= 0) { echo " hidden"; } ?>" id="dt-back"><?php echo _('Back'); ?></a>
+	<?php endif; ?>
 	<input type="submit" class="button1" name="student-test" id="submit-test" value="<?php if($fin) { echo $finish; } else { echo _("Next"); } ?>">
 </form>
 <!-- <a href="dt-results.php?sdtid=<?php //echo $sdtid; ?>" class="hidden button1" id="check-results"><?php //echo _("Check Results"); ?></a> -->

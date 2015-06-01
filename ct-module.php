@@ -80,9 +80,26 @@
 						echo _($question['question']);
 						
 						echo '<br/>';
-			
-						if($question['image'])
-							echo '<img src="'.$question['image'].'" class="dtq-image">';
+
+						if($question['image']) :
+							$image = $question['image'];
+							$img = trim($image, "en.jpg");
+
+							if($language == 'ar_EG' && $question['translate'] == 1) {
+								$img .= '-ar.jpg';
+								echo '<img src="'.$img.'" class="dtq-image">';
+							} elseif($language == 'es_ES' && $question['translate'] == 1) {
+								$img .= '-es.jpg';
+								echo '<img src="'.$img.'" class="dtq-image">';
+							} elseif($language == 'zh_CN' && $question['translate'] == 1) {
+								$img .= '-zh.jpg';
+								echo '<img src="'.$img.'" class="dtq-image">';
+							} elseif($language == 'en_US' && $question['translate'] == 1) {
+								echo '<img src="'.$image.'" class="dtq-image">';
+							} else {
+								echo '<img src="'.$image.'" class="dtq-image">';
+							}
+						endif;	
 					?>
 					<?php $choices = $dtq->getQuestionChoices($question['qid']); ?>
 					<br/>
