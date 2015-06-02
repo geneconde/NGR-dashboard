@@ -119,6 +119,7 @@
 			$uid   = $tuname->getUserid();
 
 			$tmc->addTeacherModule($uid, 'solar-power');
+			$tmc->addTeacherModule($uid, 'gathering-data');
 
 			$pdf->SetFont('Arial', 'B', 8);
 			$pdf->Cell(50, 5, ' ', 0, 0, 'L');

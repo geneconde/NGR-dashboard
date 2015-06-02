@@ -34,7 +34,8 @@
 			"timelimit_post"	=> "00:45:00"
 		);
 
-		$gmc->addGroupModule($values);
+	$gmc->addGroupModule($values);
+	$gm			= $gmc->getModuleGroupByID($groupid,$mid);
 	endif;
 	
 	$sgc		= new StudentGroupController();
@@ -48,7 +49,7 @@
 	// echo '</pre>';
 
 	$smc = new StudentModuleController();
-
+	$stdm = null;
 	foreach($user_groups as $user_group)
 	{
 		$student_modules = $smc->loadStudentModuleByUser($user_group, $mid);

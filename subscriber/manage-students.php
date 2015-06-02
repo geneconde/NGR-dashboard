@@ -174,7 +174,8 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	$col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["linkoptions"] = "target='_blank' class='c-link'"; // extra params with <a> tag
+
 	$col["default"] = "View Portfolio"; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
@@ -399,13 +400,13 @@ ini_set('display_errors', 1);
 			<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 				<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 			</li>
-			<li data-class="cbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<li data-id="jqg_list1_16" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 			</li>
-			<li data-id="cb_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
 			</li>
-			<li data-id="search_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<li data-class="ui-icon-search" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
 			</li>
 			<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
@@ -414,10 +415,13 @@ ini_set('display_errors', 1);
 			<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 				<p>Go to the next set of students by clicking the left and right arrows; or</p>
 			</li>
-			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>Type in the page number and press Enter.</p>
 			</li>
-			<li data-id="jqgh_list1_view_more" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+				<p>You can also modify the number of accounts you want to show in a page.:</p>
+			</li>
+			<li data-class="c-link" data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
 				<p>You may also view the portfolio of student.</p>
 			</li>
 	    </ol>

@@ -101,7 +101,25 @@
 			?>
 			<td class="choices dt-<?php echo $choicetype; ?>">
 				<?php if($question[0]['image'] != null || $question[0]['image'] != ""): ?>
-					<img src="<?php $question[0]['image']; ?>" class="dtq-image"><br>
+					<?php
+						$image = $question[0]['image'];
+						$img = trim($image, "en.jpg");
+
+						if($language == 'ar_EG' && $question[0]['translate'] == 1) {
+							$img .= '-ar.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'es_ES' && $question[0]['translate'] == 1) {
+							$img .= '-es.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'zh_CN' && $question[0]['translate'] == 1) {
+							$img .= '-zh.jpg';
+							echo '<img src="'.$img.'" class="dtq-image">';
+						} elseif($language == 'en_US' && $question[0]['translate'] == 1) {
+							echo '<img src="'.$image.'" class="dtq-image">';
+						} else {
+							echo '<img src="'.$image.'" class="dtq-image">';
+						}
+					?>
 				<?php endif;
 					
 					$ctr = 0;
@@ -114,7 +132,7 @@
 							<?php if($choicetype == "image"): ?>
 								<img src="<?php echo $choice['image']; ?>"><br>
 							<?php endif; ?>
-							<span class='letters'><?php echo $choice['order']; ?>. </span><?php echo $choice['choice']; ?>
+							<span class='letters'><?php echo $choice['order']; ?>. </span><?php echo _($choice['choice']); ?>
 						</label>
 				<?php
 						if($choicetype == "normal") echo "<br>";
@@ -133,8 +151,11 @@
 	</table>
 	<div class="clear"></div>
 	<br/>
-	<a href="ct.php?ctid=<?php echo $ctid; ?>&i=<?php echo ($index - 1); ?>" class="button1 fleft<?php if($index <= 0) { echo " hidden"; } ?>" id="dt-back">Back</a>
-	<input type="submit" class="button1" name="student-test" id="submit-test" value="<?php if($fin) { ?>Finish<?php } else { ?>Next<?php } ?>">
+	<?php if( $index != 0 ) : ?>
+		<a href="ct.php?ctid=<?php echo $ctid; ?>&i=<?php echo ($index - 1); ?>" class="button1 fleft<?php if($index <= 0) { echo " hidden"; } ?>" id="dt-back"><?php echo _("Back"); ?></a>
+	<?php endif; ?>
+	<input type="submit" class="button1" name="student-test" id="submit-test" value="<?php if($fin) { echo _("Finish"); } else { echo _("Next"); } ?>">
+
 </form>
 <!-- <a href="dt-results.php?sctid=<?php echo $sctid; ?>" class="hidden button1" id="check-results"><?php echo _("Check Results"); ?></a> -->
 </div>

@@ -83,7 +83,24 @@
 			<tr class="trline">
 				<td><img class="img-answer" /><?php echo _($qinfo[0]['question']); ?>
 				<?php if($qinfo[0]['image']) :
-				echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
+					$image = $qinfo[0]['image'];
+					$img = trim($image, "en.jpg");
+
+					if($language == 'ar_EG' && $qinfo[0]['translate'] == 1) {
+						$img .= '-ar.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'es_ES' && $qinfo[0]['translate'] == 1) {
+						$img .= '-es.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'zh_CN' && $qinfo[0]['translate'] == 1) {
+						$img .= '-zh.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'en_US' && $qinfo[0]['translate'] == 1) {
+						echo '<br/><img src="'.$image.'" class="dtq-image">';
+					} else {
+						echo '<br/><img src="'.$image.'" class="dtq-image">';
+					}
+					// echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
 				endif; ?>
 				<br><br>
 				<?php echo _("Choices"); ?>:<br/>

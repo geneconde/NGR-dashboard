@@ -562,10 +562,10 @@ ini_set('display_errors', 1);
 		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 		</li>
-		<li data-class="cbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-id="jqg_list1_14" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 		</li>
-		<li data-id="cb_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
 		</li>
 		<li data-id="search_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">

@@ -83,9 +83,25 @@
 			if($row['from_review']) echo _("<span class='ask'>* </span>");
 			echo _($row['question']);
 			echo '<br/>';
-			
-			if($row['image'])
-				echo '<img src="'.$row['image'].'" class="dtq-image">';
+			if($row['image']) :
+				$image = $row['image'];
+				$img = trim($image, "en.jpg");
+				
+				if($language == 'ar_EG' && $row['translate'] == 1) {
+					$img .= '-ar.jpg';
+					echo '<img src="'.$img.'" class="dtq-image">';
+				} elseif($language == 'es_ES' && $row['translate'] == 1) {
+					$img .= '-es.jpg';
+					echo '<img src="'.$img.'" class="dtq-image">';
+				} elseif($language == 'zh_CN' && $row['translate'] == 1) {
+					$img .= '-zh.jpg';
+					echo '<img src="'.$img.'" class="dtq-image">';
+				} elseif($language == 'en_US' && $row['translate'] == 1) {
+					echo '<img src="'.$image.'" class="dtq-image">';
+				} else {
+					echo '<img src="'.$image.'" class="dtq-image">';
+				}
+			endif;
 			
 			$choices = $dtq->getQuestionChoices($row['qid']);
 		?>
