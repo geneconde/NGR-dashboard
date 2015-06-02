@@ -25,6 +25,6 @@
 	}
 	if($type == 0) $_SESSION['uname'] = $uname;
 	
-	// header("Location: edit-account.php?user_id={$userid}&f=1");
-	header("Location: teacher.php");
+	header("Location: edit-account.php?user_id={$userid}&f=1");
+	// header("Location: teacher.php");
 ?>
