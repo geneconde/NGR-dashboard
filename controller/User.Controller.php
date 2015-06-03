@@ -81,6 +81,18 @@ class UserController {
 		}
 	}
 
+	public function loadUserTypeOrderLname($type, $teacherid) {
+		$where = array();
+		$where['type'] = $type;
+		$where['teacher_id'] = $teacherid;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where,'*','if(last_name = "" or last_name is null,1,0),last_name');
+		$db->disconnect();	
+		return $result;
+	}
+	
 	public function getUserByUsername($username) {
 		$where = array();
 		$where['username'] = $username;

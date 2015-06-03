@@ -5,7 +5,7 @@
 	require_once 'controller/StudentGroup.Controller.php';
 	
 	$userid 	= $user->getUserid();	
-	$students 	= $uc->loadUserType(2, $userid);
+	$students 	= $uc->loadUserTypeOrderLname(2, $userid);
 
 	$sgc 		= new StudentGroupController();
 	$groups		= $sgc->getGroups($userid);

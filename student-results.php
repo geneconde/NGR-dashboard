@@ -15,7 +15,7 @@
 	$sgc		= new StudentGroupController();
 	$stg		= $sgc->getUsersInGroup($gid);
 	
-	$students 	= $uc->loadUserType(2, $userid);
+	$students 	= $uc->loadUserTypeOrderLname(2, $userid);
 	
 	$dtc 		= new DiagnosticTestController();
 	$smc		= new StudentModuleController();

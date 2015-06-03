@@ -14,8 +14,8 @@ class DB extends PDO {
 	var $stmt;
 	
 	protected $host = "localhost";
-	/*protected $username = "jigzenco_ngrdev";
-	protected $password = "jigzen1234aA";*/
+	// protected $username = "jigzenco_ngrdev";
+	// protected $password = "jigzen1234aA";
 	protected $username = "root";
 	protected $password = "password";
 	protected $database = "jigzenco_dashboard_live";

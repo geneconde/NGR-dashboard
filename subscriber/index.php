@@ -427,6 +427,9 @@ ini_set('display_errors', 1);
 	.joytest2 ~ div a:nth-child(3){
 	    display: none;
 	}
+	.joyride-tip-guide:nth-child(12){
+	    margin-top: 15px !important;
+	}
 	.ui-icon {
 	  display: inline-block !important;
 	}
@@ -562,7 +565,7 @@ ini_set('display_errors', 1);
 		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 		</li>
-		<li data-id="jqg_list1_14" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 		</li>
 		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">

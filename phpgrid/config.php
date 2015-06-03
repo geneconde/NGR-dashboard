@@ -2,6 +2,8 @@
 // PHP Grid database connection settings
 define("PHPGRID_DBTYPE","Mysql"); // or mysqli
 define("PHPGRID_DBHOST","localhost");
+// define("PHPGRID_DBUSER","jigzenco_ngrdev");
+// define("PHPGRID_DBPASS","jigzen1234aA");
 define("PHPGRID_DBUSER","root");
 define("PHPGRID_DBPASS","");
 define("PHPGRID_DBNAME","jigzenco_dashboard_live");
