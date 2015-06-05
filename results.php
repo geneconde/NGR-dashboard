@@ -35,6 +35,12 @@
 	else if ($link == 2) $link = 'student';
 ?>
 
+	<script>
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;
+		var pfCustomCSS = 'printfriendly2.php'
+		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+	</script>
+
 	<div id="container">
 		<?php if ($link == 'teacher') { ?>
 		<a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
@@ -78,15 +84,20 @@
 			<?php foreach ($qc as $exercise) {
 				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
+				$tempSection = 'A';
 			?>
 			<table border="0" class="result fleft">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
 				</tr>
+				<?php
+					$numberOfsecA = $qnc->getExercisePerSections($exercise['exercise_ID'],'A');
+					$numberOfsecB = $qnc->getExercisePerSections($exercise['exercise_ID'],'B');
+					$numberOfsecC = $qnc->getExercisePerSections($exercise['exercise_ID'],'C');
+				?>
 				<?php foreach ($eq as $question) {
 					$total++;
 					$answer = $sac->getStudentAnswer($smid,$question['question_ID']);
-
 					$img = 'wrong';
 					if ($answer && $answer == $question['correct_answer']) {
 						$img = 'correct';
@@ -94,7 +105,24 @@
 					}
 				?>
 				<tr>
-					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $counter; ?></td>
+					<td>
+						<?php
+							if($tempSection != $question['section']) { $counter = 1; }
+							$tempSection = $question['section'];
+						?>
+						<?php echo _(strtoupper($question['section'])); ?>
+						<?php
+							if(sizeof($numberOfsecA) > 1 && $question['section'] == 'A'){
+								echo " - " . $counter;
+							}
+							if(sizeof($numberOfsecB) > 1 && $question['section'] == 'B'){
+								echo " - " . $counter;
+							}
+							if(sizeof($numberOfsecC) > 1 && $question['section'] == 'C'){
+								echo " - " . $counter;
+							}
+						?>
+					</td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
@@ -111,11 +139,17 @@
 			<?php foreach ($qq as $exercise) {
 				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
+				$tempSection = 'A';
 			?>
 			<table border="0" class="result fleft">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
 				</tr>
+				<?php
+					$numberOfsecA = $qnc->getExercisePerSections($exercise['exercise_ID'],'A');
+					$numberOfsecB = $qnc->getExercisePerSections($exercise['exercise_ID'],'B');
+					$numberOfsecC = $qnc->getExercisePerSections($exercise['exercise_ID'],'C');
+				?>
 				<?php foreach ($eq as $question) {
 					$total++;
 					$answer = $sac->getStudentAnswer($smid,$question['question_ID']);
@@ -126,7 +160,24 @@
 					}
 				?>
 				<tr>
-					<td><?php echo _(strtoupper($question['section'])); ?> - <?php echo $counter; ?></td>
+					<td>
+						<?php
+							if($tempSection != $question['section']) { $counter = 1; }
+							$tempSection = $question['section'];
+						?>
+						<?php echo _(strtoupper($question['section'])); ?>
+						<?php
+							if(sizeof($numberOfsecA) > 1 && $question['section'] == 'A'){
+								echo " - " . $counter;
+							}
+							if(sizeof($numberOfsecB) > 1 && $question['section'] == 'B'){
+								echo " - " . $counter;
+							}
+							if(sizeof($numberOfsecC) > 1 && $question['section'] == 'C'){
+								echo " - " . $counter;
+							}
+						?>
+					</td>
 					<td>
 						<?php if($img == 'correct') { ?>
 							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>

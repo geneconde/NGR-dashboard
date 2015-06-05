@@ -51,6 +51,18 @@ class QuestionController {
 		return empty($sections) ? null : $sections;
 	}
 
+	public function getExercisePerSections($exid, $section) {
+		$where = array();
+		$where['exercise_ID'] = $exid;
+		$where['section'] = $section;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("questions", $where, "*", "question_ID ASC");
+		$db->disconnect();		
+		return $result;	
+	}
+
 	private function setQuestionData($question) {
 		$data = array();
 		$data['question_ID']	= $question->getQid();
