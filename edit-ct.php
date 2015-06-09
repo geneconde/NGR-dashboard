@@ -92,8 +92,10 @@
 				<th><?php echo _("Action"); ?></th>
 			</tr>
 <?php
-			foreach($tm as $md):
+			$counter = 1;
+			foreach($tm as $md) {
 				$module = $mc->getModule($md['module_id']);
+				if($counter<sizeof($tm)){
 ?>
 			<tr>		
 				<td><?php echo _($module->getModule_name()); ?></td>
@@ -113,7 +115,8 @@
 				<td><a class="button1" href="ct-module.php?mid=<?php echo $md['module_id']; ?>&action=edit&ctid=<?php echo $ctid; ?>"><?php echo _("Select Questions");?></a></td>
 			</tr>
 <?php
-		endforeach;
+				} $counter++;
+			}
 ?>
 			<tr>
 				<td><?php echo _("Total Questions"); ?></td>

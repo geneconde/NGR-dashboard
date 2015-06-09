@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Field Test\n"
 "POT-Creation-Date: 2013-09-06 17:31+0800\n"
-"PO-Revision-Date: 2015-05-29 09:57+0800\n"
+"PO-Revision-Date: 2015-06-09 16:41+0800\n"
 "Last-Translator: Raina\n"
 "Language-Team: Ibrahim Al-Momani,Jim Shymansky,Jigzen's Computer Services <ask@jigzen.com>\n"
 "MIME-Version: 1.0\n"
@@ -4533,7 +4533,7 @@ msgid "Look at the bird feet and select the one that's best for swimming."
 msgstr "أنظر إلى قدمي الطيور واختر الأفضل منها للسباحة."
 
 # missing text
-msgid "Some birds use their beaks to grab insects and take them out of holes in trees. Look at the following objects and select the one with the function mos"
+msgid "Some birds use their beaks to grab insects and take them out of holes in trees. Look at the following objects and select the one with the function most like the kind of beak these birds have."
 msgstr "بعض الطيور تستخدم مناقيرها لإمساك الحشرات وتأخذها خارج ثقوب الأشجار.  انظر إلى الأجسام التالية واختر واحدا مع الوظيفة"
 
 msgid "As winter approaches, some animals' fur grows thicker. Why does this adaptation occur?"

@@ -36,10 +36,10 @@
 <a class="link" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
 
 <?php if ($mode == 1): ?>
-<h1><?php echo $display = ($action == "edit"? "Edit" : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>
+<h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>
 <?php echo _("A pre-diagnostic test will be taken by the students before they work on any of the modules available to them. This test should be completed within the specified time limit. Only the answers that are completed within the time limit will be recorded."); ?>
 <?php else: ?>
-<h1><?php echo $display = ($action == "edit"? "Edit" : _("Create")); ?> <?php echo _("Post-Diagnostic Test"); ?></h1>
+<h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Post-Diagnostic Test"); ?></h1>
 <?php echo _("A post-diagnostic test will be taken by the student after they finished all available reviews. This test should be finished within a time limit. If the student exceeds the time limit, whatever he finishes will be recorded."); ?>
 <?php endif; ?>
 <br><br>

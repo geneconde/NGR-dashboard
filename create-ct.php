@@ -77,10 +77,12 @@
 				<th><?php echo _("Action"); ?></th>
 			</tr>
 			<?php
-				foreach($tm as $md):
+				$counter = 1;
+				foreach($tm as $md){
 					$module = $mc->getModule($md['module_id']);
+					if($counter<sizeof($tm)){
 			?>
-					<tr>		
+					<tr>
 						<td><?php echo _($module->getModule_name()); ?></td>
 						<td class="center">
 							<?php
@@ -99,7 +101,8 @@
 						<td><a class="button1" href="ct-module.php?mid=<?php echo $md['module_id']; ?>"><?php echo _("Select Questions"); ?></a></td>
 					</tr>
 			<?php
-				endforeach;
+					} $counter++;
+				}
 			?>
 		</table>
 		<input type='hidden' name="questions" value="<?php echo $questions; ?>">
