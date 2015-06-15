@@ -58,4 +58,15 @@ class TeacherModuleController {
 		
 		return $result[0]['isactive'];
 	}
+
+	public function checkModule($userid) {
+		$query = "select * from teacher_module where user_id=$userid and module_id not in (select module_id from module)";
+	
+		$db = new DB();
+		$db->connect();
+		$result = $db->query($query);
+		$db->disconnect();		
+		
+		return $result[0]['module_id'];
+	}
 }

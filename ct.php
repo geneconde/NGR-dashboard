@@ -119,7 +119,7 @@
 						} else {
 							echo '<img src="'.$image.'" class="dtq-image">';
 						}
-					?>
+					?><br/>
 				<?php endif;
 					
 					$ctr = 0;

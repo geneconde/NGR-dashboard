@@ -36,7 +36,7 @@
 ?>
 
 	<script>
-		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 1;
 		var pfCustomCSS = 'printfriendly2.php'
 		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 	</script>
@@ -86,7 +86,7 @@
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 				$tempSection = 'A';
 			?>
-			<table border="0" class="result fleft">
+			<table border="0" class="result fleft" id="qcr">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
 				</tr>
@@ -141,7 +141,7 @@
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 				$tempSection = 'A';
 			?>
-			<table border="0" class="result fleft">
+			<table border="0" class="result fleft" id="qqr">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
 				</tr>
