@@ -68,16 +68,6 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Password";
-	$col["name"] = "password";
-	$col["width"] = "30";
-	$col["search"] = true;
-	$col["editable"] = true;
-	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	$cols[] = $col;
-
-	$col = array();
 	$col["title"] = "Type";
 	$col["name"]  = "type";
 	$col["editable"] = true;
