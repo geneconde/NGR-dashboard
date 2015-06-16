@@ -384,7 +384,6 @@ class UserController {
 
 	/* For retrieving level of accounts */
 	public function getUserLevel($user) {
-		$custom_query = "";
 		
 		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
 
@@ -395,6 +394,17 @@ class UserController {
 		$salt = sha1(md5($password));
 		$password = md5($password.$salt);
 		return $password;
+	}
+
+	public function encryptAllPassword() {
+		$password = "1234aA";		
+		$encryptPassword =  $this->hashPassword($password);
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->cquery("UPDATE users SET password='$encryptPassword'");
+		$db->disconnect();
+		
 	}
 	
 	private function setUserValues($values) {

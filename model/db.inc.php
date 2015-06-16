@@ -232,6 +232,23 @@ class DB extends PDO {
 				$this->dberror($e->getMessage());
 		}
 	}
+
+	public function cquery($sql) {
+		try {
+			$this->stmt = $this->conn->prepare($sql);
+				
+				if(!empty($where)) {
+					foreach ($where as $key => $val)
+						$this->stmt->bindValue(":$key", $val);
+				}
+				$result = "success";
+				$this->stmt->execute();
+				
+				return $result;
+		} catch (Exception $e) {
+				$this->dberror($e->getMessage());
+		}
+	}
 	
 	public function dbgetrowcount() {
 		try {
