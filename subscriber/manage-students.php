@@ -152,7 +152,7 @@ ini_set('display_errors', 1);
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
 	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
-	$col["editoptions"] = array("value"=>":;".$str); 
+	$col["editoptions"] = array("value"=>$str); 
 	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
 	
@@ -177,6 +177,19 @@ ini_set('display_errors', 1);
 	$col["linkoptions"] = "target='_blank' class='c-link'"; // extra params with <a> tag
 
 	$col["default"] = "View Portfolio"; // default link text
+	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "Reset Student password";
+	$col["name"] = "reset_pword";
+	$col["width"] = "35";
+	$col["align"] = "center";
+	$col["search"] = false;
+	$col["sortable"] = false;
+	$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["default"] = "Reset password"; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
@@ -419,7 +432,7 @@ ini_set('display_errors', 1);
 				<p>Type in the page number and press Enter.</p>
 			</li>
 			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>You can also modify the number of accounts you want to show in a page.:</p>
+				<p>You can also modify the number of accounts you want to show in a page.</p>
 			</li>
 			<li data-class="c-link" data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
 				<p>You may also view the portfolio of student.</p>

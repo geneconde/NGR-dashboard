@@ -10,6 +10,8 @@ final class Utils {
 		//TODO
 		//$salt = "";
 		//$hashed = "";
+		$salt = sha1(md5($password));
+	 	$password = md5($password.$salt);
 		$hashed = $password;
 		return $hashed;
 	}

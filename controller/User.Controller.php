@@ -252,8 +252,8 @@ class UserController {
 			
 			if ($user->getPassword() == $hashedpass) {
 				return $user;
-			}
-			else{ return Error::ERROR_WRONG_PASSWORD;
+			} else { 
+				return Error::ERROR_WRONG_PASSWORD;
 				header("Location: login.php?err=2");
 			}
 		} else {

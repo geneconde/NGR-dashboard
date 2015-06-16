@@ -17,7 +17,7 @@ class DB extends PDO {
 	/*protected $username = "jigzenco_ngrdev";
 	protected $password = "jigzen1234aA";*/
 	protected $username = "root";
-	protected $password = "password";
+	protected $password = "";
 	protected $database = "jigzenco_dashboard_live";
 	
 	private $conn = null;

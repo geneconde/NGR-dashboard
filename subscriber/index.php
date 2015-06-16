@@ -58,6 +58,7 @@ ini_set('display_errors', 1);
 
 	// include and create object
 	include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
+	$grid = new jqgrid();
 
 	/** Main Grid Table **/
 	$username = _('Username');
@@ -108,6 +109,8 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["width"] = "10";
 	/*$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");*/
+	$col["edittype"] = "select";
+	$col["editoptions"] = array("value"=>'0:Teacher;1:Parent;2:Student;4:Subhead');
 	$col["viewable"] = false;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
@@ -159,58 +162,37 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Teacher ID";
-	$col["name"]  = "teacher_id";
-	$col["editable"] = true;
-	$col["width"] = "10";
-	$col["editoptions"] = array("defaultValue"=>"$userid","readonly"=>"readonly", "style"=>"border:0");
-	$col["viewable"] = false;
-	$col["hidden"] = true;
-	$col["editrules"] = array("edithidden"=>false); 
-	$col["export"] = false; // this column will not be exported
-	$cols[] = $col;
-
-	$col = array();
 	$col["title"] = "Subscriber ID";
 	$col["name"]  = "subscriber_id";
 	$col["editable"] = true;
-	$col["editoptions"] = array("defaultValue"=>"$userid","readonly"=>"readonly", "style"=>"border:0");
+	if(isset($_GET['user_id']))
+	{
+		$col["editoptions"] = array("defaultValue"=>"$userid","readonly"=>"readonly", "style"=>"border:0");
+	} else {
+		$col["editoptions"] = array("defaultValue"=>$sub->getID(),"readonly"=>"readonly", "style"=>"border:0");
+	}
+		
+
 	$col["viewable"] = false;
 	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>false); 
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	if( !isset($_GET['type']) || $_GET['type'] != 4 ) :
+	if( isset($_GET['type']) && $_GET['type'] == 0 ) 
+	{
 		$col = array();
 		$col["title"] = $grade_level; // caption of column
+		$col["name"] = "grade_level";
 		$col["width"] = "15";
 		$col["editable"] = true;
 		$col["align"] = "center";
 		$cols[] = $col;
-	endif;
+	}
 
-	if( !isset($_GET['type']) || $_GET['type'] != 0 ) :
-		
-		$col = array();
-		$col["title"] = "Accounts";
-		$col["name"] = "view_more";
-		$col["width"] = "25";
-		$col["align"] = "center";
-		$col["search"] = false;
-		$col["sortable"] = false;
-		$col["default"] = $view_tier; // default link text
-		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}";
-	
-	/*if($has_sub_accounts == false)
+
+	if(isset($_GET['user_id']) && $_GET['type'] != 0)
 	{
-		$col["default"] = "No Accounts"; // default link text
-		$col["link"] = null;  
-	}	*/
-	
-		$col["export"] = false; // this column will not be exported
-		$cols[] = $col;
-
 		$col = array();
 		$col["title"] = "Sub Head";
 		$col["name"] = "subhead_id";
@@ -221,13 +203,55 @@ ini_set('display_errors', 1);
 		$col["export"] = true; 
 		$col["editoptions"] = array("defaultValue"=>$_GET['user_id'],"readonly"=>"readonly", "style"=>"border:0");
 		$cols[] = $col;
-	endif;
 
-	//$has_sub_accounts = true;
+	} 
+
+	if( !isset($_GET['type']) || $_GET['type'] != 0 ) 
+	{		
+		$col = array();
+		$col["title"] = "Accounts";
+		$col["name"] = "view_more";
+		$col["width"] = "25";
+		$col["align"] = "center";
+		$col["search"] = false;
+		$col["sortable"] = false;
+		$col["default"] = $view_tier; // default link text
+		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}&sid={subhead_id}";
+		$cols[] = $col;
 	
-	$grid = new jqgrid();
+	}
 
-	//$student_account = false;
+	if(isset($_GET['type']) && $_GET['type'] == 0)
+		{
+			$col = array();
+			$col["title"] = "Teacher";
+			$col["name"] = "teacher_id";
+			$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
+			$col["width"] = "30";
+			$col["align"] = "center";
+			$col["editable"] = true;
+			$col["edittype"] = "select"; // render as select
+			$col["search"] = false;
+			$col["export"] = false;
+			# fetch data from database, with alias k for key, v for value
+			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id =". $_GET['sid']. " AND type=0");
+			$col["editoptions"] = array("value"=>$str); 
+			$col["formatter"] = "select"; // display label, not value
+			$cols[] = $col;
+
+			$col = array();
+			$col["title"] = "Reset Student password";
+			$col["name"] = "reset_pword";
+			$col["width"] = "30";
+			$col["align"] = "center";
+			$col["search"] = false;
+			$col["sortable"] = false;
+			$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+			$col["default"] = "Reset password"; // default link text
+			$col["export"] = false; // this column will not be exported
+			$cols[] = $col;
+		}
+
 	//Export filename
 	$filename = "";
 	
@@ -348,6 +372,8 @@ ini_set('display_errors', 1);
 		$opt["export"]["range"] = "filtered";
 
 		$grid->set_options($opt);
+		/*$grid->debug = 0;
+		$grid->error_msg = "Username Already Exists.";*/
 
 	$grid->set_actions(array(
 		"add"=>true, // allow/disallow add
@@ -510,13 +536,13 @@ ini_set('display_errors', 1);
 	</div>
 
 	<div class="fright" id="accounts"> 
-		<a id="my_account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("My Account"); ?></a>
+		<a id="my_account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 	</div>
 	
 	
 
 	<div class="clear"></div>
-	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
+	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, You can manage all accounts under you."); ?>
 
 	<div class="wrap-container">
@@ -562,13 +588,13 @@ ini_set('display_errors', 1);
 		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 		</li>
-		<li data-id="jqg_list1_14" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-id="jqg_list1_314" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 		</li>
 		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
 		</li>
-		<li data-id="search_list1" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-id="search_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
 		</li>
 		<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
@@ -577,7 +603,7 @@ ini_set('display_errors', 1);
 		<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 			<p>Go to the next set of accounts by clicking the left and right arrows; or</p>
 		</li>
-		<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>Type in the page number and press Enter.</p>
 		</li>
 		<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
