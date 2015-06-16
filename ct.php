@@ -179,11 +179,11 @@ $(document).ready(function() {
 			alert("Please select an answer for this question.");
 		}
 		
-		if($(this).val() == "Finish") {
-			if(!window.confirm("You are about to submit this test. You can still go back and check your answers. Do you really want to submit this test?")){
-				e.preventDefault();
-			}
-		}
+		//if($(this).val() == "Finish") {
+		//	if(!window.confirm("You are about to submit this test. You can still go back and check your answers. Do you really want to submit this test?")){
+		//		e.preventDefault();
+		//	}
+		//}
 	});
 	
 	$('#dt-back').click(function() {

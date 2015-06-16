@@ -1614,3 +1614,18 @@ input[type=checkbox] {
 .mod-desc .info-div{
     background-color: orange; padding: 5px; text-align: center; color: white;
 }
+/***Confirm Box CSS**/
+#confirm-box {
+    padding: 50px;
+    text-align: center;
+}
+#confirm-box div p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#confirm-box div a {
+    font-size: 18px;
+}
+#on_going {
+      text-align: center;
+}
