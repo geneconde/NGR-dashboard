@@ -50,7 +50,7 @@
 	if($fin):
 		$startdate	= $sdt_set->getStartDate();
 		$sdt->finishDiagnosticTest($sdtid, $startdate);
-		header("Location: dt-results.php?sdtid={$sdtid}");
+		header("Location: confirm-dt.php?sdtid={$sdtid}&dtid={$dtid}&i={$index}");
 	else: 
 		header("Location: dt.php?dtid={$dtid}&i={$index}");
 	endif;

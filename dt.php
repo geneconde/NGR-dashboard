@@ -196,11 +196,11 @@ $(document).ready(function() {
 			alert("<?php echo _('Please select an answer for this question.'); ?>");
 		}
 		
-		if($(this).val() == fin) {
-			if(!window.confirm("<?php echo _('You are about to submit this test. You can still go back and check your answers. Do you really want to submit this test?'); ?>")){
-				e.preventDefault();
-			}
-		}
+		//if($(this).val() == fin) {
+		//	if(!window.confirm("<?php echo _('You are about to submit this test. You can still go back and check your answers. Do you really want to submit this test?'); ?>")){
+		//		e.preventDefault();
+		//	}
+		//}
 	});
 	
 	$('#dt-back').click(function() {
