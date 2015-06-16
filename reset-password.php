@@ -14,8 +14,9 @@
 		$saved = true;
 		//header("Location: reset-password.php?user_id=$userid&f=1");
 		$previous = "javascript:history.go(-2)";
+	} else{
+		$previous = "javascript:history.go(-1)";
 	}
-	$previous = "javascript:history.go(-1)";
 ?>
 <style>
 #dbguide { display: none; }
@@ -33,10 +34,6 @@ table { width: 380px !important;}
 </style>
 <div id="container">
 <a class="link" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
-	margin-left: 2px;
-}
-<div id="container">
-<a class="link" href="phpgrid/manage-students.php">&laquo; <?php echo _("Go Back"); ?></a>
 <br><br>
 <form method="post" action="" id="change-pw">
 	<center>

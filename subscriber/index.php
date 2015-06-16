@@ -216,7 +216,12 @@ ini_set('display_errors', 1);
 		$col["search"] = false;
 		$col["sortable"] = false;
 		$col["default"] = $view_tier; // default link text
-		$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}&sid={subhead_id}";
+		if(isset($_GET['user_id']))
+		{
+			$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}&sid={subhead_id}";
+		} else {
+			$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}";
+		}
 		$cols[] = $col;
 	
 	}
