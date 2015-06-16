@@ -63,8 +63,8 @@
 					<?php echo _("Password"); ?>:
 				</td>
 				<td>
-					<!-- <a href="change-pw.php?user_id=<?php echo $userid; ?>" id="cp"><?php echo _("Change Password"); ?></a> -->
-					<input type="text" name="password" id="password" value="<?php echo $user_set->getPassword(); ?>" class="editable"><img src="" id="check">
+					<a href="change-pw.php?user_id=<?php echo $userid; ?>" id="cp"><?php echo _("Change Password"); ?></a>
+					<!-- <input type="text" name="password" id="password" value="<?php echo $user_set->getPassword(); ?>" class="editable"><img src="" id="check"> -->
 				</td>
 			</tr>
 			<tr>

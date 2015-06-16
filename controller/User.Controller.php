@@ -81,6 +81,18 @@ class UserController {
 		}
 	}
 
+	public function loadUserTypeOrderLname($type, $teacherid) {
+		$where = array();
+		$where['type'] = $type;
+		$where['teacher_id'] = $teacherid;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where,'*','if(last_name = "" or last_name is null,1,0),last_name');
+		$db->disconnect();	
+		return $result;
+	}
+	
 	public function getUserByUsername($username) {
 		$where = array();
 		$where['username'] = $username;
@@ -135,7 +147,7 @@ class UserController {
 		return count($result);
 	}
 
-	public function updateUser($userid, $uname, $password, $fname, $lname, $gender) {
+	public function updateUser($userid, $uname, $fname, $lname, $gender, $level) {
 		$where = array();
 		$where['user_ID'] = $userid;
 		
@@ -143,8 +155,8 @@ class UserController {
 		$data['first_name'] = $fname;
 		$data['last_name'] 	= $lname;
 		$data['username']	= $uname;
-		$data['password']	= $password;
 		$data['gender']		= $gender;
+		$data['grade_level']= $level;
 					
 		$db = new DB();
 		$db->connect();
@@ -156,6 +168,7 @@ class UserController {
 		$where = array();
 		$where['user_ID'] = $userid;
 		
+		$newpassword = UserController::hashPassword($newpassword);
 		$data = array();
 		$data['password'] = $newpassword;
 		
@@ -170,6 +183,7 @@ class UserController {
 		$where['subscriber_id'] = $userid;
 		$where['type'] = 3;
 
+		$newpassword = UserController::hashPassword($newpassword);
 		$data = array();
 		$data['password'] = $newpassword;
 		
@@ -184,6 +198,7 @@ class UserController {
 		$where['username'] = $username;
 		$where['type'] = $type;
 
+		$newpassword = UserController::hashPassword($newpassword);
 		$data = array();
 		$data['password'] = $newpassword;
 		
@@ -197,9 +212,8 @@ class UserController {
 		$where = array();
 		$where['user_ID'] = $userid;
 		
-		// $salt = sha1(md5($password));
-		// $password = md5($password.$salt);
-	
+		$password = UserController::hashPassword($password);
+
 		$data = array();
 		$data['password']           = $password;
 		
@@ -375,6 +389,12 @@ class UserController {
 		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
 
 		return $custom_query;
+	}
+	
+	public function hashPassword($password){
+		$salt = sha1(md5($password));
+		$password = md5($password.$salt);
+		return $password;
 	}
 	
 	private function setUserValues($values) {

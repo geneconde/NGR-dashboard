@@ -77,10 +77,12 @@
 				<th><?php echo _("Action"); ?></th>
 			</tr>
 			<?php
-				foreach($tm as $md):
+				foreach($tm as $md){
 					$module = $mc->getModule($md['module_id']);
+					$checkingM = $tmc->checkModule($userid);
+					if($md['module_id']==$checkingM){ break; }
 			?>
-					<tr>		
+					<tr>
 						<td><?php echo _($module->getModule_name()); ?></td>
 						<td class="center">
 							<?php
@@ -93,13 +95,12 @@
 								else:
 									echo 0;
 								endif;
-
 							?>
 						</td>
 						<td><a class="button1" href="ct-module.php?mid=<?php echo $md['module_id']; ?>"><?php echo _("Select Questions"); ?></a></td>
 					</tr>
 			<?php
-				endforeach;
+				}
 			?>
 		</table>
 		<input type='hidden' name="questions" value="<?php echo $questions; ?>">

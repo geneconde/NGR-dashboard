@@ -1,0 +1,1026 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: solar-power\n"
+"POT-Creation-Date: 2013-09-06 17:31+0800\n"
+"PO-Revision-Date: 2015-04-14 13:32+0800\n"
+"Last-Translator: \n"
+"Language-Team: James Shymansky, <ask@jigzen.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"Language: ar\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+# Globals
+msgid "How did I do?"
+msgstr "我答得如何？"
+
+msgid "Solar Power"
+msgstr "太陽的能量"
+
+msgid "More big ideas... about solar power"
+msgstr "更多核心觀念...關於「太陽的能量」"
+
+msgid "You answered..."
+msgstr "更多核心思想...關於「太陽的能量」"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Check Answer"
+msgstr "查看答案"
+
+msgid "Next"
+msgstr "繼續"
+
+msgid "Read More"
+msgstr "繼續閱讀"
+
+msgid "Please select your answers."
+msgstr "請選擇你的答案。"
+
+msgid "Please select your answer."
+msgstr "請選擇你的答案。"
+
+msgid "Please type your answer."
+msgstr "請輸入您的答案。"
+
+msgid "Close me!"
+msgstr "關閉！"
+
+msgid "Rotate or flip the box below either up or down to set your answer. Click, hold and slide mouse up or down."
+msgstr "請向上或向下翻轉方盒子，以選擇你的答案 (點選並同時滑動滑鼠)。"
+
+# 1
+msgid "Start"
+msgstr "開始"
+
+msgid "Welcome to the Solar Power module"
+msgstr "歡迎您來到「太陽的能量」單元"
+
+msgid "Let's begin"
+msgstr "我們開始囉！"
+
+# 2
+msgid "Thinking about... solar power"
+msgstr "想一想...關於「太陽的能量」"
+
+msgid ""
+"When you think about energy resources found on Earth, such things as oil, coal and natural gas may come to mind. The energy stored in those fuels can be changed to useful forms of "
+"energy to produce electricity, drive cars and heat homes. But have you ever wondered where the energy stored in oil, coal and natural gas fuels, even the food that you ate today, "
+"came from? If you said the Sun, you are correct!"
+msgstr ""
+"當你在想著，「地球上到底有哪些資源含有能源？...」這時，也許石油、煤炭和天然氣就會浮現在你腦海中。是的，儲存在這些燃料中的能量可以轉變成有用的能量形式來產生電力，進而驅動汽車和溫暖"
+"我們的家。但你有沒有想過，這些儲存在石油、煤炭和天然氣，甚至還有你今天吃的食物裡面的能量，是哪裡來的嗎？如果你說──是從「太陽」來的。那你就答對了！"
+
+msgid "Are you ready"
+msgstr "你準備好了嗎"
+
+# 3
+msgid "Checking what you know... about solar power"
+msgstr "看看你了解了多少...關於「太陽的能量」"
+
+msgid ""
+"At one time or another you have probably walked on a paved road in the early evening after a very hot day and had the sensation that heat energy was coming from the road. "
+"<span>Which of the following do you think is original source of the heat coming from the pavement?</span>"
+msgstr "你有沒有曾經在非常炎熱的午後，走在柏油路上並感到路面傳來的很熱的感覺呢？<span>請問柏油路面的熱量的是從哪裡來的呢？</span>"
+
+msgid "Geothermal energy"
+msgstr "地熱能"
+
+msgid "Nuclear energy from Earth's core"
+msgstr "地球核心的核能"
+
+msgid "Radiant energy from the sun"
+msgstr "太陽的輻射能量"
+
+msgid "Heat from the friction of traffic during the day"
+msgstr "交通往來產生的摩擦熱"
+
+msgid ""
+"Dark pavements heat up in the sun because they absorb 80-95% of sunlight. Radiant energy from the sun is the original source of this heat. Read on to module more about solar power."
+msgstr "暗顏色地板因為會吸收80-95％的太陽光，所以路面溫度會升高。也就是說，來自太陽的輻射能是路面熱能的來源。請繼續本單元，以閱讀更多關於太陽的能量有關的內容。"
+
+msgid "Putting on sunblock..."
+msgstr "搽上防曬霜..."
+
+# 4
+msgid "Reviewing big ideas... about solar power"
+msgstr "複習核心觀念...關於「太陽的能量」"
+
+msgid ""
+"The sun is a large ball of exploding gas. The sun can be considered a giant nuclear power plant within the solar system. Inside the sun, atoms of hydrogen gas are constantly "
+"smashed together (or fused) to form another gas called helium. This is called <span class='key'>fusion</span>. When that happens, energy is released. Because the Sun is so large "
+"and contains so much material, the amount of energy released by this process is tremendous. The Sun <span class='key'>radiates</span>, or sends out, huge amounts of energy in all "
+"directions in space. While only a very small amount of that energy reaches us on Earth, it is just the right amount to meet the needs of life on Earth."
+msgstr ""
+"太陽是一個爆炸中的氣體所形成的大火球。太陽也可以被看成是太陽系中的一個巨大的核電廠。在太陽裡，「氫氣」原子不斷地強烈碰撞而結合在一起（也就是「融合」在一起），形成另一種氣體「氦氣」"
+"──這就是所謂的<span class='key'>核融合</span>。當這種情況發生時，大量的能量被釋放，而且因為太陽是如此之大、包含物質又如此之多，所以在這個過程中，釋放的能量是非常巨大的。太陽向空間"
+"中四面八方<span class='key'>輻射</span>(也就是，發送出去)巨大的能量；雖然其中只有極少量的能量到達我們地球上，但這些能量就正好滿足我們地球上生命的需要。"
+
+msgid ""
+"The sun produces many different kinds of energy. In fact, the sun produces a wide <span class='key'>spectrum</span> (or range) of <span class='key'>radiant</span> energies that "
+"can move through empty space. Most of the radiant energy from the sun that reaches us on Earth is in the form of <span class='key'>visible light</span> and <span "
+"class='key'>infrared light</span>. The visible light from the sun gives us the colors (including white) that we see. Infrared light is a kind of heat light. It is not as energetic "
+"as visible light, but it is the most abundant kind of sunlight. People can't see infrared light without special \"night vision\" glasses, but some insects and some animals can see "
+"infrared light through special sense devices that act like eyes."
+msgstr ""
+"太陽會產生許多不同種類的能量。太陽的光會藉由<span class='key'>輻射</span>的方式穿過太空。事實上，太陽的<span class='key'>光譜</span>具有非常多種類的光，其中到達地球上的太陽光，大部"
+"分是<span class='key'>可見光</span>和<span class='key'>紅外光</span>。來自太陽的可見光帶給我們可以看到的各種的顏色（包括白色）；而紅外線是一種熱的光(射線)，它所具有的能量較可見光為"
+"低，但它在太陽光中最多，人類如果不借助特殊的\"夜視鏡\"是無法看到紅外光的，不過一些昆蟲和動物可以藉由它們像眼睛一般的紅外線感應器，看到紅外光。"
+
+msgid "Move your mouse around the black screen to see the effect of night vision goggles and see what's hidden in the dark."
+msgstr "你可以左右移動鼠標模擬一下夜視鏡的效果，猜一猜隱藏在黑暗中的是什麼？"
+
+msgid "Put on some sunblock"
+msgstr "搽上防曬霜"
+
+# 5
+msgid "Quick Check #1"
+msgstr "小練習＃1"
+
+msgid "Question A. What can you infer about helium from the fact that it's made by nuclear fusion reactions inside the sun?"
+msgstr "問題A. 從太陽中核融合反應而產生氦原子的事實，請問你能推知氦原子具有甚麼性質呢？"
+
+msgid "It's heavier than hydrogen."
+msgstr "它比氫重。"
+
+msgid "It's lighter than hydrogen."
+msgstr "它比氫輕。"
+
+msgid "It's heavier than oxygen."
+msgstr "它比氧氣重。"
+
+msgid "It's heavier than carbon."
+msgstr "它比碳重。"
+
+msgid ""
+"Question B. Some snakes have the ability to hunt prey in the darkness by using specialized pit organs on their face which allow them to \"see\" the body heat of their intended "
+"meal. Click on the part of the spectrum that can be detected by those pit organs."
+msgstr ""
+"問題B. 一些蛇在其頭部有「頰窩器官」使他們可以能夠\"看\"小動物身體發出的「熱量」，因此縱使在黑暗中也能追捕到獵物。請問蛇的「頰窩器官」能感知的是光譜圖中的哪一種能量呢，請在下圖中點"
+"選正確的選項？"
+
+msgid "Radio waves"
+msgstr "無線電波"
+
+msgid "Microwave"
+msgstr "微波"
+
+msgid "Infrared"
+msgstr "紅外線"
+
+msgid "Ultraviolet"
+msgstr "紫外線"
+
+msgid "X-Rays"
+msgstr "X射線"
+
+msgid "Gamma Rays"
+msgstr "伽瑪射線"
+
+msgid "Visible Light"
+msgstr "可見光"
+
+msgid "Ready for your first quick check!"
+msgstr "準備好，你的第一個小練習來囉！"
+
+msgid "Correct! Hydrogen atoms combine and make helium, so helium is heavier."
+msgstr "答對囉！氫原子會進行核融合彼此結合，生成氦原子，所以氦比氫更重。"
+
+msgid "Not quite! Helium is made up of hydrogen atoms fusing, so helium is heavier than hydrogen."
+msgstr "不大對喔！氫原子會進行核融合彼此結合，生成氦原子，所以氦比氫更重。"
+
+msgid "Nope! Oxygen is heavier than helium, but nuclear fusion in the sun involves hydrogen and helium."
+msgstr "不對喔！氧比氦重的。而且，在太陽核融合的反應，涉及的是氫和氦。"
+
+msgid "Think again! Carbon is heavier than helium, but nuclear fusion in the sun involves hydrogen and helium."
+msgstr "再想想！碳比氦重的。而且，在太陽核融合的反應，涉及的是氫和氦。"
+
+msgid "Correct! Certain types of snakes have holes on their faces called pit organs. The pit organ can detect infrared radiation from warm bodies up to three feet away."
+msgstr "答對囉！某些種類的蛇，它們頭上有「頰窩器官」。這個器官可以偵測到最遠約一公尺外(約三英尺)，其他動物從身體體溫輻射出來的紅外光。"
+
+msgid ""
+"Nope! Visible light gives us the colors that we see, and infrared light is a kind of heat light. Certain types of snakes have holes on their faces called pit organs. The pit organ "
+"can detect infrared radiation from warm bodies up to three feet away. This is how the snakes hunt at night."
+msgstr ""
+"不對喔！可見光為我們提供了我們所看到的顏色；但紅外線是一種熱。某些種類的蛇，它們頭上有「頰窩器官」。這個器官可以偵測到最遠約一公尺外(約三英尺)從身體體溫輻射出來的紅外光。這是為什麼"
+"蛇可以在夜間捕食的原因。"
+
+# 6
+msgid ""
+"The sun's energy drives many phenomena found on earth's surface. The water cycle and food chain both depend on solar energy to fully work properly. We depend on the sun every day, "
+"every time we eat in fact. We eat to get energy from food, and that energy was once energy from the sun that was captured by plants in the chemical process that forms plant. So if "
+"you trace the energy in food, it always starts with the sun."
+msgstr ""
+"太陽的能量驅動著地球表面的許多現象，例如，水的循環和食物鏈都依賴著太陽能才能正常運作。人類每天、每餐也都依賴著太陽，我們從食物中獲取能量，這些食物中的能量原本是屬於太陽的，植物捕捉"
+"太陽光經過化學過程形成我們的食物。所以，如果當你仔細的探查食物的能量來源，你總會發現食物其實都始於太陽。"
+
+msgid ""
+"For example, think about eating an apple. The apple has sugars that provide energy when you eat it. The apple gets its energy from the apple tree and the apple tree gets its "
+"energy from sun (and air and water) through a process called <span class='key'>photosynthesis.</span> This flow of energy from the sun to the apple can be represented with arrows:"
+msgstr ""
+"例如，想想吃蘋果好了。你吃蘋果時你獲得蘋果的能量(因蘋果有糖)、而蘋果的能量是從蘋果樹而來、蘋果樹則是透過一種叫做<span class='key'>光合作用</span>的過程從太陽（需要有空氣和水存在）"
+"獲得能量。 這一連串能量獲取的過程，可以用箭頭表示如下："
+
+msgid "Sun -> apple tree -> apple -> you!!!"
+msgstr "太陽 -> 蘋果樹 -> 蘋果 -> 你！"
+
+msgid ""
+"The <span class='key'>water cycle</span> also depends on solar energy. Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in "
+"glaciers, snow cover and ice."
+msgstr "地球上的<span class='key'>水循環</span>也是依賴著太陽的能量。地球上的水份，包括有液態的水──例如，存在於湖泊、河流、溪流和海洋的；還有固態的冰──例如，冰川、覆雪和積冰。"
+
+msgid "Browse through the slides below by clicking the left and right arrows"
+msgstr "請點擊下面的左右箭頭，瀏覽蒸發、凝結、降雨的影(圖)片"
+
+msgid "The radiant energy of the sun heats water and causes it to <span class='key'>evaporate</span>—to change from a liquid into a water vapor."
+msgstr "太陽的輻射能可以加熱水並使其<span class='key'>蒸發</span>──從液體轉變成水蒸汽。"
+
+msgid ""
+"The water vapor then rises into the air and collects in clouds. Eventually, the water vapor cools enough <span class='key'>condense</span> or change back into very small droplets "
+"of water."
+msgstr "水蒸汽，會在空氣中上升。最終，當水蒸氣夠冷時，就會<span class='key'>凝結</span>變回成小的水滴並集結成雲。"
+
+msgid "These small droplets collect into bigger droplets and fall back to earth's surface or <span class='key'>precipitate</span> as liquid rain or solid snow, hail, or sleet."
+msgstr "這些小水滴聚集成較大的水滴並回落到地面，這現象稱為<span class='key'>降水</span>。下雨、下雪、冰雹或冰珠等等，都屬於「降水」。"
+
+msgid "The water cycle of evaporation, condensation and precipitation is driven by energy from the sun and operates continually."
+msgstr "水循環中的蒸發、凝結、降水都是由太陽供給能源所驅動，而且這循環不斷的重複著。"
+
+msgid ""
+"Without the sun, there would be no water cycle. The water would not evaporate and clouds would not form.  More importantly, without the Sun, most if not all the water on Earth "
+"would simply freeze."
+msgstr "若沒有了太陽，地球的水循環就無法順利發生。因為水將無法蒸發，雲就無法形成。更重要地，沒有太 陽的話，地球上絕大部分的水都會凝固(成 冰)。"
+
+msgid "Catching solar energy"
+msgstr "捕捉太陽的能量"
+
+# 7
+msgid "Quick Check #2"
+msgstr "小練習＃2"
+
+msgid "Question A. Which part of the water cycle does the sun directly effect?"
+msgstr "問題A. 請問水循環的哪一部分，直接受到陽光的影響？"
+
+msgid "Evaporation"
+msgstr "蒸發"
+
+msgid "Condensation"
+msgstr "凝結"
+
+msgid "Precipitation"
+msgstr "降水"
+
+msgid "None of the above"
+msgstr "以上都非"
+
+msgid "Question B. Which statement best describes the relationship between the sun and life on earth?"
+msgstr "問題B. 哪項陳述最能說明太陽和地球上生命的關係？"
+
+msgid "The sun damages life on earth."
+msgstr "太陽危害地球上的生物。"
+
+msgid "The sun powers life on earth."
+msgstr "太陽提供能量給地球上的生物。"
+
+msgid "The sun protects life on earth."
+msgstr "太陽保護地球上的生物。"
+
+msgid "All of the above"
+msgstr "以上皆是"
+
+msgid "It's a sunny day..."
+msgstr "陽光燦爛的日子..."
+
+msgid "You got it! The sun provides heat which causes water to evaporate."
+msgstr "你答對了！太陽提供的熱使水蒸發。"
+
+msgid "Not quite! Once ocean water is evaporated, it condenses into clouds. So the sun plays a role in condensation, but is an indirect role."
+msgstr "不大對喔！一旦海洋的水蒸發後，會凝結成雲。太陽並不直接幫助水的冷凝。"
+
+msgid ""
+"Nope! The sun directly affects evaporation. But evaporation leads to condensation then precipitation. So the sun affects the entire water cycle, but directly affects evaporation."
+msgstr "不對喔！太陽直接影響蒸發。但蒸發會導致冷凝，然後降水成雨或冰。因此，太陽會影響整個水循環，但和蒸發才是直接有關。"
+
+msgid "Think again! The sun affects the entire water cycle, but directly affects evaporation."
+msgstr "再想想！陽光會影響整個水循環，但和蒸發才是直接有關。"
+
+msgid "Right on! The sun gives life to everything on earth."
+msgstr "正確！也可以說太陽賜給地球生物生存的條件。"
+
+msgid "Nope! The opposite; the sun powers life on earth."
+msgstr "不對喔！與你所選的相反；太陽提供能量給地球上的生物。"
+
+msgid "Not quite! The sun doesn't protect things on earth, it gives life to them."
+msgstr "不大對喔！太陽不只保護地球的生物；也許可以說的是，太陽賜給地球生物生存的條件。"
+
+msgid "Think again! The sun does not damage or protect life on earth, it powers it."
+msgstr "再想想喔！說太陽損害生命或太陽保護地球的生物是不太正確的；也許可以說，太陽賜給地球生物生存的條件。"
+
+# 8
+msgid ""
+"A cycle, like the water cycle we reviewed, can be defined as a series of events that continually repeats. Another cycle that depends on the sun is the day and night cycle. The sun "
+"rising and setting signals us to begin and end our day with work and rest. This cycle is related to the way the earth moves. The earth rotates around itself at the same time it "
+"orbits around the sun. It takes earth 24 hours to completely rotate one time. As it rotates, one half of the earth faces the sun and has sunlight, and the other half faces away "
+"from the sun and experiences night."
+msgstr ""
+"在這一單元中曾討論過「水的循環」，所謂「循環」，就是一系列的事件而且它不斷重複的發生。這裡要繼續介紹另一個依賴太陽而發生的循環，那就是「晝夜循環」。太陽升起和落下，告訴人類要開始工"
+"作了還是該休息以結束一天。請問你可以在下面的動畫中找到地球嗎？那是一個漂亮的水藍色星球，繞太陽一圈需要一年。晝夜循環其實是和地球運動的方式有關，地球在環繞著太陽進行「公轉(環繞太陽"
+"而轉)」時，它本身也在「自轉(像陀螺一樣)」，地球自轉一圈只需要24小時。在它自轉的過程中，隨時都有一半的地球可以面向太陽，並得到陽光；而另一半則背向太陽，那就是夜晚了。此外，你一定也"
+"注意到，月球也在繞著地球，繞一圈需要28天(大約一個月)。"
+
+msgid "Venus"
+msgstr "金星"
+
+msgid "Earth"
+msgstr "地球"
+
+msgid "Mars"
+msgstr "火星"
+
+msgid "Jupiter"
+msgstr "木星"
+
+msgid "Saturn"
+msgstr "土星"
+
+msgid "Uranus"
+msgstr "天王星"
+
+msgid "Neptune"
+msgstr "海王星"
+
+msgid "Mercury"
+msgstr "水星"
+
+msgid "Sun"
+msgstr "太陽"
+
+msgid "venus"
+msgstr "金星"
+
+msgid "earth"
+msgstr "地球"
+
+msgid "mars"
+msgstr "火星"
+
+msgid "jupiter"
+msgstr "木星"
+
+msgid "saturn"
+msgstr "土星"
+
+msgid "uranus"
+msgstr "天王星"
+
+msgid "neptune"
+msgstr "海王星"
+
+msgid "mercury"
+msgstr "水星"
+
+msgid "sun"
+msgstr "太陽"
+
+msgid ""
+"The rising and setting of the sun has another effect we see everyday - shadows that change as the sun moves across our sky. Shadows change during the day as the sun appears to "
+"move. The lower the sun the longer the shadow - the higher the sun the shorter the shadow. The length of a shadow can change dramatically through a day. At sunrise the shadow of "
+"the object blocking the sun will be longer than in the middle of the day. Similarly, at sunset the shadow will be longer than in the middle of the day, although the shadow will "
+"form in the opposite direction to the shadow at sunrise."
+msgstr ""
+"太陽升起和落去之外，還有另一個現象──那就是太陽光受到物體遮擋時會形成影子，而太陽在天空移動時就會造成「影子」不時的移動。太陽比較低時，影子較長；太陽較高時，影子較短。一天當中，陰影"
+"的長度會有極大的改變，日出時影子較中午時為長；同樣的，日落時的陰影也會較中午時長，不過要注意的是，日落時的影子方向和日出時是相反。"
+
+msgid ""
+"The size of the shadow depends on a variety of factors including the time of the day, the size of the object blocking the light and the position of the sun at the time the shadow "
+"is created."
+msgstr "決定影子的大小的因素包括：物體的大小和太陽當時的位置。"
+
+msgid "Round and round it goes..."
+msgstr "繞圈...繞圈圈..."
+
+# 9
+msgid "Quick Check #3"
+msgstr "小練習＃3"
+
+msgid "Question A. How long does it take the moon to travel once around the earth?"
+msgstr "問題A. 請問月亮繞地球一圈需要多少時間？"
+
+msgid "24 hours"
+msgstr "24小時"
+
+msgid "28 days"
+msgstr "28天"
+
+msgid "12 months"
+msgstr "12個月"
+
+msgid "Questions B. Look at the two pictures of the same runner and click on <span class='red blink'>all</span> the correct statements below."
+msgstr "問題B. 這裡有兩張同一個跑者的照片。請選取下列<span class='red blink'>正確的</span>敘述(複選)。"
+
+msgid "In both pictures the runner is running at the same time of the day."
+msgstr "這兩張圖片是在同一個時間拍攝。"
+
+msgid "The shadows for both runners will not change as the people walk."
+msgstr "當跑者移動時，他的影子不會改變。"
+
+msgid "Knowing the position of the sun at the same time the shadows are created, the time of the day can be estimated."
+msgstr "從影子可以反推太陽的位置，而且如果知道太陽的位置，就可以大致推估當時的時間。"
+
+msgid "Both runners are facing the sun."
+msgstr "這張圖中的跑者都面對著太陽。"
+
+msgid "The shadow created in the picture on the right is most likely created closer to noon than the shadow on the left."
+msgstr "從影子位置，可以推測右邊的照片比左邊的照片，更接近在中午拍攝。"
+
+msgid "Checking, checking..."
+msgstr "小小偵探..."
+
+msgid "Right on! It takes 28 days for the moon to travel once around the earth."
+msgstr "答對了！月亮繞行地球一周需要28天。"
+
+msgid "Nope! It takes 24 hours for the earth to turn once in its axis."
+msgstr "不對喔！是地球繞自己的地軸自轉一周，才是需要24小時。"
+
+msgid "Not quite! It takes 12 months for the earth to revolve around the sun."
+msgstr "不大對喔！是地球繞著太陽公轉一周，才是需要12個月。"
+
+msgid ""
+"You got it! Both shadows are behind the runners, so you can tell they are facing the sun. Knowing the position of the sun at the time the shadow is created, the time of day can be "
+"estimated. The time of the shorter shadow is probably closer to noon."
+msgstr ""
+"你答對了！從圖中可以看出影子都是在跑者的身後，所以你可以判斷當時他是面對著太陽的。知道太陽的位置，那麼這時是一天中的什麼時候就可以大致估計出來。較短的影子應該是接近中午時的。"
+
+msgid ""
+"Not quite! Based on the shadows you can see it is not the same time of day. No matter the time, a person's shadow will always move with them. Knowing the position of the sun at "
+"the time the shadow is created, the time of day can be estimated. The time of the shorter shadow is probably closer to noon. Both shadows are behind the runners, so you can tell "
+"they are facing the sun."
+msgstr ""
+"不大對喔！從兩個影子的長短不同，就可以判斷這並不是同一個時間所拍攝。而且，不管任何時候，人的影子都會隨著人的移動而移動。知道太陽的位置，那麼這時是一天中的什麼時候就可以大致估計出"
+"來。較短的影子應該是接近中午時的。從圖中也可以看出影子都是在跑者的身後，所以你可以判斷當時他是面對著太陽的。"
+
+# 10
+msgid ""
+"Everyone knows it is hot in the summer and cold in the winter in the northern hemisphere even though the sun itself doesn't change. What everyone doesn't know is that the way the "
+"sun's light energy hits the earth, the shape of the earth and the tilt of the earth are what cause the different seasons."
+msgstr ""
+"每個人都知道在北半球夏天會熱、冬天會冷，但太陽本身並沒有什麼變化，哪一樣的在那邊燃燒著。但，很多人其實並不真正清楚：太陽的輻射能量是如何傳到地球、地球的形狀和地球的傾斜會什麼會造成"
+"這種夏天熱、冬天冷的現象的。"
+
+msgid ""
+"Let's start with the way the light energy from the sun strikes the earth and the earth's shape. It is useful to think of the sun's light as traveling in <span class='key'>parallel "
+"rays</span> when they strike the earth. Because the earth is shaped like a ball, the parallel rays do not hit all places on the earth's surface at the same angle. At or near the "
+"earth's <span class='key'>equator</span>, the sun's rays hit the earth with the greatest energy--like a ball thrown directly at a wall. Light rays hitting the earth further and "
+"further away from the equator hit the earth with less and less energy—like a ball thrown at more and more of a glancing angle at a wall. The less energy striking that part of the "
+"Earth, the colder that part of the Earth is."
+msgstr ""
+"讓我們先從，太陽輻射光如何照射到地球和地球的形狀，來談起。你可以把照射到地球的太陽光，想像成是很多的<span class='key'>平行光線</span> (如上圖)。因為地球的形狀像一顆球，這些平行光線"
+"並不會以同樣的角度照射在地球表面的所有地點。當照射到靠近地球<span class='key'>赤道</span>時，大陽提供最大的能量──這就像是球直接丟向垂直的牆面一樣；當照射到遠離赤道的區域時，太陽就"
+"提供較弱的能量了──這就像把球丟向斜斜的牆面一樣。地球上接收到較少太陽能量的地方，就是越冷的地方。"
+
+msgid ""
+"The tilt of the earth on its axis is the reason we have different seasons. As the earth revolves around the sun, the tilt means different places on the earth receive more or less "
+"energy from the parallel rays that hit the earth. So when the earth is tilted with its north pole toward the sun, it is summer in the northern hemisphere and winter in the "
+"southern hemisphere. When the earth is tilted with its south pole toward the sun, it is just the opposite--summer in the southern hemisphere and winter in the northern hemisphere."
+msgstr ""
+"而造成不同的季節的原因，則是因為地球自轉時的軸線(或稱為「地軸」)傾斜所造成的(註：從下圖中可發現，地軸是傾斜的)。這地軸的傾斜，就使得地球繞太陽公轉時，不同地方從太陽的平行光線中所獲"
+"得的能量，有多有少。也就是說，當地球的北極傾斜朝向太陽時，它的北半球就是夏季、而南半球就是冬季；而當南極傾斜朝向太陽時，就正好相反──南半球是夏季、北半球是冬季。(字典小幫手："
+"Spring(春)，Summer(夏), Autumn(秋), Winter(冬)"
+
+msgid "Spring"
+msgstr "春"
+
+msgid "Summer"
+msgstr "夏"
+
+msgid "Winter"
+msgstr "冬"
+
+msgid "Autumn"
+msgstr "秋"
+
+msgid "Changing seasons..."
+msgstr "四季變化..."
+
+# 11
+msgid "Quick Check #4"
+msgstr "小練習＃4"
+
+msgid "Question A. What cycle caused by the sun is the diagram trying to show? What is the cause of this cycle?"
+msgstr "問題A. 請問右圖是用來表示太陽造成的哪一種周期性現象？還有造成這週期性現象的原因是什麼？"
+
+msgid "Day and night cycle, tilt of the earth on its axis"
+msgstr "晝夜的週期性。是因為地軸傾斜。"
+
+msgid "Occurrence of seasons, tilt of the earth on its axis"
+msgstr "季節的週期性。是因為地軸傾斜。"
+
+msgid "Day and night cycle, rotation of the earth on its axis"
+msgstr "晝夜的週期性。是因為地球在它的地軸上自轉。"
+
+msgid "Occurrence of seasons, rotation of the earth on its axis"
+msgstr "季節的週期性。是因為地球在它的地軸上自轉。"
+
+msgid "Question B. Click on the answer that best describes the seasons when the North Pole is tilted towards the sun."
+msgstr "問題B. 下列哪一項是，「當地球的北極傾斜靠向太陽時」的最恰當敘述？"
+
+msgid "It is summer time in countries in the Northern Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr "這時，在北半球那些國家是夏季；南半球國家是冬季。"
+
+msgid "It is winter time in countries in the Northern Hemisphere. It is summer time in countries in the Southern Hemisphere."
+msgstr "這時，在北半球的國家是冬季；南半球國家是夏季。"
+
+msgid "It is winter time in countries in the Northern and Southern Hemisphere."
+msgstr "這時，在南、北半球的國家都是冬天。"
+
+msgid "It is summer time in countries in the Northern and Southern Hemisphere."
+msgstr "這時，在南、北半球的國家都是夏天。"
+
+msgid "Rotate or flip the 3D box below either up or down to set your answer."
+msgstr "向上或向下旋轉下方的3D方塊來設定你的答案。"
+
+msgid "Ready for last QC?"
+msgstr "準備好品質控制了嗎？"
+
+msgid ""
+"You got it! The diagram is showing how seasons work. The tilt of the earth is what causes the difference in the amount of sunlight reaching the ground in the different hemispheres "
+"and different seasons."
+msgstr "你答對了！該圖顯示了季節變換的原因。地軸的傾斜，就是造成不同地區地表會接收到不同量的太陽輻射的主要原因。"
+
+msgid ""
+"Not quite! Day and night are caused by the rotation of the earth, not its tilt. The earth makes a complete turn on its axis, which makes the sun to shine on one half, while the "
+"other half will have no light."
+msgstr "不大對喔！地球的晝夜是因為地球自轉的原因，而不是地軸的傾斜。太陽照射地球時，地球一半是白天、一半是黑夜；而當地球照著地軸自轉時，就是晝夜的循環了。"
+
+msgid "Nope! Day and night are caused by the rotation of the earth, but the diagram is showing the occurrence of seasons due to the tilt of the earth."
+msgstr "不對喔！晝夜是由地球的自轉所造成的；但這圖是表示：因為地球地軸是傾斜的，所以在繞太陽公轉時，地球就會有了季節變換的現象。"
+
+msgid ""
+"Look again! The diagram is showing the occurrence of seasons, but it is due to the tilt of the earth which causes a difference in the amount of sunlight reaching the ground in the "
+"different hemispheres."
+msgstr "請再看一下喔！這圖是表示：因為地球地軸是傾斜的，所以在繞太陽公轉時，地球就會有了季節變換的現象。但地軸的傾斜，是造成不同地區地表會接收到不同量的太陽輻射的主要原因。"
+
+msgid "Super! The Northern Hemisphere is getting all the sun, so it will be summer. The Southern Hemisphere is farther away from the sun and it will be winter in that area."
+msgstr "很好！北半球會照射到較多的陽光，所以它將是夏天；南半球較遠離太陽且較背光，它則將是冬天。"
+
+msgid ""
+"Nope! Exactly the other way around. The Northern Hemisphere is getting all the sun, so it will be summer. The Southern Hemisphere is farther away from the sun and it will be "
+"winter in that area."
+msgstr "不對喔！完全相反。北半球會照射到較多的陽光，所以它將是夏天；南半球較遠離太陽且較背光，它則將是冬天。"
+
+msgid ""
+"Think again! The earth is tilted so the same amount of sun will not reach the Northern and Southern Hemisphere at the same time. It is summer time in countries in the Northern "
+"Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr "再想想喔！地球因為是傾斜的，所以到達南北兩半球的陽光量並不一樣。這時候在北半球那些國家是夏季；南半球國家是冬季。"
+
+msgid ""
+"Not quite! The earth is tilted so the same amount of sun will not reach the Northern and Southern Hemisphere at the same time. It is summer time in countries in the Northern "
+"Hemisphere. It is winter time in countries in the Southern Hemisphere."
+msgstr "不大對喔！地球是傾斜使太陽相同數量不會在同一時間到達北和南半球。它是北半球國家夏季時間。它是南半球的國家冬天的時候。"
+
+# 12
+msgid "Using what you know... about solar power... to solve a problem"
+msgstr "運用你所知道......關於「太陽的能量」......解決問題"
+
+msgid "The Situation"
+msgstr "狀況"
+
+msgid ""
+"You work as an engineer for a company that consults (advises) on matters related to the purchase of  alternative energy equipment.  City officials in Anchorage, Alaska have "
+"contacted your company about installing solar panels to help generate electricity for their city office buildings."
+msgstr "你的職業是一個工程師，你需要對是否裝設替代能源設備等等問題，提供建議。現在有一個在靠近北極圈的城市正在討論是否要安裝太陽能發電板，以幫助提供電力。"
+
+msgid "The Problem"
+msgstr "問題"
+
+msgid ""
+"Using what you know about solar energy and how the sun impacts different parts of the earth at different times of the year, what kind of information would you provide to and "
+"questions you would ask the city officials to help them make a decision on whether or not to install solar panels.  Place your information and questions in the text box provided."
+msgstr ""
+"根據你所了解有關太陽能以及太陽照射地球的位置和角度等知識，你會提供什麼樣的訊息和問題給他們，以幫助他們做出是否安裝太陽能電池板的決定。請將您要提供的訊息和問題，輸入在下方文框中。"
+
+msgid "Click here to start typing your answer..."
+msgstr "點擊這裡開始輸入你的答案..."
+
+msgid "Hello, engineer..."
+msgstr "您好，工程師..."
+
+# 13
+msgid "Summarizing big ideas... about solar power"
+msgstr "總結核心觀念...關於「太陽的能量」"
+
+msgid ""
+"The sun is a giant nuclear power plant within the solar system. Energy is released from the fusion going on inside the sun. Then the sun <span class='key'>radiates</span> huge "
+"amounts of energy in all directions in space. This solar energy affects life on earth in many ways. The effect of the sun's energy is directly observable in the <span "
+"class='key'>water cycle</span>, weather, and oceans. In plants, solar effects are not only seen in their growth, but also in the energy that animals get from the plants when the "
+"plants are eaten as food. The cycle of day and night is another cycle affected by solar energy, which is related to the way the earth rotates around itself at the same time it "
+"orbits around the sun. As it rotates, one half of the earth faces the sun and has sunlight, and the other half faces away from the sun and experiences night. Differences in the "
+"amount of energy received from the sun at different places on the earth are due to earth's shape and its rotation on a tilted axis as it travels around the sun.  The tilt in the "
+"earth on its axis results in changes in how much of sun's energy is received as the earth moves around the sun. It is the difference in energy received that causes different "
+"places to be warm (near the equator) or cold (as you get closer and closer the north or south pole)."
+msgstr ""
+"太陽可稱是太陽系中的一個巨大的核電廠，它的能量是由太陽內部的核融合反應釋放出來，這些巨大的能量由太陽四面八方地往太空<span class='key'>輻射</span>出去。太陽提供的能量從許多方面影響"
+"著地球上生命，例如：對環境，它造成<span class='key'>水循環</span> 、天氣變化和海洋流動等這些直接可以觀察到的現象；對生物，太陽影響著植物的成長，動物又須由植物獲取能量，所以動植物都"
+"依賴太陽的能量。地球在自轉的過程中，隨時都有一半可以面向太陽，那時是白天並可得到陽光；而另一半則背向太陽，那時候就是夜晚。地球在繞行太陽公轉過程中，不同地方會接受到不同能量的主要原"
+"因兩個：一是因為地球的形狀，第二是地球在環繞太陽公轉時它的地軸是傾斜的。各個地方接收能量不同，就造成有些地方比較溫暖(例如靠近赤道)、有些地方比較寒冷(例如越靠近北極或南極)的現象了。"
+
+msgid "Putting it all together..."
+msgstr "觀念整理一下囉......"
+
+# 14
+msgid "Reviewing key vocabulary... related to solar power"
+msgstr "複習關鍵詞彙...關於「太陽的能量」"
+
+msgid "Spectrum"
+msgstr "光譜"
+
+msgid "The spectrum of energy is its range of types, or frequencies. The sun has a wide spectrum of radiant energies that can move through empty space."
+msgstr ""
+"光譜是一種不同類別或不同頻率的能量的圖。圖中，可見光的光譜包括各種顏色的光；而可見光譜只不過是整個光譜裡面的一小部分。太陽，具有的輻射光譜的區域相當寬廣，這些輻射能量可以穿越太空。"
+
+msgid "Radiate"
+msgstr "輻射"
+
+msgid "To radiate is to emit energy through space. The sun radiates infrared, visible, and ultraviolet light."
+msgstr "輻射，指的是穿越空間來傳播能量。太陽輻射出：紅外線、可見光和紫外光等光能。"
+
+msgid "Radiant energy"
+msgstr "輻射能"
+
+msgid ""
+"Radiant energy is energy transmitted via the process of radiation, or moving through space as electromagnetic waves. Most of the radiant energy of the sun that reaches Earth is "
+"visible and infrared light."
+msgstr "輻射能，指的是透過輻射所傳送的能量，亦即是可以穿越空間的電磁波。大部分到達地球的太陽輻射能是可見光和紅外光。"
+
+msgid "Visible light"
+msgstr "可見光"
+
+msgid "Visible light is the portion of the spectrum of electromagnetic radiation that is visible to the unaided eye."
+msgstr "可見光，指的是電磁輻射中以肉眼就可以看見的那一部分光譜。"
+
+msgid "Infrared light"
+msgstr "紅外光"
+
+msgid ""
+"Infrared light is the portion of the spectrum of electromagnetic radiation that has longer wavelengths than visible light, and thus is undetectable by the unaided eye. About half "
+"of the light that the sun emits to Earth is in the form of infrared light."
+msgstr "紅外光，指的是比可見光具稍微更長波長的電磁輻射，因此它們是無法用人眼直接看到的。在太陽傳送到地球的能量中，紅外光約佔了一半。"
+
+msgid "Water cycle"
+msgstr "水循環"
+
+msgid ""
+"The water cycle is the natural process by which water is transferred from the ground to the atmosphere, and back again. There are three main steps in the water cycle: evaporation, "
+"condensation, and precipitation."
+msgstr "水循環，是將水從地面蒸發到大氣中並再次返回的自然過程。水循環有三個主要步驟：蒸發、冷凝和降水(下雨、下雪等)。"
+
+msgid "Evaporate"
+msgstr "蒸發"
+
+msgid ""
+"To evaporate means to change from a liquid state to a gas state. Evaporation is one of the main three steps of the water cycle, and occurs as liquid water rises into the "
+"atmosphere as it evaporates into water vapor gas."
+msgstr ""
+"蒸發，是液態轉變成氣態的過程。蒸發是水循環主要三步驟之一，水會變成水蒸氣而使得液體的水上升到大氣層中(註：水蒸氣是無色透明的氣體，眼睛無法看到。壺口的煙是水蒸氣遇冷變回的液態小水"
+"滴)。"
+
+msgid "Condense"
+msgstr "冷凝"
+
+msgid ""
+"To condense means to change from a gas state to a liquid state. Condensation is one of the main three steps of the water cycle, and occurs as liquid water that has risen into the "
+"atmosphere through evaporation, condenses into rain clouds that are ready to precipitate (rain)."
+msgstr "冷凝，是氣態轉變為液態的過程。冷凝是水循環主要三步驟之一，水藉由蒸發現象上升到大氣中後，水蒸氣就會冷凝成雲（懸浮空中的小水滴）。有了雲，後就可能降水（雨）了。"
+
+msgid "Precipitate"
+msgstr "降水"
+
+msgid ""
+"To precipitate means to fall to the earth's surface, such as through liquid rain, solid snow, or other forms of precipitation. Precipitation is one of the main three steps of the "
+"water cycle, and occurs as condensed water vapor in the atmosphere falls under gravity to the ground."
+msgstr ""
+"降水，是水以各種形式落到地球的表面的過程，降水的形式包括落下液態的雨、固態的雪等等，降水是水循環主要三步驟之一。例如下雨，就是水蒸氣冷凝成雲(懸浮空中的小水滴)、再聚集成較大的水滴直"
+"到地心引力的作用使其無法繼續懸浮空中而掉落。下雪，也是近似的過程。"
+
+msgid "Photosynthesis"
+msgstr "光合作用"
+
+msgid ""
+"Photosynthesis is the process by which producer organisms, such as plants and phytoplankton, produce their food. These organisms undergo photosynthesis when they use carbon "
+"dioxide from the air, water, and light energy from the sun to produce sugar and give off a by-product of oxygen."
+msgstr ""
+"光合作用，是生產者(如植物或者是浮游植物)生產它們養分的過程。這些生物體進行光合作用時，使用水和空氣中的二氧化碳(Carbon Dioxide)、還有來自太陽光的能量(Light Energy)，作用之後會產生醣"
+"類(Glucose)和氧氣(Oxygen)──氧氣可以看成是植物生產養分之外的一種副產品。"
+
+msgid "Equator"
+msgstr "赤道"
+
+msgid ""
+"The equator is the imaginary center line, going horizontally, across Earth. The equator divides Earth into the northern and southern hemispheres. Earth's equator is about 24,901 "
+"miles long!"
+msgstr "赤道是一條假想的中心線，它以水平方向環繞地球。赤道將地球劃分成南北兩半球，地球赤道大約有4萬公里(24901英里)長！"
+
+msgid "Parallel rays"
+msgstr "平行光線"
+
+msgid "Two rays, or lines with an endpoint in one direction and no endpoint in the other, are parallel when they never intersect despite being on the same plane."
+msgstr "兩條光束如果相互平行且在同一平面上永不相交，就是平行光線。"
+
+msgid "Words and explanations"
+msgstr "名詞和解釋"
+
+# 15
+msgid "Checking what you now know... about solar power"
+msgstr "看看你現在已經了解多少了......關於「太陽的能量」"
+
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "回答以下6個問題，可以了解哪些是你已經知道的...哪些是還要再學習的？"
+
+msgid "Click the NEXT button when you are ready."
+msgstr "當您準備好了後，請繼續。"
+
+msgid "Let's check what you now know"
+msgstr "讓我們來看看你現在知道了哪些"
+
+# 16
+msgid "Quiz Question #1"
+msgstr "小測驗＃1"
+
+msgid "Click on <span class='red blink'>all</span> the following statements that are <span class='red blink'>true</span>."
+msgstr "請點選下列<span class='red blink'>正確的</span>敘述(複選)。"
+
+msgid "The Sun warms the Earth on both clear and cloudy days."
+msgstr "太陽不管在晴天、陰天，都在幫助著使地球保持溫暖。"
+
+msgid "The Sun is a huge ball of burning solids and gases."
+msgstr "太陽是一個燃燒固體和氣體的巨大火球。"
+
+msgid "The Sun radiates energy in all directions."
+msgstr "太陽將能量輻射向四面八方。"
+
+msgid "The Sun strikes the earth the same in all seasons."
+msgstr "太陽照射到地球的方式，在每一個季節都是相同的。"
+
+msgid "The Sun affects our weather and water cycle."
+msgstr "太陽會影響我們的天氣和水的循環。"
+
+msgid "Your first quiz question is..."
+msgstr "你的第一個小測驗..."
+
+msgid ""
+"Correct! The sun warms the earth no matter what the weather may be. The Sun radiates energy equally in all directions. It plays a very important role in the water cycle and our "
+"weather."
+msgstr "正確！不論地球的天氣如何，太陽都一樣溫暖著地球。太陽向四面八方地向太空輻射等量的能量。它也在地球上的水的循環和我們的天氣中，扮演著非常重要的角色。"
+
+msgid "Nope! The sun is a large ball of superheated gas called plasma - not solid - its energy is released when hydrogen atoms are joined or fused together."
+msgstr "不對喔！太陽是一個超級熱的氣態火球──它不是固態的。太陽的能量是由氫氣原子 不斷反應而結合在一起（也就是「融合」在一起）過程中，所釋放出來 的。"
+
+msgid "Nope! The sun is a large ball of exploding gas - not solid - its energy is released when hydrogen atoms are joined or fused together."
+msgstr "不對喔！太陽是一個超級熱的氣態火球──它不是固態的。太陽的能量是由氫氣原子不斷反應而結合在一起（也就是「融合」在一起）過程中，所釋放出來的。"
+
+msgid ""
+"Not quite. The sun warms the earth no matter what the weather may be, the sun radiates energy in all directions, and the sun plays a very important role in the water cycle and our "
+"weather. But the sun is not like a burning fire—its energy is released when hydrogen atoms are joined or fused together and the sun does not strike all places on the earth at the "
+"same angle at all times of the year because the earth is tilted on its axis as it orbits the sun."
+msgstr ""
+"不完全是喔。不論地球的天氣如何，太陽都一樣溫暖著地球。太陽向四面八方輻射等量的能量。它在地球上的水的循環和我們的天氣中，扮演著非常重要的角色。但是太陽是一個燃燒著氣體的大火球，它的"
+"能量是由於氫原子彼此進行融合而產生的。太陽照射地球上不同的地點時的照射角度，不管在一年當中的什麼時候，都是不同的。因為地球自轉的地軸和地球環繞太陽時的平面是相互傾斜的。"
+
+# 17
+msgid "Quiz Question #2"
+msgstr "小測驗＃2"
+
+msgid "Which two elements make up the gas inside the sun?"
+msgstr "請問太陽中的氣體是由哪兩種元素所組成？"
+
+msgid "Carbon and nitrogen"
+msgstr "碳和氮"
+
+msgid "Hydrogen and oxygen"
+msgstr "氫和氣"
+
+msgid "Oxygen and carbon"
+msgstr "氧和碳"
+
+msgid "Hydrogen and helium"
+msgstr "氫和氦"
+
+msgid "What the sun is made of..."
+msgstr "太陽是由什麼組成的..."
+
+msgid "You got it! Hydrogen and helium are the gases inside the sun."
+msgstr "你答對了！氫和氦就是構成了太陽的氣體。"
+
+msgid "Try again! There is no carbon or nitrogen on the Sun."
+msgstr "再試一次！太陽上並沒有碳或氮。"
+
+msgid "Not quite! There is no oxygen on the Sun."
+msgstr "不大對喔！太陽上並沒有氧氣。"
+
+msgid "Nope! There is no oxygen or carbon on the Sun."
+msgstr "不對喔！太陽上沒有氧或碳。"
+
+# 18
+msgid "Quiz Question #3"
+msgstr "小測驗＃3"
+
+msgid "The Sun appears to move across the sky each day. What causes this?"
+msgstr "太陽每一天都會在從天空中經過。請問這是什麼原因所造成的？"
+
+msgid "The spinning of Earth on its axis."
+msgstr "地球繞著它的地軸自轉。"
+
+msgid "The path of the Sun around Earth."
+msgstr "太陽繞行地球。"
+
+msgid "The production of nuclear energy by the Sun."
+msgstr "太陽會產生核能。"
+
+msgid "The tilt of Earth on its axis."
+msgstr "地球地軸是傾斜的。"
+
+msgid "A brighter day"
+msgstr "美好的一天"
+
+msgid "Right on! The earth spins on its axis and that's what make it seem to moving across the sky."
+msgstr "正確！地球會繞著它的地軸自轉，這就是使得看起來太陽每一天都會在從天空中經過的原因。"
+
+msgid "Not quite! The Sun does not go around the Earth- the Earth orbits the Sun. But the orbiting does not explain the appearance of the Sun moving across the sky."
+msgstr "不大對喔！太陽並不是繞行地球的 - 一般而言，地球才是繞行太陽。不過，繞行並不是解釋太陽為什麼每一天都會在從天空中經過的原因。"
+
+msgid ""
+"Think again! Nuclear energy is produced in the Sun and some of that energy reaches the Earth. But that energy is coming in all the time- it does not explain the appearance of the "
+"Sun moving across the sky."
+msgstr "再想想！太陽會產生核能且其中部分會傳送到地球。不過，雖然能源確實是不斷的從太陽傳送到地球來，但是這並不是解釋為什麼太陽每一天都會在從天空中經過的原因。"
+
+msgid "Nope! The tilt of the Earth on its axis does cause the change in seasons. But the tilt does not explain the appearance of the Sun moving across the sky."
+msgstr "不對喔！地球地軸的傾斜確實會導致季節的變化；但地軸傾斜並不能是解釋太陽為什麼會在天空中經過的原因。"
+
+# 19
+msgid "Quiz Question #4"
+msgstr "小測驗＃4"
+
+msgid "Click on the statement that is <span class='red blink'>not</span> <span class='red blink'>true</span>."
+msgstr "請點選下列<span class='red blink'>不正確</span>的敘述。"
+
+msgid "Every hour the earth makes one full rotation on its axis."
+msgstr "每一小時，地球就沿著它的地軸自轉一圈。"
+
+msgid "The earth's rotation causes the Sun's position in the sky to change."
+msgstr "地球的自轉，使太陽看起來在天空中的位置改變了。"
+
+msgid "When we are on the side of the earth facing the sun, it is daytime."
+msgstr "當我們所處的地方，面對太陽時，我們是在白天。"
+
+msgid "The sun only seems to rise and set every day."
+msgstr "我們可以看到太陽的日昇和日落。"
+
+msgid "Spinning...spinning..."
+msgstr "旋轉...旋轉..."
+
+msgid "Super! The Earth makes one full rotation in 24 hours, not one hour"
+msgstr "正確，這是錯誤的敘述！地球自轉一圈需要24小時，而不是1小時。"
+
+msgid "Nope! This statement is true. The sun does not really rise and set every day, it is the earth's rotation that makes it seem this way."
+msgstr "選錯囉！這一個是正確的敘述。太陽並不是真的日昇或日落，那是因為地球自轉所以看到的現象。"
+
+msgid "Not quite! This statement is true. It is daytime for the side of the Earth that faces the Sun."
+msgstr "選錯囉！這一個是正確的敘述。當我們所處的地方，面對太陽時，我們是在白天。"
+
+msgid "Think again! This statement is true. The sun does not really rise and set every day, it is the earth's rotation that makes it seem this way."
+msgstr "再想想！這一個敘述是正確。太陽並不是真的日昇或日落，那是因為地球自轉所以看到的現象。"
+
+# 20
+msgid "Quiz Question #5"
+msgstr "小測驗＃5"
+
+msgid ""
+"As the sun seems to move across the sky during the day, the shape of the shadows it makes changes. Here are five pictures of a house showing its shadows changing with the position "
+"of the sun in the sky:"
+msgstr ""
+"當太陽在白天劃過天空時，房子陰影的形狀也會改變。下圖中，左側是羅盤圖，這羅盤圖代表著螢幕的左邊是東邊(E)、右邊是西邊(W)。此外，還有五張不同時間房子和陰影的圖片，這五張圖中顯示出太陽"
+"在天空位置變化時，房子陰影變化的情形："
+
+msgid ""
+"Connect the letters on the left, which represents the images above, to the time on the right by dragging any of the circles at the left column to another circle in the right "
+"column. Click the Start Over button to remove the lines and connect again."
+msgstr ""
+"下面，左欄中的字母分別代表著上面的五張圖、右欄是當時的時間，請你將左欄中代表的圖和右欄中的正確時間，一一配對。(點選左邊黑色圈圈並拖放到右欄的正確黑色圈圈處；如需重做，可按「清除」"
+"鍵)。(英文小幫手：AM，上午；PM，下午)"
+
+msgid "Column A"
+msgstr "左欄"
+
+msgid "noon"
+msgstr "中午"
+
+msgid "or"
+msgstr "或"
+
+msgid "Column B"
+msgstr "右欄"
+
+msgid "Start Over"
+msgstr "重新開始"
+
+msgid "A black silhouette follows..."
+msgstr "黑色影子來囉..."
+
+msgid ""
+"Correct! When the earth is rotating on its axis, it seems that in the morning the sun is rising from the east. At noon, the sun is directly over the earth and the shadow is "
+"shortest. As the day goes on, the shadows begin to get longer again until the earth rotates in a way that it appears the sun is setting in the west. Knowing the position of the "
+"sun at the time the shadow is created, the time of day can be estimated."
+msgstr ""
+"答對囉！當地球繞它的地軸自轉時，我們看起來就是早晨時太陽從東方升起；中午時，太陽直射地球，影子最短；繼續隨著時間的經過，陰影逐漸變長，直到太陽從西邊落下。知道太陽所造成的陰影位置，"
+"可以推估當時大致的時間。"
+
+msgid ""
+"Not quite! When the earth is rotating on its axis, it seems that in the morning the sun is rising from the east. At noon, the sun is directly over the earth and the shadow is "
+"shortest. As the day goes on, the shadows begin to get longer again until the earth rotates in a way that it appears the sun is setting in the west. Knowing the position of the "
+"sun at the time the shadow is created, the time of day can be estimated."
+msgstr ""
+"不大對喔！當地球繞它的地軸自轉時，我們看起來就是早晨時太陽從東方升起；中午時，太陽直射地球，影子最短；繼續隨著時間的經過，陰影逐漸變長，直到太陽從西邊落下。知道太陽所造成的陰影位"
+"置，可以推估當時大致的時間。"
+
+# 21
+msgid "Quiz Question #6"
+msgstr "小測驗＃6"
+
+msgid "Select the correct words to fill in the blanks."
+msgstr "請在填空處選取插入正確的文字。"
+
+msgid ""
+"Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in glaciers, snow cover and ice. The radiant energy of the sun heats water and "
+"causes it to"
+msgstr "地球上的水份，主要包括液態的水──例如，存在於湖泊、河流、溪流和海洋的；還有固態的冰──例如，冰川、覆雪和積冰。太陽的輻射能可以加熱水並使水"
+
+msgid "select"
+msgstr "選擇"
+
+msgid "condense"
+msgstr "冷凝"
+
+msgid "radiate"
+msgstr "輻射"
+
+msgid "precipitate"
+msgstr "降水"
+
+msgid "evaporate"
+msgstr "蒸發"
+
+msgid "into water vapor. The water vapor then rises into the air and collects in clouds. Eventually, the water vapor cools enough to"
+msgstr "成為水蒸汽，並在空氣中上升。最終，當水蒸氣夠冷時，就會"
+
+msgid "or change back into very small droplets of water. These small droplets of water combine into bigger droplets that then fall back to Earth as"
+msgstr "，也就是變成非常小的水滴。這些小水滴聚集成較大的水滴並回落到地面時，這就稱為"
+
+msgid "in the form of rain, sleet, hail or snow."
+msgstr "，也就是以雨、雨雪、冰雹或雪的形式，將水回復到地表來。"
+
+msgid ""
+"Water is found on Earth's surface as a liquid in lakes, rivers, streams and oceans and as a solid in glaciers, snow cover and ice. The radiant energy of the sun heats water and "
+"causes it to <span id='ans1'></span> (to change from a liquid into a water vapor). The water vapor then rises into the air and collects in clouds. Eventually, the water vapor "
+"cools enough <span id='ans2'></span> or change back into very small droplets of water. These small droplets collect into bigger droplet and fall back to earth's surface or <span "
+"id='ans3'></span> as liquid rain or solid snow, hail, or sleet."
+msgstr ""
+"地球上的水份，主要包括液態的水──例如，存在於湖泊、河流、溪流和海洋的；還有固態的冰──例如，冰川、覆雪和積冰。太陽的輻射能可以加熱水並使水<span id='ans1'></span>(從液態變成水蒸氣)。"
+"這些水蒸氣會在空氣中上升，最終，當它們夠冷時，就會<span id='ans2'></span>，變成非常小的水滴。這些小水滴聚集成較大的水滴並回落到地面時，就稱為 <span id='ans3'></span>，降水的形式包"
+"括，雨、雨雪、冰雹或雪等。"
+
+msgid "Is it raining?"
+msgstr "是下雨嗎？"
+
+msgid ""
+"Correct! The water cycle consists of evaporation where water turns into vapor, condensation where the vapor turns into small droplets of water that combine into larger droplets "
+"that fall back to Earth as precipitation in the form of rain, sleet, hail and snow."
+msgstr "超讚！水的循環包括：水蒸發成為水蒸氣、水蒸氣冷凝成小水滴、小水滴聚集成較大水滴掉落地表(降水)，降水形式可以是下雨、雨雪、冰雹和雪。"
+
+msgid ""
+"Not quite! The water cycle consists of evaporation where water turns into vapor, condensation where the vapor turns into small droplets of water that combine into larger droplets "
+"that fall back to Earth as precipitation in the form of rain, sleet, hail and snow."
+msgstr "不大對喔！水的循環由蒸發水的地方變成蒸汽，冷凝其中的水蒸氣變成小水滴，結合成回落到地球的降水雨，雨夾雪，冰雹和雪的形式較大的液滴。"
+
+# 22
+msgid "Congratulations"
+msgstr "恭喜您"
+
+msgid "You've completed the Solar Power module."
+msgstr "你已經完成了「太陽的能量」的學習單元。"
+
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "你可以點擊按鈕來檢查你對在此單元中\"小練習\"和\"小測驗\"的表現。"
+
+msgid "Go to dashboard"
+msgstr "進入主控面板"
+
+msgid "You're done!"
+msgstr "大功告成！"
+
+msgid "Go Back to Dashboard"
+msgstr "進入主控面板"

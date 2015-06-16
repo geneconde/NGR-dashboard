@@ -77,16 +77,16 @@ ini_set('display_errors', 1);
 	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
 
-	$col = array();
-	$col["title"] = $password;
-	$col["name"] = "password";
-	$col["width"] = "30";
-	$col["search"] = true;
-	$col["editable"] = true;
-	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
-	$cols[] = $col;
+	// $col = array();
+	// $col["title"] = $password;
+	// $col["name"] = "password";
+	// $col["width"] = "30";
+	// $col["search"] = true;
+	// $col["editable"] = true;
+	// $col["align"] = "center";
+	// $col["export"] = true; // this column will not be exported
+	// // $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
+	// $cols[] = $col;
 
 	$col = array();
 	$col["title"] = "Type";
@@ -181,6 +181,19 @@ ini_set('display_errors', 1);
 	$col["viewable"] = true;
 	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>true); 
+	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "Reset Student password";
+	$col["name"] = "reset_pword";
+	$col["width"] = "25";
+	$col["align"] = "center";
+	$col["search"] = false;
+	$col["sortable"] = false;
+	$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["default"] = "Reset password"; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 

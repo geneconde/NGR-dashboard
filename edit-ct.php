@@ -92,8 +92,10 @@
 				<th><?php echo _("Action"); ?></th>
 			</tr>
 <?php
-			foreach($tm as $md):
+			foreach($tm as $md) {
 				$module = $mc->getModule($md['module_id']);
+				$checkingM = $tmc->checkModule($userid);
+				if($md['module_id']==$checkingM){ break; }
 ?>
 			<tr>		
 				<td><?php echo _($module->getModule_name()); ?></td>
@@ -113,7 +115,7 @@
 				<td><a class="button1" href="ct-module.php?mid=<?php echo $md['module_id']; ?>&action=edit&ctid=<?php echo $ctid; ?>"><?php echo _("Select Questions");?></a></td>
 			</tr>
 <?php
-		endforeach;
+			}
 ?>
 			<tr>
 				<td><?php echo _("Total Questions"); ?></td>

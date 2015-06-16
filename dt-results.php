@@ -27,6 +27,11 @@
 	$dtc			= new DtQuestionController();
 	//$question_set	= $dtc->getDTPool($sdt_set->getModuleID());
 ?>
+<script>
+	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 1;
+	var pfCustomCSS = ''
+	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+</script>
 <div id="container">
 	<?php 
 		if ($user->getType() == 0 ): 
@@ -83,7 +88,24 @@
 			<tr class="trline">
 				<td><img class="img-answer" /><?php echo _($qinfo[0]['question']); ?>
 				<?php if($qinfo[0]['image']) :
-				echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
+					$image = $qinfo[0]['image'];
+					$img = trim($image, "en.jpg");
+
+					if($language == 'ar_EG' && $qinfo[0]['translate'] == 1) {
+						$img .= '-ar.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'es_ES' && $qinfo[0]['translate'] == 1) {
+						$img .= '-es.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'zh_CN' && $qinfo[0]['translate'] == 1) {
+						$img .= '-zh.jpg';
+						echo '<br/><img src="'.$img.'" class="dtq-image">';
+					} elseif($language == 'en_US' && $qinfo[0]['translate'] == 1) {
+						echo '<br/><img src="'.$image.'" class="dtq-image">';
+					} else {
+						echo '<br/><img src="'.$image.'" class="dtq-image">';
+					}
+					// echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
 				endif; ?>
 				<br><br>
 				<?php echo _("Choices"); ?>:<br/>

@@ -5285,7 +5285,7 @@ msgstr "環境和資源隨時在改變，這些變化不會影響動植物，動
 msgid "Look at the bird feet and select the one that's best for swimming."
 msgstr "請觀察以下的禽類的腳，情問何者最適合游泳。"
 
-msgid "Some birds use their beaks to grab insects and take them out of holes in trees. Look at the following objects and select the one with the function mos"
+msgid "Some birds use their beaks to grab insects and take them out of holes in trees. Look at the following objects and select the one with the function most like the kind of beak these birds have."
 msgstr "有些鳥用喙抓住昆蟲並從樹洞中掏出。請問下列何者和這鳥會的功能比較接近？"
 
 msgid "As winter approaches, some animals' fur grows thicker. Why does this adaptation occur?"

@@ -5238,6 +5238,9 @@ msgstr "solución"
 msgid "Changing Life Forms"
 msgstr "Formas de Vida Cambiantes"
 
+msgid "Click on the phrase that best describes a favorable mutation for a fox."
+msgstr "Da clic en la frase que describe mejor una mutación favorable para un zorro."
+
 msgid "Select the statement that is NOT correct."
 msgstr "Selecciona la frase que NO es correcta."
 
