@@ -1,8 +1,8 @@
 <?php
-	require_once 'session.php';
-	include_once 'locale.php';
+	require_once '../session.php';
+	include_once '../locale.php';
 	include_once 'header.php';
-	include_once 'controller/User.Controller.php';
+	include_once '../controller/User.Controller.php';
 	
 	$userid		= $_GET['user_id'];
 	$user_set	= $uc->getUser($userid);

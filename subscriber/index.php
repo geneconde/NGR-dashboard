@@ -91,16 +91,16 @@ ini_set('display_errors', 1);
 	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
 
-	$col = array();
-	$col["title"] = $password;
-	$col["name"] = "password";
-	$col["width"] = "30";
-	$col["search"] = true;
-	$col["editable"] = true;
-	$col["align"] = "center";
-	$col["export"] = true; // this column will not be exported
-	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
-	$cols[] = $col;
+	// $col = array();
+	// $col["title"] = $password;
+	// $col["name"] = "password";
+	// $col["width"] = "30";
+	// $col["search"] = true;
+	// $col["editable"] = true;
+	// $col["align"] = "center";
+	// $col["export"] = true; // this column will not be exported
+	// // $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
+	// $cols[] = $col;
 
 	$col = array();
 	$col["title"] = "Type";

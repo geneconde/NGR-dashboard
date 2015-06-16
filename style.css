@@ -808,9 +808,10 @@ span.form-error { font-size: 10px; font-style: italic; color: red; }
 #edit-account table td:last-child { width: 200px; }
 #edit-account table input[type=text] { width: 170px; padding: 2px; border: 1px solid #ccc; }
 
-#change-pw table { width: 300px; }
+#change-pw table { width: 380px; }
 #change-pw table td:last-child { width: 180px; }
-#change-pw table input[type=text] { width: 180px; padding: 2px; border: 1px solid #ccc; }
+#change-pw table input[type=password] { width: 180px; padding: 2px; border: 1px solid #ccc; margin-left: 20px; }
+#change-pw label { padding-left: 20px; }
 
 .hidden-btn { display: none; }
 #container { width: 800px; margin: 0 auto; }

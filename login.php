@@ -12,10 +12,10 @@
 	$sc = new SubscriberController();
 
 	if (isset($_POST['username'])) {
-		// $password = $_POST['password'];
-		// $salt = sha1(md5($password));
-		// $password = md5($password.$salt);
 		$password = $_POST['password'];
+
+		$password = $uc->hashPassword($password);
+		
 		$retObj = $uc->loginUser($_POST['username'],$password);
 		if ((is_object($retObj)) && ($retObj instanceof User)) {
 			$subid = $retObj->getSubscriber();
