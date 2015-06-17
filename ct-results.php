@@ -91,17 +91,17 @@
 
 					if($language == 'ar_EG' && $qinfo[0]['translate'] == 1) {
 						$img .= '-ar.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'es_ES' && $qinfo[0]['translate'] == 1) {
 						$img .= '-es.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'zh_CN' && $qinfo[0]['translate'] == 1) {
 						$img .= '-zh.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'en_US' && $qinfo[0]['translate'] == 1) {
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$image.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$image.'" class="dtq-image" width="312px">';
 					} else {
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$image.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$image.'" class="dtq-image" width="312px">';
 					}
 					//echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
 				endif; ?>
