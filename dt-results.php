@@ -47,9 +47,9 @@
 		<a class="link" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 	<?php endif; ?>
 	<?php if ($sdt_set->getMode() == 1): ?>
-	<h1><?php echo _("Student Pre-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
+	<h1><?php echo _("Student Pre-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
 	<?php else: ?>
-	<h1><?php echo _("Student Post-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
+	<h1><?php echo _("Student Post-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
 	<?php endif; ?>
 	<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
 	<div id="results">
@@ -226,5 +226,29 @@ $(document).ready(function() {
   	var subEadd2 = new LiveValidation('emailfrom');
   	subEadd2.add( Validate.Email );
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to print this page.</p>
+	</li>
+	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to email this page/results.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

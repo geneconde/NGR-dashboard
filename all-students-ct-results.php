@@ -19,7 +19,8 @@
 	
 	$scc		= new StudentCtController();
 ?>
-<a class="link" href="all-ct.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+<br/>
+<a class="link" href="all-ct.php">&laquo; <?php echo _("Go Back"); ?></a>
 <h1><?php echo _("Students Cumulative Test Results"); ?></h1>
 
 <span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
@@ -40,13 +41,13 @@
 	<table id="table_id2">
 		<thead>	
 			<tr>
-				<th><?php echo _("Student Name"); ?></th>
+				<th id="stdname"><?php echo _("Student Name"); ?></th>
 				<?php 
 					foreach($ctqid as $question):
 						$coltotal[$ctr] = 0;
 						$ctr++;
 				?>
-					<th>
+					<th id="qtns">
 						<li>
 							<a href="ct-stat.php?ctid=<?php echo $ctid; ?>&qid=<?php echo $question; ?>">Q#<?php echo $ctr; ?>
 								<!-- <img src="images/appbar.link.png"> -->
@@ -54,7 +55,7 @@
 						</li>
 					</th>
 				<?php endforeach; ?>
-				<th><?php echo _("Total %"); ?></th>
+				<th id="ttl"><?php echo _("Total %"); ?></th>
 			</tr>
 		</thead>	
 		<tbody>
@@ -115,6 +116,18 @@
 	</table>
 </div>
 <?php endif; ?>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="stdname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This column lists all students in this student group.</p>
+	</li>
+	<li data-id="qtns" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>The heading represents the question items. Click the heading to show the statistics for that question. Scroll left and right to view all the students' information. Note that each question takes the value of 1 for the correct answer and 0 for the wrong answer.</p>
+	</li>
+	<li data-id="ttl" 			data-text="Close" data-options="tipLocation:left;tipAnimation:fade;modal:true;expose: true">
+		<p>This column shows the percentage of the correct answer vs. the total number of questions taken in this test/module.</p>
+	</li>
+</ol>
 
 <script>
 window.onresize = function() {
@@ -145,5 +158,17 @@ $(document).ready( function () {
 
 	
 });
+function guide() {
+	$('#joyRideTipContent').joyride({
+	  autoStart : true,
+	  postStepCallback : function (index, tip) {
+	  if (index == 2) {
+	    $(this).joyride('set_li', false, 1);
+	  }
+	},
+	// modal:true,
+	// expose: true
+});
+}
 </script>
 <?php require_once "footer.php"; ?>

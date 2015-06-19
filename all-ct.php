@@ -41,3 +41,23 @@
 </table>
 </center>
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-class="ct-del" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to view the cumulative test results of all your students.</p>
+	</li>
+</ol>
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 1) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>

@@ -26,7 +26,7 @@
 	<table border="0" class="result morepad">
 		<tr>
 			<th><?php echo _("Group Name"); ?></th>
-			<th><?php echo _("Activate"); ?></th>
+			<th id="gcheck"><?php echo _("Activate"); ?></th>
 		</tr>
 		<?php
 			foreach($groups as $group) :
@@ -51,7 +51,7 @@
 			endforeach;
 		?>
 	<table>
-	<input type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
+	<input id="activate" type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
 </form>
 <script>
 (function(){
@@ -83,4 +83,28 @@
 		}
 	});
 })();
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="gcheck" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click the checkbox of the group you want the cumulative test to be activated for.</p>
+	</li>
+	<li data-id="activate" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to save your changes.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>

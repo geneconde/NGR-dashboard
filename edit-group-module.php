@@ -126,11 +126,11 @@
 	<h2><?php echo _("Diagnostic Tests"); ?></h2>
 	<?php if($test_set) : ?>
 		<table border="0" class="result morepad">
-			<tr>
+			<tr id="tr">
 				<th><?php echo _("Test Type"); ?></th>
 				<th><?php echo _("Test Name"); ?></th>
 				<th><?php echo _("Time Limit"); ?></th>
-				<th><?php echo _("Status"); ?></th>
+				<th id="stat"><?php echo _("Status"); ?></th>
 			</tr>
 			<?php if($pre_result) : ?>
 				<tr>
@@ -267,7 +267,31 @@
 	<a class="button1" id="save"><?php echo _("Save Changes"); ?></a>
 <center>
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="tr" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Select a pre-diagnostic test and post-diagnostic test for this student group and set the time limit for each test. The default time limit is set at 45 minutes.</p>
+	</li>
+	<li data-id="stat" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>You can activate/deactivate the tests by clicking the ON/OFF switch.</p>
+	</li>
+	<li data-id="save" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click 'Save changes' to update your settings.</p>
+	</li>
+</ol>
 <script>
+function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+}
 $(document).ready(function() {
 	$('#hours1').val('<?php echo ltrim($pretl[0], '0'); ?>');
 	$('#hours2').val('<?php echo ltrim($posttl[0], '0'); ?>');

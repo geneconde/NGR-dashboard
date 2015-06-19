@@ -31,6 +31,7 @@
 	}
 	
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container">
 	<a class="link" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
 	<div class="edit-group-name">

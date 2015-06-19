@@ -73,6 +73,7 @@
 	$mode		= $dt_set->getMode();
 	$mid		= $dt_set->getModuleid();
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container">
 <?php if($_GET['page']=="comparative") { ?>
 <a class="link" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Comparative Results"); ?></a>

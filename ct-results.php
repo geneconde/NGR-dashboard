@@ -190,6 +190,15 @@
 	}
 ?>
 <!-- End Email -->
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-class="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to print this page.</p>
+	</li>
+	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to email this page/results.</p>
+	</li>
+</ol>
 <script src="scripts/livevalidation.js"></script>
 <script>
 var totalquestions = 0,
@@ -225,5 +234,19 @@ $(document).ready(function() {
   	var subEadd2 = new LiveValidation('emailfrom');
   	subEadd2.add( Validate.Email );
 });
+</script>
+<script>
+function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

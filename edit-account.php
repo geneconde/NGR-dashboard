@@ -57,7 +57,7 @@
 				</td>
 				<td>
 					<!-- <input type="text" name="username" id="uname" value="<?php echo $user_set->getUsername(); ?>" disabled class="editable"><img src="" id="check"> -->
-					<input type="text" name="username" id="uname" value="<?php echo $user_set->getUsername(); ?>" class="editable"><img src="" id="check">
+					<input type="text" name="username" id="uname" value="<?php echo $user_set->getUsername(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a username."); ?>"><img src="" id="check">
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +75,7 @@
 				</td>
 				<td>
 					<!-- <input type="text" name="fname" value="<?php echo $user_set->getFirstname(); ?>" disabled class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>"> -->
-					<input type="text" name="fname" value="<?php echo $user_set->getFirstname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>">
+					<input type="text" name="fname" id="fname" value="<?php echo $user_set->getFirstname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>">
 				</td>
 			</tr>
 			<tr>
@@ -84,14 +84,14 @@
 				</td>
 				<td>
 					<!-- <input type="text" name="lname" value="<?php echo $user_set->getLastname(); ?>" disabled class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>"> -->
-					<input type="text" name="lname" value="<?php echo $user_set->getLastname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>">
+					<input type="text" name="lname" id="lname" value="<?php echo $user_set->getLastname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>">
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<?php echo _("Gender"); ?>:
 				</td>
-				<td>
+				<td id="gender">
 					<input type="radio" name="gender" id="m" class="gender editable"  <?php if($gender == "m") { ?> checked <?php } ?> value="M"><label for="m"> <?php echo _("Male"); ?></label>
 					<input type="radio" name="gender" id="f" class="gender editable"  <?php if($gender == "f") { ?> checked <?php } ?> value="F"><label for="f"> <?php echo _("Female"); ?></label>
 				</td>
@@ -108,7 +108,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<select name="squestion">
+					<select name="squestion" id="squestion">
 						<?php
 						$i = 1;
 						foreach ($questions as $question) { ?>
@@ -169,7 +169,7 @@ $(document).ready(function() {
 				url		: "validate-user.php",
 				data	: {	userid: uid },
 				success : function(data) {
-					if(data == 1) { 
+					if(data == 1 && uid != '') { 
 						$('#check').attr('src','images/accept.png');
 						$('#save').prop('disabled',false);
 					} else { 
@@ -188,5 +188,47 @@ $(document).ready(function() {
 $.validate({
   form : '#edit-account'
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="uname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>username</strong> to something that you can easily remember.</p>
+	</li>
+	<li data-id="cp" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>password</strong> to something that you can easily remember.</p>
+	</li>
+	<li data-id="fname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>first name</strong>.</p>
+	</li>
+	<li data-id="lname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>last name</strong>.</p>
+	</li>
+	<li data-id="gender" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Select your <strong>gender</strong>.</p>
+	</li>
+	<li data-id="squestion" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future.</p>
+	</li>
+	<li data-id="sanswer" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Enter the answer to your security question. This is case sensitive.</p>
+	</li>
+	<li data-id="save" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click the <strong>Save Changes</strong> button to save your changes.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

@@ -50,7 +50,7 @@
 
 		<h1><?php echo _("Module Score Summary"); ?>
 			<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
-				<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>
+				<img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>
 			</a>
 		</h1>
 
@@ -297,5 +297,30 @@
       	subEadd2.add( Validate.Email );
 	});
 	</script>
+
+	<!-- Tip Content -->
+    <ol id="joyRideTipContent">
+		<li data-id="printfriendly" 		data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
+			<p>Click here to print this page.</p>
+		</li>
+		<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:right;tipAnimation:fade">
+			<p>Click here to email this page/results.</p>
+		</li>
+    </ol>
+
+    <script>
+      function guide() {
+	  	$('#joyRideTipContent').joyride({
+	      autoStart : true,
+	      postStepCallback : function (index, tip) {
+	      if (index == 10) {
+	        $(this).joyride('set_li', false, 1);
+	      }
+	    },
+	    // modal:true,
+	    // expose: true
+	    });
+	  }
+    </script>
 </body>
 </html>

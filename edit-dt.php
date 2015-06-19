@@ -32,6 +32,13 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
+<style>
+	/*Custom joyride*/
+	.joyride-tip-guide:nth-child(6){
+	    margin-left: -30px !important;
+	}
+	/*End custom joyride*/
+</style>
 <div id="container">
 <a class="link" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
 
@@ -183,5 +190,32 @@ $(document).ready(function() {
 		}
 	});
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="test-name" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Enter a title for your test.</p>
+	</li>
+	<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
+	</li>
+	<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to save your changes.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 2) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

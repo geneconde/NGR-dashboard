@@ -20,6 +20,13 @@
 
 	$questions = '';
 ?>
+<style>
+	/*Custom joyride*/
+	.joyride-tip-guide:nth-child(7){
+	    margin-left: -25px !important;
+	}
+	/*End custom joyride*/
+</style>
 <div id="container" class="ct-container">
 	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
 	<h1><?php echo _("Create Cumulative Test"); ?></h1>
@@ -64,7 +71,7 @@
 					<input type="checkbox" name="active" class="onoffswitch-checkbox" id="myonoffswitch" <?php if(isset($active) && $active) { ?> checked <?php } ?>>
 					<label class="onoffswitch-label" for="myonoffswitch">
 					<div class="onoffswitch-inner<?php echo $lang; ?>"></div>
-					<div class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
+					<div id="switch" class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
 					</label>
 					</div>
 				</td>
@@ -74,7 +81,7 @@
 			<tr>
 				<th><?php echo _("Module Title"); ?></th>
 				<th><?php echo _("No. of Questions"); ?></th>
-				<th><?php echo _("Action"); ?></th>
+				<th id="action"><?php echo _("Action"); ?></th>
 			</tr>
 			<?php
 				foreach($tm as $md){
@@ -105,7 +112,7 @@
 		</table>
 		<input type='hidden' name="questions" value="<?php echo $questions; ?>">
 		<div class="center-button">
-			<input type="submit" class="button1" value="<?php echo _("Create Test"); ?>" id="subtest">
+			<input id="subtest" type="submit" class="button1" value="<?php echo _("Create Test"); ?>" id="subtest">
 		</div>
 	</form>
 </div>
@@ -138,4 +145,37 @@ $(document).ready(function(){
 $.validate({
   form : '#ct-form'
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="test-name" 	data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Enter a name for this test.</p>
+	</li>
+	<li data-id="hours" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Set the time limit for this cumulative test.</p>
+	</li>
+	<li data-id="switch" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Toggle this switch (on/off) to active/deactivate this cumulative test.</p>
+	</li>
+	<li data-id="action" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click <strong>Select Questions</strong> to choose the questions you want to add to the cumulative test from each module.</p>
+	</li>
+	<li data-id="subtest" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to save this test.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>

@@ -63,7 +63,8 @@
 						if($ct['ct_id'] == $studentct['ct_id'] && $studentct['date_ended'] != '0000-00-00 00:00:00') { 
 							$found = true;
 		?>
-							<td><a class="button1" href="ct-results.php?sctid=<?php echo $studentct['student_ct_id']; ?>&p=1"><?php echo _("View"); ?></a></td>
+							<td><a id="btnCumulative"
+id="btnCumulative" class="button1" href="ct-results.php?sctid=<?php echo $studentct['student_ct_id']; ?>&p=1"><?php echo _("View"); ?></a></td>
 		<?php
 						}
 					}
@@ -110,7 +111,7 @@
 							$found = true;
 					?>
 							<center>
-							<a class="button1" href="module-results.php?mid=<?php echo $tm['module_id']; ?>&sid=<?php echo $studentid; ?>">
+							<a id="btnMQ" class="button1" href="module-results.php?mid=<?php echo $tm['module_id']; ?>&sid=<?php echo $studentid; ?>">
 								<?php echo _("View"); ?>
 							</a>
 							</center>
@@ -118,13 +119,13 @@
 					}
 
 					if(!$found) { ?>
-						<center><a class="button1 disabled"><?php echo _("View"); ?></a></center>
+						<center><a id="btnMQ" class="button1 disabled"><?php echo _("View"); ?></a></center>
 				<?php } ?>
 			</td>
 			<td>
 				<?php
-					$disabled = "<a class=\"button1 disabled\">"._("Pre-Test")."</a>";
-					$disabled2 = "<a class=\"button1 disabled m-left5\">"._("Post-Test")."</a>";
+					$disabled = "<a id='btnPreT' class=\"button1 disabled\">"._("Pre-Test")."</a>";
+					$disabled2 = "<a id='btnPostT' class=\"button1 disabled m-left5\">"._("Post-Test")."</a>";
 
 					if($gid) {
 						$gm_set	= $gmc->getModuleGroupByID($gid, $module['module_ID']);
@@ -136,7 +137,7 @@
 								$enddate = $sdt_set->getEndDate();
 
 								if($enddate != "0000-00-00 00:00:00" || $enddate != "null") {
-									echo "<a class=\"button1\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
+									echo "<a id='btnPreT' class=\"button1\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
 										 ._("Pre-Test").
 										 "</a>";
 								} else {
@@ -162,7 +163,7 @@
 								$enddate = $sdt_set->getEndDate();
 
 								if($enddate != "0000-00-00 00:00:00" || $enddate != "null") {
-									echo "<a class=\"button1 m-left5\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
+									echo "<a id='btnPostT' class=\"button1 m-left5\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
 										 ._("Post-Test").
 										 "</a>";
 								} else {
@@ -194,4 +195,34 @@
 
 	
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="btnCumulative" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Clicking this button will show the Cumulative Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+	<li data-id="btnMQ" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to view the screenshots of all the Quick Checks and Quiz Questions in the module, the student's answer, the correct answer and the feedback statements. This is grayed out if the student hasn't taken the module yet.</p>
+	</li>
+	<li data-id="btnPreT" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This will show the Pre-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+	<li data-id="btnPostT" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This will show the Post-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>
 <?php require_once "footer.php"; ?>

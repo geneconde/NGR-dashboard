@@ -340,7 +340,7 @@ html[dir="rtl"] td { border-radius: 5px; }
 			if(!$('#g1').is(':checked') && !$('#g2').is(':checked')) { nullAnswer = true; }
 			if(!$('#h1').is(':checked') && !$('#h2').is(':checked')) { nullAnswer = true; }
 			if(!$('#i1').is(':checked') && !$('#i2').is(':checked')) { nullAnswer = true; }
-			if(!$('#j1').is(':checked') && !$('#i2').is(':checked')) { nullAnswer = true; }
+			if(!$('#j1').is(':checked') && !$('#j2').is(':checked')) { nullAnswer = true; }
 		}
 		
 		function checkAnswers(){

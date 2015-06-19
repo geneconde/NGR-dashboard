@@ -170,4 +170,28 @@
 		} 
 	?>
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="check-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click the box (on the left) of the language/s you want to activate. Choose the default language you want to use by clicking the radio button on the right.  Note that the default language is set to English when you first log in.</p>
+	</li>
+	<li data-class="submit-language" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click the <strong>Submit</strong> button to save your changes.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>
 <?php require_once "footer.php"; ?>

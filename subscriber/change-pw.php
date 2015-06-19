@@ -107,6 +107,7 @@ $(document).ready(function() {
 	});
 });
 
+$.noConflict();
 $.validate({
   form : '#change-pw'
 });

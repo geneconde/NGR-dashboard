@@ -59,6 +59,7 @@
 		endif;
 	endforeach;
 ?>
+<style> #dbguide { display: none; } </style>
 <script>
 	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 1;
 	var pfCustomCSS = ''

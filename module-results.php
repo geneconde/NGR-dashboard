@@ -43,6 +43,7 @@
 	else if($_SESSION["lang"] == "es_ES") $curlang = "spanish";
 	else if($_SESSION["lang"] == "zh_CN") $curlang = "chinese";	
 ?>
+<style> #dbguide { display: none; } </style>
 	<div id="container">
 		<div id="graphDiv" >
 		<?php

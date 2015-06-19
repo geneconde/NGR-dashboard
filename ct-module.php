@@ -117,11 +117,31 @@
 			?>
 		</table>
 		<br>
-		<input type="submit" value="<?php if($action == 'new'): echo _("Save Questions"); elseif($action =='edit'): echo _("Update Questions"); endif; ?>"  class="button1">
+		<input id="save" type="submit" value="<?php if($action == 'new'): echo _("Save Questions"); elseif($action =='edit'): echo _("Update Questions"); endif; ?>"  class="button1">
 	</form>
 </div>
-
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
+	</li>
+	<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to save your changes.</p>
+	</li>
+</ol>
 <script>
+function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 1) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 $(document).ready(function(){
 	$('#select-all').click(function(){
 		if($(this).is(':checked')) {

@@ -35,6 +35,7 @@
 	$count = 0;
 	$total = 0;
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container" class="ct-container">
 	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
 	<h1><?php echo _("Edit Cumulative Test"); ?></h1>

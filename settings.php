@@ -30,6 +30,12 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
+<style>
+	.joyride-tip-guide { width: 22%; }
+	.joyride-tip-guide:nth-child(8) .joyride-content-wrapper {
+    	margin-top: -174px !important;
+	}
+</style>
 <div id="container">
 <a class="link" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <h1><?php echo _($module_set->getModule_name()); ?></h1>
@@ -37,7 +43,7 @@
 <h2><?php echo _("Groups"); ?></h2>
 <table border="0" class="result morepad">
 	<tr>
-		<th class="bold"><?php echo _("Group"); ?></th>
+		<th class="bold" id="group"><?php echo _("Group"); ?></th>
 		<th class="bold"><?php echo _("Module Status"); ?></th>
 		<th class="bold"><?php echo _("Pre-test"); ?></th>
 		<th class="bold"><?php echo _("Active?"); ?></th>
@@ -107,7 +113,7 @@
 		</td>
 		<td>
 			<?php $action = ($gm ? "edit" : "set"); ?>
-			<a class="button1" href="edit-group-module.php?module_id=<?php echo $mid; ?>&group_id=<?php echo $group['group_id']; ?>&action=<?php echo $action; ?>">
+			<a id="edit" class="button1" href="edit-group-module.php?module_id=<?php echo $mid; ?>&group_id=<?php echo $group['group_id']; ?>&action=<?php echo $action; ?>">
 				<?php 
 					if($gm) echo _("Edit");
 					else echo _("Set");
@@ -129,7 +135,7 @@
 <h2><?php echo _("Pre-Diagnostic Tests"); ?></h2>
 <table border="0" class="result morepad">
 	<tr>
-		<th class="bold"><?php echo _("Test Title"); ?></th>
+		<th class="bold" id="pre-diag"><?php echo _("Test Title"); ?></th>
 		<th class="bold"><?php echo _("# of Questions"); ?></th>
 		<th class="bold"><?php echo _("Action"); ?></th>
 	</tr>
@@ -175,7 +181,7 @@
 <h2><?php echo _("Post-Diagnostic Tests"); ?></h2>
 <table border="0" class="result morepad">
 	<tr>
-		<th class="bold"><?php echo _("Test Title"); ?></th>
+		<th class="bold"  id="post-test"><?php echo _("Test Title"); ?></th>
 		<th class="bold"><?php echo _("# of Questions"); ?></th>
 		<th class="bold"><?php echo _("Action"); ?></th>
 	</tr>
@@ -261,5 +267,48 @@ $(document).ready(function() {
 		});
 	});
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="group" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>In this page, you can initiate actions to activate/deactivate the module, as well as the pre and post diagnostic tests, for a group. The columns are defined as follows:</p>
+		<ul style="padding-left: 20px; font-size: 14px;">
+			<li>Group - student group's name</li>
+			<li>Module Status - indicates whether a module is active or not</li>
+			<li>Pre-test - specifies the title of the pre-diagnostic test assigned to this group</li>
+			<li>Active? - indicates whether the pre-diagnostic test is active or not</li>
+			<li>Post-test - specifies the title of the post-diagnostic test assigned to this group</li>
+			<li>Active? - indicates whether the post-diagnostic test is active or not</li>
+			<li>Action - shows either <strong>Set</strong> or <strong>Edit</strong> button to activate/deactivate the module, pre-test and post-test. You can also set the time limit for both tests.</li>
+		</ul>
+		<p></p>
+	</li>
+	<li data-id="edit" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to <strong>Set</strong> or <strong>Edit</strong> the settings of the module, pre-diagnostic test and post-diagnostic test for a group.</p>
+	</li>
+	<li data-id="pre-diag" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>This table shows the available pre-diagnostic tests for this module that you have created. You can create several pre-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one pre-diagnostic test.</p>
+		<p>You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well.</p>
+		<p>To create a pre-diagnostic test, click the <strong>Create Pre-Diagnostic Test</strong> button.</p>
+	</li>
+	<li data-id="post-test" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+		<p>This table shows the available post-diagnostic tests for this module that you have created. You can create several post-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one post-diagnostic test.</p>
+		<p>You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well.</p>
+		<p>To create a post-diagnostic test, click the <strong>Create Post-Diagnostic Test</strong> button.</p>
+	</li>
+</ol>
+<script>
+  	function guide() {
+	  	$('#joyRideTipContent').joyride({
+	      autoStart : true,
+	      postStepCallback : function (index, tip) {
+	      if (index == 10) {
+	        $(this).joyride('set_li', false, 1);
+	      }
+	    },
+	    // modal:true,
+	    // expose: true
+	    });
+  	}
 </script>
 <?php require_once "footer.php"; ?>
