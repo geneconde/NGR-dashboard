@@ -13,6 +13,9 @@
 
 	$studentid 		= $_GET['user_id'];
 	$userid 		= $user->getUserid();
+
+	$uc 			= new UserController();
+	$student 		= $uc->GetUser($studentid);
 	
 	$sgc			= new StudentGroupController();
 	$gid 			= $sgc->getGroupOfUser($studentid);
@@ -37,6 +40,8 @@
 	<br><br> -->
 	<center>
 	<h2><?php echo _("Student Portfolio"); ?></h2>
+	<br>
+	<h2><?php echo _("Student Name: "); ?><?php echo $student->getFirstname() . ' ' . $student->getLastname(); ?></h2>
 	<br>
 	<h3><?php echo _("Cumulative Tests"); ?></h3>
 	<table border="0" class="result morepad">

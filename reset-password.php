@@ -7,10 +7,15 @@
 	$userid		= $_GET['user_id'];
 	$user_set	= $uc->getUser($userid);
 
+	$saved = false;
 	if(isset($_POST['save'])) {
 		$password = $_POST['password'];
 		$uc->updatePassword($userid, $password);
-		header("Location: reset-password.php?user_id=$userid&f=1");
+		$saved = true;
+		//header("Location: reset-password.php?user_id=$userid&f=1");
+		$previous = "javascript:history.go(-2)";
+	} else{
+		$previous = "javascript:history.go(-1)";
 	}
 ?>
 <style>
@@ -20,18 +25,21 @@
 	background: lightgray;
 	padding: 3px 7px;
 	border-radius: 5px;
-	margin-left: 2px;
+
 }
 .generate:hover { background: rgb(188, 188, 188); }
 table td { width: 40% !important; }
+table { width: 380px !important;}
+
 </style>
 <div id="container">
-<a class="link" href="phpgrid/manage-students.php">&laquo; <?php echo _("Go Back"); ?></a>
+<a class="link" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
 <br><br>
 <form method="post" action="" id="change-pw">
 	<center>
 		<table>
-			<?php if(isset($_GET['f']) && $_GET['f'] == 1) : ?>
+			<?php if($saved) : ?>
+
 				<tr>
 					<td colspan="3">
 						<center><span class='green'><?php echo _("You have updated the account."); ?></span></center>
@@ -46,11 +54,12 @@ table td { width: 40% !important; }
 			<tr>
 				<td>
 					<label><?php echo _("New Password"); ?>:</label>
+
 				</td>
 				<td>
 					<input type="text" name="password" id="password" class="editable" placeholder="Enter new password" minlength="6" required>
 				</td>
-				<td><a onclick="generatPass();" name="generate" class="generate" >Generate</a></td>
+				<td><a onclick="generatePass();" name="generate" class="generate" >Generate</a></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -94,7 +103,7 @@ $(document).ready(function() {
 	});
 });
 
-function generatPass(){
+function generatePass(){
 	$( "#password" ).val(Math.random().toString(36).slice(-8));
 }
 </script>

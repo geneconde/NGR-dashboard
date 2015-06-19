@@ -14,8 +14,14 @@ class DB extends PDO {
 	var $stmt;
 	
 	protected $host = "localhost";
-	protected $username = "jigzenco_ngrdev";
-	protected $password = "jigzen1234aA";
+
+	/*protected $username = "jigzenco_ngrdev";
+	protected $password = "jigzen1234aA";*/
+	protected $username = "root";
+	protected $password = "";
+
+	//protected $username = "jigzenco_ngrdev";
+	//protected $password = "jigzen1234aA";
 	// protected $username = "root";
 	// protected $password = "password";
 	protected $database = "jigzenco_dashboard_live";
@@ -220,6 +226,23 @@ class DB extends PDO {
 					
 				$this->stmt->execute();
 				$result = $this->stmt->fetchAll();
+				
+				return $result;
+		} catch (Exception $e) {
+				$this->dberror($e->getMessage());
+		}
+	}
+
+	public function cquery($sql) {
+		try {
+			$this->stmt = $this->conn->prepare($sql);
+				
+				if(!empty($where)) {
+					foreach ($where as $key => $val)
+						$this->stmt->bindValue(":$key", $val);
+				}
+				$result = "success";
+				$this->stmt->execute();
 				
 				return $result;
 		} catch (Exception $e) {
