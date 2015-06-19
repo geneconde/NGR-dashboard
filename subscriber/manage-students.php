@@ -277,13 +277,11 @@ ini_set('display_errors', 1);
 	<style>
 	.ui-search-toolbar { display: none; }
 	.fleft { margin-top: -16px; }
-	.tguide { float: left; margin-top: -15px; }
+	.tguide { float: left; font-family: inherit; }
 	.guide {
 		padding: 5px;
 		background-color: orange;
 		border-radius: 5px;
-		margin-right: 1px;
-		margin-left: 1px;
 		border: none;
 		font-size: 10px;
 		color: #000;
@@ -295,6 +293,9 @@ ini_set('display_errors', 1);
 	.joytest2 ~ div a:nth-child(3){
 	    display: none;
 	}
+	.joyride-tip-guide:nth-child(8){
+	    margin-top: 15px !important;
+	}
 	.ui-icon {
 	  display: inline-block !important;
 	}
@@ -302,9 +303,8 @@ ini_set('display_errors', 1);
 	.tguide { float: right; }
 	<?php } ?>
 
-
 	/*End custom joyride*/
-	#dbguide {margin-top: 16px;}
+	#dbguide {margin-top: 10px;}
 	</style>
 
 	<!-- Run the plugin -->
@@ -403,10 +403,10 @@ ini_set('display_errors', 1);
 			<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 				<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 			</li>
-			<li data-id="jqg_list1_16" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+			<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 			</li>
-			<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+			<li data-id="cb_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 				<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
 			</li>
 			<li data-class="ui-icon-search" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">

@@ -62,21 +62,6 @@
 ?>
 <style>
 	.tguide { margin-top: 9px; }
-	.first-timer {
-		background-color: #D6E3BC;
-		border-radius: 25px;
-		width: 95%;
-		margin: 0 auto;
-		margin-bottom: 10px;
-	}
-	.first-timer p{
-		padding: 15px;
-		line-height: 1.4rem;
-		font: 18px;
-	}
-	.first-timer button{
-		padding: 5px;
-	}
 	.fleft { margin: 0; }
 	#gm-language {
 		margin-left: -54px;

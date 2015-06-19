@@ -440,18 +440,16 @@ ini_set('display_errors', 1);
 	<style>
 	.ui-search-toolbar { display: none; }
 	.fleft { margin-top: -16px; }
-	.tguide { float: left; margin-top: -15px; }
 	.guide {
 		padding: 5px;
 		background-color: orange;
 		border-radius: 5px;
-		margin-right: 1px;
-		margin-left: 1px;
 		border: none;
 		font-size: 10px;
 		color: #000;
 		cursor: pointer;
 	}
+	.tguide { font-family: inherit; }
 	.guide:hover {
 		background-color: orange;
 	}
@@ -469,7 +467,7 @@ ini_set('display_errors', 1);
 	<?php } ?>
 
 	/*End custom joyride*/
-	#dbguide {margin-top: 16px; float: left;}
+	#dbguide {margin-top: 10px; float: left;}
 	#accounts {margin-top: 3px;}
 	</style>
 
@@ -538,7 +536,6 @@ ini_set('display_errors', 1);
 		<?php endif; ?>
 		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>	
 	</div>
-	
 	<div id="dbguide">
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
@@ -596,10 +593,10 @@ ini_set('display_errors', 1);
 		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 		</li>
-		<li data-id="jqg_list1_314" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 		</li>
-		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-id="cb_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
 		</li>
 		<li data-id="search_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
