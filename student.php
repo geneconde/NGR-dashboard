@@ -75,23 +75,6 @@
 		}
 	<?php } ?>
 </style>
-<!-- <div class="fleft language" id="gm-language">
-	<?php echo _("Language"); ?>:
-	<select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select>
-</div> -->
 
 <div class="fleft language" id="gm-language">
 	<?php echo _("Language"); ?>:
