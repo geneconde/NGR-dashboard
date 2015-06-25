@@ -44,7 +44,7 @@
 			$langs = $lc->getLanguage($dlang_id);
 			$lc->setDefaultLanguage($userid, $dlang_id);
 			$lang = $langs->getLanguage_code();
-			header("Location: final-words.php");
+			header("Location: final-words.php?lang=$lang");
 		}
 		$_SESSION['uname-demo'] = $uname;
 	} else{

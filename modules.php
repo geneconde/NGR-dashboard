@@ -78,7 +78,7 @@
 			</tr>
 			<tr class="lgs-modules">
 				<td class="dactivate">
-					<a
+					<a class="pre-test"
 					<?php if($cea) { ?>
 						href="lgs-test.php?dtid=<?php echo $preID; ?>&action=edit"><?php echo _("Edit Pre-Diagnostic Test"); ?>
 					<?php } else { ?>
@@ -87,7 +87,7 @@
 					</a>
 				</td>
 				<td class="dactivate">
-					<a
+					<a class="post-test"
 					<?php if($ceb){ ?>
 						href="lgs-test.php?dtid=<?php echo $postID; ?>&action=edit"><?php echo _("Edit Post-Diagnostic Test"); ?>
 					<?php } else { ?>
@@ -183,13 +183,13 @@
 </script>
       <!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="1a" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-class="pre-test" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 			<p>Create a pre-diagnostic test for any module by clicking the button below. After you create a pre-diagnostic test, the button's text will change to <strong>Edit Pre-Diagnostic test</strong>. Clicking this button will let you update the test.</p>
 		</li>
-		<li data-id="1b" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-class="post-test" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 			<p>Create a post-diagnostic test for any module by clicking the button below. After you create a post-diagnostic test, the button's text will change to <strong>Edit Post-Diagnostic test</strong>. Clicking this button will let you update the test.</p>
 		</li>
-		<li data-id="m1" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<li data-class="dactivatemin" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
 			<p>Click this button to activate the module as well as the pre-diagnostic test and post-diagnostic test, if you created any.</p>
 		</li>
 		<li data-id="next" 			data-text="Close" data-options="tipLocation:left;tipAnimation:fade">

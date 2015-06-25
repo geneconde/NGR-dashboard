@@ -1657,3 +1657,7 @@ input[type=checkbox] {
 #on_going {
       text-align: center;
 }
+.back-confirm {
+      background-color: #CCCCCC;
+      color: black;
+}

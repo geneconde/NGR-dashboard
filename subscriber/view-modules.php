@@ -26,6 +26,7 @@
 
 ?>
 
+<style> .guide { display: none; } </style>
 <div class="grey"></div>
 <br/>
 <a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>

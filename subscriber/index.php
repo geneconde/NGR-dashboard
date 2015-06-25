@@ -22,6 +22,8 @@ ini_set('display_errors', 1);
 	$uc = new UserController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
+	$ufl = $user->getFirstLogin();
+	if($ufl == 1){ header("Location: account-update.php"); }
 	//add parameter for is_deleted and is_archived later on method is under userController
 	$teacher_count = $uc->countUserType($user->getSubscriber(), 0);
 
