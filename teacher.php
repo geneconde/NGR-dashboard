@@ -24,6 +24,8 @@
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
 
+	$ufl = $user->getFirstLogin();
+	if($ufl == 1){ header("Location: account-update.php"); }
 ?>
 <style>
 	<?php if($language == "es_ES") { ?>
@@ -123,6 +125,17 @@
 </div>
 <div class="clear"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
+<?php
+	if(isset($_GET["ft"])):
+		if($_GET["ft"]==1): ?>
+			<div class="first-timer">
+				<p>It looks like this is your first time to visit your dashboard...<br/>
+				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+			</div>
+		<?php
+		endif;
+	endif;
+?>
 <p><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p></br>
 
 <br/>

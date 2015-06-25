@@ -11,6 +11,9 @@
 	require_once 'controller/StudentCt.Controller.php';
 	include_once 'controller/Language.Controller.php';
 	
+	$ufl = $user->getFirstLogin();
+	if($ufl == 1){ header("Location: account-update.php?ut=2"); }
+
 	$teacherid 			= $user->getTeacher();
 	$userid				= $user->getUserid();
 
@@ -63,6 +66,21 @@
 <style>
 	.tguide { margin-top: 9px; }
 	.fleft { margin: 0; }
+	.first-timer {
+		background-color: #D6E3BC;
+		border-radius: 25px;
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.first-timer p{
+		padding: 15px;
+		line-height: 1.4rem;
+		font: 18px;
+	}
+	.first-timer button{
+		padding: 5px;
+	}
 	#gm-language {
 		margin-left: -54px;
   		margin-top: -16px;
@@ -108,6 +126,17 @@
 
 <div class="clear"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
+<?php
+	if(isset($_GET["ft"])):
+		if($_GET["ft"]==1): ?>
+			<div class="first-timer">
+				<p>It looks like this is your first time to visit your dashboard...<br/>
+				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+			</div>
+		<?php
+		endif;
+	endif;
+?>
 <p><?php echo _("This is your Dashboard. On this page, you can select a module to work on and view the results of the modules you have taken."); ?></p></br>
 <div id="dash"></div>
 <br/>

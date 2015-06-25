@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/layerslider.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
 <link rel="stylesheet" href="libraries/joyride/joyride-2.1.css">
+<link rel="stylesheet" type="text/css" href="lgs.css">
 
 <!-- added for the tabbed navigation results
 <link rel="stylesheet" type="text/css" href="styles/tabbed-navigation.css" />
@@ -55,6 +56,7 @@
 		.tguide { float: right; }
 	<?php } ?>
 </style>
+<?php if (isset($user)) { $type = $user->getType(); } ?>
 </head>
 <body>
 	<div id="header">

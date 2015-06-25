@@ -31,6 +31,7 @@ class User {
 	public function getSubheadid()						{ return $this->subhead_id;		}
 	public function getGrade_level()					{ return $this->grade_level;	}
 	public function getStudents_limit()					{ return $this->students_limit;	}
+	public function getFirstLogin()						{ return $this->is_first_login;	}
 	
 	public function setUserid($userid) 					{ $this->userid 			= $userid;				}
 	public function setUsername($username) 				{ $this->username 			= $username;			}
@@ -44,5 +45,6 @@ class User {
 	public function setSubheadid($subhead_id) 			{ $this->subhead_id 		= $subhead_id;			}
 	public function setGrade_level($grade_level) 		{ $this->grade_level 		= $grade_level;			}
 	public function setStudents_limit($students_limit) 	{ $this->students_limit 	= $students_limit;		}
+	public function setFirstLogin($is_first_login) 		{ $this->is_first_login 	= $is_first_login;		}
 }
 ?>

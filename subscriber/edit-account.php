@@ -73,7 +73,7 @@
 				</td>
 				<td>
 					<!-- <input type="text" name="fname" value="<?php echo $user_set->getFirstname(); ?>" disabled class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>"> -->
-					<input type="text" name="fname" value="<?php echo $user_set->getFirstname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>">
+					<input type="text" name="fname" id="fname" value="<?php echo $user_set->getFirstname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a first name."); ?>">
 				</td>
 			</tr>
 			<tr>
@@ -82,11 +82,11 @@
 				</td>
 				<td>
 					<!-- <input type="text" name="lname" value="<?php echo $user_set->getLastname(); ?>" disabled class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>"> -->
-					<input type="text" name="lname" value="<?php echo $user_set->getLastname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>">
+					<input type="text" name="lname" id="lname" value="<?php echo $user_set->getLastname(); ?>" class="editable" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a last name."); ?>">
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td id="gender">
 					<?php echo _("Gender"); ?>:
 				</td>
 				<td>
@@ -106,7 +106,7 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-					<select name="squestion">
+					<select name="squestion" id="squestion">
 						<?php
 						$i = 1;
 						foreach ($questions as $question) { ?>
@@ -187,5 +187,47 @@ $.noConflict();
 $.validate({
   form : '#edit-account'
 });
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="uname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>username</strong> to something that you can easily remember.</p>
+	</li>
+	<li data-id="cp" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>password</strong> to something that you can easily remember.</p>
+	</li>
+	<li data-id="fname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>first name</strong>.</p>
+	</li>
+	<li data-id="lname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Update your <strong>last name</strong>.</p>
+	</li>
+	<li data-id="gender" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Select your <strong>gender</strong>.</p>
+	</li>
+	<li data-id="squestion" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future.</p>
+	</li>
+	<li data-id="sanswer" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Enter the answer to your security question. This is case sensitive.</p>
+	</li>
+	<li data-id="save" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click the <strong>Save Changes</strong> button to save your changes.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

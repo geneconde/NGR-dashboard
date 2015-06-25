@@ -1,0 +1,190 @@
+@import url("styles/playtime/style.css");
+
+/** {
+    line-height: 1.2em;
+}*/
+.lgs-text {
+    margin-top: 0px;
+    font-size: 32px;
+    text-align: left;
+}
+.welcome {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    color: gray;
+}
+.lgs-text-sub {
+    font-size: 15px;
+    text-align: left;
+    width: 100%;
+}
+.inputText {
+    padding: 3px 5px;
+    width: 175px;
+    font-size: 15px;
+    font-family: inherit;
+}
+.title {
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+}
+.nbtn {
+    float: right;
+    padding: 5px 20px;
+    background-color: #FF5B5B;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: inherit;
+    border-color: transparent;
+}
+.nbtn:hover {
+    background-color: #FFBD9E;
+}
+.skip, .back {
+    padding: 6px 20px;
+    margin-right: 10px;
+}
+.skip {
+    background-color: #C2C2C2;
+    color: #444444;
+}
+.back {
+    float: left;
+}
+.lgs-container {
+    display: inline;
+}
+.left {
+    float: left;
+    text-align: left;
+}
+.right {
+    margin-left: 25%;
+    text-align: left;
+}
+.radio {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: left;
+}
+.step {
+    text-align: left;
+    font-size: 22px;
+    padding-bottom: 3px;
+    box-shadow: 0 2px 1px -1px gray;
+}
+.step2 {
+    margin-top: 0px !important;
+}
+.heading-input {
+    text-align: left;
+    font-size: 22px;
+    margin-top: 32px;
+    margin-bottom: 7px;
+}
+.input-label {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.sup {
+    margin-top: 15px;
+    text-align: left
+}
+.note {
+    color: gray;
+    margin-bottom: 20px;
+}
+.modules td {
+    width: 20%;
+    /*border: 1px solid gray;*/
+    border-radius: 5px;
+    padding: 5px 0;
+}
+.lgs-modules {
+    margin-left: 15px;
+}
+.lgs-modules td a, .lgs-modules input{
+    font-family: inherit;
+}
+.dactivate {
+    background-color: #38BA91;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.dactivate:hover {
+    background-color: #6FCBDD;
+}
+.dactivate a {
+    color: #fff !important ;
+    font: 18px bold;
+}
+.dactivatemin {
+    border: none;
+    background: transparent;
+    /*width: 200px;*/
+    color: #fff !important ;
+    font: 18px bold;
+    cursor: pointer;
+}
+.module-name {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: -10px;
+    font-size: 18px;
+}
+.dashboard {
+    padding: 10px 20px;
+    background-color: #38BA91;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff !important ;
+    font: 15px bold;
+    font-family: inherit;
+}
+.dashboard:hover {
+    background-color: #6FCBDD;
+}
+table.modules {
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+}
+.rowSpace >td {
+    padding-top: 20px;
+}
+#check {
+    margin-left: 5px;
+}
+.grade {
+    text-align: left;
+    margin-top: 10px;
+}
+.grade select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #808080;
+    font-size: 15px;
+    padding: 3px 5px;
+    width: 30px;
+}
+.joytest {
+    width: 800px;
+    height: 335px;
+    background-color: #A0D9ED;
+    margin: -20px -10px;
+    margin-bottom: -31px;
+    padding: 10px 10px;
+}
+.customClose {
+    padding-left: 99%;
+    text-transform: lowercase;
+    border-bottom: none !important;
+    line-height: -10px !important;
+    color: #A9A9A9 !important;
+    font-weight: bold;
+}

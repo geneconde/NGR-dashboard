@@ -39,6 +39,18 @@ class UserController {
 		return empty($users) ? null : $users;
 	}
 	
+	public function getAllStudents($tid) {
+		$where = array();
+		$where['teacher_id'] = $tid;
+		$users = array();
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where);
+		$db->disconnect();
+		return ($result);
+	}
+	
 	public function loadUserType($type, $teacherid) {
 		$where = array();
 		$where['type'] = $type;
@@ -145,6 +157,19 @@ class UserController {
 		$db->disconnect();
 		
 		return count($result);
+	}
+
+	public function updateUserFL($userid) {
+		$where = array();
+		$where['user_ID'] = $userid;
+		
+		$data = array();
+		$data['is_first_login'] = 0;
+					
+		$db = new DB();
+		$db->connect();
+		$result = $db->update("users", $where, $data);
+		$db->disconnect();
 	}
 
 	public function updateUser($userid, $uname, $fname, $lname, $gender, $level) {
@@ -350,6 +375,7 @@ class UserController {
 		$data['grade_level']		= $user->getGrade_level();
 		$data['students']			= $user->getStudents_limit();
 		$data['subhead_id']			= $user->getSubheadid();
+		$data['is_first_login']		= $user->getFirstLogin();
 		return $data;
 	}
 	
@@ -367,6 +393,7 @@ class UserController {
 		$user->setSubheadid($row['subhead_id']);
 		$user->setGrade_level($row['grade_level']);
 		$user->setStudents_limit($row['students']);
+		$user->setFirstLogin($row['is_first_login']);
 		return $user;
 	}
 	
@@ -421,6 +448,7 @@ class UserController {
 		$data['teacher_id'] 	= $values['teacher_id'];
 		$data['subscriber_id'] 	= $values['subscriber_id'];
 		$data['grade_level']	= $values['grade_level'];
+		$data['students']		= $values['students'];
 		$data['students']		= $values['students'];
 		return $data;
 	}

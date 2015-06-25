@@ -469,6 +469,21 @@ ini_set('display_errors', 1);
 	/*End custom joyride*/
 	#dbguide {margin-top: 10px; float: left;}
 	#accounts {margin-top: 3px;}
+	.first-timer {
+		background-color: #D6E3BC;
+		border-radius: 25px;
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.first-timer p{
+		padding: 15px;
+		line-height: 1.4rem;
+		font: 18px;
+	}
+	.first-timer button{
+		padding: 5px;
+	}
 	</style>
 
 	<!-- Run the plugin -->
@@ -548,6 +563,17 @@ ini_set('display_errors', 1);
 
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
+	<?php
+	if(isset($_GET["ft"])):
+		if($_GET["ft"]==1): ?>
+			<div class="first-timer">
+				<p>It looks like this is your first time to visit your dashboard...<br/>
+				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+			</div>
+		<?php
+		endif;
+	endif;
+	?>
 	<p><?php echo _("This is your Dashboard. In this page, You can manage all accounts under you."); ?>
 
 	<div class="wrap-container">
