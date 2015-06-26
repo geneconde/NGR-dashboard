@@ -124,7 +124,7 @@
 					$img = 'wrong';
 
 					for($i = 0; $i < count($sections); $i++) {
-						if($question['section'] == ($i + 1)) {
+						if($question['section'] == $letters[$i]) {
 							if(!isset($answers[$i])) {
 								$answers[$i] = $answer;
 							} else {
@@ -138,7 +138,7 @@
 					}
 					$html2='<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$question['section'] - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $question['section'] . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $answer . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $question['correct_answer'] . '</td>
 							<td width="150" bgcolor="#e2e2e2">' . $img . '</td>
@@ -230,7 +230,7 @@
 				$img = 'wrong';
 
 				for($i = 0; $i < count($sections); $i++) {
-					if($question['section'] == ($i + 1)) {
+					if($question['section'] == $letters[$i]) {
 						if(!isset($answers[$i])) {
 							$answers[$i] = $answer;
 						} else {
@@ -245,7 +245,7 @@
 
 				$html2='<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$question['section'] - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $question['section'] . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $answer . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $question['correct_answer'] . '</td>
 							<td width="150" bgcolor="#e2e2e2">' . $img . '</td>
