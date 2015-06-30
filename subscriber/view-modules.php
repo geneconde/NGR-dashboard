@@ -30,7 +30,7 @@
 <div class="grey"></div>
 <br/>
 <a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-<br/><br/><br/>
+<br/><br/>
 
 <!-- <div class="fleft" id="language">
 	<?php echo _("Language"); ?>:

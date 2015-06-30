@@ -6,7 +6,7 @@
 	include_once 'controller/Language.Controller.php';
 	include_once 'controller/User.Controller.php';
  
- 	if($user->getFirstLogin() == 0){ header("Location: .."); }
+ 	if($user->getFirstLogin() == 0){ header("Location: index.php"); }
  	
 	$sc = new SecurityController();
 	$userID = $user->getUserid();
