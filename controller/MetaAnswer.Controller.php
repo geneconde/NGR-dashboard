@@ -60,7 +60,7 @@ class MetaAnswerController {
 		$data['answer'] = $answer;
 		$data['student_module_ID'] = $smid;
 		$data['meta_ID'] = $metaid;
-		
+		//add 'No Answer' to the DB if there is no answer for the student
 		$db = new DB();
 		$db->connect();
 		$result = $db->insert("meta_answers", $data);
