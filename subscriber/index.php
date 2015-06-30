@@ -241,7 +241,7 @@ ini_set('display_errors', 1);
 			$col["search"] = false;
 			$col["export"] = false;
 			# fetch data from database, with alias k for key, v for value
-			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id =". $_GET['sid']. " AND type=0");
+			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
 			$col["editoptions"] = array("value"=>$str); 
 			$col["formatter"] = "select"; // display label, not value
 			$cols[] = $col;
@@ -557,12 +557,8 @@ ini_set('display_errors', 1);
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
 
-	<div class="fright" id="accounts"> 
-		<a id="my_account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-	</div>
+	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 	
-	
-
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php

@@ -164,20 +164,20 @@ $(document).ready(function() {
 		if(uid != olduname) {
 			$.ajax({
 				type	: "POST",
-				url		: "validate-user.php",
+				url		: "../validate-user.php",
 				data	: {	userid: uid },
 				success : function(data) {
 					if(data == 1 && uid != '') { 
-						$('#check').attr('src','images/accept.png');
+						$('#check').attr('src','../images/accept.png');
 						$('#save').prop('disabled',false);
 					} else { 
-						$('#check').attr('src','images/error.png'); 
+						$('#check').attr('src','../images/error.png'); 
 						$('#save').prop('disabled',true);
 					}
 				}
 			});
 		} else {
-			$('#check').attr('src','images/accept.png');
+			$('#check').attr('src','../images/accept.png');
 			$('#save').prop('disabled',false);
 		}
 	});
