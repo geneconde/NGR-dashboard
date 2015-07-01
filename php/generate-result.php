@@ -133,7 +133,7 @@
 						}
 					}
 
-					if ($answer == $question['correct_answer']) {
+					if ($answer === $question['correct_answer']) {
 						$img = 'correct';
 					}
 					$html2='<table border="0">
@@ -239,7 +239,7 @@
 					}
 				}
 
-				if ($answer == $question['correct_answer']) {
+				if ($answer === $question['correct_answer']) {
 					$img = 'correct';
 				}
 
