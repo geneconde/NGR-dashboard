@@ -207,7 +207,7 @@
 							}
 						}
 
-						if ($answer == $question['correct_answer']) {
+						if ($answer === $question['correct_answer']) {
 							$img = 'correct';
 							$totalcorrect++;
 						}
@@ -298,7 +298,7 @@
 							}
 						}
 
-						if ($answer == $question['correct_answer']) {
+						if ($answer === $question['correct_answer']) {
 							$img = 'correct';
 							$totalcorrect++;
 						}

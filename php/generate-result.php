@@ -133,7 +133,7 @@
 						}
 					}
 
-					if ($answer == $question['correct_answer']) {
+					if ($answer === $question['correct_answer']) {
 						$img = 'correct';
 					}
 					$html2='<table border="0">
@@ -160,16 +160,16 @@
 				$pdf->WriteHTML($html3);
 				$pdf->Ln(-7);
 			
-				for($i = 1; $i <= count($sections); $i++) {
-					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, $answers[$i-1]);
+				for($i = 0; $i < count($sections); $i++) {
+					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], $answers[$i]);
 
 					if(!$feedback) {
-						$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, 'X');
+						$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], 'X');
 					}
 
 					$html4 = '<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i] . '</td>
 							
 						</tr>
 					</table>';
@@ -239,7 +239,7 @@
 					}
 				}
 
-				if ($answer == $question['correct_answer']) {
+				if ($answer === $question['correct_answer']) {
 					$img = 'correct';
 				}
 
@@ -265,16 +265,16 @@
 
 			$pdf->WriteHTML($html3);
 			
-			for($i = 1; $i <= count($sections); $i++) {
-				$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, $answers[$i-1]);
+			for($i = 0; $i < count($sections); $i++) {
+				$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], $answers[$i]);
 
 				if(!$feedback) {
-					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, 'X');
+					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], 'X');
 				}
 
 				$html4 = '<table border="0">
 					<tr>
-						<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i - 1] . '</td>
+						<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i] . '</td>
 					</tr>
 				</table>';
 				$html5 = '<table border="0">

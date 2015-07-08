@@ -29,6 +29,15 @@ class MetaAnswerController {
 		$db = new DB();
 		$db->connect();
 		$result = $db->select("meta_answers", $where, 'answer');
+
+		if (empty($result)){
+			$data = array();
+			$data['answer'] = 'No Answer.';
+			$data['student_module_ID'] = $smid;
+			$data['meta_ID'] = $metaid;
+			$result = $db->insert("meta_answers", $data);
+			return $data['answer'];
+		}
 		$db->disconnect();	
 		return $result[0]['answer'];
 		
@@ -51,7 +60,7 @@ class MetaAnswerController {
 		$data['answer'] = $answer;
 		$data['student_module_ID'] = $smid;
 		$data['meta_ID'] = $metaid;
-		
+		//add 'No Answer' to the DB if there is no answer for the student
 		$db = new DB();
 		$db->connect();
 		$result = $db->insert("meta_answers", $data);
