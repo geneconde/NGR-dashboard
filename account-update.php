@@ -131,7 +131,7 @@
 		</div>
 <!-- end default language -->
 <?php endif; ?>
-		<input class="nbtn" type="submit" value="Next"/>
+		<input id="save" class="nbtn" type="submit" value="Next"/>
 		</div>
 	</form>
 </div>

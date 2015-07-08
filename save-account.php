@@ -53,7 +53,7 @@
 				}
 			}
 		}
-		$_SESSION['uname-demo'] = $uname;
+		$_SESSION['uname'] = $uname;
 	} else{
 		$uc->updateUser($userid, $uname, $fname, $lname, $gender);
 		$squestion	= $_POST['squestion'];

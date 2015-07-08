@@ -46,7 +46,7 @@
 			$lang = $langs->getLanguage_code();
 			header("Location: final-words.php?lang=$lang");
 		}
-		$_SESSION['uname-demo'] = $uname;
+		$_SESSION['uname'] = $uname;
 	} else{
 		$uc->updateUser($userid, $uname, $fname, $lname, $gender);
 		$squestion	= $_POST['squestion'];
@@ -57,7 +57,7 @@
 		} else {
 			$sc->setSecurityQuestion($squestion, $sanswer, $userid);
 		}
-		if($type == 0) $_SESSION['uname'] = $uname;
+		if($type >= 3) $_SESSION['uname'] = $uname;
 		header("Location: edit-account.php?user_id={$userid}&f=1");
 		// header("Location: teacher.php");
 	}

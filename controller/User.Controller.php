@@ -372,6 +372,7 @@ class UserController {
 		$data['gender']				= $user->getGender();
 		$data['type']				= $user->getType();
 		$data['teacher_id']			= $user->getTeacher();
+		$data['subscriber_id']		= $user->getSubscriber();
 		$data['grade_level']		= $user->getGrade_level();
 		$data['students']			= $user->getStudents_limit();
 		$data['subhead_id']			= $user->getSubheadid();
@@ -448,7 +449,6 @@ class UserController {
 		$data['teacher_id'] 	= $values['teacher_id'];
 		$data['subscriber_id'] 	= $values['subscriber_id'];
 		$data['grade_level']	= $values['grade_level'];
-		$data['students']		= $values['students'];
 		$data['students']		= $values['students'];
 		return $data;
 	}
