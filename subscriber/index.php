@@ -486,6 +486,10 @@ ini_set('display_errors', 1);
 	.first-timer button{
 		padding: 5px;
 	}
+	a.ngss_link:hover {
+		text-decoration: none;
+		background-color: #FAEBD7;
+	}
 	</style>
 
 	<!-- Run the plugin -->
@@ -560,6 +564,9 @@ ini_set('display_errors', 1);
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 	
 	<div class="clear"></div>
+
+	<a class="link fright m-top10 ngss_link" href="../ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
+
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
 	if(isset($_GET["ft"])):
