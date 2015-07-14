@@ -112,7 +112,25 @@ ini_set('display_errors', 1);
 	$col["width"] = "10";
 	/*$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");*/
 	$col["edittype"] = "select";
-	$col["editoptions"] = array("value"=>'0:Teacher;1:Parent;2:Student;4:Subhead');
+	$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
+	/*if(isset($_GET['user_id']) && isset($_GET['type']))
+	{
+		if($_GET['type'] == 0)
+		{
+			$col["editoptions"] = array("value"=>'0:Teacher');
+
+		} elseif($_GET['type'] == 2)
+		{
+			$col["editoptions"] = array("value"=>'2:Student');
+		}elseif($_GET['type'] == 4)
+		{
+			$col["editoptions"] = array("value"=>'4:Sub-Admin');
+		} 
+	} else {
+			$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
+		}*/
+
+
 	$col["viewable"] = false;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
