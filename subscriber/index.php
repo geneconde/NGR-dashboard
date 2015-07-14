@@ -26,7 +26,6 @@ ini_set('display_errors', 1);
 	if($ufl == 1){ header("Location: account-update.php"); }
 	//add parameter for is_deleted and is_archived later on method is under userController
 	$teacher_count = $uc->countUserType($user->getSubscriber(), 0);
-	$student_count = $uc->countUserType($user->getSubscriber(), 2);
 
 	$userid 			= $user->getUserid();
 	$usertype			= $user->getType();
@@ -436,23 +435,6 @@ ini_set('display_errors', 1);
 
 		$grid->set_options($opt);
 
-		$e["on_insert"] = array("add_student", null, true);
-		$grid->set_events($e);
-
-		$_SESSION["sid"] = $subid;
-		$_SESSION["count"] = $student_count;
-		$_SESSION["max_student"] = $sub->getStudents();
-
-		function add_student($data)
-		{
-			$subid = $_SESSION["sid"];
-			$max_student = $_SESSION["max_student"];
-			$count = $_SESSION["count"];
-
-		    if ($count >= $max_student) {
-		    	phpgrid_error("You have reached the maximum number of students. ". $count . '/' . $max_student); 
-		    }
-		}
 		/*$grid->debug = 0;
 		$grid->error_msg = "Username Already Exists.";*/
 
@@ -638,7 +620,7 @@ ini_set('display_errors', 1);
 	
 	<div class="clear"></div>
 
-	<a class="link fright m-top10 ngss_link" href="../ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
+	<a class="link fright m-top10 ngss_link" href="../../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
