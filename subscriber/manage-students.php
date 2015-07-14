@@ -211,7 +211,7 @@ ini_set('display_errors', 1);
 		$count = $_SESSION["count"];
 
 	    if ($count >= $max_student) {
-	    	phpgrid_error("You have reached the maximum number of students."); 
+	    	phpgrid_error("You have reached the maximum number of students. ". $count . '/' . $max_student);  
 	    }
 
 		//mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["user_ID"]}','{$data["params"]["username"]}','{$data["params"]["password"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["gender"]}','{$data["params"]["teacher_id"]}','{$data["params"]["subscriber_id"]}','{$data["params"]["grade_level"]}','{$data["params"]["is_deleted"]}')");
@@ -371,7 +371,7 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
-					<a href="index.php" class="link" style="display: inline-block;">Manage Accounts</a>   
+					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>   
 				</div>
 			</div>		
 			<div class="clear"></div>
