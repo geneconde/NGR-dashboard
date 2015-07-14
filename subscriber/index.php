@@ -117,6 +117,7 @@ ini_set('display_errors', 1);
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
 	$col["on_data_display"] = array("getUserType","");
+	$col["align"] = "center";
 
 	function getUserType($data)
 	{
@@ -142,7 +143,7 @@ ini_set('display_errors', 1);
 			break;
 
 			case '4':
-				$val = "Subhead";
+				$val = "Sub-Admin";
 			break;
 
 			default:				
