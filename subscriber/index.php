@@ -361,7 +361,7 @@ ini_set('display_errors', 1);
 		elseif ($usertype == 3) 
 		{
 			/*$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";*/
-			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND subhead_id IS NULL AND type != 2 AND type != 3";
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND subhead_id IS NULL AND (type != 2 AND type != 3)";
 			$grid->select_command = $q;	
 			$filename = "Subhead Accounts";
 			
@@ -495,6 +495,9 @@ ini_set('display_errors', 1);
 		text-decoration: none;
 		background-color: #FAEBD7;
 	}
+	.mright10 {
+		margin-right: 10px;
+	}
 	</style>
 
 	<!-- Run the plugin -->
@@ -565,12 +568,11 @@ ini_set('display_errors', 1);
 	<div id="dbguide">
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
-
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+	<a class="uppercase fright manage-box mright10" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+	
 	
 	<div class="clear"></div>
-
-	<a class="uppercase fright manage-box" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
