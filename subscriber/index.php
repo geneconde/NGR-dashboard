@@ -574,11 +574,10 @@ ini_set('display_errors', 1);
 	
 	<div class="clear"></div>
 
-<<<<<<< HEAD
+
 	<a class="link fright m-top10 ngss_link" href="../../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 
-=======
->>>>>>> ae78212afe3ece12a16f5168804a532de352c02c
+
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
 	if(isset($_GET["ft"])):
