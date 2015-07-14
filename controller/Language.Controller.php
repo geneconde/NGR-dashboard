@@ -78,6 +78,19 @@ class LanguageController {
 		}
 	}
 	
+	public function getDefaultLanguageByTeacher($teacher_id) {
+		$where = array();
+		$where['teacher_id'] = $teacher_id;
+		$where['is_default'] = 1;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("teacher_language", $where);
+		$db->disconnect();
+		
+		return $result;
+	}
+
 	public function getLanguageByTeacher($teacher_id) {
 		$where = array();
 		$where['teacher_id'] = $teacher_id;
@@ -117,6 +130,18 @@ class LanguageController {
 		$db = new DB();
 		$db->connect();
 		$result = $db->update("teacher_language", $where, $data);
+		$db->disconnect();
+	}
+	
+	public function setDefaultLanguage($teacher_id, $language_id) {
+		$data = array();
+		$data['teacher_id'] = $teacher_id;
+		$data['language_id'] = $language_id;
+		$data['is_default'] = 1;
+					
+		$db = new DB();
+		$db->connect();
+		$result = $db->insert("teacher_language", $data);
 		$db->disconnect();
 	}
 	

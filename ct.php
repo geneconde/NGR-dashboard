@@ -75,6 +75,7 @@
 	
 	if(strlen($panswer) > 1) $pa = str_split($panswer);
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container">
 <a class="link" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
 <br>

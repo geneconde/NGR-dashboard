@@ -15,10 +15,10 @@ class DB extends PDO {
 	
 	protected $host = "localhost";
 
-	/*protected $username = "jigzenco_ngrdev";
-	protected $password = "jigzen1234aA";*/
-	protected $username = "root";
-	protected $password = "";
+	protected $username = "jigzenco_ngrdev";
+	protected $password = "jigzen1234aA";
+	// protected $username = "root";
+	// protected $password = "";
 
 	//protected $username = "jigzenco_ngrdev";
 	//protected $password = "jigzen1234aA";

@@ -26,12 +26,13 @@
 
 ?>
 
+<style> .guide { display: none; } </style>
 <div class="grey"></div>
-
+<br/>
 <a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-<br><br>
+<br/><br/>
 
-<div class="fleft" id="language">
+<!-- <div class="fleft" id="language">
 	<?php echo _("Language"); ?>:
 
 	<?php
@@ -49,7 +50,7 @@
 	<?php endif; ?>
 
 	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-</div>
+</div> -->
 <!-- <div class="fright m-top10" id="accounts">
 	<div id="manage-container">
 		<?php echo _('Manage:'); ?> 

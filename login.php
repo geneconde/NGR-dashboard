@@ -37,8 +37,12 @@
 					} else {
 						$lang = 'en_US';
 					}
-					
-					header("Location: teacher.php?lang=$lang"); exit;	
+
+					if($teacher->getFirstLogin() == 1){
+						header("Location: account-update.php?ut=0"); exit;
+					} else {
+						header("Location: teacher.php?lang=$lang"); exit;	
+					}
 					
 				} elseif($retObj->getType() == '1'){
 					$_SESSION['uname'] = $_POST['username'];	  
@@ -57,7 +61,12 @@
 						$lang = 'en_US';
 					}
 
-					header("Location: subscriber/index.php?lang=$lang");
+					if($subscriber->getFirstLogin() == 1){
+						header("Location: subscriber/account-update.php"); exit;
+					} else {
+						header("Location: subscriber/index.php?lang=$lang"); exit;
+					}
+
 				} /*elseif($retObj->getType() == '4'){
 					$_SESSION['uname'] = $_POST['username'];
 
@@ -74,7 +83,7 @@
 
 					header("Location: phpgrid/manage-subhead.php?lang=$lang");
 				}*/ else {
-					$_SESSION['uname'] = $_POST['username'];	  
+					$_SESSION['uname'] = $_POST['username'];
 					
 					//added for language
 					$student = $uc->loadUser($_SESSION['uname']);
@@ -88,7 +97,11 @@
 						$lang = 'en_US';
 					}
 					
-					header("Location:student.php?lang=$lang");exit;
+					if($student->getFirstLogin() == 1){
+						header("Location: account-update.php?ut=2"); exit;
+					} else {
+						header("Location: student.php?lang=$lang"); exit;	
+					}
 				}
 			} else {
 				header("Location: index.php?deac=1");exit;

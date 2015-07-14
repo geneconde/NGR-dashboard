@@ -55,6 +55,7 @@
 	endif;
 
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container">
 <a class="link" href="student.php">&laquo <?php echo _('Go Back');?></a>
 <?php if ($_GET['mode'] == 'pre') { ?>

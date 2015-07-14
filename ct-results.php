@@ -23,7 +23,7 @@
 	//$question_set	= $dtc->getAllQuestions();
 ?>
 <script>
-	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 1;
+	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
 	var pfCustomCSS = ''
 	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 </script>
@@ -91,17 +91,17 @@
 
 					if($language == 'ar_EG' && $qinfo[0]['translate'] == 1) {
 						$img .= '-ar.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'es_ES' && $qinfo[0]['translate'] == 1) {
 						$img .= '-es.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'zh_CN' && $qinfo[0]['translate'] == 1) {
 						$img .= '-zh.jpg';
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$img.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$img.'" class="dtq-image" width="312px">';
 					} elseif($language == 'en_US' && $qinfo[0]['translate'] == 1) {
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$image.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$image.'" class="dtq-image" width="312px">';
 					} else {
-						echo '<br/><img src="http://dev.jigzen.com/shymansky/demo/'.$image.'" class="dtq-image" width="312px">';
+						echo '<br/><img src="http://dev.jigzen.com/shymansky/dashboard/'.$image.'" class="dtq-image" width="312px">';
 					}
 					//echo '<br/><img src="'.$qinfo[0]['image'].'" class="dtq-image">';
 				endif; ?>
@@ -190,6 +190,15 @@
 	}
 ?>
 <!-- End Email -->
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-class="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to print this page.</p>
+	</li>
+	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Click here to email this page/results.</p>
+	</li>
+</ol>
 <script src="scripts/livevalidation.js"></script>
 <script>
 var totalquestions = 0,
@@ -225,5 +234,19 @@ $(document).ready(function() {
   	var subEadd2 = new LiveValidation('emailfrom');
   	subEadd2.add( Validate.Email );
 });
+</script>
+<script>
+function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

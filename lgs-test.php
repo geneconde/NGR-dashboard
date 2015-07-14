@@ -32,15 +32,8 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
-<style>
-	/*Custom joyride*/
-	.joyride-tip-guide:nth-child(6){
-	    margin-left: -30px !important;
-	}
-	/*End custom joyride*/
-</style>
 <div id="container">
-<a class="link" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link" href="modules.php">&laquo <?php echo _("Go Back"); ?></a>
 
 <?php if ($mode == 1): ?>
 <h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>
@@ -90,25 +83,9 @@
 			if($row['from_review']) echo _("<span class='ask'>* </span>");
 			echo _($row['question']);
 			echo '<br/>';
-			if($row['image']) :
-				$image = $row['image'];
-				$img = trim($image, "en.jpg");
-				
-				if($language == 'ar_EG' && $row['translate'] == 1) {
-					$img .= '-ar.jpg';
-					echo '<img src="'.$img.'" class="dtq-image">';
-				} elseif($language == 'es_ES' && $row['translate'] == 1) {
-					$img .= '-es.jpg';
-					echo '<img src="'.$img.'" class="dtq-image">';
-				} elseif($language == 'zh_CN' && $row['translate'] == 1) {
-					$img .= '-zh.jpg';
-					echo '<img src="'.$img.'" class="dtq-image">';
-				} elseif($language == 'en_US' && $row['translate'] == 1) {
-					echo '<img src="'.$image.'" class="dtq-image">';
-				} else {
-					echo '<img src="'.$image.'" class="dtq-image">';
-				}
-			endif;
+			
+			if($row['image'])
+				echo '<img src="'.$row['image'].'" class="dtq-image">';
 			
 			$choices = $dtq->getQuestionChoices($row['qid']);
 		?>
@@ -184,38 +161,38 @@ $(document).ready(function() {
 						});
 						
 						alert("A same test name already exists. Please change the name of the test.");
-					} else window.location.href = "settings.php?mid=<?php echo $mid; ?>";
+					} else window.location.href = "modules.php";
 				}
 			});
 		}
 	});
 });
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="test-name" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Enter a title for your test.</p>
-	</li>
-	<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
-	</li>
-	<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to save your changes.</p>
-	</li>
-</ol>
+      <!-- Tip Content -->
+    <ol id="joyRideTipContent">
+		<li data-id="test-name" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<p>Enter a title for your test.</p>
+		</li>
+		<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+			<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
+		</li>
+		<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+			<p>Click this button to save your changes.</p>
+		</li>
+    </ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 2) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    // modal:true,
-    // expose: true
-    });
-  }
-</script>
+    <script>
+      function guide() {
+	  	$('#joyRideTipContent').joyride({
+	      autoStart : true,
+	      postStepCallback : function (index, tip) {
+	      if (index == 10) {
+	        $(this).joyride('set_li', false, 1);
+	      }
+	    },
+	    // modal:true,
+	    // expose: true
+	    });
+	  }
+    </script>
 <?php require_once "footer.php"; ?>

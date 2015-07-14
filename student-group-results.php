@@ -23,10 +23,31 @@
 		<?php foreach($groups as $group): ?>
 		<tr>
 			<td><?php echo $group['group_name']; ?></td>
-			<td><a class="button1" href="student-results.php?gid=<?php echo $group['group_id']; ?>&mid=<?php echo $mid; ?>"><?php echo _("View Results"); ?></a></td>
+			<td id="result"><a class="button1" href="student-results.php?gid=<?php echo $group['group_id']; ?>&mid=<?php echo $mid; ?>"><?php echo _("View Results"); ?></a></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
 	</center>
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="result" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to view the module and test results of a student group.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>
 <?php require_once "footer.php"; ?>

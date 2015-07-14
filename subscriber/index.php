@@ -22,6 +22,8 @@ ini_set('display_errors', 1);
 	$uc = new UserController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
+	$ufl = $user->getFirstLogin();
+	if($ufl == 1){ header("Location: account-update.php"); }
 	//add parameter for is_deleted and is_archived later on method is under userController
 	$teacher_count = $uc->countUserType($user->getSubscriber(), 0);
 
@@ -275,7 +277,7 @@ ini_set('display_errors', 1);
 			$col["search"] = false;
 			$col["export"] = false;
 			# fetch data from database, with alias k for key, v for value
-			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id =". $_GET['sid']. " AND type=0");
+			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
 			$col["editoptions"] = array("value"=>$str); 
 			$col["formatter"] = "select"; // display label, not value
 			$cols[] = $col;
@@ -475,18 +477,16 @@ ini_set('display_errors', 1);
 	<style>
 	.ui-search-toolbar { display: none; }
 	.fleft { margin-top: -16px; }
-	.tguide { float: left; margin-top: -15px; }
 	.guide {
 		padding: 5px;
 		background-color: orange;
 		border-radius: 5px;
-		margin-right: 1px;
-		margin-left: 1px;
 		border: none;
 		font-size: 10px;
 		color: #000;
 		cursor: pointer;
 	}
+	.tguide { font-family: inherit; }
 	.guide:hover {
 		background-color: orange;
 	}
@@ -504,8 +504,27 @@ ini_set('display_errors', 1);
 	<?php } ?>
 
 	/*End custom joyride*/
-	#dbguide {margin-top: 16px; float: left;}
+	#dbguide {margin-top: 10px; float: left;}
 	#accounts {margin-top: 3px;}
+	.first-timer {
+		background-color: #D6E3BC;
+		border-radius: 25px;
+		width: 95%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	.first-timer p{
+		padding: 15px;
+		line-height: 1.4rem;
+		font: 18px;
+	}
+	.first-timer button{
+		padding: 5px;
+	}
+	a.ngss_link:hover {
+		text-decoration: none;
+		background-color: #FAEBD7;
+	}
 	</style>
 
 	<!-- Run the plugin -->
@@ -573,19 +592,28 @@ ini_set('display_errors', 1);
 		<?php endif; ?>
 		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>	
 	</div>
-	
 	<div id="dbguide">
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
 
-	<div class="fright" id="accounts"> 
-		<a id="my_account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-	</div>
+	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 	
-	
-
 	<div class="clear"></div>
+
+	<a class="link fright m-top10 ngss_link" href="../ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
+
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
+	<?php
+	if(isset($_GET["ft"])):
+		if($_GET["ft"]==1): ?>
+			<div class="first-timer">
+				<p>It looks like this is your first time to visit your dashboard...<br/>
+				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+			</div>
+		<?php
+		endif;
+	endif;
+	?>
 	<p><?php echo _("This is your Dashboard. In this page, You can manage all accounts under you."); ?>
 
 	<div class="wrap-container">
@@ -638,10 +666,10 @@ ini_set('display_errors', 1);
 		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
 			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
 		</li>
-		<li data-id="jqg_list1_314" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
 		</li>
-		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<li data-id="cb_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
 			<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
 		</li>
 		<li data-id="search_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">

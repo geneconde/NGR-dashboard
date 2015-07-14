@@ -42,13 +42,29 @@
 	else if($_SESSION["lang"] == "es_ES") $curlang = "spanish";
 	else if($_SESSION["lang"] == "zh_CN") $curlang = "chinese";	
 ?>
-	<script>
-		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 1;
-		var pfCustomCSS = 'printfriendly2.php'
-		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
-	</script>
 <div id="container">
 <a class="link" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+
+<?php
+
+if($language == "ar_EG") {
+	echo "
+	<script>
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
+		var pfCustomCSS = 'printfriendly.php'
+		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+	</script>";
+} else {
+	echo "
+	<script>
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
+		var pfCustomCSS = 'printfriendly2.php'
+		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+	</script>";
+}
+
+?>
+
 <h1><?php echo _("Exercise Statistics"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
 <h3><?php echo _($exercise['title']); ?> <?php echo _("Screenshot"); ?></h3>
 <?php echo _("The image below is an actual screenshot of the exercise in the review. It shows the question items and the correct answers."); ?><br/><br/>
@@ -58,13 +74,13 @@
 	$ex_screenshot = implode("/", $arr);
 	
 ?>
-<center><img src="<?php echo $ex_screenshot;?>" width="80%"></center>
+<center><img id="xshot" src="<?php echo $ex_screenshot;?>" width="80%"></center>
 <br/>
 <?php foreach ($eq as $question) { ?>
 <h3><?php echo _("Question") . " " . _($question['section']); ?> - <?php echo _($question['title']); ?></h3>
 <?php echo _("Correct Answer"); ?>: <span class="green bold upper"><?php echo _($question['correct_answer']); ?> </span><br/>
-<div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart"></div>
-<div id="<?php echo 'q2_'.$question['section'].$question['title']; ?>" class="pchart"></div>
+<div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div>
+<div id="<?php echo 'q2_'.$question['section'].$question['title']; ?>" class="pchart p2"></div>
 <div class="clear"></div>
 <?php } ?>
 </div>
@@ -116,6 +132,33 @@
 		chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q2_'.$question['section'].$question['title']; ?>'));
 		chart.draw(data, options);	
 		<?php endforeach; ?>
+  }
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="xshot" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This page shows the information and statistics of a question or activity. This is the screenshot of the activity in the actual module.</p>
+	</li>
+	<li data-class="p1" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This pie chart shows the percentage of the correct and wrong answers (for this item) of all the students who took the test.</p>
+	</li>
+	<li data-class="p2" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This pie chart shows the percentage of the students who selected the same answer for this question (Example: Out of 5 students, 2 answered A and 3 answered B. Pie chart will show 40% for A and 60% or B)</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
   }
 </script>
 <?php require_once "footer.php"; ?>

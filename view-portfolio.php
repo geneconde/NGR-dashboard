@@ -40,15 +40,15 @@
 	<br><br> -->
 	<center>
 	<h2><?php echo _("Student Portfolio"); ?></h2>
-	<br>
+	<br/>
 	<h2><?php echo _("Student Name: "); ?><?php echo $student->getFirstname() . ' ' . $student->getLastname(); ?></h2>
-	<br>
+	<br/>
 	<h3><?php echo _("Cumulative Tests"); ?></h3>
 	<table border="0" class="result morepad">
 		<tr>
-			<th><?php echo _("Test Name"); ?></td>
-			<th><?php echo _("Action"); ?></td>
-		<tr>
+			<th><?php echo _("Test Name"); ?></th>
+			<th><?php echo _("Action"); ?></th>
+		</tr>
 		<?php
 			$ct_set 	= $ctc->getCumulativeTests($userid);
 			$sct_set	= $sct->getCtByStudent($studentid);
@@ -56,40 +56,39 @@
 			if($ct_set) {
 			foreach($ct_set as $ct) {
 		?>
-			<tr>
-				<td><?php echo $ct['test_name']; ?></td>
-		<?php
-				$disabled3 = "<td><a class=\"button1 disabled\">" . _("View") . "</a></td>";
+				<tr>
+					<td><?php echo $ct['test_name']; ?></td>
+					<?php
+					$disabled3 = "<td><a class=\"button1 disabled\">" . _("View") . "</a></td>";
 
-				if($sct_set) {
-					$found = false;
+					if($sct_set) {
+						$found = false;
 
-					foreach($sct_set as $studentct) {
-						if($ct['ct_id'] == $studentct['ct_id'] && $studentct['date_ended'] != '0000-00-00 00:00:00') { 
-							$found = true;
-		?>
-							<td><a class="button1" href="ct-results.php?sctid=<?php echo $studentct['student_ct_id']; ?>&p=1"><?php echo _("View"); ?></a></td>
-		<?php
+						foreach($sct_set as $studentct) {
+							if($ct['ct_id'] == $studentct['ct_id'] && $studentct['date_ended'] != '0000-00-00 00:00:00') { 
+								$found = true;
+					?>
+								<td><a id="btnCumulative" class="button1" href="ct-results.php?sctid=<?php echo $studentct['student_ct_id']; ?>&p=1"><?php echo _("View"); ?></a></td>
+					<?php
+							}
 						}
-					}
+						if(!$found) { echo $disabled3; }
 
-					if(!$found) echo $disabled3;
-				} else {
-					echo $disabled3;
-				}
-		?>
-				
-			</tr>
-		<?php 
-				} 
+					} else {
+						echo $disabled3;
+					}
+					?>
+
+				</tr>
+		<?php 	}
 			} else { ?>
 				<tr>
 					<td colspan="2"><center><?php echo _("No cumulative tests yet."); ?></center></td>
 				</tr>
-		<?	} ?>
+		<?php } ?>
 	</table>
 	</center>
-	<br>
+	<br/>
 	<center>
 	<h3><?php echo _("Review"); ?></h3>
 	<table border="0" class="result morepad">
@@ -115,21 +114,19 @@
 							$found = true;
 					?>
 							<center>
-							<a class="button1" href="module-results.php?mid=<?php echo $tm['module_id']; ?>&sid=<?php echo $studentid; ?>">
-								<?php echo _("View"); ?>
-							</a>
+							<a id="btnMQ" class="button1" href="module-results.php?mid=<?php echo $tm['module_id']; ?>&sid=<?php echo $studentid; ?>"><?php echo _("View"); ?></a>
 							</center>
 				<?php 	}
 					}
 
 					if(!$found) { ?>
-						<center><a class="button1 disabled"><?php echo _("View"); ?></a></center>
+						<center><a id="btnMQ" class="button1 disabled"><?php echo _("View"); ?></a></center>
 				<?php } ?>
 			</td>
 			<td>
 				<?php
-					$disabled = "<a class=\"button1 disabled\">"._("Pre-Test")."</a>";
-					$disabled2 = "<a class=\"button1 disabled m-left5\">"._("Post-Test")."</a>";
+					$disabled = "<a id='btnPreT' class=\"button1 disabled\">"._("Pre-Test")."</a>";
+					$disabled2 = "<a id='btnPostT' class=\"button1 disabled m-left5\">"._("Post-Test")."</a>";
 
 					if($gid) {
 						$gm_set	= $gmc->getModuleGroupByID($gid, $module['module_ID']);
@@ -141,9 +138,7 @@
 								$enddate = $sdt_set->getEndDate();
 
 								if($enddate != "0000-00-00 00:00:00" || $enddate != "null") {
-									echo "<a class=\"button1\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
-										 ._("Pre-Test").
-										 "</a>";
+									echo "<a id='btnPreT' class=\"button1\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"._("Pre-Test")."</a>";
 								} else {
 									echo $disabled;
 								}
@@ -167,9 +162,7 @@
 								$enddate = $sdt_set->getEndDate();
 
 								if($enddate != "0000-00-00 00:00:00" || $enddate != "null") {
-									echo "<a class=\"button1 m-left5\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"
-										 ._("Post-Test").
-										 "</a>";
+									echo "<a id='btnPostT' class=\"button1 m-left5\" href=\"dt-results.php?sdtid={$sdt_set->getStudentDtID()}&p=1\">"._("Post-Test")."</a>";
 								} else {
 									echo $disabled2;
 								}
@@ -182,10 +175,6 @@
 					} else {
 						echo $disabled2;
 					}
-					
-					
-
-					
 				?>
 			</td>
 		</tr>
@@ -199,4 +188,34 @@
 
 	
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="btnCumulative" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
+		<p>Clicking this button will show the Cumulative Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+	<li data-id="btnMQ" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to view the screenshots of all the Quick Checks and Quiz Questions in the module, the student's answer, the correct answer and the feedback statements. This is grayed out if the student hasn't taken the module yet.</p>
+	</li>
+	<li data-id="btnPreT" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This will show the Pre-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+	<li data-id="btnPostT" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This will show the Post-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>
 <?php require_once "footer.php"; ?>

@@ -73,12 +73,32 @@
 	$mode		= $dt_set->getMode();
 	$mid		= $dt_set->getModuleid();
 ?>
+<style> #dbguide { display: none; } </style>
 <div id="container">
 <?php if($_GET['page']=="comparative") { ?>
 <a class="link" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Comparative Results"); ?></a>
 <?php } else if($_GET['page']=="all") { ?>
 <a class="link" href="all-students-ct-results.php">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
 <?php } ?>
+<?php
+
+if($language == "ar_EG") {
+	echo "
+	<script>
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
+		var pfCustomCSS = 'printfriendly.php'
+		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+	</script>";
+} else {
+	echo "
+	<script>
+		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
+		var pfCustomCSS = 'printfriendly2.php'
+		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+	</script>";
+}
+
+?>
 <h1><?php echo _("Diagnostic Question Item Statistics"); ?>
 <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
 <img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>

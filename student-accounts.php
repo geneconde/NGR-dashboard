@@ -28,7 +28,7 @@
 	<table class="students" id="group-<?php echo $group['group_id']; ?>">
 		<tr>
 			<th></th>
-			<th class="bold">#</th>
+			<th class="bold suser">#</th>
 			<th class="bold"><?php echo _("Student Name"); ?></th>
 			<th class="bold"><?php echo _("Gender"); ?></th>
 			<!-- <th class="bold" colspan="2"><?php echo _("Action"); ?></th> -->
@@ -75,7 +75,7 @@
 	</select>
 	<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
 	<input type="button" class="button1 delete" value="<?php echo _("Delete Group"); ?>">
-	<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1"><?php echo _("Edit Name"); ?></a>
+	<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1 edit"><?php echo _("Edit Name"); ?></a>
 	</div>
 	<?php $grp++; } ?>
 
@@ -83,7 +83,7 @@
 	<table class="students" id="group-u">
 		<tr>
 			<th><input type="checkbox" id="select-all"></th>
-			<th class="bold">#</th>
+			<th class="bold" id="suser">#</th>
 			<th class="bold"><?php echo _("Student Name"); ?></th>
 			<th class="bold"><?php echo _("Gender"); ?></th>
 			<!-- <th class="bold"><?php echo _("Action"); ?></th> -->
@@ -118,7 +118,7 @@
 	</table>
 	<div class="group-control" id="group-control-u">
 	<?php echo _("Move to:"); ?>
-	<select>
+	<select class="grps">
 		<?php foreach($groups as $others) { ?>
 			<option value="<?php echo $others['group_id']; ?>"><?php echo $others['group_name']; ?></option>
 		<?php } ?>
@@ -137,6 +137,27 @@
 		</div>
 	</form>
 </div>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="create-group" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to create a new group. Enter the group name and click <strong>Create</strong>. This step is optional but be reminded that you cannot transfer students to other groups if you don't create one.</p>
+	</li>
+	<li data-class="suser" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>To transfer students to another group, select the checkbox beside the student's username. You can also click on the first checkbox to select all students.</p>
+	</li>
+	<li data-class="grps" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade;">
+		<p>Select a group where you want the students to be transferred to.</p>
+	</li>
+	<li data-class="transfer" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to transfer your students to the new/other group.</p>
+	</li>
+	<li data-class="delete" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this button to delete a group. All students from the deleted group will go to the "Unassigned" table.</p>
+	</li>
+	<li data-class="edit" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Cilck this button to update the name of the group.</p>
+	</li>
+</ol>
 <script>
 $(document).ready( function () {	
 	$('#create-group').click(function() {
@@ -208,5 +229,17 @@ $(document).ready(function(){
 		}
 	});
 });
+function guide() {
+	$('#joyRideTipContent').joyride({
+	  autoStart : true,
+	  postStepCallback : function (index, tip) {
+	  if (index == 10) {
+	    $(this).joyride('set_li', false, 1);
+	  }
+	},
+	// modal:true,
+	// expose: true
+	});
+}
 </script>
 <?php require_once "footer.php"; ?>

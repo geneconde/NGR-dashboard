@@ -24,7 +24,10 @@
 		}
 	}
 ?>
-<style> span.form-error { position: absolute; margin-top: 3px; font-size: 12px !important; } </style>
+<style>
+	span.form-error { position: absolute; margin-top: 3px; font-size: 12px !important; }
+	.guide { display: none; }
+</style>
 <div id="container">
 <a class="link" href="edit-account.php?user_id=<?php echo $userid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
 <br><br>
@@ -107,6 +110,7 @@ $(document).ready(function() {
 	});
 });
 
+$.noConflict();
 $.validate({
   form : '#change-pw'
 });

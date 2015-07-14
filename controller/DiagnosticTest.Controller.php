@@ -105,7 +105,6 @@ class DiagnosticTestController {
 			return $test;
 		}
 	}
-
 	
 	public function getDiagnosticTestByID($dtid) {
 		$where = array();

@@ -56,6 +56,8 @@
 	$prenotanswered = 0;
 	$postnotanswered = 0;
 ?>
+<br/>
+<style>.list_notes { font-size: 14px; }</style>
 <a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
 <h1><?php echo _("Students Comparative Results"); ?></h1>
 
@@ -63,6 +65,7 @@
 <ul class="list_notes">
 <li><?php echo _("Click the column header to view the statistics for each question."); ?></li>
 <li><?php echo _("If the table is not displaying correctly, please refresh this page."); ?></li>
+<li><?php echo _("Scroll left and right, and up and down, to view all your students' data."); ?></li>
 </ul>
 <br/>
 <h3><?php echo _("Module Results"); ?></h3>
@@ -92,7 +95,7 @@
 					foreach ($qq as $exercise):
 						$coltotal[$ctr] = 0; 
 				?>
-						<th>
+						<th id="questions">
 							<li>
 								<a href="statistics.php?e=<?php echo $exercise['exercise_ID']; ?>&mid=<?php echo $mid; ?>&gid=<?php echo $gid; ?>">
 									<?php echo $exercise['shortcode']; ?>
@@ -104,7 +107,7 @@
 						$ctr++;
 					endforeach;
 				?>
-				<th class="bold"><?php echo _("Total %"); ?></th>
+				<th class="bold" id="totala"><?php echo _("Total %"); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -121,7 +124,7 @@
 						$u = $uc->loadUserByID($student['user_ID']);
 			?>
 			<tr>
-				<td class="bold"><?php echo $u->getLastname(); if ($u->getLastname() != '') echo ', '; echo $u->getFirstname(); ?></td>
+				<td id="studname" class="bold"><?php echo $u->getLastname(); if ($u->getLastname() != '') echo ', '; echo $u->getFirstname(); ?></td>
 				<?php 
 					foreach ($qc as $exercise):
 						$score 		= 1;
@@ -484,5 +487,32 @@ $(document).ready( function () {
 		"iRightWidth": 90
  	} );
  } );
+</script>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="studname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>This column lists all students in this student group.</p>
+	</li>
+	<li data-id="questions" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+		<p>The top row contains the <strong>Quick Checks</strong> and <strong>Quiz Questions</strong>. These are clickable and will lead to the statistics page of the activity. Scroll left and right to view all the students' data.</p>
+	</li>
+	<li data-id="totala" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
+		<p>This column shows the percentage of the correct and wrong answers for a student. Note that an activity (a Quick Check or a Quiz Question) takes a value of <strong>1</strong> if all answers in that activity are correct, otherwise the value is <strong>0</strong>.</p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
 </script>
 <?php require_once "footer.php"; ?>

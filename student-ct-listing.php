@@ -34,7 +34,7 @@
 	<tr>
 
 
-			<td><a href="ct-results.php?from=1&sctid=<?php echo $test['student_ct_id']; ?>" class="link"><?php echo $ct['test_name']; ?></a></td>
+			<td><a id="ct-del" href="ct-results.php?from=1&sctid=<?php echo $test['student_ct_id']; ?>" class="link"><?php echo $ct['test_name']; ?></a></td>
 
 	</tr>
 	<?php 
@@ -44,3 +44,23 @@
 ?>
 </table>
 </center>
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="ct-del" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
+		<p>Click this to view the cumulative test result.</p>
+	</li>
+</ol>
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 1) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    // modal:true,
+    // expose: true
+    });
+  }
+</script>

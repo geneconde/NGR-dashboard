@@ -35,6 +35,28 @@ class GroupModuleController {
 		return $result;
 	}
 	
+	public function getModuleByTeacher($teacherID) {
+		$where = array();
+		$where['user_id'] = $teacherID;
+	
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("teacher_module", $where);
+		$db->disconnect();
+		return $result;
+	}
+	
+	public function getModuleName($moduleid) {
+		$where = array();
+		$where['module_ID'] = $moduleid;
+	
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("module", $where);
+		$db->disconnect();
+		return $result[0]['module_name'];
+	}
+	
 	public function getGroupsByModule($moduleid) {
 		$where = array();
 		$where['module_id'] = $moduleid;
