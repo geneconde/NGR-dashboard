@@ -114,6 +114,42 @@ ini_set('display_errors', 1);
 	$col["viewable"] = false;
 	$col["editrules"] = array("edithidden"=>hidden); 
 	$col["export"] = false; // this column will not be exported
+	$col["on_data_display"] = array("getUserType","");
+
+	function getUserType($data)
+	{
+		$type = $data["type"];
+		$val = "";
+		
+		switch($type)
+		{
+			case '0':
+				$val = "Teacher";
+			break;
+
+			case '1':
+				$val = "Parent";
+			break;
+
+			case '2':
+				$val = "Student";
+			break;
+
+			case '3':
+				$val = "Subscriber";
+			break;
+
+			case '4':
+				$val = "Subhead";
+			break;
+
+			default:				
+				$val = "None";
+			break;
+		}
+
+		return $val;	
+	}
 	$cols[] = $col;
 
 	$col = array();
@@ -394,7 +430,6 @@ ini_set('display_errors', 1);
 		"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
 	));
 
-
 	$grid->table = "users";
 
 	$grid->set_columns($cols); // pass the cooked columns to grid
@@ -559,11 +594,18 @@ ini_set('display_errors', 1);
 			<div class="sub-headers">
 				<h1>List of Accounts</h1>
 				
-				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p>
+				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a>
+				</div>
+			<div class="clear"></div>
+				<div class="fleft">
+					<?php if(isset($_GET['user_id'])) : ?>
+						<a href="index.php" class="link" style="display: inline-block;">Home</a> |					
+						<a href="javascript:history.back(1)" class="link" style="display: inline-block;">Back</a>
+					<?php endif; ?>
 				</div>
 			</div>		
 			<div class="clear"></div>
@@ -581,7 +623,7 @@ ini_set('display_errors', 1);
 				};	
 			</script>
 
-			<div style="margin:10px 0">				
+			<div style="margin:10px 0">					
 				<?php echo $main_view; ?>
 			</div>
 		</div>
