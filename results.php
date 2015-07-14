@@ -244,12 +244,14 @@
 	<?php
 		if(isset($_POST['sendresults'])) {
 			$email = $_POST['emailto'];
+			$emailfrom = $_POST['emailfrom'];
 			$message = $_POST['emailmessage'];
 			$message .= $_POST['resultcontent'];
 
 
 			$headers = "From: ". 'webmaster@nexgenready.com' ." \r\n" . 
-	                   "Reply-To: info@nexgenready.com \r\n" . 
+	                   /*"Reply-To: info@nexgenready.com \r\n" . */
+	                   "Reply-To:". $emailfrom ." \r\n" .
 	                   "Content-type: text/html; charset=UTF-8 \r\n";
 
 			$to = $email;
