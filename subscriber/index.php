@@ -565,7 +565,7 @@ ini_set('display_errors', 1);
 	
 	<div class="clear"></div>
 
-	<a class="link fright m-top10 ngss_link" href="../ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
+	<a class="link fright m-top10 ngss_link" href="../../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
