@@ -125,9 +125,9 @@
 					</td>
 					<td>
 						<?php if($img == 'correct') { ?>
-							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
+							<img src="http://dev.jigzen.com/shymansky/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
 						<?php } else { ?>
-							<img src="http://corescienceready.com/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
+							<img src="http://dev.jigzen.com/shymansky/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
 						<?php } ?>
 					</td>
 				</tr>
@@ -180,9 +180,9 @@
 					</td>
 					<td>
 						<?php if($img == 'correct') { ?>
-							<img src="http://corescienceready.com/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
+							<img src="http://dev.jigzen.com/shymansky/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
 						<?php } else { ?>
-							<img src="http://corescienceready.com/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
+							<img src="http://dev.jigzen.com/shymansky/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
 						<?php } ?>
 					</td>
 				</tr>
