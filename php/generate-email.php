@@ -15,10 +15,10 @@
 	include_once(dirname(__FILE__)."/pdfmc.class.php");
 	include_once(dirname(__FILE__)."/fpdf-add-ons.php");
 
-	function generateResults($stid, $moid) {
+	function generateResults($sid, $mid) {
 	
-		$sc 	= $_SESSION['score'];
-
+		$score 	= $_SESSION['score'];
+	
 		$smc 	= new StudentModuleController();
 		$mc 	= new ModuleController();
 		$ec 	= new ExerciseController();
@@ -29,18 +29,20 @@
 		$fbc	= new FeedbackController();
 		$user = null;
 	
-		$uc = new UserController();
-		if(isset($_SESSION['uname'])){
-			$user = $uc->loadUser($_SESSION['uname']);
-		}
+	$uc = new UserController();
+	if(isset($_SESSION['uname'])){
+		$user = $uc->loadUser($_SESSION['uname']);
+	}
+	
+	$name = $user->getFirstname();
+	
+
 		
-		$name = $user->getFirstname();
-		
-		$sm 	= $smc->loadSMbyUserID($stid, $moid);
-		$m 		= $mc->loadModule($moid);
-		$u 		= $uc->loadUserByID($stid);
-		$qc 	= $ec->loadExercisesByType($moid,0);
-		$qq 	= $ec->loadExercisesByType($moid,1);
+		$sm 	= $smc->loadSMbyUserID($sid, $mid);
+		$m 		= $mc->loadModule($mid);
+		$u 		= $uc->loadUserByID($sid);
+		$qc 	= $ec->loadExercisesByType($mid,0);
+		$qq 	= $ec->loadExercisesByType($mid,1);
 		$totalcorrect = 0;
 		$total = 0;
 
@@ -50,6 +52,16 @@
 		else if($_SESSION["lang"] == "ar_EG") $curlang = "arabic";
 		else if($_SESSION["lang"] == "es_ES") $curlang = "spanish";
 		else if($_SESSION["lang"] == "zh_CN") $curlang = "chinese";
+
+		// class PDFF extends FPDF {
+		// 	function Header() {
+		// 		$this->SetFont('ARIAL', '', 8);
+		// 		$this->Cell(0, 3, 'STUDENTS MODULE RESULTS', 0, 1, 'L');
+		// 		$this->image(dirname(__FILE__).'/../images/logo2.png', 150, 5, 50);
+		// 		$this->Line(10, 15, 200, 15);
+		// 		$this->Ln(5);
+		// 	}		
+		// }
 
 		$pdf = new PDF();
 		$pdf->SetAutoPageBreak(true);
@@ -71,7 +83,7 @@
 		$pdf->Cell(90, 5, date('F j, Y H:i:s',strtotime($sm['date_finished'])), 0, 1, 'L');
 		$pdf->Cell(50, 5, ' ', 0, 0, 'L');
 		$pdf->Cell(40, 5, 'Score Percentage:', 0, 0, 'L');
-		$pdf->Cell(90, 5, $sc.'%', 0, 1, 'L');
+		$pdf->Cell(90, 5, $score.'%', 0, 1, 'L');
 		$pdf->Ln(5);
 
 		// Start of Quick Check Results
@@ -79,6 +91,10 @@
 		$pdf->Cell(180, 5, 'Quick Check Results', 0, 1, 'C');
 
 		foreach ($qc as $exercise) {
+
+			// echo "<pre>";
+			// print_r($exercise);
+			// echo "</pre>";
 			$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 			$sections = $qnc->getExerciseSections($exercise['exercise_ID']);
 			$arr = explode('/', $exercise['screenshot']);
@@ -92,14 +108,13 @@
 					
 			$html='<table border="1">
 					<tr>
-
 						<table><td width="300" bgcolor="#FFE4C4">&nbsp;</td><td width="200" bgcolor="#FFE4C4">'. $exercise['title'] .'</td><td width="250" bgcolor="#FFE4C4">&nbsp;</td></table>
 					</tr>
 					<tr>
-							<td width="250" bgcolor="#FFE4C4">Activity Code</td>
-							<td width="175" bgcolor="#FFE4C4">Student Answer</td>
-							<td width="175" bgcolor="#FFE4C4">Correct Answer</td>
-							<td width="150" bgcolor="#FFE4C4">Result</td>
+						<td width="250" bgcolor="#FFE4C4">Activity Code</td>
+						<td width="175" bgcolor="#FFE4C4">Student Answer</td>
+						<td width="175" bgcolor="#FFE4C4">Correct Answer</td>
+						<td width="150" bgcolor="#FFE4C4">Result</td>
 					</tr>
 					</table>';
 			$pdf->WriteHTML($html);
@@ -113,7 +128,7 @@
 					$img = 'wrong';
 
 					for($i = 0; $i < count($sections); $i++) {
-						if($question['section'] == ($i + 1)) {
+						if($question['section'] == $letters[$i]) {
 							if(!isset($answers[$i])) {
 								$answers[$i] = $answer;
 							} else {
@@ -122,12 +137,15 @@
 						}
 					}
 
-					if ($answer == $question['correct_answer']) {
+					if ($answer === $question['correct_answer']) {
 						$img = 'correct';
 					}
+
+					
+					//. $letters[$question['section']] 
 					$html2='<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$question['section'] - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $question['section'] . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $answer . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $question['correct_answer'] . '</td>
 							<td width="150" bgcolor="#e2e2e2">' . $img . '</td>
@@ -148,24 +166,16 @@
 
 				$pdf->WriteHTML($html3);
 				$pdf->Ln(-7);
-			
-				for($i = 1; $i <= count($sections); $i++) {
-					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, $answers[$i-1]);
+				for($i = 0; $i < count($sections); $i++) {
+					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], $answers[$i]);
 
 					if(!$feedback) {
-						$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, 'X');
+						$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], 'X');
 					}
-					// $pdf->Ln(5);
-					// $pdf->SetFillColor(226, 226, 226);
-					// $pdf->Cell(90, 5, $exercise['shortcode'] . ' - Question' . $letters[$i - 1], 0, $pdf->getY(), 'L');
-					// $pdf->Ln(-5);
-					// $pdf->SetX(60);
-					// $pdf->SetFillColor(226, 226, 226);
-					// $pdf->MultiCell(120, 5, $feedback[0], 0, 'L');
 
 					$html4 = '<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$i] . '</td>
 							
 						</tr>
 					</table>';
@@ -208,10 +218,10 @@
 						<table><td width="300" bgcolor="#FFE4C4">&nbsp;</td><td width="200" bgcolor="#FFE4C4">'. $exercise['title'] .'</td><td width="250" bgcolor="#FFE4C4">&nbsp;</td></table>
 					</tr>
 					<tr>
-							<td width="250" bgcolor="#FFE4C4">Activity Code</td>
-							<td width="175" bgcolor="#FFE4C4">Student Answer</td>
-							<td width="175" bgcolor="#FFE4C4">Correct Answer</td>
-							<td width="150" bgcolor="#FFE4C4">Result</td>
+						<td width="250" bgcolor="#FFE4C4">Activity Code</td>
+						<td width="175" bgcolor="#FFE4C4">Student Answer</td>
+						<td width="175" bgcolor="#FFE4C4">Correct Answer</td>
+						<td width="150" bgcolor="#FFE4C4">Result</td>
 					</tr>
 					</table>';
 			$pdf->WriteHTML($quizhtml);
@@ -226,7 +236,7 @@
 				$img = 'wrong';
 
 				for($i = 0; $i < count($sections); $i++) {
-					if($question['section'] == ($i + 1)) {
+					if($question['section'] == $letters[$i]) {
 						if(!isset($answers[$i])) {
 							$answers[$i] = $answer;
 						} else {
@@ -235,13 +245,13 @@
 					}
 				}
 
-				if ($answer == $question['correct_answer']) {
+				if ($answer === $question['correct_answer']) {
 					$img = 'correct';
 				}
-
+				//$letters[$question['section'] - 1] .
 				$html2='<table border="0">
 						<tr>
-							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$question['section'] - 1] . '</td>
+							<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $question['section'] .  '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $answer . '</td>
 							<td width="175" bgcolor="#e2e2e2">' . $question['correct_answer'] . '</td>
 							<td width="150" bgcolor="#e2e2e2">' . $img . '</td>
@@ -261,16 +271,16 @@
 
 			$pdf->WriteHTML($html3);
 			
-			for($i = 1; $i <= count($sections); $i++) {
-				$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, $answers[$i-1]);
+			for($i = 0; $i < count($sections); $i++) {
+				$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, $answers[$i]);
 
 				if(!$feedback) {
-					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $i, 'X');
+					$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], 'X');
 				}
 
 				$html4 = '<table border="0">
 					<tr>
-						<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question' . $letters[$i - 1] . '</td>
+						<td width="250" bgcolor="#e2e2e2">' . $exercise['shortcode'] . ' - ' . 'Question ' . $letters[$i] . '</td>
 					</tr>
 				</table>';
 				$html5 = '<table border="0">
@@ -283,7 +293,6 @@
 				$pdf->Ln(-6);
 				$pdf->SetX(72);
 				$pdf->WriteMultiHTML($html5);
-				// $pdf->Ln(-13);
 			}
 						
 			$pdf->addPage();
@@ -310,7 +319,7 @@
 
 		$pdf->WriteMultiHTML($html6);
 
-		$pdfdoc = $pdf->Output('example1.pdf','S');
+		$pdfdoc = $pdf->Output('ModuleResults.pdf','S');
 		return $pdfdoc;
 	}	
 ?>
