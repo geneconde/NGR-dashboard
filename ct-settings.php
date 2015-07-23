@@ -17,6 +17,15 @@
 
 	$scc 		= new StudentCtController();
 ?>
+<style type="text/css">
+.button1 {
+    display: inline !important;
+}
+td.ct_options {
+    width: 33% !important;
+}
+</style>
+
 <div id="container">
 <a class="link" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <center>
@@ -25,7 +34,7 @@
 <table border="0" class="result morepad">
 	<tr>
 		<th><?php echo _("Test Name"); ?></th>
-		<th id="grpc"><?php echo _("ACTIVATED FOR"); ?></th>
+		<th><?php echo _("ACTIVATED FOR"); ?></th>
 		<th><?php echo _("Action"); ?></th>
 		<!-- <th><?php echo _("Set"); ?></th> -->
 	</tr>
@@ -41,7 +50,7 @@
 						<p><?php echo $gnamearr[0]['group_name']; ?></p>
 						<?php endforeach; ?>
 					</td>
-					<td>
+					<td class="ct_options">
 						<a class="button1 edit-ct" href="edit-ct.php?ctid=<?php echo $ct['ct_id']; ?>" data-id="<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Edit"); ?>
 						</a>
@@ -62,7 +71,7 @@
 		</tr>
 	<?php endif; ?>
 </table>
-<a class="button1" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a>
+<a class="button1" href="create-ct.php"><?php echo _("Create Cumulative Test"); ?></a>
 </center>
 </div>
 <script type="text/javascript" src="scripts/chosen.jquery.js" ></script>
@@ -138,37 +147,4 @@ $(document).ready(function() {
 		});
 	});
 });
-</script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="grpc" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This column lists the student groups that the cumulative test is activated for.</p>
-	</li>
-	<li data-class="edit-ct" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the <strong>Edit</strong> button to edit/update the cumulative test you created.</p>
-	</li>
-	<li data-class="ct-del" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to delete the cumulative test/s you created.</p>
-	</li>
-	<li data-class="activate-ct" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to activate the cumulative test to one or more student groups.</p>
-	</li>
-	<li data-id="cct" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to create a cumulative test.</p>
-	</li>
-</ol>
-
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    // modal:true,
-    // expose: true
-    });
-  }
 </script>
