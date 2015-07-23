@@ -45,101 +45,12 @@
 ?>
 <style> #dbguide { display: none; } </style>
 	<div id="container">
-		<div id="graphDiv" >
-		<?php
-		if (isset($_POST["submit"])) {
-			$emails 	= $_POST['email'];
-
-			$pdfdocs	= generateResults($sid, $mid);
-			$attachment = chunk_split(base64_encode($pdfdocs));
-			$separator 	= md5(time());
-			$eol 		= PHP_EOL;
-			$filename 	= "example1.pdf";
-			$count = count($emails);
-			//echo $emails[0];
-
-			if($emails[0] == null) {
-				echo '<script>' . 'alert("Please Fill-up all the forms below.");' . '</script>';
-			} else {	
-				foreach($emails as $email){
-					$to = $email;
-                	$from = "invoice@nexgenready.com"; 
-                	$subject = 'Portfolio Result';
-
-                	$headers  = "From: ".'NexGenReady'.$eol;
-                	$headers .= "MIME-Version: 1.0".$eol; 
-                	$headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
-
-                	$message = '<html><body>';
-                	$message .= '<div style="width: 70%; margin: 0 auto;">';
-                	$message .= '<div style="background: #083B91; padding: 10px 0;">' . '<img src="http://corescienceready.com/marketing/img/logo/logo2.png" />';
-                	$message .= '</div>';
-                	$message .= '<div style="margin-top: 10px; padding: 15px 0 10px 0;">';
-                	$message .= '<p>Hi '. $user->getUsername(). '!' . '</p>';
-                	$message .= '<p>The attached file are the results of your student '. $u->getFirstname() . ' ' . $u->getLastname() . ' in ' . $m->getModule_name() . ' module.' . '</p>';
-                	$message .= '<p style="margin-bottom: 0;">Best Regards,</p>';
-                	$message .= '<p style="margin: 0;">NexGenReady Team</p>';
-                	$message .= '</div>';
-                	$message .= '<div style="background: #272626; color: white; padding: 5px; text-align: center;">';
-                	$message .= '<p sytle="color: white;">&copy; 2014 Interactive Learning Online, LLC. ALL Rights Reserved. <a style="color: #f79539;" href="privacy-policy.php">Privacy Policy</a> | <a style="color: #f79539;" href="terms-of-service.php">Terms of Service</a></p>';
-                	$message .= '</div>';
-                	$message .= '</div>';
-                	$message .= '<body></html>';
-
-                	// message
-                	$messageMail = "--".$separator.$eol;
-                	$messageMail .= "Content-Type: text/html; charset=\"iso-8859-1\"".$eol;
-                	$messageMail .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-                	$messageMail .= $message.$eol;
-
-                	// attachment
-                	$messageMail .= "--".$separator.$eol;
-                	$messageMail .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; 
-                	$messageMail .= "Content-Transfer-Encoding: base64".$eol;
-                	$messageMail .= "Content-Disposition: attachment".$eol.$eol;
-                	$messageMail .= $attachment.$eol;
-                	$messageMail .= "--".$separator."--";
-
-                	$mail = @mail("$to", "$subject", "$messageMail", "$headers");
-            	}    
-            		if($mail){
-		              	echo '<script>' . 'alert("E-Mail Sent.");' . '</script>';
-		            } else {
-		              	echo 'fail';
-		            }
-            }    
-			// echo "<pre>";
-			// print_r($emails);
-			// echo "</pre>";
-		}	
-		?>
-			<form method="POST" action="#email">
-				<ul>
-					<li class="cf">
-						<div class="input_fields_wrap">
-				            <button class="add_field_button" name="add_field_button"></button>
-				            <div class="more-fields cf">
-				            	<label><?php echo _("Email Address"); ?></label>
-				            	<input type="text" id="eadd1" name="email[]" placeholder="<?php echo _('Enter how many students for this teacher...'); ?>" /><br />
-				            </div>
-			            </div>
-					</li>
-					<li class="cf"><input type="submit" value="Submit" name="submit" class="email-submit" /></li>
-				</ul>
-				<p><?php echo _('Note: You can send to a maximum of 5 emails only.'); ?></p>
-			</form>
-			<span id="close"><img src="images/xmark.png" /></span>
-		</div>
 		<a class="link" href="view-portfolio.php?user_id=<?php echo _($sid); ?>">&laquo <?php echo _("Go Back"); ?></a>
 		<h1><?php echo _("Module Results"); ?></h1>
 		<div id="pdf-button">
 			<a href="php/generate-result.php" target="_blank"><img src="images/pdf.png" alt="Download PDF" title="Download PDF" /></a>
-			<a href="#" id="mail"><img src="images/mail.png" alt="Email PDF" title="Email PDF" /></a>
+			<a href="#" id="email-btn"><img src="images/mail.png" alt="Email PDF" title="Email PDF" /></a>
 		</div>
-		<!-- <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
-			<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>
-		</a>
-		<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" /> -->
 		<div id="results">
 			
 			<table border="0" id="info">
@@ -171,8 +82,6 @@
 
 				$sections = $qnc->getExerciseSections($exercise['exercise_ID']);
 
-				//print_r($sections);
-				
 				$arr = explode('/', $exercise['screenshot']);
 				array_splice($arr, 5, 0, $curlang );
 				$ex_screenshot = implode("/", $arr);
@@ -236,10 +145,9 @@
 			<table border="0" class="result center portfolio2">
 				<tr>
 					<th><?php echo _('Activity Code'); ?></th>
-					<th><?php echo _('Feedback'); ?></th>
+					<th style="width: 400px;"><?php echo _('Feedback'); ?></th>
 				<tr>
 
-			
 			<?php 
 					for($i = 0; $i < count($sections); $i++) {
 						$feedback = $fbc->getFeedback($exercise['exercise_ID'], $sections[$i], $answers[$i]);
@@ -378,23 +286,23 @@
 			<h3>Email This Page</h3>
 			<img src="images/close.png" id="close-btn">
 			<div id="message">
-			<form accept-charset="UTF-8" action="#" method="post" onsubmit="this.emailcontent.value = document.getElementById('results').innerHTML;">
+			<form accept-charset="UTF-8" method="post" onsubmit="this.emailcontent.value = document.getElementById('results').innerHTML;">
 				<table border="0">
 					<tr>
-						<td><p>To:</p></td>
-						<td><input class="req" maxlength="50" size="50" name="emailto" type="text" id="emailto"></td>
+						<td><p><?php echo _('To'); ?>:</p></td>
+						<td><input class="req" maxlength="100" size="43" name="emailto" type="text" id="emailto" placeholder="<?php echo _('Email address'); ?>"></td>
 					</tr>
 					<tr>
-						<td><p>From:</p></td>
-						<td><input class="req" maxlength="50" size="50" name="emailfrom" type="text" id="emailfrom"></td>
+						<td><p><?php echo _('From'); ?>:</p></td>
+						<td><input class="req" maxlength="100" size="43" name="emailfrom" type="text" id="emailfrom" placeholder="<?php echo _('Email address'); ?>"></td>
 					</tr>
-					<tr>
-						<td><p>Message:</p></td>
-						<td><textarea cols="40" id="email-message" name="emailmessage" rows="4"></textarea></td>
+ 					<tr>
+						<td><p><?php echo _('Message'); ?>:</p></td>
+						<td><textarea id="email-message" name="emailmessage" rows="4"></textarea></td>
 					</tr>
 				</table>
 				<input type="hidden" name="resultcontent" id="emailcontent" value="" />
-				<input name="sendresults" type="submit" value="Send">
+				<input name="sendresults" type="submit" value="<?php echo _('Send'); ?>">
 			</form>
 			</div>
 		</div>
@@ -402,20 +310,37 @@
 	<?php
 		if(isset($_POST['sendresults'])) {
 			$email = $_POST['emailto'];
-			$message = $_POST['emailmessage'];
-			$message .= $_POST['resultcontent'];
+			$emailfrom = $_POST['emailfrom'];
 
+			$pdfdocs	= generateResults($sid, $mid);
+			$attachment = chunk_split(base64_encode($pdfdocs));
+			$separator 	= md5(time());
+			$eol 		= PHP_EOL;
+			$filename 	= "ModuleResults.pdf";
 
-			$headers = "From: ". 'webmaster@nexgenready.com' ." \r\n" . 
-	                   "Reply-To: info@nexgenready.com \r\n" . 
-	                   "Content-type: text/html; charset=UTF-8 \r\n";
+			$headers = "From: ". 'webmaster@nexgenready.com' . $eol;
+	        $headers .= "Reply-To:". $emailfrom . $eol;
+	        $headers .= "MIME-Version: 1.0".$eol;
+			$headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
+
+			$body = "--".$separator.$eol;
+	        $body .= "Content-Type: application/octet-stream; name=\"$filename\"".$eol;
+	        $body .= "Content-Transfer-Encoding: base64".$eol;
+	        $body .= "Content-Disposition: attachment".$eol.$eol;
+	        $body .= $attachment.$eol;
+
+	        $body .= "--".$separator.$eol;
+	        $body .= "Content-type: text/html; charset=\"utf-8\"".$eol;
+	        $body .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
+	        $body .= $_POST['emailmessage'].$eol.$eol;
+	        $body .= "--".$separator."--".$eol.$eol;
 
 			$to = $email;
 			$from = "info@nexgenready.com"; 
 			$subject = 'Your Student Results';
 
-			if(mail($to, $subject, $message, $headers)) {
-                echo _('<p class="center">' . 'Your message has been sent.' . '</p>');
+			if(mail($to, $subject, $body, $headers)) {
+                echo '<p class="center">' . _('Your message has been sent.') . '</p>';
 			} else {
 				echo _('There was a problem sending the email.');
 			}
@@ -439,7 +364,7 @@
 	<script src="scripts/livevalidation.js"></script>
 	<script>document.getElementById('score').innerHTML = '<?php echo $score;?>%';</script>
 	<script>
-	$(document).ready(function(){
+		$(document).ready(function(){
 		$('#email-btn').click(function(){
 			$('#email-container').css('display','initial');
 		});
@@ -448,44 +373,12 @@
 			$('#email-container').css('display','none');
 		});
 
-		$('#mail img').click(function() {
-			$('#graphDiv').fadeIn();
-		});
-		$('#close').click(function() {
-			$('#graphDiv').fadeOut();
-		});
-
-		var max_fields      = 5;
-	    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-	    var add_button      = $(".add_field_button"); //Add button ID
-
-	    var x = 1; //initlal text box count
-	    $(add_button).click(function(e){ //on add input button click
-	        e.preventDefault();
-	        if(x < max_fields){ //max input box allowed
-	            x++; //text box increment
-	            $(wrapper).append('<div class="more-fields cf"><label>Email Address ' + x +'</label><input type="text" id="eadd' + x + '" name="email[]" placeholder="Enter email address..." /><a href="#" class="remove_field">Remove</a></div>'); //add input box
-	        }
-	        var eadd = [];
-	      	for(var a = 2; a <= 5; a++){
-	      		eadd[a] = new LiveValidation('eadd' + a);
-	      		eadd[a].add(Validate.Email);
-	      	}
-	    });    
-	    
-	    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-	        e.preventDefault(); $(this).parent('div').remove(); x--;
-	    })
-
 		var subEadd = new LiveValidation('emailto');
       	subEadd.add( Validate.Email );
 
       	var subEadd2 = new LiveValidation('emailfrom');
       	subEadd2.add( Validate.Email );
-
-      	var eadd1 = new LiveValidation('eadd1');
-      	eadd1.add(Validate.Email);
-	});
+		});
 	</script>
 </body>
 </html>
