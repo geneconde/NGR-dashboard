@@ -16,6 +16,7 @@ ini_set('display_errors', 1);
 	include_once '../controller/Module.Controller.php';
 	include_once '../controller/Language.Controller.php';
 	include_once('../controller/Subscriber.Controller.php');
+	include_once('../controller/User.Controller.php');
 	include_once 'php/auto-generate.php';
 	
 	$sc = new SubscriberController();
@@ -74,10 +75,10 @@ ini_set('display_errors', 1);
 
 	/** Main Grid Table **/
 	$col = array();
-	$col["title"] = "User ID";
+	$col["title"] = "User ID"; // caption of column
 	$col["name"] = "user_id";
 	$col["editable"] = false;
-	$col["export"] = false;
+	$col["export"] = false; // this column will not be exported
 	$col["name"] = "user_ID"; 
 	$col["width"] = "10";
 	$col["hidden"] = true;
@@ -90,14 +91,28 @@ ini_set('display_errors', 1);
 	$col["search"] = true;
 	$col["editable"] = true;
 	$col["align"] = "center";
-	$col["export"] = true;
+	$col["export"] = true; // this column will not be exported
+	$col["editrules"] = array("required"=>true, "readonly"=>false);
+	// $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
 	$cols[] = $col;
+
+	// $col = array();
+	// $col["title"] = $password;
+	// $col["name"] = "password";
+	// $col["width"] = "30";
+	// $col["search"] = true;
+	// $col["editable"] = true;
+	// $col["align"] = "center";
+	// $col["export"] = true; // this column will not be exported
+	// // $col["formoptions"] = array("elmsuffix"=>'<font color=red> *</font>');
+	// $cols[] = $col;
 
 	$col = array();
 	$col["title"] = "Type";
 	$col["name"]  = "type";
 	$col["editable"] = true;
 	$col["width"] = "10";
+	/*$col["editoptions"] = array("defaultValue"=>"2","readonly"=>"readonly", "style"=>"border:0");*/
 	$col["edittype"] = "select";
 	$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
 	/*if(isset($_GET['user_id']) && isset($_GET['type']))
@@ -119,7 +134,9 @@ ini_set('display_errors', 1);
 
 
 	$col["viewable"] = false;
-	$col["editrules"] = array("edithidden"=>hidden); 
+	$col["editrules"] = array("edithidden"=>hidden);
+	$col["show"] = array("list"=>true, "add"=>true, "edit"=>false, "view"=>true); // disable editing of type in edit form
+	$col["editrules"]["readonly"] = true; // the column is not editable inline but available on add form
 	$col["export"] = false; // this column will not be exported
 	$col["on_data_display"] = array("getUserType","");
 	$col["align"] = "center";
@@ -168,6 +185,7 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
+	$col["editrules"] = array("required"=>true, "readonly"=>false);
 	$cols[] = $col;
 
 	$col = array();
@@ -178,7 +196,21 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
+	$col["editrules"] = array("required"=>true, "readonly"=>false);
 	$cols[] = $col;
+
+//ttest
+/*	$col = array();
+	$col["title"] = "Sub Head";
+	$col["name"] = "subhead_id";
+	$col["width"] = "30";
+	$col["search"] = true;
+	$col["editable"] = true;
+	$col["align"] = "center";
+	$col["export"] = true; 
+	$col["editoptions"] = array("defaultValue"=>$_GET['user_id'],"readonly"=>"readonly", "style"=>"border:0");
+
+	$cols[] = $col;*/
 
 	$col = array();
 	$col["title"] = $gender;
@@ -258,35 +290,35 @@ ini_set('display_errors', 1);
 	}
 
 	if(isset($_GET['type']) && $_GET['type'] == 0)
-	{
-		$col = array();
-		$col["title"] = "Teacher";
-		$col["name"] = "teacher_id";
-		$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
-		$col["width"] = "30";
-		$col["align"] = "center";
-		$col["editable"] = true;
-		$col["edittype"] = "select"; // render as select
-		$col["search"] = false;
-		$col["export"] = false;
-		# fetch data from database, with alias k for key, v for value
-		$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
-		$col["editoptions"] = array("value"=>$str); 
-		$col["formatter"] = "select"; // display label, not value
-		$cols[] = $col;
+		{
+			$col = array();
+			$col["title"] = "Teacher";
+			$col["name"] = "teacher_id";
+			$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
+			$col["width"] = "30";
+			$col["align"] = "center";
+			$col["editable"] = true;
+			$col["edittype"] = "select"; // render as select
+			$col["search"] = false;
+			$col["export"] = false;
+			# fetch data from database, with alias k for key, v for value
+			$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
+			$col["editoptions"] = array("value"=>$str); 
+			$col["formatter"] = "select"; // display label, not value
+			$cols[] = $col;
 
-		$col = array();
-		$col["title"] = "Reset Student password";
-		$col["name"] = "reset_pword";
-		$col["width"] = "30";
-		$col["align"] = "center";
-		$col["search"] = false;
-		$col["sortable"] = false;
-		$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-		$col["default"] = "Reset password"; // default link text
-		$col["export"] = false; // this column will not be exported
-		$cols[] = $col;
-	}
+			$col = array();
+			$col["title"] = "Reset Student password";
+			$col["name"] = "reset_pword";
+			$col["width"] = "30";
+			$col["align"] = "center";
+			$col["search"] = false;
+			$col["sortable"] = false;
+			$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+			$col["default"] = "Reset password"; // default link text
+			$col["export"] = false; // this column will not be exported
+			$cols[] = $col;
+		}
 
 	//Export filename
 	$filename = "";
@@ -314,6 +346,23 @@ ini_set('display_errors', 1);
 				$result = mysql_query($q);
 				$count = mysql_num_rows($result);				
 				
+
+				/** 		   
+			 		* Purpose: For detecting accounts that has accounts under them.
+			  		* Date: 01/16/2015
+				*/				
+				/*while($row = mysql_fetch_array($result)) 
+				{
+					$query = "SELECT * FROM users WHERE subhead_id =". $row[0];
+				}
+				$rs = mysql_query($query);
+				$ctr = mysql_num_rows($rs);
+
+				if($ctr == 0)
+				{
+					$has_sub_accounts = false;
+				}*/
+				//END
 
 				if ($count != 0) 
 				{
@@ -360,8 +409,7 @@ ini_set('display_errors', 1);
 		
 		elseif ($usertype == 3) 
 		{
-			/*$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";*/
-			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND subhead_id IS NULL AND (type != 2 AND type != 3)";
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
 			$grid->select_command = $q;	
 			$filename = "Subhead Accounts";
 			
@@ -393,18 +441,41 @@ ini_set('display_errors', 1);
 
 		$grid->set_options($opt);
 
+		$e["on_insert"] = array("add_client", null, true);
+		$grid->set_events($e);
+
+		function add_client($data) {
+		    $check_sql = "SELECT count(*) as c from users where username = '".$data["params"]["username"]."'";
+
+		    $rs = mysql_fetch_assoc(mysql_query($check_sql));
+
+		    if ($rs["c"] > 0) {
+		        phpgrid_error("Please change the username as this is already used.");
+		    }
+		    /*mysql_query("INSERT INTO users VALUES (null,'{$data["params"]["username"]}','{$data["params"]["type"]}','{$data["params"]["first_name"]}','{$data["params"]["last_name"]}','{$data["params"]["subhead_id"]}')");*/
+			
+		}
+
+		/*$grid->debug = 0;
+		$grid->error_msg = "Username Already Exists.";*/
+
 	$grid->set_actions(array(
-		"add"=>true,
-		"edit"=>true, 
-		"delete"=>true, 
-		"bulkedit"=>true, 
-		"export_excel"=>true,
-		"search" => "advance"
+		"add"=>true, // allow/disallow add
+		"edit"=>true, // allow/disallow edit
+		"delete"=>true, // allow/disallow delete
+		"bulkedit"=>true, // allow/disallow edit
+		"export_excel"=>true, // export excel button
+		//"export_pdf"=>true, // export pdf button
+		//"export_csv"=>true, // export csv button
+		//"autofilter" => true, // show/hide autofilter for search
+		// "rowactions"=>true, // show/hide row wise edit/del/save option
+		// "showhidecolumns" => true,
+		"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
 	));
 
 	$grid->table = "users";
 
-	$grid->set_columns($cols); 
+	$grid->set_columns($cols); // pass the cooked columns to grid
 
 	$main_view = $grid->render("list1");
 
@@ -568,15 +639,12 @@ ini_set('display_errors', 1);
 	<div id="dbguide">
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
+
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-	<a class="uppercase fright manage-box mright10" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
-	
 	
 	<div class="clear"></div>
 
-
-	<a class="link fright m-top10 ngss_link" href="../../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
-
+	<a class="uppercase fright manage-box" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
@@ -724,7 +792,6 @@ ini_set('display_errors', 1);
 	<script src="scripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
 	<script src="scripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 	
-	
 	<script>
 		jQuery(document).ready(function(){
 			// binds form submission and fields to the validation engine
@@ -757,6 +824,7 @@ ini_set('display_errors', 1);
 		    // expose: true
 		    });
 		  }
+
 	</script>
 </body>
 </html>

@@ -1228,7 +1228,9 @@ html[dir="rtl"] .fright {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
-
+#email-form table input {
+  display: block;
+}
 .email-btn {
     background:url(images/email.png) no-repeat;
     cursor:pointer;
