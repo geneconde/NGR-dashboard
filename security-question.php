@@ -116,5 +116,25 @@
         }
     }
 
+//security check for email
+    if(isset($_POST['esqAnswer'])){
+        $email = $_POST['email2'];
+        $userAnswer = $_POST['esqAnswer'];
+        $uid = $_POST['eid'];
+        $secid = $sec->getSecurityRecord($uid);
+        $secAnswer = $secid[0]['answer'];
+      
+        if($userAnswer == $secAnswer){
+
+            // $sid = $sc->getIdByEmail($email);
+            // $userid = $sid[0]['id'];
+
+
+        } else {
+            $data['success'] = false;
+            $data['message'] = "Sorry, your answer is incorrect.";
+        }
+    }
+
     echo json_encode($data);
 ?>

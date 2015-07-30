@@ -3,6 +3,7 @@
 	include_once 'controller/StudentDt.Controller.php';
 	include_once 'controller/DiagnosticTest.Controller.php';
 	
+	$redirect 	= $_GET['in'];
 	$sdtid		= $_GET['sdtid'];
 	
 	$dtc		= new DiagnosticTestController();
@@ -34,4 +35,7 @@
 	
 	$startdate	= $sdt_set->getStartDate();
 	$sdt->finishDiagnosticTest($sdtid, $startdate);
+	if($redirect==1){
+		header("location: dt-results.php?sdtid=$sdtid");
+	}
 ?>

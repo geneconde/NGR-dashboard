@@ -24,7 +24,7 @@
 ?>
 <script>
 	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
-	var pfCustomCSS = ''
+	var pfCustomCSS = 'printfriendly2.php'
 	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 </script>
 <div id="container">
@@ -40,8 +40,10 @@
 <?php 	} ?>
 
 <?php } else if ($user->getType() == 2 ) { ?>
-<?php if ($_GET['from'] == 1) : ?>
+<?php if (isset($_GET['from'])) : ?>
+	<?php if ($_GET['from'] == 1) : ?>
 	<a class="link" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
+	<?php endif; ?>
 <?php else : ?>
 	<a class="link" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 <?php endif; ?>
@@ -171,7 +173,8 @@
 	if(isset($_POST['sendresults'])) {
 		$email = $_POST['emailto'];
 		$emailfrom = $_POST['emailfrom'];
-		$message = $_POST['emailmessage'];
+		$message = "<h3>Cumulative Test Result</h3>";
+		$message .= $_POST['emailmessage'];
 		$message .= $_POST['resultcontent'];
 
 		$headers = "From: ". 'webmaster@nexgenready.com' ." \r\n" . 
@@ -183,9 +186,9 @@
 		$subject = 'Your Student Results';
 
 		if(mail($to, $subject, $message, $headers)) {
-            echo '<p>' . 'Your message has been sent.' . '</p>';
+            echo '<p>' . _('Your message has been sent.') . '</p>';
 		} else {
-			echo 'There was a problem sending the email.';
+			echo _('There was a problem sending the email.');
 		}
 	}
 ?>

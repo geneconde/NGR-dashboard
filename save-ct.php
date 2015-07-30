@@ -49,7 +49,8 @@
 	
 	if($fin):
 		$startdate	= $sc->getStartDate();
-		$scc->finishCumulativeTest($sctid, $startdate);
+		// $scc->finishCumulativeTest($sctid, $startdate);
+		// header("Location: ct-results.php?sctid={$sctid}");
 		header("Location: confirm-ct.php?sctid={$sctid}&ctid={$ctid}&i={$index}");
 	else: 
 		header("Location: ct.php?ctid={$ctid}&i={$index}");
