@@ -1,5 +1,13 @@
 <?php 
+/**
+ * PHP Grid Component
+ *
+ * @author Abu Ghufran <gridphp@gmail.com> - http://www.phpgrid.org
+ * @version 1.5.2
+ * @license: see license.txt included in package
+ */
 
+/*NGR Files*/
 ini_set('display_errors', 1);
 	require_once '../session.php';
 	require_once 'locale.php';
@@ -44,11 +52,14 @@ ini_set('display_errors', 1);
 		}			
 	}
 
+	// include db config
 	include_once("../phpgrid/config.php");
 
+	// set up DB
 	mysql_connect(PHPGRID_DBHOST, PHPGRID_DBUSER, PHPGRID_DBPASS);
 	mysql_select_db(PHPGRID_DBNAME);
 
+	// include and create object
 	include(PHPGRID_LIBPATH."inc/jqgrid_dist.php");
 	$grid = new jqgrid();
 
@@ -62,6 +73,7 @@ ini_set('display_errors', 1);
 	$accounts = _('Accounts');
 	$view_tier = _('View Accounts');
 
+	/** Main Grid Table **/
 	$col = array();
 	$col["title"] = "User ID";
 	$col["name"] = "user_id";
@@ -81,8 +93,8 @@ ini_set('display_errors', 1);
 	$col["align"] = "center";
 	$col["export"] = true;
 	$col["editrules"] = array("required"=>true, "readonly"=>false);
-	
 	$cols[] = $col;
+
 	$col = array();
 	$col["title"] = "Type";
 	$col["name"]  = "type";
@@ -90,12 +102,29 @@ ini_set('display_errors', 1);
 	$col["width"] = "10";
 	$col["edittype"] = "select";
 	$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
+	/*if(isset($_GET['user_id']) && isset($_GET['type']))
+	{
+		if($_GET['type'] == 0)
+		{
+			$col["editoptions"] = array("value"=>'0:Teacher');
+
+		} elseif($_GET['type'] == 2)
+		{
+			$col["editoptions"] = array("value"=>'2:Student');
+		}elseif($_GET['type'] == 4)
+		{
+			$col["editoptions"] = array("value"=>'4:Sub-Admin');
+		} 
+	} else {
+			$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
+		}*/
+
 
 	$col["viewable"] = false;
 	$col["editrules"] = array("edithidden"=>hidden);
-	$col["show"] = array("list"=>true, "add"=>true, "edit"=>false, "view"=>true); 
-	$col["editrules"]["readonly"] = true; 
-	$col["export"] = false; 
+	$col["show"] = array("list"=>true, "add"=>true, "edit"=>false, "view"=>true); // disable editing of type in edit form
+	$col["editrules"]["readonly"] = true; // the column is not editable inline but available on add form 
+	$col["export"] = false; // this column will not be exported
 	$col["on_data_display"] = array("getUserType","");
 	$col["align"] = "center";
 
@@ -185,13 +214,13 @@ ini_set('display_errors', 1);
 	$col["viewable"] = false;
 	$col["hidden"] = true;
 	$col["editrules"] = array("edithidden"=>false); 
-	$col["export"] = false;
+	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
 	if( isset($_GET['type']) && $_GET['type'] == 0 ) 
 	{
 		$col = array();
-		$col["title"] = $grade_level;
+		$col["title"] = $grade_level; // caption of column
 		$col["name"] = "grade_level";
 		$col["width"] = "15";
 		$col["editable"] = true;
@@ -236,34 +265,35 @@ ini_set('display_errors', 1);
 	}
 
 	if(isset($_GET['type']) && $_GET['type'] == 0)
-		{
-			$col = array();
-			$col["title"] = "Teacher";
-			$col["name"] = "teacher_id";
-			$col["dbname"] = "users.teacher_id";
-			$col["width"] = "30";
-			$col["align"] = "center";
-			$col["editable"] = true;
-			$col["edittype"] = "select";
-			$col["search"] = false;
-			$col["export"] = false;			
-			$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
-			$col["editoptions"] = array("value"=>$str); 
-			$col["formatter"] = "select";
-			$cols[] = $col;
+	{
+		$col = array();
+		$col["title"] = "Teacher";
+		$col["name"] = "teacher_id";
+		$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
+		$col["width"] = "30";
+		$col["align"] = "center";
+		$col["editable"] = true;
+		$col["edittype"] = "select"; // render as select
+		$col["search"] = false;
+		$col["export"] = false;
+		# fetch data from database, with alias k for key, v for value
+		$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
+		$col["editoptions"] = array("value"=>$str); 
+		$col["formatter"] = "select"; // display label, not value
+		$cols[] = $col;
 
-			$col = array();
-			$col["title"] = "Reset Student password";
-			$col["name"] = "reset_pword";
-			$col["width"] = "30";
-			$col["align"] = "center";
-			$col["search"] = false;
-			$col["sortable"] = false;
-			$col["link"] = "../reset-password.php?user_id={user_ID}";
-			$col["default"] = "Reset password";
-			$col["export"] = false; 
-			$cols[] = $col;
-		}
+		$col = array();
+		$col["title"] = "Reset Student password";
+		$col["name"] = "reset_pword";
+		$col["width"] = "30";
+		$col["align"] = "center";
+		$col["search"] = false;
+		$col["sortable"] = false;
+		$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+		$col["default"] = "Reset password"; // default link text
+		$col["export"] = false; // this column will not be exported
+		$cols[] = $col;
+	}
 
 	//Export filename
 	$filename = "";
@@ -281,6 +311,7 @@ ini_set('display_errors', 1);
 			{				
 				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
 				$grid->select_command = $q;
+				//$student_account = true;
 			}
 
 			if( $_GET['type'] == 4 )
@@ -288,7 +319,8 @@ ini_set('display_errors', 1);
 				$q = "SELECT * FROM users WHERE subhead_id =". $_GET['user_id'];			
 				$grid->select_command = $q;
 				$result = mysql_query($q);
-				$count = mysql_num_rows($result);
+				$count = mysql_num_rows($result);				
+				
 
 				if ($count != 0) 
 				{
@@ -335,7 +367,8 @@ ini_set('display_errors', 1);
 		
 		elseif ($usertype == 3) 
 		{
-			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";
+			/*$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 4 AND subhead_id IS NULL AND teacher_id = 0";*/
+			$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND subhead_id IS NULL AND (type != 2 AND type != 3)";
 			$grid->select_command = $q;	
 			$filename = "Subhead Accounts";
 			
@@ -352,8 +385,8 @@ ini_set('display_errors', 1);
 		//For exporting
 		$opt["caption"] = $accounts;
 		$opt["height"] = "";
-		$opt["autowidth"] = true;
-		$opt["multiselect"] = true;
+		$opt["autowidth"] = true; // expand grid to screen width
+		$opt["multiselect"] = true; // allow you to multi-select through checkboxes
 		$opt["hiddengrid"] = false;
 		$opt["reloadedit"] = true;
 
@@ -367,34 +400,18 @@ ini_set('display_errors', 1);
 
 		$grid->set_options($opt);
 
-		$e["on_insert"] = array("add_client", null, true);
-		$grid->set_events($e);
-
-		/*function add_client($data) {
-		    $check_sql = "SELECT count(*) as c from users where username = '".$data["params"]["username"]."'";
-
-		    $rs = mysql_fetch_assoc(mysql_query($check_sql));
-
-		    if ($rs["c"] > 0) {
-		        phpgrid_error("Please change the username as this is already used.");
-		    }			
-		}*/
-
-		$grid->debug = 0;
-		$grid->error_msg = "Please change the username as this is already used.";
-
 	$grid->set_actions(array(
-		"add"=>true, 
+		"add"=>true,
 		"edit"=>true, 
-		"delete"=>true,
-		"bulkedit"=>true,
-		"export_excel"=>true,		
+		"delete"=>true, 
+		"bulkedit"=>true, 
+		"export_excel"=>true,
 		"search" => "advance"
 	));
 
 	$grid->table = "users";
 
-	$grid->set_columns($cols);
+	$grid->set_columns($cols); 
 
 	$main_view = $grid->render("list1");
 
@@ -558,12 +575,11 @@ ini_set('display_errors', 1);
 	<div id="dbguide">
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
-
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+	<a class="uppercase fright manage-box mright10" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+	
 	
 	<div class="clear"></div>
-
-	<a class="uppercase fright manage-box" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
@@ -587,6 +603,7 @@ ini_set('display_errors', 1);
 				
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
 				<div class="fright">
+					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a>
 				</div>
@@ -710,6 +727,7 @@ ini_set('display_errors', 1);
 	<script src="scripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
 	<script src="scripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 	
+	
 	<script>
 		jQuery(document).ready(function(){
 			// binds form submission and fields to the validation engine
@@ -742,7 +760,6 @@ ini_set('display_errors', 1);
 		    // expose: true
 		    });
 		  }
-
 	</script>
 </body>
 </html>
