@@ -409,6 +409,9 @@ ini_set('display_errors', 1);
 		"search" => "advance"
 	));
 
+	$grid->debug = 0;
+	$grid->error_msg = "Please change the username as this is already used.";
+
 	$grid->table = "users";
 
 	$grid->set_columns($cols); 
