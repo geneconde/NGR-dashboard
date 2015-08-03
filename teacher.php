@@ -126,7 +126,7 @@
 	<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("Manage Teacher Account"); ?></a><p class="fright margin-sides">|</p>
 	<a class="link fright" href="manage-student-accounts.php"><?php echo _("Manage Student Accounts"); ?></a><p class="fright margin-sides">|</p>
 	<a class="link fright" href="student-accounts.php"><?php echo _("Manage Student Groups"); ?></a> -->
-	<a class="link fright m-top10 ngss_link" href="../ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
+	<a class="link fright m-top10 ngss_link" href="../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 </div>
 <div class="clear"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>

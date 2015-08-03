@@ -93,22 +93,41 @@
 		}
 	<?php } ?>
 </style>
-
+<!-- <div class="fleft language" id="gm-language">
+	<?php echo _("Language"); ?>:
+	<select id="language-menu">
+		<?php
+			if(!empty($teacher_languages)) :
+				foreach($teacher_languages as $tl) : 
+					$lang = $lc->getLanguage($tl['language_id']);
+		?>
+					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
+		<?php 
+				endforeach; 
+			else :
+		?>
+			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
+		<?php endif; ?>
+	</select>
+</div> -->
 <div class="fleft language" id="gm-language">
 	<?php echo _("Language"); ?>:
+
 	<?php
-		if(!empty($teacher_languages)) :
-			foreach($teacher_languages as $tl) : 
-				$lang = $lc->getLanguage($tl['language_id']);
-	?>
-				<a class="uppercase manage-box" href="student.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-	<?php 
-			endforeach; 
-		else :
-	?>
-		<a class="uppercase manage-box" href="student.php?lang=en_US"/><?php echo _("English"); ?></a>
-	<?php endif; ?>
-<!-- 	<select id="language-menu">
+			if(!empty($teacher_languages)) :
+				foreach($teacher_languages as $tl) : 
+					$lang = $lc->getLanguage($tl['language_id']);
+		?>
+					<a class="uppercase manage-box" href="student.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
+		<?php 
+				endforeach; 
+			else :
+
+		?>
+			<a class="uppercase manage-box" href="student.php?lang=en_US"/><?php echo _("English"); ?></a>
+		<?php endif; ?>
+		
+	<!-- <select id="language-menu">
 		<?php
 			if(!empty($teacher_languages)) :
 				foreach($teacher_languages as $tl) : 
@@ -123,7 +142,6 @@
 		<?php endif; ?>
 	</select> -->
 </div>
-
 <div class="clear"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <?php

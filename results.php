@@ -255,7 +255,8 @@
 	                   "Content-type: text/html; charset=UTF-8 \r\n";
 
 			$to = $email;
-			$from = "info@nexgenready.com"; 
+			/*$from = "info@nexgenready.com";*/ 
+			$from = $emailfrom;
 			$subject = 'Your Student Results';
 
 			if(mail($to, $subject, $message, $headers)) {

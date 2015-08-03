@@ -8,7 +8,7 @@ margin:0px;
 padding:0px;
 }
 a{
-	text-decoration: none;
+    text-decoration: none;
 }
 img{border:0px}
 html{
@@ -111,7 +111,9 @@ span.manage-box { color: #fff; max-width: 170px; text-align: center; padding: 15
 a.student-box { position: absolute; bottom: 10px; right: 10px; }
 .gray-box { background-color: gray !important;}
 a.gray-box:hover, a.take-box:hover, .take-box:hover, a.manage-box:hover, .manage-box:hover{ background-color: #FFBD9E !important; } /* FF934A */
+
 .module-menu { width: 100%; margin: 0 auto; padding-top: 10px; text-align: center; }
+.module-menu a { font-size: 13px; }
 .dt-text { padding-top: 5px; text-align: center; }
 .dt-text p { font-size: 12px; font-style: italic; }
 .pre-dt { color: #492DC8; }
@@ -1453,7 +1455,7 @@ div#pdf-button img {
 }
 
 /* module description */
-.module-box h2 { margin-top: 10px; }
+.module-box h2 { margin-top: 10px; margin-bottom: 10px; }
 .grey { 
     display: none;
     position: fixed;
@@ -1653,7 +1655,7 @@ input[type=checkbox] {
     font-size: 20px;
     margin-bottom: 20px;
 }
-#confirm-box div a {
+#confirm-box div a, #confirm-box div input {
     font-size: 18px;
 }
 #on_going {

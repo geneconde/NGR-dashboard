@@ -81,6 +81,10 @@
 	$sec			= ltrim($tl[2], '0');
 	$timelimit 		= (($hour * 60 + $min) * 60) + $sec;
 
+	if($timelimit == 0){
+		header("location: save-dt-unanswered.php?sdtid=$sdtid&in=1");
+	}
+
 	$sa		= $sdt->getStudentAnswerByQuestion($sdtid, $question[0]['qid']);
 	
 	$panswer = '';

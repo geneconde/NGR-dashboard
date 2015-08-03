@@ -26,10 +26,45 @@
 	
 	$dtc			= new DtQuestionController();
 	//$question_set	= $dtc->getDTPool($sdt_set->getModuleID());
-?>
+
+	$dates = array();
+	$ids   = array();
+	$mods  = array();
+
+	// echo '<pre>';
+	// print_r($sdt_set);
+	// echo '</pre>';
+
+	$uid = $sdt_set->getUserID();
+	$mod = $sdt_set->getModuleID();
+	// $fin = $sdt_set->getFinished();
+	// echo $uid . '<br/>' . $mod;
+
+	$test = $sdt->getStudentDtByEndDate($sdt_set->getUserID(), '0000-00-00 00:00:00');
+
+	// echo '<pre>';
+	// print_r($test);
+	// echo '</pre>';
+
+	// echo $test[0]['date_ended'];
+
+	if( !$test ) {
+		$end = '';
+		$od = '';
+	} else {
+		$end = $test[0]['date_ended'];
+		$id = $test[0]['user_id'];
+	}
+
+if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
+	</br><a class="link" href="student.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+	<div id="on_going">
+		<h1>This Page is temporary unavailable because you are taking  your exam.</h1>
+	</div>
+<?php else : ?>
 <script>
 	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
-	var pfCustomCSS = ''
+	var pfCustomCSS = 'printfriendly2.php'
 	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 </script>
 <div id="container">
@@ -53,7 +88,7 @@
 	<?php endif; ?>
 	<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
 	<div id="results">
-		<table border="0">
+		<table border="0" id="info">
 			<tr>
 				<td class="bold alignright"><?php echo _("Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
 				<td><?php echo $student->getFirstname() . ' ' . $student->getLastname(); ?></td>
@@ -67,7 +102,7 @@
 				<td><?php echo date('M d, Y h:i:s', strtotime($sdt_set->getStartDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Date Ended"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold alignright"><?php echo _("Date Finished"); ?> :&nbsp;&nbsp;&nbsp;</td>
 				<td><?php echo date('M d, Y h:i:s', strtotime($sdt_set->getEndDate())); ?></td>
 			</tr>
 			<tr>
@@ -85,7 +120,7 @@
 					$qinfo = $dtc->getTargetQuestion($q);
 					
 		?>
-			<tr class="trline">
+			<tr class="trline" id="quest">
 				<td><img class="img-answer" /><?php echo _($qinfo[0]['question']); ?>
 				<?php if($qinfo[0]['image']) :
 					$image = $qinfo[0]['image'];
@@ -174,12 +209,20 @@
 		$email = $_POST['emailto'];
 		/*$from = $_POST['emailfrom'];*/
 		$emailfrom = $_POST['emailfrom'];
-		$message = $_POST['emailmessage'];
+
+		if($sdt_set->getMode() == 1){
+			$message = "<h3>Student Pre-test</h3>";
+		} else{
+			$message =  "<h3>Student Post-test</h3>";
+		}
+		
+		$message .= $_POST['emailmessage'];
+
 		$message .= $_POST['resultcontent'];
 
 		$headers = "From: ". 'webmaster@nexgenready.com' ." \r\n" . 
                    /*"Reply-To: info@nexgenready.com \r\n" . */
-	               "Reply-To:". $emailfrom ." \r\n" .
+	               "Reply-To:". $emailfrom ." \r\n" . 
                    "Content-type: text/html; charset=UTF-8 \r\n";
 
 		$to = $email;
@@ -193,6 +236,8 @@
 		}
 	}
 ?>
+<?php endif; ?>	
+
 <!-- End Email -->
 <script src="scripts/livevalidation.js"></script>
 <script>
