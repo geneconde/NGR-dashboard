@@ -101,7 +101,20 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["width"] = "10";
 	$col["edittype"] = "select";
-	$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher;2:Student');
+	
+	if( isset($_GET['type']))
+	{
+		if($_GET['type'] == 4)
+		{
+			$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher');
+		
+		} elseif($_GET['type'] == 0)
+		{
+			$col["editoptions"] = array("value"=>'2:Student');
+		} 
+	} else {
+		$col["editoptions"] = array("value"=>'4:Sub-Admin;0:Teacher');
+	}
 	/*if(isset($_GET['user_id']) && isset($_GET['type']))
 	{
 		if($_GET['type'] == 0)
@@ -277,7 +290,12 @@ ini_set('display_errors', 1);
 		$col["search"] = false;
 		$col["export"] = false;
 		# fetch data from database, with alias k for key, v for value
-		$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
+		if(isset($_GET['sid']))
+		{
+			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE subhead_id ='". $_GET['sid']. "' AND type=0");
+		} else {
+			$str = $grid->get_dropdown_values("SELECT distinct user_ID AS k, concat(first_name, ' ',last_name) AS v FROM users WHERE user_id ='". $_GET['user_id']. "' AND type=0");
+		}
 		$col["editoptions"] = array("value"=>$str); 
 		$col["formatter"] = "select"; // display label, not value
 		$cols[] = $col;
