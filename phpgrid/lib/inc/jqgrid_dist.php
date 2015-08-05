@@ -1586,8 +1586,19 @@ class jqgrid
 					}
 					
 					$id = "'".implode("','",explode(",",$id))."'";
-					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id)";
+					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id) or subhead_id = $id";
 					$this->execute_query($sql);
+					$i = 0;
+					$sqlToCounter = "select count(*) from {$this->table} where subhead_id not in (select user_id from {$this->table})";
+					$sqlCounter = $this->execute_query($sqlToCounter);
+					$sql2 = "DELETE FROM {$this->table} WHERE subhead_id NOT IN 
+							(SELECT nv  FROM 
+							(SELECT user_id AS nv FROM {$this->table} GROUP  BY user_id) 
+							AS derived)";
+					while ($i<($sqlCounter+1)){
+						$this->execute_query($sql2);
+						$i++;
+					}
 					
 					### P ###
 					// custom on after delete event execution
