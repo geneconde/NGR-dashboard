@@ -271,7 +271,7 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en-students.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 	<style>
@@ -299,6 +299,7 @@ ini_set('display_errors', 1);
 	.ui-icon {
 	  display: inline-block !important;
 	}
+	#delmodlist1 { width: auto !important; }
 	<?php if($language == "ar_EG") { ?>
 	.tguide { float: right; }
 	<?php } ?>
@@ -363,7 +364,7 @@ ini_set('display_errors', 1);
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information."); ?>
-	<p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p>
+	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
@@ -453,17 +454,24 @@ ini_set('display_errors', 1);
 		});
 	});
 	function guide() {
-	  	$('#joyRideTipContent').joyride({
-		      autoStart : true,
-		      postStepCallback : function (index, tip) {
-		      if (index == 10) {
-		        $(this).joyride('set_li', false, 1);
-		      }
-		    },
-		    // modal:true,
-		    // expose: true
-		    });
-		  }
+  	$('#joyRideTipContent').joyride({
+	      autoStart : true,
+	      postStepCallback : function (index, tip) {
+	      if (index == 10) {
+	        $(this).joyride('set_li', false, 1);
+	      }
+	    },
+	    // modal:true,
+	    // expose: true
+	    });
+	  }
+
+	function cdl(event, element){
+		var cdl = confirm("Are you sure you want to delete this student account?");
+		if(!cdl){
+			event.stopPropagation();
+		}
+	}
 	</script>
 </body>
 </html>
