@@ -191,7 +191,6 @@
 
 	$_SESSION['modules'] = $teachermodules;
 ?>
-
 <div class="clear"></div>
 <!-- guide me content -->
 <ol id="joyRideTipContent">

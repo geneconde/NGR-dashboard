@@ -15,9 +15,7 @@
 	$sgc 		= new StudentGroupController();
 	$groups		= $sgc->getGroups($userid);
 
-	$stds = $uc->getAllStudents($userid);
-	$teacherID = $stds[0]["teacher_id"];
-	$groupHolder = $sgc->getGroups($teacherID);
+	$groupHolder = $sgc->getGroups($userid);
 	$groupID = $groupHolder[0]['group_id'];
 	$groupNameHolder = $sgc->getGroupName($groupID);
 	$group_name = $groupNameHolder[0]["group_name"];
@@ -39,13 +37,23 @@
 
 	$mc = new ModuleController();
 	$dtc = new DiagnosticTestController();
+	
+	if(empty($tm_set)){
+		$modules = $tmc->getAllModules();
+		$i = 1;
+		foreach($modules as $module){
+			$x = $module['module_ID'];
+		 	$tmc->addTeacherModule($userid, $x);
+		}
+		header("Location: modules.php");
+	}
 ?>
 <div class='lgs-container'>
  	<div class="center">
  		<h1 class="lgs-text">Let's Get Started</h1>
 		<p class="lgs-text-sub heading-input step step2">Step 3: Your Modules</p>
 		<p class="lgs-text-sub heading-input">Modules</p>
-		<p class="lgs-text-sub note">Listed below are the 3 modules available in your free trial account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
+		<p class="lgs-text-sub note">Listed below are the modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
 		<table class="modules">
 			<?php foreach ($tmodules as $key => $module) : ?>
 			<?php
@@ -149,7 +157,7 @@
 		var gname = adc[8];
 		if(preid=="" && adActivated!=1 && document.getElementById(mid).value=="Activate for "+gname){ var conf = confirm("Are you sure you want to activate the module without activating the pre-test? Once your students start with the module, you won't be able to activate a pre-test.");
 		}
-		if(document.getElementById(mid).value=="Activate for "+gname || conf == true) {
+		if(document.getElementById(mid).value=="Activate for "+gname && conf == true) {
 			var msg = "The following has been activated for <?php echo $group_name; ?>:\n* "+mname;
 			if(preid!="") { msg += "\n* The pre-diagnostic test "+preName; }
 			if(postid!="") { msg += "\n* The post-diagnostic test "+postName }

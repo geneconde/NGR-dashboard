@@ -3,6 +3,7 @@
 	include_once 'controller/User.Controller.php';
 	require_once 'controller/Security.Controller.php';
 	include_once 'controller/Language.Controller.php';
+	include_once 'controller/StudentGroup.Controller.php';
 	
 	$userid		= $user->getUserid();
 	if (isset($_GET['user_id'])) 
@@ -22,8 +23,14 @@
 	$uc			= new UserController();
 	$sc 		= new SecurityController();
 	$lc 		= new LanguageController();
+	$group 		= new StudentGroupController();
+
 	if($_GET['ret'] = "lgs" && $user->getFirstLogin() == 1) {
 		$userid = $user->getUserid();
+
+		$checkGroup	= $group->getGroups($userid);
+		if(empty($checkGroup)){ $group->addGroup('Default Group', $userid); }
+		
 		if (isset($_POST['level'])) {
 			$level = $_POST['level'];
 		}

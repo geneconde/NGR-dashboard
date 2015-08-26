@@ -1591,17 +1591,12 @@ class jqgrid
 					$i = 0;
 					$sqlToCounter = "select count(*) from {$this->table} where subhead_id not in (select user_id from {$this->table})";
 					$sqlCounter = $this->execute_query($sqlToCounter);
-					$sql2 = "DELETE FROM {$this->table} WHERE subhead_id <> 0 and subhead_id is not Null and subhead_id NOT IN 
+					$sql2 = "DELETE FROM {$this->table} WHERE subhead_id <> 0 and subhead_id is not Null and type <> 0 and subhead_id NOT IN 
 							(SELECT nv  FROM 
 							(SELECT user_id AS nv FROM {$this->table} GROUP  BY user_id) 
 							AS derived)";
-					// $sql3 = "DELETE FROM {$this->table} WHERE type = 2 and teacher_id <> 0 and teacher_id is not Null and teacher_id NOT IN 
-					// 		(SELECT nv  FROM 
-					// 		(SELECT user_id AS nv FROM {$this->table} GROUP  BY user_id) 
-					// 		AS derived)";
 					while ($i<($sqlCounter+1)){
 						$this->execute_query($sql2);
-						// $this->execute_query($sql3);
 						$i++;
 					}
 					

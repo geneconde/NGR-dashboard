@@ -414,7 +414,6 @@ class UserController {
 	public function getUserLevel($user) {
 		
 		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
-
 		return $custom_query;
 	}
 	

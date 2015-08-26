@@ -35,6 +35,14 @@ class TeacherModuleController {
 		$db->disconnect();
 	}
 
+	public function getAllModules(){
+		$db = new DB();
+		$db->connect();
+		$results = $db->select("module");
+		$db->disconnect();
+		return $results;
+	}
+
 	public function getTeacherModule($userid) {
 		$where = array();
 		$where['user_id'] = $userid;

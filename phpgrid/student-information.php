@@ -17,18 +17,16 @@
 	$sgc 		= new StudentGroupController();
 	$groups		= $sgc->getGroups($userid);
 
-	$stds = $uc->getAllStudents($userid);
-	$teacherID = $stds[0]["teacher_id"];
-	$groupHolder = $sgc->getGroups($teacherID);
+	$groupHolder = $sgc->getGroups($userid);
 	$groupID = $groupHolder[0]['group_id'];
 	$groupNameHolder = $sgc->getGroupName($groupID);
 	$group_name = $groupNameHolder[0]["group_name"];
 
 	//$usertype			= $user->getType();
 	$demoid				= $user->getSubheadid();
-	$create_date		= date('Y-m-d');
-	$current_date		= date('Y-m-d');
-	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$create_date		= date('Y-m-d G:i:s');
+	$current_date		= date('Y-m-d G:i:s');
+	$expire_date		= date('Y-m-d G:i:s', strtotime("+30 days"));
 	$updated_at 		= date('Y-m-d H:i:s');
 
 	$lc = new LanguageController();

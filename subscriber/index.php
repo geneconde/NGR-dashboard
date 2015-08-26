@@ -397,7 +397,7 @@ ini_set('display_errors', 1);
 				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
 				$grid->select_command = $q2;
 				$filename = "Teacher Accounts";
-			} 	
+			}
 		}		
 	}
 		//For exporting
@@ -626,7 +626,8 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
-					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a>
+					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |					
+					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>
 			<div class="clear"></div>
 				<div class="fleft">
