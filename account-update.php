@@ -5,6 +5,8 @@
 	require_once 'controller/Security.Controller.php';
 	include_once 'controller/Language.Controller.php';
 	include_once 'controller/User.Controller.php';
+	include_once 'controller/TeacherModule.Controller.php';
+	include_once 'controller/StudentGroup.Controller.php';
  
  	if($user->getFirstLogin() == 0){ header("Location: index.php"); }
  	
@@ -228,4 +230,33 @@ $.validate({
 	    });
 	  }
 	</script>
+
+<?php 	
+	$mod 			= new TeacherModuleController();
+	$checkModule 	= $mod->getTeacherModule($userID);
+	
+	if(!empty($checkModule[0])){
+		
+	}else{
+		// $mod 		= new TeacherModuleController();
+		$modules 	= $mod->getAllModules();
+		foreach($modules as $module){
+			$x = $module['module_ID'];
+		 	$mod->addTeacherModule($userID, $x);
+		}
+	}
+
+	$group 			= new StudentGroupController();
+	$checkGroup		= $group->getGroups($userID);
+
+	if(!empty($checkGroup[0])){
+
+	}else{
+		$groups 	= $group->addGroup('Default Group', $userID);
+	}
+
+	// print_r($checkGroup[0]);
+	echo $checkGroup[0]["group_name"];
+
+?>
 <?php include "footer.php"; ?>
