@@ -397,7 +397,7 @@ ini_set('display_errors', 1);
 				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
 				$grid->select_command = $q2;
 				$filename = "Teacher Accounts";
-			} 	
+			}
 		}		
 	}
 		//For exporting
@@ -597,7 +597,7 @@ ini_set('display_errors', 1);
 		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-	<a class="uppercase fright manage-box mright10" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+	<a class="uppercase fright manage-box mright10" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
 	
 	
 	<div class="clear"></div>
@@ -614,7 +614,7 @@ ini_set('display_errors', 1);
 		endif;
 	endif;
 	?>
-	<p><?php echo _("This is your Dashboard. In this page, You can manage all accounts under you."); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage all the accounts under you."); ?>
 
 	<div class="wrap-container">
 		<div id="wrap">
@@ -626,7 +626,8 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
-					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a>
+					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |					
+					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>
 			<div class="clear"></div>
 				<div class="fleft">
@@ -781,6 +782,10 @@ ini_set('display_errors', 1);
 		    // expose: true
 		    });
 		  }
+		  
+		function cdl(event, element){
+			return true;
+		}
 	</script>
 </body>
 </html>

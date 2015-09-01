@@ -30,9 +30,9 @@ ini_set('display_errors', 1);
 	$usertype			= $user->getType();
 	$subid				= $user->getSubscriber();
 	$subhead_id			= $user->getSubheadid();
-	$create_date		= date('Y-m-d');
-	$current_date		= date('Y-m-d');
-	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$create_date		= date('Y-m-d G:i:s');
+	$current_date		= date('Y-m-d G:i:s');
+	$expire_date		= date('Y-m-d G:i:s', strtotime("+30 days"));
 	$updated_at 		= date('Y-m-d H:i:s');
 
 	$lc = new LanguageController();

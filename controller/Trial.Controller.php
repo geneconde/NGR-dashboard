@@ -98,8 +98,8 @@ class TrialController {
 		$data['school'] 					= $values['school'];				
 		$data['state'] 						= $values['state'];
 		$data['email'] 						= $values['email'];
-		$data['date_created'] 				= date('Y-m-d');
-		$data['date_current'] 				= date('Y-m-d');
+		$data['date_created'] 				= date('Y-m-d G:i:s');
+		$data['date_current'] 				= date('Y-m-d G:i:s');
 
 		return $data;
 	}

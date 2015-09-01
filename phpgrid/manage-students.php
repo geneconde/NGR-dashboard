@@ -27,9 +27,9 @@ ini_set('display_errors', 1);
 	$userid 			= $user->getUserid();
 	$usertype			= $user->getType();
 	$subid				= $user->getSubscriber();
-	$create_date		= date('Y-m-d');
-	$current_date		= date('Y-m-d');
-	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$create_date		= date('Y-m-d G:i:s');
+	$current_date		= date('Y-m-d G:i:s');
+	$expire_date		= date('Y-m-d G:i:s', strtotime("+30 days"));
 	$updated_at 		= date('Y-m-d H:i:s');
 
 	$lc = new LanguageController();
@@ -331,6 +331,7 @@ ini_set('display_errors', 1);
 		.ui-icon {
 		  display: inline-block !important;
 		}
+		#delmodlist1 { width: auto !important; }
 		<?php if($language == "ar_EG") { ?>
 		.tguide { float: right; }
 		<?php } ?>
@@ -376,7 +377,7 @@ ini_set('display_errors', 1);
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en-students.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
@@ -633,6 +634,13 @@ ini_set('display_errors', 1);
 	    // expose: true
 	    });
 	  }
+
+	function cdl(event, element){
+		var cdl = confirm("Are you sure you want to delete this student account?");
+		if(!cdl){
+			event.stopPropagation();
+		}
+	}
 	</script>
 </body>
 </html>
