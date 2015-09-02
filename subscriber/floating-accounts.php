@@ -163,20 +163,29 @@ ini_set('display_errors', 1);
 	}
 	$cols[] = $col;
 
+	$type = '';
 	$col = array();
 	$col["title"] = "Sub-Admin";
 	$col["name"] = "subhead_id";
 	$col["dbname"] = "users.subhead_id"; // this is required as we need to search in name field, not id
 	$col["width"] = "30";
 	$col["align"] = "center";
-	$col["editable"] = true;
 	$col["edittype"] = "select"; // render as select
 	$col["search"] = false;
 	$col["export"] = false;
+	$col["editable"] = true;
 	# fetch data from database, with alias k for key, v for value
+	$cquery = $grid->get_dropdown_values("select distinct user_ID as k, type as v from users where subscriber_id = $subid and (type=2 or type=0)");
+	$type = explode(";",$cquery);
+	$ut = array();
+	foreach ($type as $t) {
+		array_push($ut,substr($t, -1));
+	}
+	// print_r($ut);
 	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and (type=4)");
+	
 	$col["editoptions"] = array("value"=>$str);
-	$col["formatter"] = "select"; // display label, not value
+	$col["formatter"] = "select";
 	$cols[] = $col;
 
 	$col = array();
@@ -216,23 +225,23 @@ ini_set('display_errors', 1);
 	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
+	$opt["reloadedit"] = true;
 
 	$grid->set_options($opt);
 
 	$e["on_update"] = array("update_teach_stud", null, true);
+	$e["js_on_load_complete"] = "grid_onload";
 	$grid->set_events($e);
 
 	function update_teach_stud($data)
 	{
-		// $params = $data['params'];
 		if($data['params']['type'] == 'Student'){
 			$data['params']['subhead_id'] = 0;
 			$data['params']['type'] = 2;
 		} else {
-			$data = $data['params']['teacher_id'] = 0;	
+			$data = $data['params']['teacher_id'] = 0;
 		}
 		return $data;
-		// $result = $uc->updateFloatingUser($params);
 		// ob_start();
 		// print_r($data);
 		// $data = ob_get_clean();
@@ -295,6 +304,7 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+
 	<style>
 	.ui-search-toolbar { display: none; }
 	.fleft { margin-top: -16px; }
@@ -326,12 +336,32 @@ ini_set('display_errors', 1);
 
 	/*End custom joyride*/
 	#dbguide {margin-top: 10px;}
+	.filth select {
+		display: none;
+	}
 	</style>
 
 	<!-- Run the plugin -->
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
+
+	<script>
+	function grid_onload(ids)
+	{
+	    if(ids.rows) 
+	        jQuery.each(ids.rows,function(i)
+	        {
+	            var filth = JSON.stringify(ids.rows[i]['type']);
+	            if(filth == '"Student"') {
+		            $(".jqgrow:nth-child("+(i+2)+")" + " td:nth-child(9)").addClass("filth");
+	            } else {
+		            $(".jqgrow:nth-child("+(i+2)+")" + " td:nth-child(10)").addClass("filth");
+	            }
+	        });
+	}
+	</script>
+
 	<?php
 	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }
@@ -383,7 +413,7 @@ ini_set('display_errors', 1);
 	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage all floating accounts"); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage all floating accounts."); ?>
 	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
@@ -395,7 +425,7 @@ ini_set('display_errors', 1);
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
 					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>   
 				</div>
-			</div>
+			</div>		
 			<div class="clear"></div>
 
 			<script>
