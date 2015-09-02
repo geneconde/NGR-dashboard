@@ -77,4 +77,13 @@ class TeacherModuleController {
 		
 		return $result[0]['module_id'];
 	}
+
+	public function getAllModules(){
+		$db = new DB();
+		$db->connect();
+		$results = $db->select("module");
+		$db->disconnect();
+		return $results;
+	}
+
 }

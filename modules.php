@@ -1,3 +1,12 @@
+<style type="text/css">
+.modules td {
+    width: 17% !important;
+    text-align: center !important;
+}
+td#module-name {
+    text-align: left !important;
+}
+</style>
 <?php
 	require_once 'session.php';
 	require_once 'locale.php';
@@ -42,7 +51,7 @@
 		$modules = $tmc->getAllModules();
 		$i = 1;
 		foreach($modules as $module){
-			$x = $module['module_ID'];
+			$x = $module;
 		 	$tmc->addTeacherModule($userid, $x);
 		}
 		header("Location: modules.php");
@@ -53,16 +62,18 @@
  		<h1 class="lgs-text">Let's Get Started</h1>
 		<p class="lgs-text-sub heading-input step step2">Step 3: Your Modules</p>
 		<p class="lgs-text-sub heading-input">Modules</p>
-		<p class="lgs-text-sub note">Listed below are the modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
+		<p class="lgs-text-sub note"> Listed below are the 3 modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
 		<table class="modules">
-			<?php foreach ($tmodules as $key => $module) : ?>
+			<?php 
+			$modules = array("fossils", "gathering-data", "how-animals-behave");
+			foreach ($modules as $key => $module) : ?>
 			<?php
-				$mname = $gmc->getModuleName($module['module_id']);
-				$gm = $gmc->getModuleGroupByID($groupID,$module['module_id']);
+				$mname = $gmc->getModuleName($module);
+				$gm = $gmc->getModuleGroupByID($groupID,$module);
 				if(!$gm):
 					$values = array(
 						"group_id" 			=> $groupID,
-						"module_id"			=> $module['module_id'],
+						"module_id"			=> $module,
 						"pretest_id"		=> 0,
 						"posttest_id"		=> 0,
 						"review_active"		=> 0,
@@ -73,16 +84,16 @@
 					);
 					$gmc->addGroupModule($values);
 				endif;
-				$cea = $dtc->getDiagnosticTest($module['module_id'], $userid, 1);
-				$ceb = $dtc->getDiagnosticTest($module['module_id'], $userid, 2);
+				$cea = $dtc->getDiagnosticTest($module, $userid, 1);
+				$ceb = $dtc->getDiagnosticTest($module, $userid, 2);
 				$preID = "";
 				$postID = "";
 				if ($cea) $preID = $cea->getDTID();
 				if ($ceb) $postID = $ceb->getDTID();
-				$gmActive = $gmc->getModuleGroupByID($groupID,$module['module_id']);
+				$gmActive = $gmc->getModuleGroupByID($groupID,$module);
 			?>
 			<tr>
-				<td class="module-name"><?php echo _($mname); ?></td>
+				<td id="module-name" class="module-name"><?php echo _($mname); ?></td>
 			</tr>
 			<tr class="lgs-modules">
 				<td class="dactivate">
@@ -90,7 +101,7 @@
 					<?php if($cea) { ?>
 						href="lgs-test.php?dtid=<?php echo $preID; ?>&action=edit"><?php echo _("Edit Pre-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="lgs-test.php?module_id=<?php echo $module['module_id']; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
+						href="lgs-test.php?module_id=<?php echo $module; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>
@@ -99,7 +110,7 @@
 					<?php if($ceb){ ?>
 						href="lgs-test.php?dtid=<?php echo $postID; ?>&action=edit"><?php echo _("Edit Post-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="lgs-test.php?module_id=<?php echo $module['module_id']; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
+						href="lgs-test.php?module_id=<?php echo $module; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>
@@ -119,10 +130,10 @@
 					}
 				}
 
-				$adc = $module['module_id'].': '.$groupID.': '.$preID.': '.$postID.': '.$mname.': '.$dtAn.': '.$dtBn.': '.$adActivated.': '.$group_name;
+				$adc = $module.': '.$groupID.': '.$preID.': '.$postID.': '.$mname.': '.$dtAn.': '.$dtBn.': '.$adActivated.': '.$group_name;
 				?>
 				<td class="dactivate">
-					<input class="dactivatemin" type="button" id="<?php echo $module['module_id']; ?>" value="<?php echo $btnLabel; ?>" onclick="toggle('<?php echo $adc; ?>');">
+					<input class="dactivatemin" type="button" id="<?php echo $module; ?>" value="<?php echo $btnLabel; ?>" onclick="toggle('<?php echo $adc; ?>');">
 				</td>
 			</tr>
 		<?php endforeach; ?>
