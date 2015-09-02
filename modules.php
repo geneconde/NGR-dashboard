@@ -7,6 +7,7 @@ td#module-name {
     text-align: left !important;
 }
 </style>
+
 <?php
 	require_once 'session.php';
 	require_once 'locale.php';
@@ -51,7 +52,7 @@ td#module-name {
 		$modules = $tmc->getAllModules();
 		$i = 1;
 		foreach($modules as $module){
-			$x = $module;
+			$x = $module['module_ID'];
 		 	$tmc->addTeacherModule($userid, $x);
 		}
 		header("Location: modules.php");
@@ -62,10 +63,12 @@ td#module-name {
  		<h1 class="lgs-text">Let's Get Started</h1>
 		<p class="lgs-text-sub heading-input step step2">Step 3: Your Modules</p>
 		<p class="lgs-text-sub heading-input">Modules</p>
-		<p class="lgs-text-sub note"> Listed below are the 3 modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
+		<p class="lgs-text-sub note">Change step 3 to 'Listed below are 3 of the 30 modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests.</p>
 		<table class="modules">
+
+			
 			<?php 
-			$modules = array("fossils", "gathering-data", "how-animals-behave");
+		 	$modules = array("fossils", "gathering-data", "how-animals-behave");
 			foreach ($modules as $key => $module) : ?>
 			<?php
 				$mname = $gmc->getModuleName($module);
@@ -92,6 +95,8 @@ td#module-name {
 				if ($ceb) $postID = $ceb->getDTID();
 				$gmActive = $gmc->getModuleGroupByID($groupID,$module);
 			?>
+
+
 			<tr>
 				<td id="module-name" class="module-name"><?php echo _($mname); ?></td>
 			</tr>
