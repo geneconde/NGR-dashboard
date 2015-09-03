@@ -308,7 +308,7 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 	<style>
-		.ui-search-toolbar { display: none; }
+		/*.ui-search-toolbar { display: none; }*/
 		.fleft { margin-top: -16px; }
 		.tguide { float: left; margin-top: -15px; }
 		.guide {
