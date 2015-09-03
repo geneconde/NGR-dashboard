@@ -142,6 +142,8 @@ ini_set('display_errors', 1);
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
 	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
+	$str = "0:Unassigned;".$str;
+	
 	$col["editoptions"] = array("value"=>$str); 
 	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
@@ -228,7 +230,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>false, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
+				"delete"=>false, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
@@ -238,7 +240,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>true, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
+				"delete"=>false, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
 				"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
@@ -372,6 +374,7 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> | 
 					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a> |					
 					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>

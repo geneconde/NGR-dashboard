@@ -12,9 +12,9 @@
 
 	$stds = $uc->getAllStudents($userid);
 	$groupName = $_POST['group'];
-	// $teacherID = $stds[0]["teacher_id"];
-	// $groupHolder = $sgc->getGroups($teacherID);
-	// $groupID = $groupHolder[0]['group_id'];
-	// $sgc->updateGroupName($groupID, $groupName);
-	// header("Location: modules.php");
+	$teacherID = $stds[0]["teacher_id"];
+	$groupHolder = $sgc->getGroups($teacherID);
+	$groupID = $groupHolder[0]['group_id'];
+	$sgc->updateGroupName($groupID, $groupName);
+	header("Location: modules.php");
 ?>

@@ -330,6 +330,15 @@ ini_set('display_errors', 1);
 				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
 				$grid->select_command = $q;
 				//$student_account = true;
+
+				$grid->set_actions(array(
+					"add"=>true,
+					"edit"=>true, 
+					"delete"=>false, 
+					"bulkedit"=>true, 
+					"export_excel"=>true,
+					"search" => "advance"
+				));
 			}
 
 			if( $_GET['type'] == 4 )
@@ -344,6 +353,15 @@ ini_set('display_errors', 1);
 				{
 					$grid->select_command = $q;
 				}
+
+				$grid->set_actions(array(
+					"add"=>true,
+					"edit"=>true, 
+					"delete"=>true, 
+					"bulkedit"=>true, 
+					"export_excel"=>true,
+					"search" => "advance"
+				));
 
 			}
 		}
@@ -368,6 +386,15 @@ ini_set('display_errors', 1);
 			} 
 			$filename = "Subhead Accounts";
 
+			$grid->set_actions(array(
+				"add"=>true,
+				"edit"=>true, 
+				"delete"=>true, 
+				"bulkedit"=>true, 
+				"export_excel"=>true,
+				"search" => "advance"
+			));
+
 		} 
 		elseif($usertype == 4 && $subhead_id != null) 
 		{
@@ -381,6 +408,15 @@ ini_set('display_errors', 1);
 			{
 				$grid->select_command = $q1;
 			}
+
+			$grid->set_actions(array(
+				"add"=>true,
+				"edit"=>true, 
+				"delete"=>true, 
+				"bulkedit"=>true, 
+				"export_excel"=>true,
+				"search" => "advance"
+			));
 		}
 		
 		elseif ($usertype == 3) 
@@ -398,6 +434,15 @@ ini_set('display_errors', 1);
 				$grid->select_command = $q2;
 				$filename = "Teacher Accounts";
 			}
+
+			$grid->set_actions(array(
+				"add"=>true,
+				"edit"=>true, 
+				"delete"=>true, 
+				"bulkedit"=>true, 
+				"export_excel"=>true,
+				"search" => "advance"
+			));
 		}		
 	}
 		//For exporting
@@ -417,15 +462,6 @@ ini_set('display_errors', 1);
 		$opt["export"]["range"] = "filtered";
 
 		$grid->set_options($opt);
-
-	$grid->set_actions(array(
-		"add"=>true,
-		"edit"=>true, 
-		"delete"=>true, 
-		"bulkedit"=>true, 
-		"export_excel"=>true,
-		"search" => "advance"
-	));
 
 	$grid->debug = 0;
 	$grid->error_msg = "Please change the username as this is already used.";
@@ -625,7 +661,8 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |					
+					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> | 
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |					
 					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>

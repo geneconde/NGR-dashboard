@@ -20,12 +20,7 @@
 	$groupHolder = $sgc->getGroups($userid);
 	$groupID = $groupHolder[0]['group_id'];
 	$groupNameHolder = $sgc->getGroupName($groupID);
-
-
-	// $group_name = $groupNameHolder[0]["group_name"];
-	$group 			= new StudentGroupController();
-	$checkGroup		= $group->getGroups($userID);
-	echo $checkGroup[0]["group_name"];
+	$group_name = $groupNameHolder[0]["group_name"];
 
 	//$usertype			= $user->getType();
 	$demoid				= $user->getSubheadid();
@@ -422,7 +417,6 @@ $main_view = $grid->render("list1");
 			<p class="lgs-text-sub note">We have set up a default group for your students. You can rename this group below.</p>
 			<p class="input-label" align="left">Default group name</p>
 			<p align="left"><input class="inputText" id="group" name="group" type="text" maxlength="60" value="<?php echo $group_name; ?>"/></p>
-			
 			<p class="lgs-text-sub heading-input">Student List</p>
 			<p class="lgs-text-sub note">Your student accounts are listed below. You can enter your students' information now or have your students enter their information when they first log in.<br/><br/>(Note: This student spreadsheet can be accessed and updated anytime by clicking the "Student Accounts" button at the top right of the dashboard)</p>
 

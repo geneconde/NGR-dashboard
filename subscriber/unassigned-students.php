@@ -163,11 +163,10 @@ ini_set('display_errors', 1);
 	}
 	$cols[] = $col;
 
-	$type = '';
 	$col = array();
-	$col["title"] = "Sub-Admin";
-	$col["name"] = "subhead_id";
-	$col["dbname"] = "users.subhead_id"; // this is required as we need to search in name field, not id
+	$col["title"] = "Teacher";
+	$col["name"] = "teacher_id";
+	$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
 	$col["width"] = "30";
 	$col["align"] = "center";
 	$col["edittype"] = "select"; // render as select
@@ -175,17 +174,9 @@ ini_set('display_errors', 1);
 	$col["export"] = false;
 	$col["editable"] = true;
 	# fetch data from database, with alias k for key, v for value
-	$cquery = $grid->get_dropdown_values("select distinct user_ID as k, type as v from users where subscriber_id = $subid and (type=2 or type=0)");
-	$type = explode(";",$cquery);
-	$ut = array();
-	foreach ($type as $t) {
-		array_push($ut,substr($t, -1));
-	}
-	// print_r($ut);
-	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and (type=4)");
-	
-	$col["editoptions"] = array("value"=>$str);
-	$col["formatter"] = "select";
+	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
+	$col["editoptions"] = array("value"=>$str); 
+	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
 
 	$col = array();
@@ -198,7 +189,7 @@ ini_set('display_errors', 1);
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	$opt["caption"] = "Floating Accounts";
+	$opt["caption"] = "Unassinged Students";
 	$opt["height"] = "";
 	$opt["autowidth"] = true; // expand grid to screen width
 	$opt["multiselect"] = true; // allow you to multi-select through checkboxes
@@ -213,13 +204,13 @@ ini_set('display_errors', 1);
 
 	$grid->set_options($opt);
 
-	$e["on_update"] = array("update_teach", null, true);
+	$e["on_update"] = array("update_student", null, true);
 	$grid->set_events($e);
 
-	function update_teach($data)
+	function update_student($data)
 	{
-		$data = $data['params']['teacher_id'] = 0;
-		return $data;
+		$data['params']['subhead_id'] = 0;
+		$data['params']['type'] = 2;
 	}
 
 	$grid->debug = 0;
@@ -231,7 +222,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>false,
 				"edit"=>true,
-				"delete"=>true,
+				"delete"=>false,
 				"bulkedit"=>false,
 				"export_excel"=>true,
 				"search" => "advance"
@@ -241,7 +232,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>false,
 				"edit"=>true,
-				"delete"=>true,
+				"delete"=>false,
 				"bulkedit"=>false,
 				"export_excel"=>true,
 				"search" => "advance"
@@ -249,7 +240,7 @@ ini_set('display_errors', 1);
 
 	endif;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=0 AND ((subhead_id <> 0 AND subhead_id not in (SELECT user_id FROM users)) OR (teacher_id <> 0 AND teacher_id not in (SELECT user_id FROM users)))";
+	$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=2 AND ((subhead_id <> 0 AND subhead_id not in (SELECT user_id FROM users)) OR (teacher_id = 0 AND teacher_id not in (SELECT user_id FROM users)))";
 
 	$grid->table = "users";
 
@@ -367,34 +358,21 @@ ini_set('display_errors', 1);
 	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage all floating accounts."); ?>
+	<p><?php echo _("This is your Dashboard. In this page, you can manage all unassinged students."); ?>
 	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
-				<h1>List of Floating Accounts</h1>
+				<h1>List of Unassinged Students</h1>
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> | 
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
-					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>
+					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a> |		
+					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>
 			</div>		
 			<div class="clear"></div>
-
-			<script>
-				/*var opts = {
-				    errorCell: function(res,stat,err)
-				    {
-						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
-							'<div class=\"ui-state-error\">'+ res.responseText +'</div>', 
-								jQuery.jgrid.edit.bClose,
-									{buttonalign:'right'}
-						);		    	
-				    }
-				};	*/
-			</script>
 
 			<div style="margin:10px 0">
 				<?php echo $main_view; ?>
