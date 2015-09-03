@@ -65,6 +65,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported	
@@ -87,6 +88,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -97,6 +99,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -118,6 +121,9 @@ ini_set('display_errors', 1);
 	$col["name"]  = "type";
 	$col["editable"] = false;
 	$col["width"] = "20";
+	$col["search"] = true;
+	$col["stype"] = "select";
+	$col["searchoptions"] = array("value"=>'0:Teacher;4:Sub-Admin');
 	$col["viewable"] = true;
 	$col["editrules"] = array("edithidden"=>hidden);
 	$col["show"] = array("list"=>true, "add"=>true, "edit"=>false, "view"=>true); // disable editing of type in edit form
@@ -226,6 +232,7 @@ ini_set('display_errors', 1);
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
 
+
 	if($sub->getStudents() <= $student_count) :
 		
 		$grid->set_actions(array(
@@ -279,7 +286,7 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
 	<style>
-	.ui-search-toolbar { display: none; }
+	/*.ui-search-toolbar { display: none; }*/
 	.fleft { margin-top: -16px; }
 	.tguide { float: left; font-family: inherit; }
 	.guide {
@@ -376,9 +383,8 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> | 
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
-					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>
+					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>   
 				</div>
 			</div>		
 			<div class="clear"></div>
