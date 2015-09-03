@@ -169,6 +169,7 @@ ini_set('display_errors', 1);
 
 	$col = array();
 	$col["title"] = $grade_level; // caption of column
+	$col["name"]  = "grade_level";
 	$col["width"] = "15";
 	$col["editable"] = true;
 	$col["align"] = "center";
@@ -210,7 +211,7 @@ ini_set('display_errors', 1);
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	$grid = new jqgrid();
+	$grid = new jqgrid();;
 
 	$opt["caption"] = $student_information;
 	$opt["height"] = "";
@@ -225,7 +226,7 @@ ini_set('display_errors', 1);
 	$opt["export"]["range"] = "filtered";
 
 	$grid->set_options($opt);
-	$grid->debug = 0;
+	$grid->debug = 1;
 	$grid->error_msg = "Username Already Exists.";
 
 	$result = mysql_query("SELECT * FROM users WHERE teacher_id = $userid AND type = 2");
@@ -435,6 +436,7 @@ ini_set('display_errors', 1);
 	<div class="clear"></div>
 
 	<a class="link" href="../teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+
 
 	<!-- <div class="fleft" id="language">
 		<?php echo _("Language"); ?>:
