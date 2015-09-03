@@ -175,6 +175,7 @@ ini_set('display_errors', 1);
 
 	$col = array();
 	$col["title"] = $grade_level; // caption of column
+	$col["name"]  = "grade_level";
 	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Level...')); 
 	$col["width"] = "15";
 	$col["editable"] = true;

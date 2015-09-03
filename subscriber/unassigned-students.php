@@ -65,6 +65,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported	
@@ -87,6 +88,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -97,6 +99,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -117,6 +120,7 @@ ini_set('display_errors', 1);
 	$col["title"] = "Type";
 	$col["name"]  = "type";
 	$col["editable"] = false;
+	$col["search"] = false;
 	$col["width"] = "20";
 	$col["viewable"] = true;
 	$col["editrules"] = array("edithidden"=>hidden);
@@ -270,7 +274,6 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
 	<style>
-	.ui-search-toolbar { display: none; }
 	.fleft { margin-top: -16px; }
 	.tguide { float: left; font-family: inherit; }
 	.guide {
