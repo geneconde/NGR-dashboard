@@ -15,6 +15,7 @@ ini_set('display_errors', 1);
 	include_once '../controller/TeacherModule.Controller.php';
 	include_once '../controller/Module.Controller.php';
 	include_once '../controller/Language.Controller.php';
+	include_once '../controller/User.Controller.php';
 	include_once('../controller/Subscriber.Controller.php');
 	include_once 'php/auto-generate.php';
 	
@@ -33,6 +34,12 @@ ini_set('display_errors', 1);
 
 	$difference = $sub->getStudents() - $student_count;
 
+	$uc = new UserController();
+
+	if(isset($_GET['unassign']) && $_GET['unassign'] == 1){
+		$uc->updateStudentTeacher($_GET['user_id']);
+		header("Location: manage-students.php");
+	}
 
 	// include db config
 	include_once("../phpgrid/config.php");
@@ -147,8 +154,10 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
-	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
-	$str = "0:Unassigned;".$str;
+	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0 and teacher_id NOT IN 
+							(SELECT nv FROM 
+							(SELECT user_id AS nv FROM users GROUP BY user_id) 
+							AS derived)");
 	$col["editoptions"] = array("value"=>$str); 
 	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
@@ -188,6 +197,27 @@ ini_set('display_errors', 1);
 	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
 	$col["default"] = "Reset password"; // default link text
 	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "Action";
+	$col["name"] = "act";
+	$col["width"] = "50";
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "";
+	$col["name"] = "unassign";
+	$col["width"] = "15";
+	$col["align"] = "center";
+	$col["search"] = false;
+	$col["sortable"] = false;
+	$col["link"] = "manage-students.php?user_id={user_ID}&unassign=1";
+	// $col["link"] = 'javascript:
+	// var conf = confirm("This student will be removed from your list");
+	// if(conf==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";';
+	$col["default"] = "unassign";
+	$col["export"] = false;
 	$cols[] = $col;
 
 	$opt["caption"] = "Student Information";
@@ -253,7 +283,7 @@ ini_set('display_errors', 1);
 
 	endif;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2";
+	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2 and teacher_id <> 0";
 
 	$grid->table = "users";
 
@@ -313,6 +343,21 @@ ini_set('display_errors', 1);
 
 	/*End custom joyride*/
 	#dbguide {margin-top: 10px;}
+	tr td:nth-child(15) a {
+	  background: rgb(66, 151, 215);
+	  color: #fff;
+	  padding: 3px 5px;
+	  border-radius: 3px;
+	}
+	tr td:nth-child(15) a:hover, tr td:nth-child(15) a:link, tr td:nth-child(15) a:visited, tr td:nth-child(15) a:focus {
+		color: #fff;
+	}
+	#list1_act {
+		width: auto !important;
+	}
+	tr input { width: 90% !important; }
+	.ui-jqgrid .ui-search-input input { width: 100% !important; }
+	.ui-pg-input { width: auto !important; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -461,7 +506,15 @@ ini_set('display_errors', 1);
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
+
+		$("tr th:nth-child(14)").each(function() {
+		    var t = $(this);
+		    var n = t.next();
+		    t.html(t.html() + n.html());
+		    n.remove();
+		});
 	});
+
 	function guide() {
 	  	$('#joyRideTipContent').joyride({
 		      autoStart : true,

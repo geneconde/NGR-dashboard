@@ -15,6 +15,7 @@ ini_set('display_errors', 1);
 	include_once '../controller/TeacherModule.Controller.php';
 	include_once '../controller/Module.Controller.php';
 	include_once '../controller/Language.Controller.php';
+	include_once '../controller/User.Controller.php';
 	include_once('../controller/Subscriber.Controller.php');
 	include_once '../php/auto-generate-students.php';
 	
@@ -34,6 +35,13 @@ ini_set('display_errors', 1);
 
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
+
+	$uc = new UserController();
+
+	if(isset($_GET['unassign']) && $_GET['unassign'] == 1){
+		$uc->updateStudentTeacher($_GET['user_id']);
+		header("Location: manage-students.php");
+	}
 
 	// include db config
 	include_once("config.php");
@@ -218,6 +226,27 @@ ini_set('display_errors', 1);
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
+	$col = array();
+	$col["title"] = "Action";
+	$col["name"] = "act";
+	$col["width"] = "50";
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "";
+	$col["name"] = "unassign";
+	$col["width"] = "15";
+	$col["align"] = "center";
+	$col["search"] = false;
+	$col["sortable"] = false;
+	$col["link"] = "manage-students.php?user_id={user_ID}&unassign=1";
+	// $col["link"] = 'javascript:
+	// var conf = confirm("This student will be removed from your list");
+	// if(conf==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";';
+	$col["default"] = "unassign";
+	$col["export"] = false;
+	$cols[] = $col;
+
 	$grid = new jqgrid();
 
 	$opt["caption"] = $student_information;
@@ -382,6 +411,21 @@ ini_set('display_errors', 1);
 			font-weight : bold;
 		}
 		/*End custom joyride*/
+		tr td:nth-child(15) a {
+		  background: rgb(66, 151, 215);
+		  color: #fff;
+		  padding: 3px 5px;
+		  border-radius: 3px;
+		}
+		tr td:nth-child(15) a:hover, tr td:nth-child(15) a:link, tr td:nth-child(15) a:visited, tr td:nth-child(15) a:focus {
+			color: #fff;
+		}
+		#list1_act {
+			width: auto !important;
+		}
+		tr input { width: 90% !important; }
+		.ui-jqgrid .ui-search-input input { width: 100% !important; }
+		.ui-pg-input { width: auto !important; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
@@ -475,7 +519,7 @@ ini_set('display_errors', 1);
 			
 			<div class="sub-headers">
 				<h1><?php echo _('List of Students'); ?></h1>
-				<a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/>
+				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<!-- <div class="fright">
 					<a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> |
@@ -574,6 +618,13 @@ ini_set('display_errors', 1);
 		$('#language-menu').change(function() {
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
+		});
+
+		$("tr th:nth-child(14)").each(function() {
+		    var t = $(this);
+		    var n = t.next();
+		    t.html(t.html() + n.html());
+		    n.remove();
 		});
 	});
 

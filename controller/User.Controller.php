@@ -189,6 +189,19 @@ class UserController {
 		$db->disconnect();
 	}
 
+	public function updateStudentTeacher($userid) {
+		$where = array();
+		$where['user_ID'] = $userid;
+		
+		$data = array();
+		$data['teacher_id'] = 0;
+					
+		$db = new DB();
+		$db->connect();
+		$result = $db->update("users", $where, $data);
+		$db->disconnect();
+	}
+
 	public function updatePassword($userid, $newpassword){
 		$where = array();
 		$where['user_ID'] = $userid;

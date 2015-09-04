@@ -226,7 +226,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>false,
 				"edit"=>true,
-				"delete"=>false,
+				"delete"=>true,
 				"bulkedit"=>false,
 				"export_excel"=>true,
 				"search" => "advance"
@@ -236,7 +236,7 @@ ini_set('display_errors', 1);
 		$grid->set_actions(array(
 				"add"=>false,
 				"edit"=>true,
-				"delete"=>false,
+				"delete"=>true,
 				"bulkedit"=>false,
 				"export_excel"=>true,
 				"search" => "advance"
@@ -244,7 +244,7 @@ ini_set('display_errors', 1);
 
 	endif;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=2 AND ((subhead_id <> 0 AND subhead_id not in (SELECT user_id FROM users)) OR (teacher_id = 0 AND teacher_id not in (SELECT user_id FROM users)))";
+	$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=2 AND (teacher_id = 0 or teacher_id not in (SELECT user_id FROM users))";
 
 	$grid->table = "users";
 

@@ -1586,7 +1586,7 @@ class jqgrid
 					}
 					
 					$id = "'".implode("','",explode(",",$id))."'";
-					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id) or subhead_id = $id ";
+					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id)";
 					$this->execute_query($sql);
 					$i = 0;
 					$sqlToCounter = "select count(*) from {$this->table} where subhead_id not in (select user_id from {$this->table})";
