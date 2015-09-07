@@ -239,10 +239,12 @@ ini_set('display_errors', 1);
 	$col["align"] = "center";
 	$col["search"] = false;
 	$col["sortable"] = false;
-	$col["link"] = "manage-students.php?user_id={user_ID}&unassign=1";
-	// $col["link"] = 'javascript:
-	// var conf = confirm("This student will be removed from your list");
-	// if(conf==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";';
+	$col["link"] = 'javascript:
+	var conf = confirm("Are you sure you want to unassign this student?");
+	if(conf==true) {
+		var conf2 = confirm("Proceeding with this will automatically remove the account from the list of students. Kindly contact the subscriber to retrieve the account again. Are you sure you want to do this?");
+		if(conf2==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";
+	}';
 	$col["default"] = "unassign";
 	$col["export"] = false;
 	$cols[] = $col;
@@ -280,7 +282,7 @@ ini_set('display_errors', 1);
 	$grid->set_actions(array(
 				"add"=>true, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
+				"delete"=>false, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
 				//"export_pdf"=>true, // export pdf button
@@ -294,7 +296,7 @@ ini_set('display_errors', 1);
 	 	$grid->set_actions(array(
 	 				"add"=>false, // allow/disallow add
 	 				"edit"=>true, // allow/disallow edit
-	 				"delete"=>true, // allow/disallow delete
+	 				"delete"=>false, // allow/disallow delete
 	 				"bulkedit"=>true, // allow/disallow edit
 	 				"export_excel"=>true, // export excel button
 	 				//"export_pdf"=>true, // export pdf button
@@ -426,6 +428,7 @@ ini_set('display_errors', 1);
 		tr input { width: 90% !important; }
 		.ui-jqgrid .ui-search-input input { width: 100% !important; }
 		.ui-pg-input { width: auto !important; }
+		.ui-icon-pencil { float: none; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>

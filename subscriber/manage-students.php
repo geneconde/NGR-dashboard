@@ -154,10 +154,7 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
-	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0 and teacher_id NOT IN 
-							(SELECT nv FROM 
-							(SELECT user_id AS nv FROM users GROUP BY user_id) 
-							AS derived)");
+	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
 	$col["editoptions"] = array("value"=>$str); 
 	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
@@ -212,10 +209,9 @@ ini_set('display_errors', 1);
 	$col["align"] = "center";
 	$col["search"] = false;
 	$col["sortable"] = false;
-	$col["link"] = "manage-students.php?user_id={user_ID}&unassign=1";
-	// $col["link"] = 'javascript:
-	// var conf = confirm("This student will be removed from your list");
-	// if(conf==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";';
+	$col["link"] = 'javascript:
+	var conf = confirm("Are you sure you want to unassign this student?");
+	if(conf==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";';
 	$col["default"] = "unassign";
 	$col["export"] = false;
 	$cols[] = $col;
@@ -312,7 +308,6 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 	<style>
-	/*.ui-search-toolbar { display: none; }*/
 	.fleft { margin-top: -16px; }
 	.tguide { float: left; font-family: inherit; }
 	.guide {
@@ -514,7 +509,6 @@ ini_set('display_errors', 1);
 		    n.remove();
 		});
 	});
-
 	function guide() {
 	  	$('#joyRideTipContent').joyride({
 		      autoStart : true,

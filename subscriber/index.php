@@ -481,7 +481,6 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
 	<style>
-	/*.ui-search-toolbar { display: none; }*/
 	.fleft { margin-top: -16px; }
 	.guide {
 		padding: 5px;
