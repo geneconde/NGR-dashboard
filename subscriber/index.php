@@ -633,7 +633,8 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |	
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |				
+					<a href="statistics.php" class="link" style="display: inline-block;">Statistics</a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |	
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |					
 					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
 				</div>

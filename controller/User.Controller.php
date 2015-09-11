@@ -444,7 +444,14 @@ class UserController {
 		$db->connect();
 		$result = $db->cquery("UPDATE users SET password='$encryptPassword'");
 		$db->disconnect();
-		
+	}
+
+	public function select_custom($query) {
+		$db = new DB();
+		$db->connect();
+		$result = $db->query($query);
+		$db->disconnect();	
+		return $result;
 	}
 	
 	private function setUserValues($values) {

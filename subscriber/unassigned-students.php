@@ -370,6 +370,7 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="statistics.php" class="link" style="display: inline-block;">Statistics</a> |
 					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
 					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a> |		
 					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>

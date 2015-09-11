@@ -279,7 +279,7 @@ ini_set('display_errors', 1);
 
 	endif;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2 and teacher_id <> 0";
+	$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND type = 2 and (teacher_id <> 0 and teacher_id in (SELECT user_id FROM users))";
 
 	$grid->table = "users";
 
@@ -419,6 +419,7 @@ ini_set('display_errors', 1);
 				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
+					<a href="statistics.php" class="link" style="display: inline-block;">Statistics</a> |
 					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |
 					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a> |					
 					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
