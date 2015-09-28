@@ -72,6 +72,10 @@ ini_set('display_errors', 1);
 	$grade_level = _('Grade Level');
 	$accounts = _('Accounts');
 	$view_tier = _('View Accounts');
+	$reset_student_password = _('Reset Student password');
+	$reset_password = _('Reset password');
+	$teacher = _('Teacher');
+	$type = _('Type');
 
 	/** Main Grid Table **/
 	$col = array();
@@ -97,12 +101,12 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Type";
+	$col["title"] = $type;
 	$col["name"]  = "type";
 	$col["editable"] = true;
 	$col["search"] = true;
 	$col["stype"] = "select";
-	$col["searchoptions"] = array("value"=>'0:Teacher;4:Sub-Admin');
+	$col["searchoptions"] = array("value"=>'0:'.$teacher.';4:Sub-Admin');
 	$col["width"] = "10";
 	$col["edittype"] = "select";
 	
@@ -153,7 +157,7 @@ ini_set('display_errors', 1);
 		switch($type)
 		{
 			case '0':
-				$val = "Teacher";
+				$val = _('Teacher');
 			break;
 
 			case '1':
@@ -161,7 +165,7 @@ ini_set('display_errors', 1);
 			break;
 
 			case '2':
-				$val = "Student";
+				$val = _('Student');
 			break;
 
 			case '3':
@@ -268,7 +272,7 @@ ini_set('display_errors', 1);
 	if( !isset($_GET['type']) || $_GET['type'] != 0 ) 
 	{		
 		$col = array();
-		$col["title"] = "Accounts";
+		$col["title"] = $accounts;
 		$col["name"] = "view_more";
 		$col["width"] = "25";
 		$col["align"] = "center";
@@ -277,9 +281,9 @@ ini_set('display_errors', 1);
 		$col["default"] = $view_tier; // default link text
 		if(isset($_GET['user_id']))
 		{
-			$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}&sid={subhead_id}";
+			$col["link"] = "index.php?user_id={user_ID}&type={type}&sid={subhead_id}";
 		} else {
-			$col["link"] = "index.php?lang=en_US&user_id={user_ID}&type={type}";
+			$col["link"] = "index.php?user_id={user_ID}&type={type}";
 		}
 		$cols[] = $col;
 	
@@ -288,7 +292,7 @@ ini_set('display_errors', 1);
 	if(isset($_GET['type']) && $_GET['type'] == 0)
 	{
 		$col = array();
-		$col["title"] = "Teacher";
+		$col["title"] = $teacher;
 		$col["name"] = "teacher_id";
 		$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
 		$col["width"] = "30";
@@ -309,14 +313,14 @@ ini_set('display_errors', 1);
 		$cols[] = $col;
 
 		$col = array();
-		$col["title"] = "Reset Student password";
+		$col["title"] = $reset_student_password;
 		$col["name"] = "reset_pword";
 		$col["width"] = "30";
 		$col["align"] = "center";
 		$col["search"] = false;
 		$col["sortable"] = false;
 		$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-		$col["default"] = "Reset password"; // default link text
+		$col["default"] = $reset_password; // default link text
 		$col["export"] = false; // this column will not be exported
 		$cols[] = $col;
 	}
@@ -479,6 +483,14 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+	<?php
+	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 
 	<style>
 	.fleft { margin-top: -16px; }
@@ -539,14 +551,6 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-	<?php
-	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
-	<?php }
-	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
-	<?php }
-	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
-	<?php }
-	?>
 </head>
 
 <body>
@@ -614,8 +618,8 @@ ini_set('display_errors', 1);
 	if(isset($_GET["ft"])):
 		if($_GET["ft"]==1): ?>
 			<div class="first-timer">
-				<p>It looks like this is your first time to visit your dashboard...<br/>
-				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+				<p><?php echo _("It looks like this is your first time to visit your dashboard..."); ?><br/>
+				<?php echo _('Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.'); ?></p>
 			</div>
 		<?php
 		endif;
@@ -627,22 +631,22 @@ ini_set('display_errors', 1);
 		<div id="wrap">
 			
 			<div class="sub-headers">
-				<h1>List of Accounts</h1>
+				<h1><?php echo _('List of Accounts'); ?></h1>
 				
-				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
 				<div class="fright">
 					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |	
-					<a href="statistics.php" class="link" style="display: inline-block;">Statistics</a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |	
-					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |					
-					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |	
+					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |	
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |					
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
 				</div>
 			<div class="clear"></div>
 				<div class="fleft">
 					<?php if(isset($_GET['user_id'])) : ?>
-						<a href="index.php" class="link" style="display: inline-block;">Home</a> |					
-						<a href="javascript:history.back(1)" class="link" style="display: inline-block;">Back</a>
+						<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Home'); ?></a> |					
+						<a href="javascript:history.back(1)" class="link" style="display: inline-block;"><?php echo _('Back'); ?></a>
 					<?php endif; ?>
 				</div>
 			</div>		
@@ -669,36 +673,36 @@ ini_set('display_errors', 1);
 
 	<!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="jqgh_list1_username" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To update information, you can do any of the following:</p>
-			<p>1. Double click on a cell to update the information then click Enter</p>
+		<li data-id="jqgh_list1_username" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
 		</li>
-		<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+		<li data-class="ui-custom-icon" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
+			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 		</li>
-		<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+		<li data-class="cbox" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
 		</li>
-		<li data-id="cb_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-			<p>4. To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.</p>
+		<li data-id="cb_list1" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+			<p>4. <?php echo _('To update a column for multiple accounts (same information in the same column for multiple accounts), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the accounts you selected.'); ?></p>
 		</li>
-		<li data-id="search_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-			<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+		<li data-id="search_list1" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
 		</li>
-		<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+		<li data-class="ui-icon-extlink" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
 		</li>
-		<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Go to the next set of accounts by clicking the left and right arrows; or</p>
+		<li data-id="next_list1_pager" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
 		</li>
-		<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-			<p>Type in the page number and press Enter.</p>
+		<li data-class="ui-pg-input" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
 		</li>
-		<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>You can also modify the number of accounts you want to show in a page.</p>
+		<li data-class="ui-pg-selbox" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('You can also modify the number of accounts you want to show in a page.'); ?></p>
 		</li>
-		<li data-id="jqgh_list1_view_more" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-			<p>You may also view the accounts under you.</p>
+		<li data-id="jqgh_list1_view_more" data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('You may also view the accounts under you.'); ?></p>
 		</li>
     </ol>
 
@@ -709,9 +713,9 @@ ini_set('display_errors', 1);
 				<?php $diff = $sub->getTeachers() - $teacher_count; ?>
 				<!-- <p><?php echo _('You have already created') ?> <?php echo $teacher_count . '/' . $sub->getTeachers(); ?> <?php echo _('teachers'); ?></p><br/> -->
 				<label><?php echo _('Teacher'); ?></label>:
-				<input type="text" value="" name="teacher_num" placeholder="Input number of teachers you want to add" class="validate[required,custom[integer]]"><br/>
+				<input type="text" value="" name="teacher_num" placeholder="<?php echo _('Input number of teachers you want to add'); ?>" class="validate[required,custom[integer]]"><br/>
 		        <input type="submit" id="addmultiplebutton" class="button" name="addmultiple" value="Submit">
-		        <a id="cancelbutton2" class="button">Cancel</a>
+		        <a id="cancelbutton2" class="button"><?php echo _('Cancel'); ?></a>
 		    </form>
         </div>
     </div>	
@@ -787,8 +791,9 @@ ini_set('display_errors', 1);
 		        $(this).joyride('set_li', false, 1);
 		      }
 		    },
-		    // modal:true,
-		    // expose: true
+		    'template' : {
+		        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+		      }
 		    });
 		  }
 		  

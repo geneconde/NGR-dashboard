@@ -122,11 +122,11 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
+	<li data-id="select-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
 	</li>
-	<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to save your changes.</p>
+	<li data-id="save" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to save your changes."); ?></p>
 	</li>
 </ol>
 <script>
@@ -138,8 +138,9 @@ function guide() {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 $(document).ready(function(){
@@ -147,12 +148,12 @@ $(document).ready(function(){
 		if($(this).is(':checked')) {
 			$('.q-cb').each(function(){
 				$(this).prop('checked', true);
-				$('#select-text').html('Deselect all questions');
+				$('#select-text').html('<?php echo _("Deselect all questions"); ?>');
 			});
 		} else {
 			$('.q-cb').each(function(){
 				$(this).prop('checked', false);
-				$('#select-text').html('Select all questions')
+				$('#select-text').html('<?php echo _("Select all questions"); ?>')
 			});
 		}
 	});

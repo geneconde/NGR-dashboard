@@ -490,14 +490,14 @@ $(document).ready( function () {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="studname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This column lists all students in this student group.</p>
+	<li data-id="studname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This column lists all students in this student group."); ?></p>
 	</li>
-	<li data-id="questions" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>The top row contains the <strong>Quick Checks</strong> and <strong>Quiz Questions</strong>. These are clickable and will lead to the statistics page of the activity. Scroll left and right to view all the students' data.</p>
+	<li data-id="questions" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("The top row contains the <strong>Quick Checks</strong> and <strong>Quiz Questions</strong>. These are clickable and will lead to the statistics page of the activity. Scroll left and right to view all the students' data."); ?></p>
 	</li>
-	<li data-id="totala" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>This column shows the percentage of the correct and wrong answers for a student. Note that an activity (a Quick Check or a Quiz Question) takes a value of <strong>1</strong> if all answers in that activity are correct, otherwise the value is <strong>0</strong>.</p>
+	<li data-id="totala" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _("This column shows the percentage of the correct and wrong answers for a student. Note that an activity (a Quick Check or a Quiz Question) takes a value of <strong>1</strong> if all answers in that activity are correct, otherwise the value is <strong>0</strong>."); ?></p>
 	</li>
 </ol>
 
@@ -510,8 +510,9 @@ $(document).ready( function () {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

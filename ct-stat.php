@@ -75,7 +75,7 @@
 <br/>
 <table border="0" class="result morepad">
 	<tr>
-		<td class="bold"><?php echo _("Test Title:"); ?></td>
+		<td class="bold"><?php echo _("Test Title"); ?>:</td>
 		<td>
 			<?php echo _("Cumulative Test"); ?>
 		</td>

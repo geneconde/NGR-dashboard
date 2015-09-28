@@ -34,7 +34,7 @@ td.ct_options {
 <table border="0" class="result morepad">
 	<tr>
 		<th><?php echo _("Test Name"); ?></th>
-		<th><?php echo _("ACTIVATED FOR"); ?></th>
+		<th id="grpc"><?php echo _("ACTIVATED FOR"); ?></th>
 		<th><?php echo _("Action"); ?></th>
 		<!-- <th><?php echo _("Set"); ?></th> -->
 	</tr>
@@ -71,7 +71,7 @@ td.ct_options {
 		</tr>
 	<?php endif; ?>
 </table>
-<a class="button1" href="create-ct.php"><?php echo _("Create Cumulative Test"); ?></a>
+<a class="button1" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a>
 </center>
 </div>
 <script type="text/javascript" src="scripts/chosen.jquery.js" ></script>
@@ -117,7 +117,7 @@ $(document).ready(function() {
 			success	: function(data) {
 				console.log(data);
 				if(data == 1) {
-					if(window.confirm("There are student records that are tied to this test. Editing this test would delete those student records. Are you sure you want to edit?")){
+					if(window.confirm("<?php echo _('There are student records that are tied to this test. Editing this test would delete those student records. Are you sure you want to edit?'); ?>")){
 						$.ajax({
 							type	: "POST",
 							url		: "delete-ct-records.php",
@@ -147,4 +147,38 @@ $(document).ready(function() {
 		});
 	});
 });
+</script>
+  <!-- Tip Content -->
+<ol id="joyRideTipContent">
+	<li data-id="grpc" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
+	</li>
+	<li data-class="edit-ct" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click the <strong>Edit</strong> button to edit/update the cumulative test you created."); ?></p>
+	</li>
+	<li data-class="ct-del" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to delete the cumulative test/s you created."); ?></p>
+	</li>
+	<li data-class="activate-ct" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to activate the cumulative test to one or more student groups."); ?></p>
+	</li>
+	<li data-id="cct" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to create a cumulative test."); ?></p>
+	</li>
+</ol>
+
+<script>
+  function guide() {
+  	$('#joyRideTipContent').joyride({
+      autoStart : true,
+      postStepCallback : function (index, tip) {
+      if (index == 10) {
+        $(this).joyride('set_li', false, 1);
+      }
+    },
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
+    });
+  }
 </script>

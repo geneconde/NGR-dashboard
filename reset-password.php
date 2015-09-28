@@ -57,9 +57,9 @@ table { width: 380px !important;}
 
 				</td>
 				<td>
-					<input type="text" name="password" id="password" class="editable" placeholder="Enter new password" minlength="6" required>
+					<input type="text" name="password" id="password" class="editable" placeholder="<?php echo _('Enter new password'); ?>" minlength="6" required>
 				</td>
-				<td><a onclick="generatePass();" name="generate" class="generate" >Generate</a></td>
+				<td><a onclick="generatePass();" name="generate" class="generate" ><?php echo _('Generate'); ?></a></td>
 			</tr>
 			<tr>
 				<td colspan="3">

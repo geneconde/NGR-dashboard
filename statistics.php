@@ -136,14 +136,14 @@ if($language == "ar_EG") {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="xshot" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This page shows the information and statistics of a question or activity. This is the screenshot of the activity in the actual module.</p>
+	<li data-id="xshot" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This page shows the information and statistics of a question or activity. This is the screenshot of the activity in the actual module."); ?></p>
 	</li>
-	<li data-class="p1" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This pie chart shows the percentage of the correct and wrong answers (for this item) of all the students who took the test.</p>
+	<li data-class="p1" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This pie chart shows the percentage of the correct and wrong answers (for this item) of all the students who took the test."); ?></p>
 	</li>
-	<li data-class="p2" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This pie chart shows the percentage of the students who selected the same answer for this question (Example: Out of 5 students, 2 answered A and 3 answered B. Pie chart will show 40% for A and 60% or B)</p>
+	<li data-class="p2" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This pie chart shows the percentage of the students who selected the same answer for this question (Example: Out of 5 students, 2 answered A and 3 answered B. Pie chart will show 40% for A and 60% or B)"); ?></p>
 	</li>
 </ol>
 
@@ -156,8 +156,9 @@ if($language == "ar_EG") {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

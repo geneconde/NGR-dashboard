@@ -270,31 +270,31 @@ $(document).ready(function() {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="group" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-		<p>In this page, you can initiate actions to activate/deactivate the module, as well as the pre and post diagnostic tests, for a group. The columns are defined as follows:</p>
+	<li data-id="group" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _("In this page, you can initiate actions to activate/deactivate the module, as well as the pre and post diagnostic tests, for a group. The columns are defined as follows:"); ?></p>
 		<ul style="padding-left: 20px; font-size: 14px;">
-			<li>Group - student group's name</li>
-			<li>Module Status - indicates whether a module is active or not</li>
-			<li>Pre-test - specifies the title of the pre-diagnostic test assigned to this group</li>
-			<li>Active? - indicates whether the pre-diagnostic test is active or not</li>
-			<li>Post-test - specifies the title of the post-diagnostic test assigned to this group</li>
-			<li>Active? - indicates whether the post-diagnostic test is active or not</li>
-			<li>Action - shows either <strong>Set</strong> or <strong>Edit</strong> button to activate/deactivate the module, pre-test and post-test. You can also set the time limit for both tests.</li>
+			<li><?php echo _("Group - student group's name"); ?></li>
+			<li><?php echo _("Module Status - indicates whether a module is active or not"); ?></li>
+			<li><?php echo _("Pre-test - specifies the title of the pre-diagnostic test assigned to this group"); ?></li>
+			<li><?php echo _("Active? - indicates whether the pre-diagnostic test is active or not"); ?></li>
+			<li><?php echo _("Post-test - specifies the title of the post-diagnostic test assigned to this group"); ?></li>
+			<li><?php echo _("Active? - indicates whether the post-diagnostic test is active or not"); ?></li>
+			<li><?php echo _("Action - shows either <strong>Set</strong> or <strong>Edit</strong> button to activate/deactivate the module, pre-test and post-test. You can also set the time limit for both tests."); ?></li>
 		</ul>
 		<p></p>
 	</li>
-	<li data-id="edit" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to <strong>Set</strong> or <strong>Edit</strong> the settings of the module, pre-diagnostic test and post-diagnostic test for a group.</p>
+	<li data-id="edit" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to <strong>Set</strong> or <strong>Edit</strong> the settings of the module, pre-diagnostic test and post-diagnostic test for a group."); ?></p>
 	</li>
-	<li data-id="pre-diag" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-		<p>This table shows the available pre-diagnostic tests for this module that you have created. You can create several pre-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one pre-diagnostic test.</p>
-		<p>You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well.</p>
-		<p>To create a pre-diagnostic test, click the <strong>Create Pre-Diagnostic Test</strong> button.</p>
+	<li data-id="pre-diag" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _("This table shows the available pre-diagnostic tests for this module that you have created. You can create several pre-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one pre-diagnostic test."); ?></p>
+		<p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
+		<p><?php echo _("To create a pre-diagnostic test, click the <strong>Create Pre-Diagnostic Test</strong> button."); ?></p>
 	</li>
-	<li data-id="post-test" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>This table shows the available post-diagnostic tests for this module that you have created. You can create several post-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one post-diagnostic test.</p>
-		<p>You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well.</p>
-		<p>To create a post-diagnostic test, click the <strong>Create Post-Diagnostic Test</strong> button.</p>
+	<li data-id="post-test" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _("This table shows the available post-diagnostic tests for this module that you have created. You can create several post-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one post-diagnostic test."); ?></p>
+		<p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
+		<p><?php echo _("To create a post-diagnostic test, click the <strong>Create Post-Diagnostic Test</strong> button."); ?></p>
 	</li>
 </ol>
 <script>
@@ -306,8 +306,9 @@ $(document).ready(function() {
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
   	}
 </script>

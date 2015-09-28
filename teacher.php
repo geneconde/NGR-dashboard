@@ -8,8 +8,6 @@
 	include_once 'controller/Module.Controller.php';
 	include_once 'controller/Language.Controller.php';
 	
-	if($type == 3 || $type == 4) { header("Location: subscriber/index.php"); }
-	
 	$userid 			= $user->getUserid();
 	$dtc 				= new DiagnosticTestController();
 	$ct  				= $dtc->getCumulativeTest($userid);
@@ -136,8 +134,8 @@
 	if(isset($_GET["ft"])):
 		if($_GET["ft"]==1): ?>
 			<div class="first-timer">
-				<p>It looks like this is your first time to visit your dashboard...<br/>
-				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
+				<p><?php echo _("It looks like this is your first time to visit your dashboard..."); ?><br/>
+				<?php echo _('Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.'); ?></p>
 			</div>
 		<?php
 		endif;
@@ -191,49 +189,50 @@
 
 	$_SESSION['modules'] = $teachermodules;
 ?>
+
 <div class="clear"></div>
 <!-- guide me content -->
 <ol id="joyRideTipContent">
-  <li data-id="edit-lang" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its  functions can be viewed. You can change the language anytime by selecting a language in the drop down box.</p>
+  <li data-id="edit-lang" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed. You can change the language anytime by selecting a language in the drop down box."); ?></p>
   </li>
-  <li data-id="teacher-account" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to personalize your information.</p>
+  <li data-id="teacher-account" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("Click this button to personalize your information."); ?></p>
   </li>
-  <li data-id="student-accounts" data-button="Next" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Click this button to manage account and change password of your students.</p>
+  <li data-id="student-accounts" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+    <p><?php echo _("Click this button to manage account and change password of your students."); ?></p>
   </li>
-  <li data-id="student-groups" data-button="Next" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Click this button to manage student groups. You can create groups and transfer students as well.</p>
+  <li data-id="student-groups" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+    <p><?php echo _("Click this button to manage student groups. You can create groups and transfer students as well."); ?></p>
   </li>
-  <li data-id="gm-module" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module.</p>
+  <li data-id="gm-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module."); ?></p>
   </li>
-  <li data-id="vmodule" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved.</p>
+  <li data-id="vmodule" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved."); ?></p>
   </li>
-  <li data-id="settings" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>The settings button will take you to a screen that allows you to do the following:</p>
+  <li data-id="settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("The settings button will take you to a screen that allows you to do the following:"); ?></p>
     <ul style="padding-left: 20px; font-size: 14px;">
-    	<li>Open/close the module completely for any or all groups</li>
-    	<li>Create, edit or delete a pre and/or post diagnostic test</li>
-    	<li>Open/close a pre and post diagnostic tests for the student groups</li>
-    	<li>Set time limits for the test for each student group</li>
+    	<li><?php echo _("Open/close the module completely for any or all groups"); ?></li>
+    	<li><?php echo _("Create, edit or delete a pre and/or post diagnostic test"); ?></li>
+    	<li><?php echo _("Open/close a pre and post diagnostic tests for the student groups"); ?></li>
+    	<li><?php echo _("Set time limits for the test for each student group"); ?></li>
     </ul>
     <p></p>
   </li>
-  <li data-id="results" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a "cumulative" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students.</p>
-    <p>Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group.</p>
+  <li data-id="results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a \"cumulative\" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students."); ?></p>
+    <p><?php echo _("Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group."); ?></p>
   </li>
-  <li data-id="gm-cumulative-settings" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to create a <strong>"cumulative test"</strong>. This test can cover any or all modules.<br/>Creating and administering a <strong>"cumulative test"</strong> across several modules is optional.</p>
+  <li data-id="gm-cumulative-settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _('Click this button to create a <strong>"cumulative test"</strong>. This test can cover any or all modules. Creating and administering a <strong>"cumulative test"</strong> across several modules is optional.'); ?></p>
   </li>
-  <li data-id="gm-cumulative-results" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to view the results of the cumulative tests of students.</p>
+  <li data-id="gm-cumulative-results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+    <p><?php echo _("Click this button to view the results of the cumulative tests of students."); ?></p>
   </li>
-  <li data-id="lout" data-button="Close" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard.</p>
+  <li data-id="lout" data-button="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+    <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
   </li>
 </ol>
 <script>
@@ -258,12 +257,13 @@
   	$('#joyRideTipContent').joyride({
       autoStart : true,
       postStepCallback : function (index, tip) {
-      if (index == 10) {
+      if (index == 12) {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

@@ -118,14 +118,14 @@
 <?php endif; ?>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="stdname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This column lists all students in this student group.</p>
+	<li data-id="stdname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This column lists all students in this student group."); ?></p>
 	</li>
-	<li data-id="qtns" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>The heading represents the question items. Click the heading to show the statistics for that question. Scroll left and right to view all the students' information. Note that each question takes the value of 1 for the correct answer and 0 for the wrong answer.</p>
+	<li data-id="qtns" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("The heading represents the question items. Click the heading to show the statistics for that question. Scroll left and right to view all the students' information. Note that each question takes the value of 1 for the correct answer and 0 for the wrong answer."); ?></p>
 	</li>
-	<li data-id="ttl" 			data-text="Close" data-options="tipLocation:left;tipAnimation:fade;modal:true;expose: true">
-		<p>This column shows the percentage of the correct answer vs. the total number of questions taken in this test/module.</p>
+	<li data-id="ttl" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade;modal:true;expose: true">
+		<p><?php echo _("This column shows the percentage of the correct answer vs. the total number of questions taken in this test/module."); ?></p>
 	</li>
 </ol>
 
@@ -166,9 +166,10 @@ function guide() {
 	    $(this).joyride('set_li', false, 1);
 	  }
 	},
-	// modal:true,
-	// expose: true
-});
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
+    });
 }
 </script>
 <?php require_once "footer.php"; ?>

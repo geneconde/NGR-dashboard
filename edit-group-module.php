@@ -205,7 +205,7 @@
 								foreach($test_set as $test):
 									if($test['mode'] == 2):
 							?>
-									<option <?php if($gm[0]['pretest_id'] == $test['dt_id']): ?> selected <?php endif; ?> value="<?php echo $test['dt_id']; ?>">
+									<option <?php if($gm[0]['posttest_id'] == $test['dt_id']): ?> selected <?php endif; ?> value="<?php echo $test['dt_id']; ?>">
 										<?php echo $test['test_name']; ?>
 									</option>
 							<?php 
@@ -269,14 +269,14 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="tr" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Select a pre-diagnostic test and post-diagnostic test for this student group and set the time limit for each test. The default time limit is set at 45 minutes.</p>
+	<li data-id="tr" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Select a pre-diagnostic test and post-diagnostic test for this student group and set the time limit for each test. The default time limit is set at 45 minutes."); ?></p>
 	</li>
-	<li data-id="stat" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>You can activate/deactivate the tests by clicking the ON/OFF switch.</p>
+	<li data-id="stat" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("You can activate/deactivate the tests by clicking the ON/OFF switch."); ?></p>
 	</li>
-	<li data-id="save" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click 'Save changes' to update your settings.</p>
+	<li data-id="save" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click 'Save changes' to update your settings."); ?></p>
 	</li>
 </ol>
 <script>
@@ -288,8 +288,9 @@ function guide() {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
 }
 $(document).ready(function() {

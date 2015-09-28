@@ -139,23 +139,23 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="create-group" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to create a new group. Enter the group name and click <strong>Create</strong>. This step is optional but be reminded that you cannot transfer students to other groups if you don't create one.</p>
+	<li data-id="create-group" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to create a new group. Enter the group name and click <strong>Create</strong>. This step is optional but be reminded that you cannot transfer students to other groups if you don't create one."); ?></p>
 	</li>
-	<li data-class="suser" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>To transfer students to another group, select the checkbox beside the student's username. You can also click on the first checkbox to select all students.</p>
+	<li data-class="suser" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("To transfer students to another group, select the checkbox beside the student's username. You can also click on the first checkbox to select all students."); ?></p>
 	</li>
-	<li data-class="grps" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade;">
-		<p>Select a group where you want the students to be transferred to.</p>
+	<li data-class="grps" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade;">
+		<p><?php echo _("Select a group where you want the students to be transferred to."); ?></p>
 	</li>
-	<li data-class="transfer" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to transfer your students to the new/other group.</p>
+	<li data-class="transfer" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to transfer your students to the new/other group."); ?></p>
 	</li>
-	<li data-class="delete" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to delete a group. All students from the deleted group will go to the "Unassigned" table.</p>
+	<li data-class="delete" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _('Click this button to delete a group. All students from the deleted group will go to the "Unassigned" table.'); ?></p>
 	</li>
-	<li data-class="edit" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Cilck this button to update the name of the group.</p>
+	<li data-class="edit" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to update the name of the group."); ?></p>
 	</li>
 </ol>
 <script>
@@ -237,9 +237,10 @@ function guide() {
 	    $(this).joyride('set_li', false, 1);
 	  }
 	},
-	// modal:true,
-	// expose: true
-	});
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
+    });
 }
 </script>
 <?php require_once "footer.php"; ?>

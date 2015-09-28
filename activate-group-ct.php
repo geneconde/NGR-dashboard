@@ -68,7 +68,7 @@
 				success : function(data) {
 					
 					if(data == 1) {
-						if(window.confirm("This group has another cumulative test activated. Do you want to deactivate that test?")){
+						if(window.confirm("<?php echo _('This group has another cumulative test activated. Do you want to deactivate that test?'); ?>")){
 							$.ajax({
 								type	: "POST",
 								url		: "deactivate-group-ct.php",
@@ -86,11 +86,11 @@
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="gcheck" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the checkbox of the group you want the cumulative test to be activated for.</p>
+	<li data-id="gcheck" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
 	</li>
-	<li data-id="activate" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to save your changes.</p>
+	<li data-id="activate" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to save your changes."); ?></p>
 	</li>
 </ol>
 
@@ -103,8 +103,9 @@
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

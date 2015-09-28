@@ -181,11 +181,11 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="check-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the box (on the left) of the language/s you want to activate. Choose the default language you want to use by clicking the radio button on the right.  Note that the default language is set to English when you first log in.</p>
+	<li data-id="check-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click the box (on the left) of the language/s you want to activate. Choose the default language you want to use by clicking the radio button on the right.  Note that the default language is set to English when you first log in."); ?></p>
 	</li>
-	<li data-class="submit-language" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the <strong>Submit</strong> button to save your changes.</p>
+	<li data-class="submit-language" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click the <strong>Submit</strong> button to save your changes."); ?></p>
 	</li>
 </ol>
 
@@ -199,8 +199,9 @@ $.noConflict();
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

@@ -59,6 +59,8 @@ ini_set('display_errors', 1);
 	$last_name = _('Last Name');
 	$gender = _('Gender');
 	$grade_level = _('Grade Level');
+	$reset_student_password = _('Reset Student password');
+	$reset_password = _('Reset password');
 	$student_portfolio = _('Student Portfolio');
 	$student_information = _('Student Information');
 	$view_portfolio = _('View Portfolio');
@@ -183,7 +185,7 @@ ini_set('display_errors', 1);
 
 	$col = array();
 	$col["title"] = $grade_level; // caption of column
-	$col["name"]  = "grade_level";
+	$col["name"] = "grade_level"; 
 	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Level...')); 
 	$col["width"] = "15";
 	$col["editable"] = true;
@@ -201,7 +203,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Reset Student password";
+	$col["title"] = $reset_student_password;
 	$col["name"] = "reset_pword";
 	$col["width"] = "25";
 	$col["align"] = "center";
@@ -209,7 +211,7 @@ ini_set('display_errors', 1);
 	$col["sortable"] = false;
 	$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
 	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
-	$col["default"] = "Reset password"; // default link text
+	$col["default"] = $reset_password; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
@@ -440,7 +442,14 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-	
+	<?php
+	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 </head>
 
 <body>
@@ -550,7 +559,7 @@ ini_set('display_errors', 1);
 			</div> -->
 			<div style="margin:10px 0">
 				<?php echo $main_view; ?>
-				<p><br/>* <?php echo _('Note: If the students request for a password reset, please change the student\'s password to something that\'s easy to remember. Once the spreadsheet is updated, the student will be able to use the new password.'); ?></p>
+				<p><br/>* <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 			</div>
 		</div>
 	</div>
@@ -562,9 +571,9 @@ ini_set('display_errors', 1);
 				<?php //$difference = $user->getStudents() - $student_count; ?>
 				<p><?php echo _('You have already created') ?> <?php echo $student_count . '/' . $student_limit; ?> <?php echo _('students'); ?></p><br/>
 				<label><?php echo _('Student'); ?></label>:
-				<input type="text" value="" name="student_num" placeholder="Input number of students you want to add" class="validate[required,custom[integer]]"><br/>
+				<input type="text" value="" name="student_num" placeholder="<?php echo _('Input number of students you want to add'); ?>" class="validate[required,custom[integer]]"><br/>
 		        <input type="submit" id="addmultiplebutton" class="button" name="addmultiple" value="Submit">
-		        <a id="cancelbutton2" class="button">Cancel</a>
+		        <a id="cancelbutton2" class="button"><?php echo _('Cancel'); ?></a>
 		    </form>
         </div>
     </div>	
@@ -572,33 +581,33 @@ ini_set('display_errors', 1);
 	</div>
 	<!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="jqgh_list1_username" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To update information, you can do any of the following:</p>
-			<p>1. Double click on a cell to update the information then click Enter</p>
+		<li data-id="jqgh_list1_username" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
 		</li>
-		<li data-class="ui-custom-icon" 			data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+		<li data-class="ui-custom-icon" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
+			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 		</li>
-		<li data-class="cbox" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+		<li data-class="cbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
 		</li>
-		<li data-id="cb_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
+		<li data-id="cb_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
 		</li>
-		<li data-id="search_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+		<li data-id="search_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
 		</li>
-		<li data-class="ui-icon-extlink" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+		<li data-class="ui-icon-extlink" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
 		</li>
-		<li data-id="next_list1_pager" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Go to the next set of students by clicking the left and right arrows; or</p>
+		<li data-id="next_list1_pager" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
 		</li>
-		<li data-class="ui-pg-input" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Type in the page number and press Enter.</p>
+		<li data-class="ui-pg-input" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
 		</li>
-		<li data-class="ui-pg-selbox" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-			<p>You can also modify the number of students you want to show in a page.</p>
+		<li data-class="ui-pg-selbox" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
 		</li>
     </ol>
 	<!-- start footer -->
@@ -692,13 +701,14 @@ ini_set('display_errors', 1);
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
 	  }
 
 	function cdl(event, element){
-		var cdl = confirm("Are you sure you want to delete this student account?");
+		var cdl = confirm('<?php echo _("Are you sure you want to delete this student account?"); ?>');
 		if(!cdl){
 			event.stopPropagation();
 		}

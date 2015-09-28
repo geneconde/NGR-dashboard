@@ -50,6 +50,14 @@ ini_set('display_errors', 1);
 	$grid = new jqgrid();
 
 	/** Main Grid Table **/
+	$username = _('Username');
+	$first_name = _('First Name');
+	$last_name = _('Last Name');
+	$grade_level = _('Grade Level');
+	$caption = _('Floating Accounts');
+	$teacher = _('Teacher');
+	$type = _('Type');
+
 	$col = array();
 	$col["title"] = "User ID"; // caption of column
 	$col["name"] = "user_id";
@@ -61,7 +69,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Username";
+	$col["title"] = $username;
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -84,7 +92,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "First Name";
+	$col["title"] = $first_name;
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -95,7 +103,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Last Name";
+	$col["title"] = $last_name;
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
@@ -117,13 +125,13 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Type";
+	$col["title"] = $type;
 	$col["name"]  = "type";
 	$col["editable"] = false;
 	$col["width"] = "20";
 	$col["search"] = true;
 	$col["stype"] = "select";
-	$col["searchoptions"] = array("value"=>'0:Teacher;4:Sub-Admin');
+	$col["searchoptions"] = array("value"=>'0:'.$teacher.';4:Sub-Admin');
 	$col["viewable"] = true;
 	$col["editrules"] = array("edithidden"=>hidden);
 	$col["show"] = array("list"=>true, "add"=>true, "edit"=>false, "view"=>true); // disable editing of type in edit form
@@ -140,7 +148,7 @@ ini_set('display_errors', 1);
 		switch($type)
 		{
 			case '0':
-				$val = "Teacher";
+				$val = _('Teacher');
 				$teach = 1;
 			break;
 
@@ -149,7 +157,7 @@ ini_set('display_errors', 1);
 			break;
 
 			case '2':
-				$val = "Student";
+				$val = _('Student');
 			break;
 
 			case '3':
@@ -204,7 +212,7 @@ ini_set('display_errors', 1);
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
-	$opt["caption"] = "Floating Accounts";
+	$opt["caption"] = $caption;
 	$opt["height"] = "";
 	$opt["autowidth"] = true; // expand grid to screen width
 	$opt["multiselect"] = true; // allow you to multi-select through checkboxes
@@ -212,8 +220,8 @@ ini_set('display_errors', 1);
 	$opt["reloadedit"] = true;
 
 	//Export Options
-	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Student Information";
+	$opt["export"] = array("filename"=>"Floating Accounts", "heading"=>"Floating Accounts", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Floating Accounts";
 	$opt["export"]["range"] = "filtered";
 	$opt["reloadedit"] = true;
 
@@ -284,6 +292,14 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+	<?php
+	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 
 	<style>
 	.fleft { margin-top: -16px; }
@@ -321,15 +337,6 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-
-	<?php
-	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
-	<?php }
-	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
-	<?php }
-	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
-	<?php }
-	?>
 </head>
 
 <body>
@@ -374,18 +381,17 @@ ini_set('display_errors', 1);
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, you can manage all floating accounts."); ?>
-	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
-				<h1>List of Floating Accounts</h1>
-				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				<h1><?php echo _('List of Floating Accounts'); ?></h1>
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
-					<a href="statistics.php" class="link" style="display: inline-block;">Statistics</a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |
-					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
-					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a>   
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |
+					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a>   
 				</div>
 			</div>		
 			<div class="clear"></div>
@@ -410,36 +416,33 @@ ini_set('display_errors', 1);
 	</div>	
 		<!-- Tip Content -->
 	    <ol id="joyRideTipContent">
-			<li data-id="jqgh_list1_username" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>To update information, you can do any of the following:</p>
-				<p>1. Double click on a cell to update the information then click Enter</p>
+			<li data-id="jqgh_list1_username" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+				<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+				<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
 			</li>
-			<li data-class="ui-custom-icon" data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-				<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+			<li data-class="ui-custom-icon" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
+				<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 			</li>
-			<li data-class="cbox" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-				<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+			<li data-class="cbox" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+				<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
 			</li>
-			<li data-id="cb_list1" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-				<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
+			<li data-id="cb_list1" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+				<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
 			</li>
-			<li data-class="ui-icon-search" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-				<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+			<li data-class="ui-icon-search" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+				<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
 			</li>
-			<li data-class="ui-icon-extlink" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+			<li data-class="ui-icon-extlink" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+				<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
 			</li>
-			<li data-id="next_list1_pager" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>Go to the next set of students by clicking the left and right arrows; or</p>
+			<li data-id="next_list1_pager" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+				<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
 			</li>
-			<li data-class="ui-pg-input" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-				<p>Type in the page number and press Enter.</p>
+			<li data-class="ui-pg-input" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+				<p><?php echo _('Type in the page number and press Enter.'); ?></p>
 			</li>
-			<li data-class="ui-pg-selbox" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-				<p>You can also modify the number of accounts you want to show in a page.</p>
-			</li>
-			<li data-class="c-link" data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-				<p>You may also view the portfolio of student.</p>
+			<li data-class="ui-pg-selbox" data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+				<p><?php echo _('You can also modify the number of accounts you want to show in a page.'); ?></p>
 			</li>
 	    </ol>
 	</div> <!-- End of content -->
@@ -474,8 +477,9 @@ ini_set('display_errors', 1);
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
 	  }
 

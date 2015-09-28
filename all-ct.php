@@ -43,8 +43,8 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-class="ct-del" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to view the cumulative test results of all your students.</p>
+	<li data-class="ct-del" data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to view the cumulative test results of all your students."); ?></p>
 	</li>
 </ol>
 <script>
@@ -56,8 +56,9 @@
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

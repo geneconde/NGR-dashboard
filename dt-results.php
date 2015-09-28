@@ -56,7 +56,7 @@
 		$id = $test[0]['user_id'];
 	}
 
-if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
+if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 	</br><a class="link" href="student.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 	<div id="on_going">
 		<h1>This Page is temporary unavailable because you are taking  your exam.</h1>
@@ -165,7 +165,7 @@ if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
 						endif;
 					endforeach;
 
-					if(!$match) echo "Student Answer: <span class=\"s-answer\"></span>{$sanswer}<br>";
+					if(!$match) echo _("Student Answer:") . "<span class=\"s-answer\"></span>{$sanswer}<br>";
 				?>
 				</td>
 			</tr>
@@ -276,11 +276,11 @@ $(document).ready(function() {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to print this page.</p>
+	<li data-id="printfriendly" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _('Click here to print this page.'); ?></p>
 	</li>
-	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to email this page/results.</p>
+	<li data-id="email-btn" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _('Click here to email this page/results.'); ?></p>
 	</li>
 </ol>
 
@@ -293,8 +293,9 @@ $(document).ready(function() {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

@@ -26,7 +26,11 @@
 
 ?>
 
-<style> .guide { display: none; } </style>
+<style>
+	.guide { display: none; }
+	.take-box { text-transform: uppercase; }
+	.module-menu a { font-size: 15px !important; }
+</style>
 <div class="grey"></div>
 <br/>
 <a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
@@ -73,7 +77,7 @@
 			//if($module['module_ID'] == $sm['module_id']):
 				array_push($teachermodules, $module['module_ID']); ?>
 				<div class="module-box teacher-mb">
-					<span><?php echo $module['category']; ?></span>
+					<span><?php echo _($module['category']); ?></span>
 					<!-- <span class="desc-btn"><?php echo _("Overview"); ?></span> -->
 					
 					<div class="mod-desc">
@@ -84,8 +88,8 @@
 					<h2><?php echo _($module['module_name']); ?></h2>
 					<br/>
 					<div class="module-menu">
-						<span class="take-box desc-btn"><?php echo _("OVERVIEW"); ?></span>
-						<a class="take-box" href="../demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("MODULE"); ?></a>
+						<span class="take-box desc-btn"><?php echo _("Overview"); ?></span>
+						<a class="take-box" href="../demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a>
 					</div>
 					<div class="clear"></div>
 					<br>

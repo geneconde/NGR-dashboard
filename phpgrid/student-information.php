@@ -16,7 +16,6 @@
 
 	$sgc 		= new StudentGroupController();
 	$groups		= $sgc->getGroups($userid);
-
 	$groupHolder = $sgc->getGroups($userid);
 	$groupID = $groupHolder[0]['group_id'];
 	$groupNameHolder = $sgc->getGroupName($groupID);
@@ -199,18 +198,6 @@ $col["hidden"] = true;
 $col["editrules"] = array("edithidden"=>false); 
 $cols[] = $col;
 
-// $col = array();
-// $col["title"] = $student_portfolio;
-// $col["name"] = "view_more";
-// $col["width"] = "25";
-// $col["align"] = "center";
-// $col["search"] = false;
-// $col["sortable"] = false;
-// $col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
-// $col["default"] = $view_portfolio; // default link text
-// $cols[] = $col;
-
 $col = array();
 $col["title"] = "Create Date";
 $col["name"] = "create_date"; 
@@ -390,6 +377,14 @@ $main_view = $grid->render("list1");
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
+	<?php
+	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 
 </head>
 
@@ -411,14 +406,14 @@ $main_view = $grid->render("list1");
 	<div class='lgs-container'>
 	<form action="../update-group-student.php" method="post" >
 		<div class="center"><br/>
-	 		<h1 class="lgs-text">Let's Get Started</h1>
-			<p class="lgs-text-sub heading-input step step2">Step 2: Your Students</p>
-			<p class="lgs-text-sub heading-input">Student Group</p>
-			<p class="lgs-text-sub note">We have set up a default group for your students. You can rename this group below.</p>
-			<p class="input-label" align="left">Default group name</p>
+	 		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>
+			<p class="lgs-text-sub heading-input step step2"><?php echo _("Step 2: Your Students"); ?></p>
+			<p class="lgs-text-sub heading-input"><?php echo _("Student Group"); ?></p>
+			<p class="lgs-text-sub note"><?php echo _("We have set up a default group for your students. You can rename this group below."); ?></p>
+			<p class="input-label" align="left"><?php echo _("Default group name"); ?></p>
 			<p align="left"><input class="inputText" id="group" name="group" type="text" maxlength="60" value="<?php echo $group_name; ?>"/></p>
-			<p class="lgs-text-sub heading-input">Student List</p>
-			<p class="lgs-text-sub note">Your student accounts are listed below. You can enter your students' information now or have your students enter their information when they first log in.<br/><br/>(Note: This student spreadsheet can be accessed and updated anytime by clicking the "Student Accounts" button at the top right of the dashboard)</p>
+			<p class="lgs-text-sub heading-input"><?php echo _("Student List"); ?></p>
+			<p class="lgs-text-sub note"><?php echo _("Your student accounts are listed below. You can enter your students' information now or have your students enter their information when they first log in."); ?><br/><br/><?php echo _('(Note: This student spreadsheet can be accessed and updated anytime by clicking the "Student Accounts" button at the top right of the dashboard)'); ?></p>
 
 			<script>
 				var opts = {
@@ -436,9 +431,9 @@ $main_view = $grid->render("list1");
 			<div>
 				<?php echo $main_view; ?>
 			</div>
-			<input name="Submit" class="nbtn next" type="submit" value="Next" />
-			<a class="nbtn skip" href="../modules.php" id="btnm">Skip</a>
-			<a class="nbtn back" href="../account-update.php">Back</a>
+			<input name="Submit" class="nbtn next" type="submit" value="<?php echo _('Next'); ?>" />
+			<a class="nbtn skip" href="../modules.php" id="btnm"><?php echo _('Skip'); ?></a>
+			<a class="nbtn back" href="../account-update.php"><?php echo _('Back'); ?></a>
 		</div>
 	</form>
 	</div>	
@@ -446,39 +441,39 @@ $main_view = $grid->render("list1");
 	</div>
 	<!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="group" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>We created a default student group for you named <strong>"Default Group"</strong>. You can change the name of this group or leave it as it is. All student accounts created for you are included in this group.</p>
+		<li data-id="group" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('We created a default student group for you named <strong>"Default Group"</strong>. You can change the name of this group or leave it as it is. All student accounts created for you are included in this group.'); ?></p>
 		</li>
-		<li data-id="jqgh_list1_username" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To update information, you can do any of the following:</p>
-			<p>1. Double click on a cell to update the information then click Enter</p>
+		<li data-id="jqgh_list1_username" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
 		</li>
-		<li data-class="ui-custom-icon" 			data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+		<li data-class="ui-custom-icon" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
+			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or'); ?></p>
 		</li>
-		<li data-class="cbox" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+		<li data-class="cbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
 		</li>
-		<li data-id="cb_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
+		<li data-id="cb_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
 		</li>
-		<li data-id="search_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+		<li data-id="search_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
 		</li>
-		<li data-class="ui-icon-extlink" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+		<li data-class="ui-icon-extlink" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
 		</li>
-		<li data-id="next_list1_pager" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Go to the next set of students by clicking the left and right arrows; or</p>
+		<li data-id="next_list1_pager" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
 		</li>
-		<li data-class="ui-pg-input" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Type in the page number and press Enter.</p>
+		<li data-class="ui-pg-input" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
 		</li>
-		<li data-class="ui-pg-selbox" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>You can also modify the number of students you want to show in a page.</p>
+		<li data-class="ui-pg-selbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
 		</li>
-		<li data-id="btnm" 			data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-			<p>Click the <strong>Skip</strong> button if you have no changes. Click <strong>Next</strong> to save your changes and go to the next page.</p>
+		<li data-id="btnm" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+			<p><?php echo _('Click the <strong>Skip</strong> button if you have no changes. Click <strong>Next</strong> to save your changes and go to the next page.'); ?></p>
 		</li>
     </ol>
 
@@ -513,8 +508,9 @@ $main_view = $grid->render("list1");
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
 	  }
 	</script>

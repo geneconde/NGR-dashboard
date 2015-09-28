@@ -170,14 +170,14 @@ ini_set('display_errors', 0);
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
-				<h1>Statistics</h1>
-				<p class="fleft"><?php echo _(' * Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				<h1><?php echo _('Statistics'); ?></h1>
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;">Unassigned Students</a> |	
-					<a href="manage-students.php" class="link" style="display: inline-block;">Manage All Students</a> |
-					<a href="index.php" class="link" style="display: inline-block;">Manage Sub-Admin</a> |		
-					<a href="floating-accounts.php" class="link" style="display: inline-block;">Floating Accounts</a>
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |	
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> |		
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -189,9 +189,9 @@ ini_set('display_errors', 0);
 				<table cellpadding="0" cellspacing="0" border="0" class="display" id="stats">
 					<thead>
 						<tr>
-							<th rowspan="2" class="pn">Teacher name</th>
+							<th rowspan="2" class="pn"><?php echo _('Teacher name'); ?></th>
 							<?php foreach ($all_modules as $module) : ?>
-								<th colspan="2"><?php echo $module['module_name']; ?></th>
+								<th colspan="2"><?php echo _($module['module_name']); ?></th>
 							<?php endforeach; ?>
 						</tr>
 						<tr>
@@ -275,7 +275,7 @@ ini_set('display_errors', 0);
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Average:</th>
+							<th><?php echo _('Average'); ?>:</th>
 							<?php foreach ($all_modules as $module) : ?>
 								<?php
 									$pre_total = "0%";
@@ -298,9 +298,9 @@ ini_set('display_errors', 0);
 				<table cellpadding="0" cellspacing="0" border="0" class="display" id="stats">
 					<thead>
 						<tr>
-							<th rowspan="2" class="pn">Principal name</th>
+							<th rowspan="2" class="pn"><?php echo _('Principal name'); ?></th>
 							<?php foreach ($all_modules as $module) : ?>
-								<th colspan="2"><?php echo $module['module_name']; ?></th>
+								<th colspan="2"><?php echo _($module['module_name']); ?></th>
 							<?php endforeach; ?>
 						</tr>
 						<tr>
@@ -409,7 +409,7 @@ ini_set('display_errors', 0);
 					</tbody>
 					<tfoot>
 						<tr>
-							<th>Average:</th>
+							<th><?php echo _('Average'); ?>:</th>
 							<?php foreach ($all_modules as $module) : ?>
 								<?php
 									$pre_total = "0%";
