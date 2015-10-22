@@ -212,7 +212,6 @@ ini_set('display_errors', 1);
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
 	$opt["reloadedit"] = true;
-
 	$grid->set_options($opt);
 
 	$e["on_update"] = array("update_student", null, true);
@@ -222,6 +221,7 @@ ini_set('display_errors', 1);
 	{
 		$data['params']['subhead_id'] = 0;
 		$data['params']['type'] = 2;
+		$data["params"]["username"] = trim($data["params"]["username"]);
 	}
 
 	$grid->debug = 0;

@@ -232,14 +232,13 @@ ini_set('display_errors', 1);
 
 	function update_teach($data)
 	{
-		$data = $data['params']['teacher_id'] = 0;
-		return $data;
+		$data['params']['teacher_id'] = 0;
+		$data["params"]["username"] = trim($data["params"]["username"]);
 	}
 
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 	/*echo '<h1>'. $sub->getStudents() . '</h1>';*/
-
 
 	if($sub->getStudents() <= $student_count) :
 		

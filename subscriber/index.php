@@ -351,7 +351,6 @@ ini_set('display_errors', 1);
 				$result = mysql_query($q);
 				$count = mysql_num_rows($result);				
 				
-
 				if ($count != 0) 
 				{
 					$grid->select_command = $q;
@@ -412,6 +411,14 @@ ini_set('display_errors', 1);
 			} 	
 		}		
 	}
+
+	$e["on_update"] = array("update_client", null, true); 
+	$grid->set_events($e); 
+	function update_client($data) 
+	{
+		$data["params"]["username"] = trim($data["params"]["username"]);
+	} 
+
 		//For exporting
 		$opt["caption"] = $accounts;
 		$opt["height"] = "";
@@ -459,7 +466,6 @@ ini_set('display_errors', 1);
 		} else {
 			header("Location: manage-students.php?err=2");
 		}
-			
 	}
 
 
@@ -483,6 +489,7 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
+	<script src="../scripts/jquery.mask.min.js"></script>
 	<?php
 	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }

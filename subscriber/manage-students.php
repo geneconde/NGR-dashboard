@@ -246,7 +246,13 @@ ini_set('display_errors', 1);
 	$grid->set_options($opt);
 
 	$e["on_insert"] = array("add_student", null, true);
+	$e["on_update"] = array("update_student", null, true);
 	$grid->set_events($e);
+
+	function update_student($data)
+	{
+		$data["params"]["username"] = trim($data["params"]["username"]);
+	}
 
 	$_SESSION["sid"] = $subid;
 	$_SESSION["count"] = $student_count;

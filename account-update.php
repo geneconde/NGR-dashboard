@@ -154,6 +154,8 @@ $(document).ready(function() {
 	
 	$('#Username').focusout(function() {
 		var uid = $(this).val();
+		uid = $.trim(uid);
+		$('#Username').val(uid);
 		if(uid != olduname) {
 			$.ajax({
 				type	: "POST",

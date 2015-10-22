@@ -189,10 +189,10 @@ $col["editrules"] = array("edithidden"=>false);
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "Trial User ID";
-$col["name"]  = "demo_id";
+$col["title"] = "Subscriber ID";
+$col["name"]  = "subscriber_id";
 $col["editable"] = true;
-$col["editoptions"] = array("defaultValue"=>"$demoid","readonly"=>"readonly", "style"=>"border:0");
+$col["editoptions"] = array("defaultValue"=>"$userid","readonly"=>"readonly", "style"=>"border:0");
 $col["viewable"] = false;
 $col["hidden"] = true;
 $col["editrules"] = array("edithidden"=>false); 
@@ -262,9 +262,17 @@ $opt["reloadedit"] = true;
 $opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
 $opt["export"]["sheetname"] = "Student Information";
 $opt["export"]["range"] = "filtered";
-
 $grid->set_options($opt);
-$grid->debug = 0;
+
+$e["on_update"] = array("update_student", null, true);
+$grid->set_events($e);
+
+function update_student($data)
+{
+	$data["params"]["username"] = trim($data["params"]["username"]);
+}
+
+$grid->debug = 1;
 $grid->error_msg = "Username Already Exists.";
 $grid->set_actions(array(
 			"add"=>false, // allow/disallow add
@@ -324,6 +332,7 @@ $main_view = $grid->render("list1");
 		.ui-icon {
 		  display: inline-block !important;
 		}
+		.phpgrid input { width: 90% !important; }
 		<?php if($language == "ar_EG") { ?>
 		.tguide { float: right; }
 		<?php } ?>
@@ -428,7 +437,7 @@ $main_view = $grid->render("list1");
 				};	
 			</script>
 
-			<div>
+			<div class="phpgrid">
 				<?php echo $main_view; ?>
 			</div>
 			<input name="Submit" class="nbtn next" type="submit" value="<?php echo _('Next'); ?>" />

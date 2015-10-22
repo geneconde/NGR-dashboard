@@ -264,8 +264,16 @@ ini_set('display_errors', 1);
 	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
-
 	$grid->set_options($opt);
+
+	$e["on_update"] = array("update_student", null, true);
+	$grid->set_events($e);
+
+	function update_student($data)
+	{
+		$data["params"]["username"] = trim($data["params"]["username"]);
+	}
+
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 
@@ -373,6 +381,7 @@ ini_set('display_errors', 1);
 		  display: inline-block !important;
 		}
 		#delmodlist1 { width: auto !important; }
+		.phpgrid input { width: 90% !important; }
 		<?php if($language == "ar_EG") { ?>
 		.tguide { float: right; }
 		<?php } ?>
@@ -442,6 +451,8 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.mask.min.js"></script>
+    
 	<?php
 	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }
@@ -557,7 +568,7 @@ ini_set('display_errors', 1);
 			<!-- <div style="margin:10px 0">
 				<?php echo $excel_view; ?>
 			</div> -->
-			<div style="margin:10px 0">
+			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
 				<p><br/>* <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 			</div>
