@@ -33,18 +33,36 @@ ini_set('display_errors', 0);
 	$mc = new ModuleController();
 	$all_modules = $mc->getAllModules();
 
-	$query = "SELECT * from users where type=4 and subscriber_id=$subid";
-
-	$subscriber_no_subhead = $uc->select_custom($query);
-
-	$query = "SELECT * from users where type=0 and subscriber_id=$subid";
-	$teachers = $uc->select_custom($query);
 	$subheads = array();
 	$is2ndLayer = $user->getSubheadid();
 
-	if($usertype==3 || ($usertype==4 and empty($is2ndLayer))){
+	if(isset($_GET['u'])){
+		$getU = $_GET['u'];
+		$gotU = $uc->getUserByUN($getU);
+		if(sizeof($gotU)<=0){
+			header("Location: statistics.php");
+		} else {
+			$gotUserID = $gotU[0]['user_ID'];
+
+			$teachers = array();
+			$query = "SELECT * from users where subscriber_id=$subid and subhead_id=".$gotUserID;
+			$under_sub = $uc->select_custom($query);
+			foreach ($under_sub as $value) {
+				if($value['type'] == 0){
+					array_push($teachers, $value);
+				}
+				if($value['type'] == 4){
+					$result = getTeachers($value['user_ID'],$subid);
+					foreach ($result as $value) {
+						array_push($teachers, $value);
+					}
+				}
+			}
+		}
+	}
+	else if($usertype==3 || ($usertype==4 and empty($is2ndLayer))){
 		$teachers = array();
-		$query = "SELECT * from users where type=4 and subscriber_id=$subid and subhead_id is null";
+		$query = "SELECT * from users where (type=4 or type=0) and subscriber_id=$subid and subhead_id is null";
 		if($usertype==4 and empty($is2ndLayer)) $query = "SELECT * from users where subscriber_id=$subid and subhead_id=$userid";
 		$check_for_subadmin = $uc->select_custom($query);
 		foreach ($check_for_subadmin as $value) {
@@ -95,9 +113,6 @@ ini_set('display_errors', 0);
 		}
 		return $arr;
 	}
-	// echo "<pre>";
-	// print_r($subheads);
-	// echo "</pre>";
 ?>
 
 <!DOCTYPE html>
@@ -121,6 +136,12 @@ ini_set('display_errors', 0);
     .pn { background: #fff !important; }
     table { border: solid 1px #a0a0a0; }
     td, th { border-left: solid 1px #a0a0a0; border-right: solid 1px #a0a0a0; }
+    .even_gradeC a,
+    .even_gradeC a:visited,
+    .even_gradeC a:focus,
+    .even_gradeC a:hover
+    { color: #000; text-decoration: none; }
+    .fleft.back { margin-bottom: -15px; }
 	</style>
 
 	<link rel="stylesheet" href="css/jquery.dataTables.css" />
@@ -171,14 +192,24 @@ ini_set('display_errors', 0);
 		<div id="wrap">
 			<div class="sub-headers">
 				<h1><?php echo _('Statistics'); ?></h1>
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
+				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+				<br><br>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |	
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |
-					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> |		
-					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
+					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
 				</div>
+				<div class="clear"></div>
+				<?php if(isset($_GET['u'])) : ?>
+				<div class="fleft back">
+					<a href="statistics.php" class="link"><?php echo _('Back'); ?></a>
+				</div>
+				<?php endif; ?>
 			</div>
 			<div class="clear"></div>
 
@@ -291,14 +322,14 @@ ini_set('display_errors', 0);
 						</tr>
 					</tfoot>
 				</table>
-			<?php elseif (sizeof($subheads) >= 1 || ($usertype==4 and !empty($is2ndLayer))) : ?>
 				<!-- end for department -->
 
 				<!-- start for main -->
+				<?php elseif (sizeof($subheads) >= 1 || ($usertype==4 and !empty($is2ndLayer))) : ?>
 				<table cellpadding="0" cellspacing="0" border="0" class="display" id="stats">
 					<thead>
 						<tr>
-							<th rowspan="2" class="pn"><?php echo _('Principal name'); ?></th>
+							<th rowspan="2" class="pn"><?php echo _('Head/Sub-Admin'); ?></th>
 							<?php foreach ($all_modules as $module) : ?>
 								<th colspan="2"><?php echo _($module['module_name']); ?></th>
 							<?php endforeach; ?>
@@ -317,7 +348,14 @@ ini_set('display_errors', 0);
 						?>
 						<?php foreach ($subheads as $key => $sub) : ?>
 							<tr class="even_gradeC" id="4">
-								<td><?php echo $key; ?></td>
+								<td>
+								<?php $check = $uc->getUserByUN($key); ?>
+								<?php if($check[0]['type'] == '4'){ ?>
+									<a href='statistics.php?u=<?php echo $key; ?>'><?php echo $key; ?></a>
+								<?php } else { ?>
+									<?php echo $key; ?>
+								<?php } ?>
+								</td>
 							<?php
 								$total_arr = array();
 								$total_arr2 = array();

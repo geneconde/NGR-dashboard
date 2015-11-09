@@ -429,6 +429,15 @@ class UserController {
 		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
 		return $custom_query;
 	}
+
+	public function getUserByUN($username) {
+		$where = array();
+		$where['username'] = $username;
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where);
+		return $result;
+	}
 	
 	public function hashPassword($password){
 		$salt = sha1(md5($password));

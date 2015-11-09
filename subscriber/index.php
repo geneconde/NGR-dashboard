@@ -93,7 +93,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Username...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true;
@@ -190,7 +190,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter First Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -202,7 +202,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Last Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -486,10 +486,13 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+	<?php
+	if($_GET['type']=='0'){
+		echo '<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en-students.js" type="text/javascript"></script>';
+	} else { echo '<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>'; }
+	?>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-	<script src="../scripts/jquery.mask.min.js"></script>
 	<?php
 	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }
@@ -500,7 +503,6 @@ ini_set('display_errors', 1);
 	?>
 
 	<style>
-	.fleft { margin-top: -16px; }
 	.guide {
 		padding: 5px;
 		background-color: orange;
@@ -510,25 +512,18 @@ ini_set('display_errors', 1);
 		color: #000;
 		cursor: pointer;
 	}
+	.guide:hover { background-color: orange; }
+	#dbguide { margin-top: -21px; }
 	.tguide { font-family: inherit; }
-	.guide:hover {
-		background-color: orange;
-	}
-	.joytest2 ~ div a:nth-child(3){
-	    display: none;
-	}
-	.joyride-tip-guide:nth-child(12){
-	    margin-top: 15px !important;
-	}
-	.ui-icon {
-	  display: inline-block !important;
-	}
 	<?php if($language == "ar_EG") { ?>
 	.tguide { float: right; }
 	<?php } ?>
+	#language { margin-top: 10px !important; }
 
-	/*End custom joyride*/
-	#dbguide {margin-top: 10px; float: left;}
+	.joytest2 ~ div a:nth-child(3){ display: none; }
+	.joyride-tip-guide:nth-child(12){ margin-top: 15px !important; }
+	.ui-icon { display: inline-block !important; }
+
 	#accounts {margin-top: 3px;}
 	.first-timer {
 		background-color: #D6E3BC;
@@ -542,16 +537,13 @@ ini_set('display_errors', 1);
 		line-height: 1.4rem;
 		font: 18px;
 	}
-	.first-timer button{
-		padding: 5px;
-	}
+	.first-timer button{ padding: 5px; }
 	a.ngss_link:hover {
 		text-decoration: none;
 		background-color: #FAEBD7;
 	}
-	.mright10 {
-		margin-right: 10px;
-	}
+	.mright10 { margin-right: 10px; }
+	#delmodlist1 { width: auto !important; min-width: 240px; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -566,7 +558,6 @@ ini_set('display_errors', 1);
 		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
 
 	</div>
-	
 	<!-- error and messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
@@ -632,7 +623,7 @@ ini_set('display_errors', 1);
 		endif;
 	endif;
 	?>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage all the accounts under you."); ?>
+	<p><?php echo _("This is the Account Management page, where you can manage all the user accounts under you."); ?>
 
 	<div class="wrap-container">
 		<div id="wrap">
@@ -640,14 +631,16 @@ ini_set('display_errors', 1);
 			<div class="sub-headers">
 				<h1><?php echo _('List of Accounts'); ?></h1>
 				
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br><br>
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
+				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+				<br><br>
 				<div class="fright">
-					<!-- <a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> | -->
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |	
-					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |	
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |					
-					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
+					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
 				</div>
 			<div class="clear"></div>
 				<div class="fleft">
@@ -803,9 +796,15 @@ ini_set('display_errors', 1);
 		      }
 		    });
 		  }
-		  
+
 		function cdl(event, element){
-			return true;
+			var type = "<?=$_GET['type']?>";
+			if(type=='0'){
+				$.alerts.okButton = ' Yes ';
+				$.alerts.cancelButton = ' No ';
+				var cdl = confirm("Are you sure you want to delete this student account?");
+				if(!cdl){ event.stopPropagation(); }
+			} else { return true; }
 		}
 	</script>
 </body>

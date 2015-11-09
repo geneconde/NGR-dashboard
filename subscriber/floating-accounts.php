@@ -73,7 +73,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Username...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported	
@@ -96,7 +96,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter First Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -107,7 +107,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Last Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -301,8 +301,6 @@ ini_set('display_errors', 1);
 	?>
 
 	<style>
-	.fleft { margin-top: -16px; }
-	.tguide { float: left; font-family: inherit; }
 	.guide {
 		padding: 5px;
 		background-color: orange;
@@ -312,24 +310,17 @@ ini_set('display_errors', 1);
 		color: #000;
 		cursor: pointer;
 	}
-	.guide:hover {
-		background-color: orange;
-	}
-	.joytest2 ~ div a:nth-child(3){
-	    display: none;
-	}
-	.joyride-tip-guide:nth-child(8){
-	    margin-top: 15px !important;
-	}
-	.ui-icon {
-	  display: inline-block !important;
-	}
+	.guide:hover { background-color: orange; }
+	#dbguide { margin-top: -21px; }
+	.tguide { font-family: inherit; }
 	<?php if($language == "ar_EG") { ?>
 	.tguide { float: right; }
 	<?php } ?>
+	#language { margin-top: 10px !important; }
 
-	/*End custom joyride*/
-	#dbguide {margin-top: 10px;}
+	.joytest2 ~ div a:nth-child(3){ display: none; }
+	.joyride-tip-guide:nth-child(8){ margin-top: 15px !important; }
+	.ui-icon { display: inline-block !important; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -379,18 +370,22 @@ ini_set('display_errors', 1);
 	</div> -->
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage all floating accounts."); ?>
+	<p><?php echo _("In this Account Management page, you can manage all floating teacher. Floating teachers are accounts whose head/sub-admin is deleted from the Sub-Admin spreadsheet.  Please take note that all the students under these teachers are still listed in the Student spreadsheet."); ?>
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
-				<h1><?php echo _('List of Floating Accounts'); ?></h1>
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				<h1><?php echo _('List of Floating Teachers'); ?></h1>
+				
+				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
+				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+				<br><br>
 				<div class="fright">
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> |
-					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a> |
-					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> |
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> |
-					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a>   
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
+					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
+					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
 				</div>
 			</div>		
 			<div class="clear"></div>
