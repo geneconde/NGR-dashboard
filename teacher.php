@@ -8,6 +8,8 @@
 	include_once 'controller/Module.Controller.php';
 	include_once 'controller/Language.Controller.php';
 	
+	if($type == 3 || $type == 4) { header("Location: subscriber/index.php"); }
+	
 	$userid 			= $user->getUserid();
 	$dtc 				= new DiagnosticTestController();
 	$ct  				= $dtc->getCumulativeTest($userid);

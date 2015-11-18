@@ -27,7 +27,7 @@
 </style>
 <div id="container">
 
-<a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link" href="index.php">&laquo; <?php echo _("Go Back to Account Management"); ?></a>
 
 <br><br>
 <form method="post" action="save-account.php?user_id=<?php echo $userid; ?>&type=<?php echo $type; ?>" id="edit-account">

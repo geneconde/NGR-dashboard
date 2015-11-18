@@ -56,7 +56,7 @@
 
 <script type="text/javascript" src="../scripts/language-scripts.js"></script>
 <div id="container">
-	<a class="link fleft" href="index.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+	<a class="link fleft" href="index.php">&laquo <?php echo _("Go Back to Account Management"); ?></a>
 	<br/>
 	<div class="fleft" id="language" style="margin-left: 10px; margin-top: -2px;">
 		<?php echo _("Language"); ?>:

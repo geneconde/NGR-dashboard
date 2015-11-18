@@ -272,7 +272,7 @@ function update_student($data)
 	$data["params"]["username"] = trim($data["params"]["username"]);
 }
 
-$grid->debug = 1;
+$grid->debug = 0;
 $grid->error_msg = "Username Already Exists.";
 $grid->set_actions(array(
 			"add"=>false, // allow/disallow add
@@ -332,7 +332,8 @@ $main_view = $grid->render("list1");
 		.ui-icon {
 		  display: inline-block !important;
 		}
-		.phpgrid input { width: 90% !important; }
+		.ui-pg-input { width: 25px !important; }
+		.phpgrid input.editable { width: 90% !important; }
 		<?php if($language == "ar_EG") { ?>
 		.tguide { float: right; }
 		<?php } ?>

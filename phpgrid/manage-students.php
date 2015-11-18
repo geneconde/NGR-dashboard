@@ -82,7 +82,7 @@ ini_set('display_errors', 1);
 	$col["width"] = "30";
 	$col["search"] = true;
 	// $col["searchoptions"] = array("defaultValue"=>'username'); 
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Username...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported
@@ -117,7 +117,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter First Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -128,7 +128,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Enter Last Name...')); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -185,9 +185,9 @@ ini_set('display_errors', 1);
 
 	$col = array();
 	$col["title"] = $grade_level; // caption of column
-	$col["name"] = "grade_level"; 
-	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Level...')); 
-	$col["width"] = "15";
+	$col["name"]  = "grade_level";
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Level...')); 
+	$col["width"] = "17";
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$cols[] = $col;
@@ -223,7 +223,7 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["linkoptions"] = "target='_blank'";
 	$col["default"] = $view_portfolio; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
@@ -357,7 +357,6 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 	<style>
-		/*.ui-search-toolbar { display: none; }*/
 		.fleft { margin-top: -16px; }
 		.tguide { float: left; margin-top: -15px; }
 		.guide {
@@ -381,7 +380,6 @@ ini_set('display_errors', 1);
 		  display: inline-block !important;
 		}
 		#delmodlist1 { width: auto !important; }
-		.phpgrid input { width: 90% !important; }
 		<?php if($language == "ar_EG") { ?>
 		.tguide { float: right; }
 		<?php } ?>
@@ -440,6 +438,9 @@ ini_set('display_errors', 1);
 		.ui-jqgrid .ui-search-input input { width: 100% !important; }
 		.ui-pg-input { width: auto !important; }
 		.ui-icon-pencil { float: none; }
+		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+		.ui-pg-input { width: 25px !important; }
+		.phpgrid input.editable { width: 90% !important; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
@@ -451,8 +452,6 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-    <script type="text/javascript" src="../scripts/jquery.mask.min.js"></script>
-    
 	<?php
 	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }

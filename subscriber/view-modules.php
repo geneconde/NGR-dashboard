@@ -69,14 +69,6 @@
 <div class="clear"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <p><?php echo _("In this Dashboard, you can preview all the modules in your library."); ?></p><br><br><br>
-<div class="fright">
-	<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
-	<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
-	<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
-	<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
-	<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
-	<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
-</div>
 <div class="clear"></div>
 <?php 
 	$modules = $mc->getAllModules();

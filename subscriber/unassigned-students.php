@@ -251,7 +251,41 @@ ini_set('display_errors', 1);
 
 	endif;
 
-	$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=2 AND (teacher_id = 0 or teacher_id not in (SELECT user_id FROM users))";
+	if($usertype==3)
+		$grid->select_command = "SELECT * FROM users WHERE subscriber_id=$subid AND type=2 AND (teacher_id = 0 or teacher_id not in (SELECT user_id FROM users))";
+	else{
+		$subadmin_list = array();
+		$subadmin_list = getUsers($userid);
+		$subheads = '(subhead_id='.$userid;
+		foreach ($subadmin_list as $string) {
+			$subheads .= ' or subhead_id='.$string;
+		}
+		$subheads .= ")";
+		$grid->select_command = "SELECT * FROM users WHERE subscriber_id = $subid AND $subheads AND type = 2 AND (teacher_id = 0 or teacher_id not in (SELECT user_id FROM users))";
+	}
+
+	function getUsers($subhead_id){
+		$subadmin_list = array();
+		$query = "SELECT * FROM users WHERE type=4 and subhead_id=".$subhead_id;
+		$users = UserController::select_custom($query);
+		if(!empty($users)) {
+			foreach ($users as $user) {
+				$query = "SELECT * FROM users WHERE type=4 and subhead_id=".$user['user_ID'];
+				$users2 = UserController::select_custom($query);
+				if(!empty($users2)){
+					$res = getUsers($user['user_ID']);
+					foreach ($res as $value) {
+						array_push($subadmin_list, $value);
+					}
+				} else {
+					array_push($subadmin_list, $user['user_ID']);
+				}
+			}
+		} else {
+			array_push($subadmin_list, $subhead_id);
+		}
+		return $subadmin_list;
+	}
 
 	$grid->table = "users";
 
@@ -310,6 +344,7 @@ ini_set('display_errors', 1);
 	.joyride-tip-guide:nth-child(8){ margin-top: 15px !important; }
 	.ui-icon { display: inline-block !important; }
 	#delmodlist1 { width: auto !important; }
+	a.current { color: gray; cursor: default; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -342,6 +377,8 @@ ini_set('display_errors', 1);
 	</div>
 	<?php } ?>
 	<div class="clear"></div>
+	
+	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 
 	<div class="fleft" id="language">
 		<?php echo _("Language"); ?>:
@@ -362,7 +399,6 @@ ini_set('display_errors', 1);
 
 	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 	<!-- <div class="fright m-top10" id="accounts">
 		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
 	</div> -->
@@ -381,7 +417,7 @@ ini_set('display_errors', 1);
 				<div class="fright">
 					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
 					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
-					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
+					<a href="unassigned-students.php" class="link current" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
 					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
 					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
 					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
@@ -450,6 +486,10 @@ ini_set('display_errors', 1);
 		$('#language-menu').change(function() {
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
+		});
+
+		$("a.current").click(function(){
+			event.preventDefault();
 		});
 	});
 	function guide() {

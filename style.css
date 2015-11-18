@@ -1271,7 +1271,7 @@ html[dir="rtl"] .fright {
     font-family: trebuchet ms;
     resize: none;
     padding: 2px;
-    width: 98.5%;
+    width: 327px;
     margin-top: 4px;
 }
 
@@ -1664,4 +1664,8 @@ input[type=checkbox] {
 .back-confirm {
       background-color: #CCCCCC;
       color: black;
+}
+.sub-headers h1 {
+    font-size: 21px;
+    padding: 10px 0;
 }

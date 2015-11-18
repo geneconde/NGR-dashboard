@@ -142,6 +142,7 @@ ini_set('display_errors', 0);
     .even_gradeC a:hover
     { color: #000; text-decoration: none; }
     .fleft.back { margin-bottom: -15px; }
+	a.current { color: gray; cursor: default; }
 	</style>
 
 	<link rel="stylesheet" href="css/jquery.dataTables.css" />
@@ -183,9 +184,6 @@ ini_set('display_errors', 0);
 	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
 	</div>
 	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<div class="fright m-top10" id="accounts">
-		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
-	</div>
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<div class="wrap-container">
@@ -202,7 +200,7 @@ ini_set('display_errors', 0);
 					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
 					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
 					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
-					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
+					<a href="statistics.php" class="link current" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
 				</div>
 				<div class="clear"></div>
 				<?php if(isset($_GET['u'])) : ?>
@@ -502,6 +500,10 @@ $(document).ready(function() {
         	"width": "10%", "targets": 0
 		}]
     } );
+
+	$("a.current").click(function(){
+		event.preventDefault();
+	});
 });
 </script>
 </body>

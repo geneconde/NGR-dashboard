@@ -24,6 +24,9 @@
 td.ct_options {
     width: 33% !important;
 }
+<?php if($language == "es_ES") { ?>
+	.ct_options { width: 50% !important; }
+<?php } ?>
 </style>
 
 <div id="container">

@@ -426,7 +426,7 @@ class UserController {
 	/* For retrieving level of accounts */
 	public function getUserLevel($user) {
 		
-		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
+		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user." AND type <> 2";
 		return $custom_query;
 	}
 

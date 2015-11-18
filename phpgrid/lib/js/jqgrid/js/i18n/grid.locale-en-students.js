@@ -56,7 +56,7 @@ $.extend($.jgrid,{
 	},
 	del : {
 		caption: "Delete",
-		msg: "Deleting this account will automatically delete all the information<br/>saved under this student and cannot be retrieved again.<br/>Are you sure you want to do this?",
+		msg: "If you want this student to be taken out from this list,<br>you can click the unassign  button instead.<br>Do you still want to delete this account?",
 		bSubmit: "Yes",
 		bCancel: "No"
 	},

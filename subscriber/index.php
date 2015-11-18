@@ -23,6 +23,16 @@ ini_set('display_errors', 1);
 	$uc = new UserController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
+	if(isset($_GET['unassign']) && $_GET['unassign'] == 1){
+		$uc->updateStudentTeacher($_GET['user_id']);
+		header("Location: $_SERVER[HTTP_REFERER]");
+	}
+	if(isset($_GET['user_id'])) {
+		$q = "Select * from users where user_ID=".$_GET['user_id'];
+		$current_user_details = $uc->select_custom($q);
+		$current_username = $current_user_details[0]['username'];
+	}
+
 	$ufl = $user->getFirstLogin();
 	if($ufl == 1){ header("Location: account-update.php"); }
 	//add parameter for is_deleted and is_archived later on method is under userController
@@ -75,6 +85,7 @@ ini_set('display_errors', 1);
 	$reset_student_password = _('Reset Student password');
 	$reset_password = _('Reset password');
 	$teacher = _('Teacher');
+	$action = _('Action');
 	$type = _('Type');
 
 	/** Main Grid Table **/
@@ -263,14 +274,27 @@ ini_set('display_errors', 1);
 		$col["search"] = true;
 		$col["editable"] = true;
 		$col["align"] = "center";
-		$col["export"] = true; 
+		$col["export"] = true;
+		$col["hidden"] = true;
 		$col["editoptions"] = array("defaultValue"=>$_GET['user_id'],"readonly"=>"readonly", "style"=>"border:0");
 		$cols[] = $col;
 
-	} 
+	} else if(($usertype == 4 && !isset($_GET['type'])) || (isset($_GET['type']) && $_GET['type'] != 0) ) {
+		$col = array();
+		$col["title"] = "Sub Head";
+		$col["name"] = "subhead_id";
+		$col["width"] = "30";
+		$col["search"] = true;
+		$col["editable"] = true;
+		$col["align"] = "center";
+		$col["export"] = true;
+		$col["hidden"] = true;
+		$col["editoptions"] = array("defaultValue"=>$userid,"readonly"=>"readonly", "style"=>"border:0");
+		$cols[] = $col;
+	}
 
 	if( !isset($_GET['type']) || $_GET['type'] != 0 ) 
-	{		
+	{
 		$col = array();
 		$col["title"] = $accounts;
 		$col["name"] = "view_more";
@@ -292,6 +316,21 @@ ini_set('display_errors', 1);
 	if(isset($_GET['type']) && $_GET['type'] == 0)
 	{
 		$col = array();
+		$col["title"] = "Sub Head";
+		$col["name"] = "subhead_id";
+		$col["width"] = "30";
+		$col["search"] = true;
+		$col["editable"] = true;
+		$col["align"] = "center";
+		$col["export"] = true;
+		$col["hidden"] = true;
+		if(isset($_GET['sid']))
+			$col["editoptions"] = array("defaultValue"=>$_GET['sid'],"readonly"=>"readonly", "style"=>"border:0");
+		else
+			$col["editoptions"] = array("defaultValue"=>$userid,"readonly"=>"readonly", "style"=>"border:0");
+		$cols[] = $col;
+
+		$col = array();
 		$col["title"] = $teacher;
 		$col["name"] = "teacher_id";
 		$col["dbname"] = "users.teacher_id"; // this is required as we need to search in name field, not id
@@ -312,17 +351,38 @@ ini_set('display_errors', 1);
 		$col["formatter"] = "select"; // display label, not value
 		$cols[] = $col;
 
+		// $col = array();
+		// $col["title"] = $reset_student_password;
+		// $col["name"] = "reset_pword";
+		// $col["width"] = "30";
+		// $col["align"] = "center";
+		// $col["search"] = false;
+		// $col["sortable"] = false;
+		// $col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
+		// $col["default"] = $reset_password; // default link text
+		// $col["export"] = false; // this column will not be exported
+		// $cols[] = $col;
+
 		$col = array();
-		$col["title"] = $reset_student_password;
-		$col["name"] = "reset_pword";
-		$col["width"] = "30";
+		$col["title"] = $action;
+		$col["name"] = "act";
+		$col["width"] = "50";
+		$cols[] = $col;
+
+		$col = array();
+		$col["title"] = "";
+		$col["name"] = "unassign";
+		$col["width"] = "15";
 		$col["align"] = "center";
 		$col["search"] = false;
 		$col["sortable"] = false;
-		$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-		$col["default"] = $reset_password; // default link text
-		$col["export"] = false; // this column will not be exported
+		$col["link"] = 'javascript:
+		var conf = confirm("Are you sure you want to unassign this student?");
+		if(conf==true) window.location = "index.php?user_id={user_ID}&unassign=1";';
+		$col["default"] = "unassign";
+		$col["export"] = false;
 		$cols[] = $col;
+
 	}
 
 	//Export filename
@@ -344,26 +404,24 @@ ini_set('display_errors', 1);
 				//$student_account = true;
 			}
 
-			if( $_GET['type'] == 4 )
-			{	
-				$q = "SELECT * FROM users WHERE subhead_id =". $_GET['user_id'];			
+			if($_GET['type'] == 4 )
+			{
+				$q = "SELECT * FROM users WHERE subhead_id =". $_GET['user_id']." AND type <> 2";
 				$grid->select_command = $q;
 				$result = mysql_query($q);
-				$count = mysql_num_rows($result);				
+				$count = mysql_num_rows($result);
 				
 				if ($count != 0) 
 				{
 					$grid->select_command = $q;
 				}
-
 			}
 		}
-
 
 	} else {
 
 		if($usertype == 4 && $subhead_id == null)
-		{			
+		{
 			$q = $uc->getUserLevel($userid);
 			$grid->select_command =$q;
 
@@ -373,16 +431,16 @@ ini_set('display_errors', 1);
 			
 			if($count == 0)
 			{
-				$q = "SELECT * FROM users WHERE user_id =" . $userid  . " AND type = 0";
+				$q = "SELECT * FROM users WHERE user_id =" . $userid  . " AND type = 0 AND type <> 2";
 				$grid->select_command = $q;
 
 			} 
 			$filename = "Subhead Accounts";
 
-		} 
+		}
 		elseif($usertype == 4 && $subhead_id != null) 
 		{
-			$q1 = "SELECT * FROM users WHERE subhead_id =". $userid;
+			$q1 = "SELECT * FROM users WHERE subhead_id =". $userid." AND type <> 2";
 			$grid->select_command = $q1;
 			$result1 = mysql_query($q1);
 			$count1 = mysql_num_rows($result1);
@@ -408,16 +466,28 @@ ini_set('display_errors', 1);
 				$q2 = "SELECT * FROM users WHERE subscriber_id =" . $subid  . " AND type = 0";
 				$grid->select_command = $q2;
 				$filename = "Teacher Accounts";
-			} 	
-		}		
+			}
+		}
 	}
 
-	$e["on_update"] = array("update_client", null, true); 
+	$e["on_update"] = array("update_client", null, true);
+	$e["on_delete"] = array("delete_client", null, true);
 	$grid->set_events($e); 
 	function update_client($data) 
 	{
 		$data["params"]["username"] = trim($data["params"]["username"]);
-	} 
+	}
+	function delete_client($data) 
+	{
+		$thisId = $data['user_ID'];
+		$query = "SELECT * from users where user_ID=".$thisId;
+    	$rs = mysql_fetch_assoc(mysql_query($query));
+    	$parent = $rs['subhead_id'];
+    	if(empty($parent)) $parent = 'null';
+    	$query = "UPDATE users SET is_floating = ".$parent." where subhead_id = ".$thisId;
+		mysql_query($query);
+		// phpgrid_error($parent);
+	}
 
 		//For exporting
 		$opt["caption"] = $accounts;
@@ -458,13 +528,13 @@ ini_set('display_errors', 1);
 	if(isset($_POST['addmultiple'])){
 		if($_POST['student_num'] != "") {
 			if($_POST['student_num'] > $difference){
-				header("Location: manage-students.php?err=1");
+				header("Location: index.php?err=1");
 			} else {
 				generateStudents($_POST['student_num'], $user->getSubscriber(), $user->getUserid());
-				header("Location: manage-students.php?msg=1");
+				header("Location: index.php?msg=1");
 			}
 		} else {
-			header("Location: manage-students.php?err=2");
+			header("Location: index.php?err=2");
 		}
 	}
 
@@ -544,6 +614,23 @@ ini_set('display_errors', 1);
 	}
 	.mright10 { margin-right: 10px; }
 	#delmodlist1 { width: auto !important; min-width: 240px; }
+
+	tr td:nth-child(13) a {
+	  background: rgb(66, 151, 215);
+	  color: #fff;
+	  padding: 3px 5px;
+	  border-radius: 3px;
+	}
+	tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
+	    color: #fff;
+	}
+	#list1_act { width: auto !important; }
+	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+	tr input { width: 90% !important; }
+	.ui-jqgrid .ui-search-input input { width: 100% !important; }
+	.ui-pg-input { width: auto !important; }
+	.DataTD input { width: 88% !important; }
+	a.current { color: gray; cursor: default; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -582,7 +669,11 @@ ini_set('display_errors', 1);
 		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
 	</div>
 	<?php } ?>
+	
 	<div class="clear"></div>
+	<div id="dbguide">
+		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
+	</div>
 
 	<div class="fleft" id="language">
 		<?php echo _("Language"); ?>:
@@ -601,9 +692,6 @@ ini_set('display_errors', 1);
 			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
 		<?php endif; ?>
 		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>	
-	</div>
-	<div id="dbguide">
-		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
 	</div>
 	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 	<a class="uppercase fright manage-box mright10" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
@@ -629,13 +717,17 @@ ini_set('display_errors', 1);
 		<div id="wrap">
 			
 			<div class="sub-headers">
+				<?php if(isset($_GET['user_id'])) { ?>
+				<h1><?php echo _('List of Accounts Under ') . $current_username; ?></h1>
+				<?php } else { ?>
 				<h1><?php echo _('List of Accounts'); ?></h1>
+				<?php } ?>
 				
 				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
 				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
-					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
+					<a href="index.php" class="link current" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
 					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
 					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
 					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
@@ -767,6 +859,20 @@ ini_set('display_errors', 1);
 		jQuery(document).ready(function(){
 			// binds form submission and fields to the validation engine
 			jQuery("#add_multiple_form").validationEngine();
+
+			var type = "<?php echo $_GET['type']; ?>";
+			if(type == '0') {
+				$("tr th:nth-child(12)").each(function() {
+				    var t = $(this);
+				    var n = t.next();
+				    t.html(t.html() + n.html());
+				    n.remove();
+				});
+			}
+
+			$("a.current").click(function(){
+				event.preventDefault();
+			});
 		});
 
 		/**
@@ -800,8 +906,6 @@ ini_set('display_errors', 1);
 		function cdl(event, element){
 			var type = "<?=$_GET['type']?>";
 			if(type=='0'){
-				$.alerts.okButton = ' Yes ';
-				$.alerts.cancelButton = ' No ';
 				var cdl = confirm("Are you sure you want to delete this student account?");
 				if(!cdl){ event.stopPropagation(); }
 			} else { return true; }

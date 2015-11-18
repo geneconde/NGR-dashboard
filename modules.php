@@ -1,12 +1,3 @@
-<style type="text/css">
-.modules td {
-    width: 17% !important;
-    text-align: center !important;
-}
-td#module-name {
-    text-align: left !important;
-}
-</style>
 <?php
 	require_once 'session.php';
 	require_once 'locale.php';
