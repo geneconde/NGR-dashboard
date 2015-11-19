@@ -62,9 +62,9 @@
 				foreach($question_set as $question):
 			?>
 				<tr class="trline">
-					<td class="p-right15">
+					<td class="p-right15" style="position: relative">
 						<!-- <div class="onoffswitch1"> -->
-							<input type="checkbox" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
+							<input type="checkbox" style="position: absolute; top: 12px;" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
 							<!-- <input type="checkbox" name="questions[]" class="onoffswitch1-checkbox" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>> -->
 							<!-- <label class="onoffswitch1-label" for="myonoffswitch<?php echo $ctr + 1;?>">
 								<div class="onoffswitch1-inner<?php echo $lang; ?>"></div>

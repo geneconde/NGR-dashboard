@@ -219,7 +219,6 @@ ini_set('display_errors', 1);
 
 	function update_student($data)
 	{
-		$data['params']['subhead_id'] = 0;
 		$data['params']['type'] = 2;
 		$data["params"]["username"] = trim($data["params"]["username"]);
 	}

@@ -234,6 +234,11 @@ ini_set('display_errors', 1);
 	{
 		$data['params']['teacher_id'] = 0;
 		$data["params"]["username"] = trim($data["params"]["username"]);
+		$sid = $data['params']['subhead_id'];
+		$thisId = $data['params']['user_ID'];
+		$query = "UPDATE users SET subhead_id = ". $sid ." where type=2 and teacher_id = ".$thisId;
+		mysql_query($query);
+		// phpgrid_error($query);
 	}
 
 	$grid->debug = 0;

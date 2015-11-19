@@ -68,14 +68,14 @@
 		foreach($question_set as $row):
 	?>
 	<tr class="trline">
-		<td>
+		<td style="position: relative">
 			<!-- <div class="onoffswitch1"> -->
 				<!-- <input type="checkbox" name="onoffswitch<?php echo $ctr;?>" class="onoffswitch1-checkbox" id="myonoffswitch<?php echo $ctr;?>" value="<?php echo $row['qid']; ?>" <?php if(isset($qid)): if(in_array($row['qid'], $qid)): echo "checked"; endif; endif; ?>> -->
-				<input type="checkbox" name="onoffswitch<?php echo $ctr;?>" class="q-cb" id="myonoffswitch<?php echo $ctr;?>" value="<?php echo $row['qid']; ?>" <?php if(isset($qid)): if(in_array($row['qid'], $qid)): echo "checked"; endif; endif; ?>>
-				<!-- <label class="onoffswitch1-label" for="myonoffswitch<?php echo $ctr;?>">
-					<div class="onoffswitch1-inner<?php echo $lang; ?>"></div>
-					<div class="onoffswitch1-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
-				</label> -->
+				<input type="checkbox" style="position: absolute; top: 12px;" name="onoffswitch<?php echo $ctr;?>" class="q-cb" id="myonoffswitch<?php echo $ctr;?>" value="<?php echo $row['qid']; ?>" <?php if(isset($qid)): if(in_array($row['qid'], $qid)): echo "checked"; endif; endif; ?>>
+				<!-- <label class="onoffswitch1-label" for="myonoffswitch<?php echo $ctr;?>"> -->
+					<!-- <div class="onoffswitch1-inner<?php echo $lang; ?>"></div> -->
+					<!-- <div class="onoffswitch1-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div> -->
+				<!-- </label> -->
 			<!-- </div> -->
 		</td>
 		<td>

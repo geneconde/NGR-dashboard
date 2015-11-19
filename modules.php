@@ -163,7 +163,7 @@
 		if(preid=="" && adActivated!=1 && document.getElementById(mid).value=="<?php echo _('Activate for '); ?>"+gname){ var conf = confirm('<?php echo _("Are you sure you want to activate the module without activating the pre-test? Once your students start with the module, you won\'t be able to activate a pre-test."); ?>');
 		}
 		if(document.getElementById(mid).value=="<?php echo _('Activate for '); ?>"+gname || conf == true) {
-			var msg = "<?php echo _('The following has been activated for '); ?><?php echo $group_name; ?>:\n* "+mname;
+			var msg = "<?php echo _('The following has been activated for '); ?><?php echo $group_name; ?>:\n* " + mname + "<?php echo _(' module'); ?>";
 			if(preid!="") { msg += "\n* <?php echo _('The pre-diagnostic test '); ?>"+preName; }
 			if(postid!="") { msg += "\n* <?php echo _('The post-diagnostic test '); ?>"+postName; }
 			$.ajax({
@@ -178,7 +178,7 @@
 			document.getElementById(mid).value="<?php echo _('Deactivate for '); ?>"+gname;
 		}
 		else if(document.getElementById(mid).value=="<?php echo _('Deactivate for '); ?>"+gname) {
-			var msg = "<?php echo _('The following has been deactivated for '); ?><?php echo $group_name; ?>:\n* "+mname;
+			var msg = "<?php echo _('The following has been deactivated for '); ?><?php echo $group_name; ?>:\n* " + mname + "<?php echo _(' module'); ?>";
 			if(preid!="") { msg += "\n* <?php echo _('The pre-diagnostic test '); ?>"+preName; }
 			if(postid!="") { msg += "\n* <?php echo _('The post-diagnostic test '); ?>"+postName; }
 			$.ajax({
