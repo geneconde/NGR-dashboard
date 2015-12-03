@@ -37,10 +37,10 @@
 
 <?php if ($mode == 1): ?>
 <h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>
-<?php echo _("A pre-diagnostic test will be taken by the students before they work on any of the modules available to them. This test should be completed within the specified time limit. Only the answers that are completed within the time limit will be recorded."); ?>
+<?php echo _("The pre-diagnostic test will be available before taking the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?>
 <?php else: ?>
 <h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Post-Diagnostic Test"); ?></h1>
-<?php echo _("A post-diagnostic test will be taken by the student after they finished all available reviews. This test should be finished within a time limit. If the student exceeds the time limit, whatever he finishes will be recorded."); ?>
+<?php echo _("The post-diagnostic test will be taken after the students completed the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?>
 <?php endif; ?>
 <br><br>
 <span class="bold"><?php echo _('Test name:'); ?>  </span><input type="text" id="test-name" value="<?php if(isset($testname)) echo $testname; ?>">
@@ -49,7 +49,7 @@
 		<td colspan="2">
 			<span class="bold"><?php echo _("Choose Questions"); ?></span><br/>
 			<?php echo _("This is the pool of questions you can choose from."); ?><br/>
-			<span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the review itself"); ?></span>
+			<span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span>
 		</td>
 	</tr>
 	<tr>

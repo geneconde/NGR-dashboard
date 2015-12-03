@@ -65,6 +65,8 @@
 	}
 	.first-timer button{
 		padding: 5px;
+		font-family: inherit;
+		margin: 0 2px;
 	}
 	#gm-language { margin-left: -54px; }
 	a.ngss_link:hover {

@@ -475,7 +475,12 @@ ini_set('display_errors', 1);
 	$grid->set_events($e); 
 	function update_client($data) 
 	{
+		$data['params']['teacher_id'] = 0;
 		$data["params"]["username"] = trim($data["params"]["username"]);
+		$sid = $data['params']['subhead_id'];
+		$thisId = $data['params']['user_ID'];
+		$query = "UPDATE users SET subhead_id = ". $sid ." where type=2 and teacher_id = ".$thisId;
+		mysql_query($query);
 	}
 	function delete_client($data) 
 	{
@@ -581,6 +586,8 @@ ini_set('display_errors', 1);
 		font-size: 10px;
 		color: #000;
 		cursor: pointer;
+		font-family: inherit;
+    	margin: 0 2px;
 	}
 	.guide:hover { background-color: orange; }
 	#dbguide { margin-top: -21px; }

@@ -45,7 +45,7 @@
 			<tr>
 				<td colspan="2">
 					<p><?php echo _('Please select the questions that you would like to add to your cumulative test.'); ?></p>
-					<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the review itself"); ?></span></p>
+					<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span></p>
 				</td>
 			</tr>
 			<tr>

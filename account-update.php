@@ -62,14 +62,14 @@
 		<?php } ?>
 		
 		<p class="lgs-text-sub heading-input"><?php echo _("Update Account"); ?></p>
-		<p class="lgs-text-sub note"><?php echo _("You can enter a new username and password if you would like."); ?></p>
+		<p class="lgs-text-sub note"><?php echo _("Enter a new password if you would like. DO NOT enter a new password if you want your password to stay the same."); ?></p>
 		<div class="left">
 			<p class="input-label"><?php echo _('Username'); ?></p>
 			<p><input class="inputText" id="Username" name="username" type="text" maxlength="50" placeholder="<?php echo _('Username'); ?>" value="<?php echo $user->getUsername(); ?>" required/><img src="" id="check"></p></p>
 		</div>
 		<div class="right">
 			<p class="input-label"><?php echo _('Password'); ?></p>
-			<p><input class="inputText" id="Password" name="password" type="text" maxlength="50" placeholder="<?php echo _('Enter new password'); ?>" minlength="6" pattern="^(?!\s*$)[a-zA-Z0-9\-]{6,}" title="Password must be 6 characters or more and must not contain space"/></p>
+			<p><input class="inputText" id="Password" name="password" type="text" maxlength="50" placeholder="<?php echo _('Leave blank or enter new password'); ?>" minlength="6" pattern="^(?!\s*$)[a-zA-Z0-9\-]{6,}" title="Password must be 6 characters or more and must not contain space"/></p>
 		</div>
 		<p class="lgs-text-sub heading-input"><?php echo _('About You'); ?></p>
 		<?php if ($type == 2) { ?>

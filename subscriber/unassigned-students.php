@@ -219,7 +219,13 @@ ini_set('display_errors', 1);
 
 	function update_student($data)
 	{
+		$thisId = $data['params']['user_ID'];
+		$tid = $data['params']['teacher_id'];
+		$query = "SELECT * from users where user_ID=".$tid;
+    	$rs = mysql_fetch_assoc(mysql_query($query));
+    	$sid = $rs['subhead_id'];
 		$data['params']['type'] = 2;
+		$data["params"]["subhead_id"] = $sid;
 		$data["params"]["username"] = trim($data["params"]["username"]);
 	}
 
