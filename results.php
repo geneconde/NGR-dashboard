@@ -43,11 +43,11 @@
 
 	<div id="container">
 		<?php if ($link == 'teacher') { ?>
-		<a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
 		<?php } else { ?>
-		<a class="link" href="<?php echo $link.'.php';?>">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+		<a class="link back" href="<?php echo $link.'.php';?>">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 		<?php } ?>
-
+		<br><br>
 		<h1><?php echo _("Module Score Summary"); ?>
 			<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
 				<img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>

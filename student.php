@@ -1,7 +1,6 @@
 <?php
 	require_once 'session.php';	
 	require_once 'locale.php';
-	require_once 'header.php';
 	require_once 'php/functions.php';
 	require_once 'controller/StudentModule.Controller.php';
 	require_once 'controller/Module.Controller.php';
@@ -63,88 +62,79 @@
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($teacherid);
 ?>
+<!DOCTYPE html>
+<html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
+<head>
+<title>NexGenReady</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="styles/layerslider.css" />
+<link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
+<link rel="stylesheet" href="libraries/joyride/joyride-2.1.css">
+<link rel="stylesheet" type="text/css" href="lgs.css">
+
+<!-- added for the tabbed navigation results
+<link rel="stylesheet" type="text/css" href="styles/tabbed-navigation.css" />
+<link rel="stylesheet" type="text/css" href="styles/tabbed-reset.css" />
+<script type="text/javascript" src="scripts/modernizr.js"></script> -->
+<!-- end tabbed navigation results -->
+
+<script type="text/javascript" src="scripts/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/jquery.plugin.js"></script>
+<script type="text/javascript" src="libraries/joyride/jquery.cookie.js"></script>
+<script type="text/javascript" src="libraries/joyride/modernizr.mq.js"></script>
+<script type="text/javascript" src="libraries/joyride/jquery.joyride-2.1.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/language-scripts.js"></script>
+
 <style>
-	.tguide { margin-top: 9px; }
-	.fleft { margin: 0; }
-	.first-timer {
-		background-color: #D6E3BC;
-		border-radius: 25px;
-		width: 95%;
-		margin: 0 auto;
-		margin-bottom: 10px;
+	a.ngss_link:hover {
+		text-decoration: none;
+		background-color: #FAEBD7;
 	}
-	.first-timer p{
-		padding: 15px;
-		line-height: 1.4rem;
-		font: 18px;
-	}
-	.first-timer button{
-		padding: 5px;
-		font-family: inherit;
-		margin: 0 2px;
-	}
-	#gm-language {
-		margin-left: -54px;
-  		margin-top: -16px;
-  	}
-  	.module-nav { margin-right: 5px; }
-  	<?php if($language == "ar_EG") { ?>
-		#gm-language {
-			float: right;
-		  	margin-right: -54px;
+	<?php if($language == "es_ES") {  ?>
+		.close-btn { width: 65px !important; }
+		.module-menu {
+		 	width: 105% !important;
+		 	margin: 0 auto;
+		 	padding-top: 10px;
+		  	text-align: center;
+			margin-left: -8px !important;
 		}
+	<?php } else if($language == "zh_CN") { ?>
+		.close-btn { width: 40px !important; }
 	<?php } ?>
 </style>
-<!-- <div class="fleft language" id="gm-language">
-	<?php echo _("Language"); ?>:
-	<select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
+</head>
+<body>
+<div id="header">
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<div class="fright" id="logged-in">
+		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="logout.php"><?php echo _("Logout?"); ?></a>
+		<br>
+		<div class="languages fright">
+			<?php if(!empty($teacher_languages)) :
 				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select>
-</div> -->
-<div class="fleft language" id="gm-language">
-	<?php echo _("Language"); ?>:
-
-	<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="student.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-
-		?>
-			<a class="uppercase manage-box" href="student.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-		
-	<!-- <select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select> -->
+					$lang = $lc->getLanguage($tl['language_id']); ?>
+					<a class="uppercase manage-box" href="student.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+			<?php  endforeach;
+			else : ?>
+				<a class="uppercase manage-box" href="student.php?lang=en_US"/><?php echo _("EN"); ?></a>
+			<?php endif; ?>
+		</div>
+	</div>
 </div>
+
+<div id="content">
+<div class="top-buttons">
+	<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+</div>
+
+<div class="grey" style="display: none;"></div>
 <div class="clear"></div>
+
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <?php
 	if(isset($_GET["ft"])):

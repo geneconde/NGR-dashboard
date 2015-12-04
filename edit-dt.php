@@ -33,14 +33,10 @@
 	else if($language == "en_US") $lang = "";
 ?>
 <style>
-	/*Custom joyride*/
-	.joyride-tip-guide:nth-child(6){
-	    margin-left: -30px !important;
-	}
-	/*End custom joyride*/
+	.joyride-tip-guide:nth-child(6){ margin-left: -30px !important;	}
 </style>
 <div id="container">
-<a class="link" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
 
 <?php if ($mode == 1): ?>
 <h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>

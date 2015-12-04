@@ -578,66 +578,27 @@ ini_set('display_errors', 1);
 	?>
 
 	<style>
-	.guide {
-		padding: 5px;
-		background-color: orange;
-		border-radius: 5px;
-		border: none;
-		font-size: 10px;
-		color: #000;
-		cursor: pointer;
-		font-family: inherit;
-    	margin: 0 2px;
-	}
-	.guide:hover { background-color: orange; }
-	#dbguide { margin-top: -21px; }
-	.tguide { font-family: inherit; }
-	<?php if($language == "ar_EG") { ?>
-	.tguide { float: right; }
-	<?php } ?>
-	#language { margin-top: 10px !important; }
+		.joytest2 ~ div a:nth-child(3){ display: none; }
+		.joyride-tip-guide:nth-child(12){ margin-top: 15px !important; }
+		.ui-icon { display: inline-block !important; }
 
-	.joytest2 ~ div a:nth-child(3){ display: none; }
-	.joyride-tip-guide:nth-child(12){ margin-top: 15px !important; }
-	.ui-icon { display: inline-block !important; }
-
-	#accounts {margin-top: 3px;}
-	.first-timer {
-		background-color: #D6E3BC;
-		border-radius: 25px;
-		width: 95%;
-		margin: 0 auto;
-		margin-bottom: 10px;
-	}
-	.first-timer p{
-		padding: 15px;
-		line-height: 1.4rem;
-		font: 18px;
-	}
-	.first-timer button{ padding: 5px; }
-	a.ngss_link:hover {
-		text-decoration: none;
-		background-color: #FAEBD7;
-	}
-	.mright10 { margin-right: 10px; }
-	#delmodlist1 { width: auto !important; min-width: 240px; }
-
-	tr td:nth-child(13) a {
-	  background: rgb(66, 151, 215);
-	  color: #fff;
-	  padding: 3px 5px;
-	  border-radius: 3px;
-	}
-	tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
-	    color: #fff;
-	}
-	#list1_act { width: auto !important; }
-	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
-	tr input { width: 90% !important; }
-	.ui-jqgrid .ui-search-input input { width: 100% !important; }
-	.ui-pg-input { width: auto !important; }
-	.DataTD input { width: 88% !important; }
-	a.current { color: gray; cursor: default; }
+		#delmodlist1 { width: auto !important; min-width: 240px; }
+		tr td:nth-child(13) a {
+		  background: rgb(66, 151, 215);
+		  color: #fff;
+		  padding: 3px 5px;
+		  border-radius: 3px;
+		}
+		tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
+		    color: #fff;
+		}
+		#list1_act { width: auto !important; }
+		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+		tr input { width: 90% !important; }
+		.ui-jqgrid .ui-search-input input { width: 100% !important; }
+		.ui-pg-input { width: auto !important; }
+		.DataTD input { width: 88% !important; }
+		a.current { color: gray; cursor: default; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -648,11 +609,26 @@ ini_set('display_errors', 1);
 
 <body>
 	<div id="header">
-
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			<br>
+			<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+			<div class="languages fright">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+			</div>
+		</div>
 	</div>
-	<!-- error and messages -->
+
+	<!-- messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
 			<div class="error-msg"><p><?php echo _('Error! you are only allowed to create'); ?> <?php echo $sub->getTeachers(); ?> <?php echo _('teachers'); ?></p></div>
@@ -668,42 +644,18 @@ ini_set('display_errors', 1);
 
 		<?php endif; ?>
 	<?php endif; ?>
+	<!-- end messages -->
 
 	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-	</div>
-	<?php } ?>
-	
-	<div class="clear"></div>
-	<div id="dbguide">
-		<button class="uppercase guide tguide" onClick="guide()">Guide Me</button>
+	<div class="top-buttons">
+		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+		<div class="buttons">
+			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+			<a href="view-modules.php" class="uppercase fright manage-box"><?php echo _('View Modules'); ?></a>
+			<a href="statistics.php" class="uppercase fright manage-box"><?php echo _('Statistics'); ?></a>
+		</div>
 	</div>
 
-	<div class="fleft" id="language">
-		<?php echo _("Language"); ?>:
-	
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-
-		?>
-			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>	
-	</div>
-	<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-	<a class="uppercase fright manage-box mright10" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
-	
-	
 	<div class="clear"></div>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
@@ -722,7 +674,6 @@ ini_set('display_errors', 1);
 
 	<div class="wrap-container">
 		<div id="wrap">
-			
 			<div class="sub-headers">
 				<?php if(isset($_GET['user_id'])) { ?>
 				<h1><?php echo _('List of Accounts Under ') . $current_username; ?></h1>
@@ -734,12 +685,10 @@ ini_set('display_errors', 1);
 				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
-					<a href="index.php" class="link current" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="index.php" class="link current" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage Students'); ?></a> | 
 					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
-					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
-					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
 				</div>
 			<div class="clear"></div>
 				<div class="fleft">

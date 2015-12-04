@@ -65,7 +65,6 @@
 			endif;
 		endif;
 	endforeach;
-
 	
 	$dtc		= new DiagnosticTestController();
 	$dt_set		= $dtc->getDiagnosticTestByID($dtid);	
@@ -76,10 +75,11 @@
 <style> #dbguide { display: none; } </style>
 <div id="container">
 <?php if($_GET['page']=="comparative") { ?>
-<a class="link" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Comparative Results"); ?></a>
+<a class="link back" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Comparative Results"); ?></a>
 <?php } else if($_GET['page']=="all") { ?>
-<a class="link" href="all-students-ct-results.php">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
+<a class="link back" href="all-students-ct-results.php">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
 <?php } ?>
+<br><br>
 <?php
 
 if($language == "ar_EG") {

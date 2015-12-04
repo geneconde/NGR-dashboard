@@ -31,7 +31,7 @@
 	
 ?>
 	<div id="container">
-	<a class="link" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	<a class="link back" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
 	<h1><?php echo _("Students Results Summary"); ?></h1>	
 	<center>
 	<?php if(!empty($stg)): ?>

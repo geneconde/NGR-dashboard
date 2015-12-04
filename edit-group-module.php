@@ -44,20 +44,12 @@
 	
 	//$gm			= $gmc->getModuleGroupByID($groupid,$mid);
 
-	// echo '<pre>';
-	// print_r($student_modules);
-	// echo '</pre>';
-
 	$smc = new StudentModuleController();
 	$stdm = null;
 	foreach($user_groups as $user_group)
 	{
 		$student_modules = $smc->loadStudentModuleByUser($user_group, $mid);
-		
-		// echo '<pre>';
-		// print_r($student_modules);
-		// echo '</pre>';
-		
+
 		foreach($student_modules as $student_module)
 		{
 			if($user_group == $student_module['user_ID'] && $mid == $student_module['module_ID'])
@@ -68,8 +60,6 @@
 			}
 		}
 	}
-	
-	// echo $stdm;
 
 	$mc			= new ModuleController();
 	$module_set	= $mc->loadModule($mid);
@@ -92,7 +82,8 @@
 	}
 ?>
 <div id="container">
-<a class="link" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+<br><br>
 <center>
 	<h2><?php echo $grp[0]['group_name']; ?></h2><br>
 	<span id="update" class="green"></span>

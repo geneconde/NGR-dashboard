@@ -16,7 +16,7 @@
 ?>
 <br>
 <div id="container">
-<a class="link" href="student.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link back" href="student.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <center>
 <br><br>
 <h2><?php echo _("Cumulative Test Results"); ?></h2>

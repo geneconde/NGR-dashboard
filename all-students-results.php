@@ -21,8 +21,7 @@
 	$dtc 		= new DiagnosticTestController();
 	$gmc		= new GroupModuleController();
 	$gm			= $gmc->getModuleGroupByID($gid, $mid);
-	
-	
+
 	if($gm):
 		$preid		= $gm[0]['pretest_id'];
 		$postid		= $gm[0]['posttest_id'];
@@ -58,7 +57,8 @@
 ?>
 <br/>
 <style>.list_notes { font-size: 14px; }</style>
-<a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+<br>
 <h1><?php echo _("Students Comparative Results"); ?></h1>
 
 <span class="red upper bold"><?php echo _("Note:"); ?></span><br/>

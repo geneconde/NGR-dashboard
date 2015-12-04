@@ -54,7 +54,7 @@ ini_set('display_errors', 1);
 	$first_name = _('First Name');
 	$last_name = _('Last Name');
 	$grade_level = _('Grade Level');
-	$caption = _('Floating Teachers');
+	$caption = _('Floating Accounts');
 	$teacher = _('Teacher');
 	$type = _('Type');
 
@@ -220,8 +220,8 @@ ini_set('display_errors', 1);
 	$opt["reloadedit"] = true;
 
 	//Export Options
-	$opt["export"] = array("filename"=>"Floating Teachers", "heading"=>"Floating Teachers", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Floating Teachers";
+	$opt["export"] = array("filename"=>"Floating Accounts", "heading"=>"Floating Accounts", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Floating Accounts";
 	$opt["export"]["range"] = "filtered";
 	$opt["reloadedit"] = true;
 
@@ -341,27 +341,10 @@ ini_set('display_errors', 1);
 	?>
 
 	<style>
-	.guide {
-		padding: 5px;
-		background-color: orange;
-		border-radius: 5px;
-		border: none;
-		font-size: 10px;
-		color: #000;
-		cursor: pointer;
-	}
-	.guide:hover { background-color: orange; }
-	#dbguide { margin-top: -21px; }
-	.tguide { font-family: inherit; }
-	<?php if($language == "ar_EG") { ?>
-	.tguide { float: right; }
-	<?php } ?>
-	#language { margin-top: 10px !important; }
-
-	.joytest2 ~ div a:nth-child(3){ display: none; }
-	.joyride-tip-guide:nth-child(8){ margin-top: 15px !important; }
-	.ui-icon { display: inline-block !important; }
-	a.current { color: gray; cursor: default; }
+		.joytest2 ~ div a:nth-child(3){ display: none; }
+		.joyride-tip-guide:nth-child(8){ margin-top: 15px !important; }
+		.ui-icon { display: inline-block !important; }
+		a.current { color: gray; cursor: default; }
 	</style>
 
 	<!-- Run the plugin -->
@@ -372,62 +355,52 @@ ini_set('display_errors', 1);
 
 <body>
 	<div id="header">
-
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			<br>
+			<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+			<div class="languages fright">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+			</div>
+		</div>
 	</div>
 
 	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
+	<div class="top-buttons">
+		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+		<div class="buttons">
+			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+			<a href="view-modules.php" class="uppercase fright manage-box"><?php echo _('View Modules'); ?></a>
+			<a href="statistics.php" class="uppercase fright manage-box"><?php echo _('Statistics'); ?></a>
+		</div>
 	</div>
-	<?php } ?>
+
 	<div class="clear"></div>
-	
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 
-	<div class="fleft" id="language">
-		<?php echo _("Language"); ?>:
-	
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-
-		?>
-			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-	</div>
-	<!-- <div class="fright m-top10" id="accounts">
-		<a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("My Account"); ?></a>
-	</div> -->
-	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("In this Account Management page, you can manage all floating teachers. Floating teachers are accounts whose head/sub-admin is deleted from the Sub-Admin spreadsheet.  Please take note that all the students under these teachers are still listed in the Student spreadsheet."); ?>
+	<p><?php echo _("In this Account Management page, you can manage all floating accounts. Floating Accounts are accounts whose head/sub-admin is deleted from the Sub-Admin spreadsheet.  Please take note that all the students under these teachers are still listed in the Student spreadsheet."); ?>
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
-				<h1><?php echo _('List of Floating Teachers'); ?></h1>
+				<h1><?php echo _('List of Floating Accounts'); ?></h1>
 				
 				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
 				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
-					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage Students'); ?></a> | 
 					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
-					<a href="floating-accounts.php" class="link current" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
-					<a href="statistics.php" class="link" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
+					<a href="floating-accounts.php" class="link current" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
 				</div>
 			</div>		
 			<div class="clear"></div>

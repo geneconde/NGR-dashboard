@@ -357,32 +357,9 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 	<style>
-		.fleft { margin-top: -16px; }
-		.tguide { float: left; margin-top: -15px; }
-		.guide {
-			padding: 5px;
-			background-color: orange;
-			border-radius: 5px;
-			margin-right: 1px;
-			margin-left: 1px;
-			border: none;
-			font-size: 10px;
-			color: #000;
-			cursor: pointer;
-		}
-		.guide:hover {
-			background-color: orange;
-		}
-		.joytest2 ~ div a:nth-child(3){
-		    display: none;
-		}
-		.ui-icon {
-		  display: inline-block !important;
-		}
+		.joytest2 ~ div a:nth-child(3){ display: none; }
+		.ui-icon { display: inline-block !important; }
 		#delmodlist1 { width: auto !important; }
-		<?php if($language == "ar_EG") { ?>
-		.tguide { float: right; }
-		<?php } ?>
 
 		/*Custom joyride*/
 		.joyride-tip-guide:nth-child(7){
@@ -414,14 +391,8 @@ ini_set('display_errors', 1);
 			margin-top: 3px !important;
 		    margin-left: -25px !important;
 		}
-		.fr {float: right;}
-		.fl {float: left;}
-		.sQuestion
-		{
-			font-size: 1.17em;
-			font-weight : bold;
-		}
 		/*End custom joyride*/
+
 		tr td:nth-child(15) a {
 		  background: rgb(66, 151, 215);
 		  color: #fff;
@@ -431,9 +402,7 @@ ini_set('display_errors', 1);
 		tr td:nth-child(15) a:hover, tr td:nth-child(15) a:link, tr td:nth-child(15) a:visited, tr td:nth-child(15) a:focus {
 			color: #fff;
 		}
-		#list1_act {
-			width: auto !important;
-		}
+		#list1_act { width: auto !important; }
 		tr input { width: 90% !important; }
 		.ui-jqgrid .ui-search-input input { width: 100% !important; }
 		.ui-pg-input { width: auto !important; }
@@ -441,6 +410,7 @@ ini_set('display_errors', 1);
 		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
+		.link.back { left: 81px; margin-top: 6px; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
@@ -463,14 +433,19 @@ ini_set('display_errors', 1);
 </head>
 
 <body>
-	<!-- <div class="grey"></div> -->
-	<div id="header">
-
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-
+<div id="header">
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<div class="fright" id="logged-in">
+		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
 	</div>
-	
-	<!-- error and messages -->
+</div>
+
+<div id="content">
+	<div class="top-buttons">
+		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+	</div>
+
+	<!-- messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
 			<!-- <div class="error-msg"><p><?php echo _('Error! you are only allowed to create'); ?> <?php echo $student_limit; ?> <?php echo _('students'); ?></p></div> -->
@@ -486,51 +461,10 @@ ini_set('display_errors', 1);
 
 		<?php endif; ?>
 	<?php endif; ?>
+	<!-- end messages -->
 
-	<!-- <div class="forgot-password mod-desc">
-		<div>
-			<legend>Forgot Password</legend>
-			<label for="email-add">Enter your email address: </label>
-			<input type="password" name="password">
-		</div>
-		<span class="close-btn"><?php echo _("Close!"); ?></span>
-	</div> -->
-
-	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-	</div>
-	<?php } ?>
-	<br/>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<br/>
-	<div class="clear"></div>
-
-	<a class="link" href="../teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-
-	<!-- <div class="fleft" id="language">
-		<?php echo _("Language"); ?>:
-		<select id="language-menu">
-			<?php
-				if(!empty($teacher_languages)) :
-					foreach($teacher_languages as $tl) : 
-						$lang = $lc->getLanguage($tl['language_id']);
-			?>
-						<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-			<?php 
-					endforeach; 
-				else :
-			?>
-				<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-			<?php endif; ?>
-		</select>
-		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-	</div> -->
-	<div class="fright m-top10" id="accounts">
-		<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>"><?php echo _("My Account"); ?></a> -->
-	</div>
+	<a class="link back" href="../teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+	<br><br>
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>

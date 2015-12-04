@@ -124,14 +124,13 @@ ini_set('display_errors', 0);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<style>
 	#dbguide {display: none;}
+    div.dataTables_wrapper { width: 100%; margin: 0 auto; }
+    .fleft.back { margin-bottom: -15px; }
+	a.current { color: gray; cursor: default; }
 
-    div.dataTables_wrapper {
-    	width: 100%;
-        margin: 0 auto;
-    }
     #stats_length { margin-bottom: 5px; }
     .pn { background: #fff !important; }
     table { border: solid 1px #a0a0a0; }
@@ -141,8 +140,6 @@ ini_set('display_errors', 0);
     .even_gradeC a:focus,
     .even_gradeC a:hover
     { color: #000; text-decoration: none; }
-    .fleft.back { margin-bottom: -15px; }
-	a.current { color: gray; cursor: default; }
 	</style>
 
 	<link rel="stylesheet" href="css/jquery.dataTables.css" />
@@ -154,37 +151,37 @@ ini_set('display_errors', 0);
 
 <body>
 	<div id="header">
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			<br>
+			<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+			<div class="languages fright">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+			</div>
+		</div>
 	</div>
 
 	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
+	<div class="top-buttons">
+		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+		<div class="buttons">
+			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+			<a href="view-modules.php" class="uppercase fright manage-box"><?php echo _('View Modules'); ?></a>
+			<a href="statistics.php" class="uppercase fright manage-box"><?php echo _('Statistics'); ?></a>
+		</div>
 	</div>
-	<?php } ?>
+
 	<div class="clear"></div>
 
-	<div class="fleft" id="language">
-		<?php echo _("Language"); ?>:
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-	<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-	</div>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<div class="wrap-container">
 		<div id="wrap">
@@ -195,12 +192,10 @@ ini_set('display_errors', 0);
 				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
-					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Sub-Admin'); ?></a> | 
-					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage All Students'); ?></a> | 
+					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 
+					<a href="manage-students.php" class="link" style="display: inline-block;"><?php echo _('Manage Students'); ?></a> | 
 					<a href="unassigned-students.php" class="link" style="display: inline-block;"><?php echo _('Unassigned Students'); ?></a> | 
-					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Teachers'); ?></a> | 
-					<a href="view-modules.php" class="link" style="display: inline-block;"><?php echo _('View Modules'); ?></a> | 
-					<a href="statistics.php" class="link current" style="display: inline-block;"><?php echo _('Statistics'); ?></a>
+					<a href="floating-accounts.php" class="link" style="display: inline-block;"><?php echo _('Floating Accounts'); ?></a>
 				</div>
 				<div class="clear"></div>
 				<?php if(isset($_GET['u'])) : ?>

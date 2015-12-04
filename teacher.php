@@ -2,12 +2,12 @@
 	ini_set('display_errors', 1);
 	require_once 'session.php';
 	require_once 'locale.php';
-	include_once 'header.php';
 	include_once 'controller/DiagnosticTest.Controller.php';
 	include_once 'controller/TeacherModule.Controller.php';
 	include_once 'controller/Module.Controller.php';
 	include_once 'controller/Language.Controller.php';
 	
+	$type = $user->getType();
 	if($type == 3 || $type == 4) { header("Location: subscriber/index.php"); }
 	
 	$userid 			= $user->getUserid();
@@ -22,15 +22,46 @@
 
 	$teachermodules = array();
 	
-	//added for languages by jp
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
 
 	$ufl = $user->getFirstLogin();
 	if($ufl == 1){ header("Location: account-update.php"); }
 ?>
+<!DOCTYPE html>
+<html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
+<head>
+<title>NexGenReady</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="styles/layerslider.css" />
+<link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
+<link rel="stylesheet" href="libraries/joyride/joyride-2.1.css">
+<link rel="stylesheet" type="text/css" href="lgs.css">
+
+<!-- added for the tabbed navigation results
+<link rel="stylesheet" type="text/css" href="styles/tabbed-navigation.css" />
+<link rel="stylesheet" type="text/css" href="styles/tabbed-reset.css" />
+<script type="text/javascript" src="scripts/modernizr.js"></script> -->
+<!-- end tabbed navigation results -->
+
+<script type="text/javascript" src="scripts/jquery-1.8.3.min.js" ></script>
+<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+<script type="text/javascript" src="scripts/jquery.plugin.js"></script>
+<script type="text/javascript" src="libraries/joyride/jquery.cookie.js"></script>
+<script type="text/javascript" src="libraries/joyride/modernizr.mq.js"></script>
+<script type="text/javascript" src="libraries/joyride/jquery.joyride-2.1.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="scripts/language-scripts.js"></script>
+
 <style>
-	<?php if($language == "es_ES") { ?>
+	a.ngss_link:hover {
+		text-decoration: none;
+		background-color: #FAEBD7;
+	}
+	<?php if($language == "es_ES") {  ?>
+		.close-btn { width: 65px !important; }
 		.module-menu {
 		 	width: 105% !important;
 		 	margin: 0 auto;
@@ -38,101 +69,48 @@
 		  	text-align: center;
 			margin-left: -8px !important;
 		}
-	<?php } ?> 
-	<?php if($language == "es_ES") {  ?>
-		.close-btn { width: 65px !important; }
-	<?php } if($language == "zh_CN") { ?>
+	<?php } else if($language == "zh_CN") { ?>
 		.close-btn { width: 40px !important; }
-	<?php } if($language == "ar_EG") { ?>
-		#gm-language {
-			float: right;
-		  	margin-right: -54px;
-		}
-	<?php } ?>
-
-	.tguide { margin-top: 9px; }
-	.first-timer {
-		background-color: #D6E3BC;
-		border-radius: 25px;
-		width: 95%;
-		margin: 0 auto;
-		margin-bottom: 10px;
-	}
-	.first-timer p{
-		padding: 15px;
-		line-height: 1.4rem;
-		font: 18px;
-	}
-	.first-timer button{
-		padding: 5px;
-		font-family: inherit;
-		margin: 0 2px;
-	}
-	#gm-language { margin-left: -54px; }
-	a.ngss_link:hover {
-		text-decoration: none;
-		background-color: #FAEBD7;
-	}
-	<?php if($language == "es_ES") {  ?>
-		.close-btn { width: 65px !important; }
 	<?php } ?>
 </style>
-<div class="grey"></div>
-
-<div class="fleft" id="gm-language">
-	<?php echo _("Language"); ?>:
-	
-	<?php
-			if(!empty($teacher_languages)) :
+</head>
+<body>
+<div id="header">
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<div class="fright" id="logged-in">
+		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="logout.php"><?php echo _("Logout?"); ?></a>
+		<br>
+		<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+		<div class="languages fright">
+			<?php if(!empty($teacher_languages)) :
 				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="teacher.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-
-		?>
-			<a class="uppercase manage-box" href="teacher.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-	<!-- <select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select> -->
-	<a href="teacher-languages.php" class="link" id="edit-lang"><?php echo _("Edit Languages"); ?></a>
-</div>
-<div class="fright m-top10" id="accounts">
-	<div id="manage-container">
-		<?php echo _('Manage:'); ?> 
-		
-			<a id="teacher-account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Teacher Account"); ?></a>
-			<a id="student-accounts" class="uppercase manage-box" href="phpgrid/manage-students.php"/><?php echo _("Student Accounts"); ?></a>
-			<a id="student-groups" class="uppercase manage-box" href="student-accounts.php"/><?php echo _("Student Groups"); ?></a>
-
-		<!-- <select id="manage-menu">
-			<option selected><?php echo _('Options'); ?></option>
-			<option value="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _('Teacher Account'); ?></option>
-			<option value="phpgrid/manage-students.php"><?php echo _('Student Accounts'); ?></option>
-			<option value="student-accounts.php"><?php echo _('Student Groups'); ?></option>
-		</select> -->
+					$lang = $lc->getLanguage($tl['language_id']); ?>
+					<a class="uppercase manage-box" href="teacher.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+			<?php  endforeach;
+			else : ?>
+				<a class="uppercase manage-box" href="teacher.php?lang=en_US"/><?php echo _("EN"); ?></a>
+			<?php endif; ?>
+			<a href="teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+		</div>
 	</div>
-	<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("Manage Teacher Account"); ?></a><p class="fright margin-sides">|</p>
-	<a class="link fright" href="manage-student-accounts.php"><?php echo _("Manage Student Accounts"); ?></a><p class="fright margin-sides">|</p>
-	<a class="link fright" href="student-accounts.php"><?php echo _("Manage Student Groups"); ?></a> -->
-	<a class="uppercase manage-box fright" href="../marketing/ngss.php" target="_blank"><?php echo _("See the NGSS Alignment"); ?></a>
 </div>
+
+<div id="content">
+<div class="top-buttons">
+	<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+	<div class="buttons">
+		<a class="uppercase fright manage-box" target="_blank" href="../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+		<a id="student-accounts" class="uppercase fright manage-box" href="phpgrid/manage-students.php"/><?php echo _("Student Accounts"); ?></a>
+		<a id="student-groups" class="uppercase fright manage-box" href="student-accounts.php"/><?php echo _("Student Groups"); ?></a>
+		<a class="uppercase fright manage-box" href="ct-settings.php" id="gm-cumulative-settings"><?php echo _("CUMULATIVE TEST SETTINGS"); ?></a>
+		<a class="uppercase fright manage-box" href="all-ct.php" id="gm-cumulative-results"><?php echo _("CUMULATIVE TEST RESULTS"); ?></a>
+		<a class="uppercase fright manage-box" href="#"><?php echo _("Module"); ?></a>
+	</div>
+</div>
+
+<div class="grey" style="display: none;"></div>
 <div class="clear"></div>
+
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <?php
 	if(isset($_GET["ft"])):
@@ -145,56 +123,56 @@
 		endif;
 	endif;
 ?>
-<p><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p></br>
+<p><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
+<br><br>
 
-<br/>
-<div id="dash"></div>
-<br/>
-<div id="ct">
-<center>
-	<a class="take-box" href="ct-settings.php" id="gm-cumulative-settings"><?php echo _("CUMULATIVE TEST SETTINGS"); ?></a>
-	<a class="take-box" href="all-ct.php" id="gm-cumulative-results"><?php echo _("CUMULATIVE TEST RESULTS"); ?></a>
-</center>
-</div>
-<br/>
-<div id="dash"></div>
-<br/><br/>
-<div id="gm-module"></div>
-<?php 
-	$modules = $mc->getAllModules();
-	foreach($modules as $module):
-		foreach($tm_set as $sm):
-			if($module['module_ID'] == $sm['module_id']):
-				array_push($teachermodules, $module['module_ID']);
-?>
-<div class="module-box teacher-mb">
-	<span><?php echo _($module['category']); ?></span>
-	<!-- <span class="desc-btn"><?php echo _("Overview"); ?></span> -->
-	
-	<div class="mod-desc">
-		<div><?php echo _($module['module_desc']); ?></div>
-		<span class="close-btn"><?php echo _("Close!"); ?></span>
+<div class="container wrapper">
+	<div class="pull-right">
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="all">All</button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="Earth Science">Earth Science</button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="Life Science">Life Science</button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="Physical Science">Physical Science</button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="STEM Skills and Practices">Stem Skills and Practices</button>
 	</div>
 
-	<h2><?php echo _($module['module_name']); ?></h2>
-	<br/>
-	<div class="module-menu">
-		<span class="take-box desc-btn"><?php echo _("Overview"); ?></span>
-		<a id="vmodule" class="take-box" href="demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a>
-		<a id="settings" class="take-box" href="settings.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Settings"); ?></a>
-		<a id="results" class="take-box" href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Results"); ?></a>
-	</div>
-	<br>
-</div>
-<?php 
-			endif;
-		endforeach;
-	endforeach;
+	<ul class="thumbnails gallery">
 
-	$_SESSION['modules'] = $teachermodules;
-?>
+	<?php $modules = $mc->getAllModules(); ?>
+	<?php foreach($modules as $module): ?>
+		<?php foreach($tm_set as $sm): ?>
+			<?php if($module['module_ID'] == $sm['module_id']): ?>
+				<?php array_push($teachermodules, $module['module_ID']); ?>
+				<li class="clearfix" data-tag='<?php echo _($module['category']); ?>'>
+					<div class="thumbnail">
+						<div class="caption">
+							<div class="mod-desc">
+								<div><?php echo _($module['module_desc']); ?></div>
+								<span class="close-btn"><?php echo _("Close!"); ?></span>
+							</div>
+							<div class="fleft"><h4><?php echo _($module['module_name']); ?></h4></div>
+							<div class="fright cat"><label><?php echo _($module['category']); ?></label></div>
+							<div class="clear"></div>
+							<div class="fleft module-img">
+								<img src="images\portfolio\<?php echo $module['module_ID']; ?>.jpg" alt="<?php echo _($module['module_name']); ?>">
+							</div>
+							<div class="fright module-buttons">
+								<a href="#" class="desc-btn overview"><?php echo _("Overview"); ?></a>
+								<a href="demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a><br>
+								<a href="settings.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Settings"); ?></a>
+								<a href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Results"); ?></a>
+							</div>
+						</div>
+					</div>
+				</li>
+		<?php endif; ?>
+		<?php endforeach; ?>
+	<?php endforeach; ?>
+	<?php $_SESSION['modules'] = $teachermodules; ?>
+	</ul>
+</div>
 
 <div class="clear"></div>
+
 <!-- guide me content -->
 <ol id="joyRideTipContent">
   <li data-id="edit-lang" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
@@ -251,8 +229,6 @@
 	
 	$(".desc-btn").on("click", function(){
 		$(this).parent().parent().find(".mod-desc").css("display", "block");
-		
-		//$(".mod-desc").css("display", "block");
 		$(".grey").css("display", "block");
 	});
 </script>
@@ -271,4 +247,6 @@
     });
   }
 </script>
+<script src="scripts/bootstrap-portfilter.min.js"></script>
+
 <?php require_once "footer.php"; ?>

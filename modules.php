@@ -49,6 +49,8 @@
 	
 	}
 ?>
+<style>#logged-in { display: none; }</style>
+<br>
 <div class='lgs-container'>
  	<div class="center">
  		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>

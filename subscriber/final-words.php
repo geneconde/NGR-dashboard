@@ -7,7 +7,10 @@
 	$userid = $user->getUserid();
 	$uc->updateUserFL($userid);
 ?>
-<style>#dbguide { display: none; } a.dashboard { text-transform: uppercase; }</style>
+<style>
+	#dbguide, #logged-in { display: none; }
+	a.dashboard { text-transform: uppercase; }
+</style>
 <div class='lgs-container'>
  	<div class="center">
  		<h1 class="lgs-text"><?php echo _("You're done!"); ?></h1>

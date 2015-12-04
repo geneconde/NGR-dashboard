@@ -33,9 +33,9 @@
 ?>
 <div id="container" class="ct-questions">
 	<?php if($action == "new"): ?>
-		<a class="link" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
+		<a class="link back" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
 	<?php elseif($action == "edit"): ?>
-		<a class="link" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+		<a class="link back" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
 	<?php endif; ?>
 
 	<h1><?php echo _($module->getModule_name()); ?></h1>

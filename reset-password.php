@@ -19,21 +19,19 @@
 	}
 ?>
 <style>
-#dbguide { display: none; }
-.generate {
-	cursor: default;
-	background: lightgray;
-	padding: 3px 7px;
-	border-radius: 5px;
-
-}
-.generate:hover { background: rgb(188, 188, 188); }
-table td { width: 40% !important; }
-table { width: 380px !important;}
-
+	#dbguide { display: none; }
+	.generate {
+		cursor: default;
+		background: lightgray;
+		padding: 3px 7px;
+		border-radius: 5px;
+	}
+	.generate:hover { background: rgb(188, 188, 188); }
+	table td { width: 40% !important; }
+	table { width: 380px !important;}
 </style>
 <div id="container">
-<a class="link" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+<a class="link back" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
 <br><br>
 <form method="post" action="" id="change-pw">
 	<center>

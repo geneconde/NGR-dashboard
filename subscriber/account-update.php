@@ -51,6 +51,8 @@
 		<style>select { -webkit-appearance: none !important; }</style>
 	<?php }
  ?>
+ <style>#logged-in { display: none; }</style>
+ <br>
  <div class='lgs-container'>
 	<form action="save-account.php?ut=<?php echo $type; ?>&ret=lgs" method="post" id="update-account">
 		<div class="center">
@@ -137,20 +139,6 @@
 <script>
 var olduname = "<?php echo $user->getUsername(); ?>";
 $(document).ready(function() {
-	// $('#edit').click(function(e) {
-	// 	e.preventDefault();
-	// 	$('.editable').prop('disabled',false);
-	// 	$(this).hide();
-	// 	$('.hidden-btn').show();
-	// });
-	
-	// $('#cancel').click(function(e) {
-	// 	e.preventDefault();
-	// 	$('.editable').prop('disabled',true);
-	// 	$('.hidden-btn').hide();
-	// 	$('#edit').show();
-	// });
-	
 	$('#Username').focusout(function() {
 		var uid = $(this).val();
 		uid = $.trim(uid);

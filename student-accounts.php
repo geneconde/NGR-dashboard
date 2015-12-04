@@ -11,7 +11,7 @@
 	$groups		= $sgc->getGroups($userid);
 ?>
 <div id="container">
-	<a class="link" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+	<a class="link back" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 	<br><br>
 	<?php 
 		$assigned = array();

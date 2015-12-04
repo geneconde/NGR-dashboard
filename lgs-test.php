@@ -32,8 +32,10 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
+<style>#logged-in { display: none; }</style>
+
 <div id="container">
-<a class="link" href="modules.php">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="modules.php">&laquo <?php echo _("Go Back"); ?></a>
 
 <?php if ($mode == 1): ?>
 <h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>

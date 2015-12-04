@@ -20,7 +20,8 @@
 	$scc		= new StudentCtController();
 ?>
 <br/>
-<a class="link" href="all-ct.php">&laquo; <?php echo _("Go Back"); ?></a>
+<a class="link back" href="all-ct.php">&laquo; <?php echo _("Go Back"); ?></a>
+<br>
 <h1><?php echo _("Students Cumulative Test Results"); ?></h1>
 
 <span class="red upper bold"><?php echo _("Note:"); ?></span><br/>

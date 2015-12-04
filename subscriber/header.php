@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-<!-- <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen" /> -->
 <script type="text/javascript" src="scripts/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../scripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../scripts/FixedColumns.js"></script>
@@ -31,49 +30,21 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 
-<!-- <link rel="stylesheet" type="text/css" href="../style.css" /> -->
-
 <script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 <script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-<style>
-	.fleft { margin-top: -16px; }
-	.tguide { float: left; margin-top: -15px; font-family: inherit; }
-	.guide {
-		padding: 5px;
-		background-color: orange;
-		border-radius: 5px;
-		margin-right: 1px;
-		margin-left: 1px;
-		border: none;
-		font-size: 10px;
-		color: #000;
-		cursor: pointer;
-	}
-	.guide:hover {
-		background-color: orange;
-	}
-	<?php if($language == "ar_EG") { ?>
-		.tguide { float: right; }
-	<?php } ?>
-</style>
 <?php if (isset($user)) { $type = $user->getType(); } ?>
 </head>
 <body>
 	<div id="header">
-		<!-- <div class="logo"><span class="big">N</span>EX<span class="big">G</span>EN<span class="big">R</span>EADY</a></div> -->
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
+		</div>
 	</div>
+
 	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-	</div>
-	<?php } ?>
-	<div class="clear"></div>
-	
-	<?php if (isset($user)) { ?>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<?php } ?>
+		<div class="top-buttons">
+			<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
+		</div>

@@ -77,7 +77,7 @@
 ?>
 <style> #dbguide { display: none; } </style>
 <div id="container">
-<a class="link" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
 <br>
 <h1><?php echo _("Cumulative Test"); ?></h1>
 <?php //echo _("You have"); ?> <?php //echo $timelimit; ?> <?php //echo _("minutes to answer the questions below."); ?>

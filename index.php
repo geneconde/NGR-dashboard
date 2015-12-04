@@ -35,10 +35,8 @@ if (isset($_SESSION['uname'])) {
 	$uc = new UserController();
 	$sc = new SubscriberController();
 	$sec = new SecurityController();
-
-	// $exist = $sc->checkEmailExistsSubscribe('julius.caluminga@jigzen.com');
 ?>
-
+<style>#dbguide { display: none; }</style>
 <div class="grey"></div>
 
 <div class="mod-desc">

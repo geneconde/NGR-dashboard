@@ -35,6 +35,7 @@
 	$ctc			= new CumulativeTestController();
 	$sct 			= new StudentCtController();
 ?>
+<br><br>
 <div id="container">
 	<!-- <a class="link" href="manage-student-accounts.php">&laquo <?php echo _("Go Back"); ?></a>
 	<br><br> -->

@@ -313,30 +313,9 @@ $main_view = $grid->render("list1");
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 	<style>
 		.ui-search-toolbar { display: none; }
-		.fleft { margin-top: -16px; }
-		.tguide { float: left; margin-top: 0px; font-family: inherit; }
-		.guide {
-			padding: 5px;
-			background-color: orange;
-			border-radius: 5px;
-			margin-right: 1px;
-			margin-left: 1px;
-			border: none;
-			font-size: 10px;
-			color: #000;
-			cursor: pointer;
-		}
-		.guide:hover {
-			background-color: orange;
-		}
-		.ui-icon {
-		  display: inline-block !important;
-		}
+		.ui-icon { display: inline-block !important; }
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
-		<?php if($language == "ar_EG") { ?>
-		.tguide { float: right; }
-		<?php } ?>
 
 		/*Custom joyride*/
 		.joyride-tip-guide:nth-child(8){
@@ -399,20 +378,15 @@ $main_view = $grid->render("list1");
 </head>
 
 <body>
-	<div id="header">
+<div id="header">
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+</div>
 
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-
+<div id="content">
+	<div class="top-buttons">
+		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
 	</div>
 
-	<div id="content"><br>
-
-	<?php if (isset($user)) { ?>
-		<div class="fright" id="logged-in">
-			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-		</div>
-	<?php } ?>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
 	<div class='lgs-container'>
 	<form action="../update-group-student.php" method="post" >
 		<div class="center"><br/>

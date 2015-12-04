@@ -18,21 +18,17 @@
 	$scc 		= new StudentCtController();
 ?>
 <style type="text/css">
-.button1 {
-    display: inline !important;
-}
-td.ct_options {
-    width: 33% !important;
-}
+.button1 { display: inline !important; }
+td.ct_options { width: 33% !important; }
 <?php if($language == "es_ES") { ?>
 	.ct_options { width: 50% !important; }
 <?php } ?>
 </style>
 
 <div id="container">
-<a class="link" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <center>
-<br>
+<br><br>
 <h2><?php echo _("Cumulative Test Settings"); ?></h2>
 <table border="0" class="result morepad">
 	<tr>

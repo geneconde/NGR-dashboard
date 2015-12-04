@@ -27,9 +27,9 @@
 </style>
 <div id="container">
 <?php if($type == 2) { ?>
-<a class="link" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
+<a class="link back" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
 <?php } else if($type == 0) { ?>
-<a class="link" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link back" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 <?php } ?>
 <br><br>
 <form method="post" action="save-account.php?user_id=<?php echo $userid; ?>&type=<?php echo $type; ?>" id="edit-account">

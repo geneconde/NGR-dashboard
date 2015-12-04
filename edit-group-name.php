@@ -33,7 +33,7 @@
 ?>
 <style> #dbguide { display: none; } </style>
 <div id="container">
-	<a class="link" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
+	<a class="link back" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a><br>
 	<div class="edit-group-name">
 		<?php if(isset($_GET['err'])) : ?>
 			<?php if($_GET['err'] == 1) : ?>

@@ -94,7 +94,7 @@
 ?>
 <style> #dbguide { display: none; } </style>
 <div id="container">
-<a class="link" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
 <?php if($mode == 1): ?>
 <h1><?php echo _($module->getModule_name()); ?> - <?php echo _("Pre-Diagnostic Test"); ?></h1>
 <?php //echo _("You have"); ?> <?php //echo $timelimit; ?> <?php //echo _("minutes to answer the questions below."); ?>

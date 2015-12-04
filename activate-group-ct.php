@@ -17,9 +17,9 @@
 ?>
 
 <div id="container">
-<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+<a class="link back" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
 <center>
-<br>
+<br><br>
 <h2><?php echo _("Cumulative Test Activation"); ?></h2>
 <?php if ($_GET['m'] == 1) echo '<p class="green">Cumulative Test activated for selected groups below.</p>'; ?>
 <form action="activate-ct.php?ctid=<?php echo $ctid; ?>" method="post">

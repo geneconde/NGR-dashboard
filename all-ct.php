@@ -10,9 +10,9 @@
 	$ct_set		= $ctc->getCumulativeTests($userid);
 ?>
 <div id="container">
-<a class="link" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <center>
-<br>
+<br><br>
 <h2><?php echo _("Cumulative Tests"); ?></h2>
 <table border="0" class="result morepad">
 	<tr>

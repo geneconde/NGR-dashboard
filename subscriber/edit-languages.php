@@ -50,35 +50,12 @@
 			$_SESSION['alert'] = 2;
 		}
 	}
-	
-
 ?>
+<div class="clear"></div>
 
-<script type="text/javascript" src="../scripts/language-scripts.js"></script>
 <div id="container">
-	<a class="link fleft" href="index.php">&laquo <?php echo _("Go Back to Account Management"); ?></a>
-	<br/>
-	<div class="fleft" id="language" style="margin-left: 10px; margin-top: -2px;">
-		<?php echo _("Language"); ?>:
-	
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="edit-languages.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
-
-		?>
-			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-		
-	</div>
-	<br/><br/>
-
+	<a class="link back fleft" href="index.php">&laquo <?php echo _("Go Back to Account Management"); ?></a>
+	<br>
 	<div class="language-container">
 		<br/>
 		<h2><?php echo _("Set of Languages"); ?></h2>
@@ -101,21 +78,7 @@
 			<?php } ?>
 		
 		<?php } ?>
-
-	
-	
-		<!--<?php //if(isset($_GET['msg'])) : ?>
-			<?php //if($_GET['msg'] == 1) : ?>
-				<p style="color: green;"><?php //echo _("Language settings have been updated. You can now go back to the dashboard."); ?></p>
-			<?php //endif; ?>
-		<?php //endif; ?>
 		
-		<?php //if(isset($_GET['err'])) : ?>
-			<?php //if($_GET['err'] == 1) : ?>
-				<p style="color: red;"><?php //echo _("Please select at least one default language. Thank you."); ?></p>
-			<?php //endif; ?>
-		<?php //endif; ?>
-		<br/>-->
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="language_form">
 			<table border="1" class="language-table">
 				<tr>
@@ -179,6 +142,7 @@
 		} 
 	?>
 </div>
+
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
 	<li data-id="check-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">

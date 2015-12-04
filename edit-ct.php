@@ -37,7 +37,7 @@
 ?>
 <style> #dbguide { display: none; } </style>
 <div id="container" class="ct-container">
-	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+	<a class="link back" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
 	<h1><?php echo _("Edit Cumulative Test"); ?></h1>
 	<form action="update-ct.php?ctid=<?php echo $ctid; ?>" method="post">
 		<table border="0" class="result morepad" id="ct-details">

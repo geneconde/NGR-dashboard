@@ -42,10 +42,10 @@
 <?php } else if ($user->getType() == 2 ) { ?>
 <?php if (isset($_GET['from'])) : ?>
 	<?php if ($_GET['from'] == 1) : ?>
-	<a class="link" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
+	<a class="link back" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
 	<?php endif; ?>
 <?php else : ?>
-	<a class="link" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+	<a class="link back" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
 <?php endif; ?>
 <?php } ?>
 <h1><?php echo _("Cumulative Test Result"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>

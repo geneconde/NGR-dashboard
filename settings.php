@@ -32,12 +32,10 @@
 ?>
 <style>
 	.joyride-tip-guide { width: 22%; }
-	.joyride-tip-guide:nth-child(8) .joyride-content-wrapper {
-    	margin-top: -174px !important;
-	}
+	.joyride-tip-guide:nth-child(8) .joyride-content-wrapper { margin-top: -174px !important; }
 </style>
 <div id="container">
-<a class="link" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 <h1><?php echo _($module_set->getModule_name()); ?></h1>
 <center>
 <h2><?php echo _("Groups"); ?></h2>

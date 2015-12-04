@@ -61,7 +61,8 @@
 ?>
 <style> #dbguide { display: none; } </style>
 <div id="container">
-<a class="link" href="all-students-ct-results.php?ctid=<?=$ctid?>">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
+<a class="link back" href="all-students-ct-results.php?ctid=<?=$ctid?>">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
+<br><br>
 <?php
 
 if($language == "ar_EG") {

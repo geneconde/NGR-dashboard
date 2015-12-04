@@ -21,14 +21,10 @@
 	$questions = '';
 ?>
 <style>
-	/*Custom joyride*/
-	.joyride-tip-guide:nth-child(7){
-	    margin-left: -25px !important;
-	}
-	/*End custom joyride*/
+	.joyride-tip-guide:nth-child(7){ margin-left: -25px !important;	}
 </style>
 <div id="container" class="ct-container">
-	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+	<a class="link back" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
 	<h1><?php echo _("Create Cumulative Test"); ?></h1>
 	<form action="add-ct.php" method="post" id="ct-form">
 		<table border="0" id="ct-details">
