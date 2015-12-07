@@ -51,6 +51,7 @@
 		}
 	}
 ?>
+<script type="text/javascript" src="../scripts/language-scripts.js"></script>
 <div class="clear"></div>
 
 <div id="container">

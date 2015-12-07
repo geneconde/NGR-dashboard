@@ -1,3 +1,4 @@
+
 <?php
 	ini_set('display_errors', 1);
 	require_once 'session.php';
@@ -72,15 +73,20 @@
 	<?php } else if($language == "zh_CN") { ?>
 		.close-btn { width: 40px !important; }
 	<?php } ?>
+	.joyride-tip-guide:nth-child(15) {
+	    left: 72% !important;
+	    top: 39px !important;
+	}
+	.joyride-tip-guide:nth-child(15) .joyride-nub { left: 85%; }
 </style>
 </head>
 <body>
 <div id="header">
-	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="images/logo2.png"></a>
 	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="logout.php"><?php echo _("Logout?"); ?></a>
+		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" id="logout" href="logout.php"><?php echo _("Logout?"); ?></a>
 		<br>
-		<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
+		<a id="my-account" class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
 		<div class="languages fright">
 			<?php if(!empty($teacher_languages)) :
 				foreach($teacher_languages as $tl) : 
@@ -111,7 +117,7 @@
 <div class="grey" style="display: none;"></div>
 <div class="clear"></div>
 
-<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
+<h1 class="dash-welcome"><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <?php
 	if(isset($_GET["ft"])):
 		if($_GET["ft"]==1): ?>
@@ -123,7 +129,7 @@
 		endif;
 	endif;
 ?>
-<p><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
+<p class="dash-message"><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
 <br><br>
 
 <div class="container wrapper">
@@ -142,7 +148,7 @@
 		<?php foreach($tm_set as $sm): ?>
 			<?php if($module['module_ID'] == $sm['module_id']): ?>
 				<?php array_push($teachermodules, $module['module_ID']); ?>
-				<li class="clearfix" data-tag='<?php echo _($module['category']); ?>'>
+				<li class="clearfix gm-module" data-tag='<?php echo _($module['category']); ?>'>
 					<div class="thumbnail">
 						<div class="caption">
 							<div class="mod-desc">
@@ -157,9 +163,9 @@
 							</div>
 							<div class="fright module-buttons">
 								<a href="#" class="desc-btn overview"><?php echo _("Overview"); ?></a>
-								<a href="demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a><br>
-								<a href="settings.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Settings"); ?></a>
-								<a href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Results"); ?></a>
+								<a class="view-module" href="demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a><br>
+								<a class="settings" href="settings.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Settings"); ?></a>
+								<a class="results" href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Results"); ?></a>
 							</div>
 						</div>
 					</div>
@@ -175,10 +181,10 @@
 
 <!-- guide me content -->
 <ol id="joyRideTipContent">
-  <li data-id="edit-lang" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-    <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed. You can change the language anytime by selecting a language in the drop down box."); ?></p>
+  <li data-class="languages" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+    <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed."); ?></p>
   </li>
-  <li data-id="teacher-account" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-id="my-account" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
     <p><?php echo _("Click this button to personalize your information."); ?></p>
   </li>
   <li data-id="student-accounts" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
@@ -187,13 +193,13 @@
   <li data-id="student-groups" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
     <p><?php echo _("Click this button to manage student groups. You can create groups and transfer students as well."); ?></p>
   </li>
-  <li data-id="gm-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-class="gm-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
     <p><?php echo _("This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module."); ?></p>
   </li>
-  <li data-id="vmodule" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-class="view-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
     <p><?php echo _("Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved."); ?></p>
   </li>
-  <li data-id="settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-class="settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
     <p><?php echo _("The settings button will take you to a screen that allows you to do the following:"); ?></p>
     <ul style="padding-left: 20px; font-size: 14px;">
     	<li><?php echo _("Open/close the module completely for any or all groups"); ?></li>
@@ -203,7 +209,7 @@
     </ul>
     <p></p>
   </li>
-  <li data-id="results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-class="results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
     <p><?php echo _("All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a \"cumulative\" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students."); ?></p>
     <p><?php echo _("Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group."); ?></p>
   </li>
@@ -213,7 +219,7 @@
   <li data-id="gm-cumulative-results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
     <p><?php echo _("Click this button to view the results of the cumulative tests of students."); ?></p>
   </li>
-  <li data-id="lout" data-button="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+  <li data-id="logout" data-button="<?php echo _('Close'); ?>" data-options="tipLocation:bottom;tipAnimation:fade">
     <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
   </li>
 </ol>

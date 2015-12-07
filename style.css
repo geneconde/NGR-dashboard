@@ -109,6 +109,7 @@ hr { border: 0; height: 1px; color: gray; background-color: gray; margin-bottom:
     left: 61px;
     top: 115px;
 }
+html[dir="rtl"] .link.back { right: 51px; }
 h1 { padding: 20px 0; }
 
 /* .button1 { margin-top: 20px; background-color: #153039; color: white; padding: 5px 10px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin: 10px 0; cursor: pointer; border: 0; } */
@@ -1696,6 +1697,9 @@ input[type=checkbox] {
 .top-buttons {
     margin-top: 10px;
 }
+html[dir="rtl"] .top-buttons {
+    margin-left: -5px;
+}
 .top-buttons .buttons a {
     margin-left: 5px;
 }
@@ -1815,3 +1819,39 @@ html[dir="rtl"] .fright.cat {
     background: #FFBD9E;
 }
 /*end teacher filtered modules*/
+
+.dash-welcome, .dash-message { width: 94%; }
+
+@media screen and (max-width: 989px) {
+    body > #content { min-width: 80%; padding: 0 30px 10px; }
+    #header a.logo { margin-left: 20px; }
+    #header #logged-in { margin-right: 30px; }
+    html[dir="rtl"] #header a.logo { margin-right: 20px; margin-left: initial; }
+    html[dir="rtl"] #header #logged-in { margin-left: 30px; margin-right: initial; }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    body > #content { min-width: 84%; padding: 0 60px 30px 60px; }
+    #header #logged-in { margin-right: 60px; }
+    html[dir="rtl"] #header #logged-in { margin-left: 60px; }
+    #header a.logo { margin-left: 51px; }
+
+    .top-buttons { margin-right: 0px; }
+    html[dir="rtl"] .top-buttons { margin-left: 55px; margin-right: initial; }
+
+    html[dir="rtl"] #content { min-width: initial; padding-left: 0; }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    body > #content { min-width: 94%; padding: 0 21px 30px; }
+    #header a.logo { margin-left: 10px; }
+    #header #logged-in { margin-right: 20px; }
+    .top-buttons { margin-right: 0px; }
+
+    html[dir="rtl"] #header a.logo { margin-left: initial; margin-right: 10px; }
+    html[dir="rtl"] #header #logged-in { margin-right: initial; margin-left: 20px; }
+    html[dir="rtl"] #content { padding: initial; }
+    html[dir="rtl"] .top-buttons { margin-right: 15px; margin-left: 15px; }
+    html[dir="rtl"] .container.wrapper { margin-right: 16px; }
+    html[dir="rtl"] .dash-welcome, html[dir="rtl"] .dash-message { margin-right: 20px; }
+    #footer .copyright { margin: 0; }
+    #footer p { padding: 0 10px; font-size: 12px; }
+}

@@ -26,7 +26,7 @@
 ?>
 <style> #dbguide { display: none; } span.form-error { position: absolute; margin-top: 3px; font-size: 12px !important; } </style>
 <div id="container">
-<a class="link" href="edit-account.php?user_id=<?php echo $userid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+<a class="link back" href="edit-account.php?user_id=<?php echo $userid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
 <br><br>
 <form method="post" id="change-pw" action=""><!-- save-pw.php?user_id=<?php echo $userid; ?> -->
 	<center>

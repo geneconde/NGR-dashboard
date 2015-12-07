@@ -106,13 +106,18 @@
 	<?php } else if($language == "zh_CN") { ?>
 		.close-btn { width: 40px !important; }
 	<?php } ?>
+	.joyride-tip-guide:nth-child(9) {
+	    left: 72% !important;
+	    top: 39px !important;
+	}
+	.joyride-tip-guide:nth-child(9) .joyride-nub { left: 85%; }
 </style>
 </head>
 <body>
 <div id="header">
-	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<a class="logo fleft" href="<?php echo $link; ?>"><img src="images/logo2.png"></a>
 	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="logout.php"><?php echo _("Logout?"); ?></a>
+		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" id="logout" href="logout.php"><?php echo _("Logout?"); ?></a>
 		<br>
 		<div class="languages fright">
 			<?php if(!empty($teacher_languages)) :
@@ -216,7 +221,7 @@
 <?php endif; ?>
 <!-- guide me content -->
 <ol id="joyRideTipContent">
-  <li data-id="gm-language" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
+  <li data-class="languages" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
     <p>If there are several languages available, click on the button of the language you want to use for all modules and dashboard interface.</p>
   </li>
   <li data-class="module-box" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
@@ -230,7 +235,7 @@
     <p>Click this button to view the results of the cumulative tests.</p>
     <p></p>
   </li>
-  <li data-id="lout" data-button="Close" data-options="tipLocation:left;tipAnimation:fade">
+  <li data-id="logout" data-button="Close" data-options="tipLocation:bottom;tipAnimation:fade">
     <p>Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard.</p>
   </li>
 </ol>

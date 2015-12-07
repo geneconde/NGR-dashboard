@@ -411,6 +411,7 @@ ini_set('display_errors', 1);
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
 		.link.back { left: 81px; margin-top: 6px; }
+		html[dir="rtl"] .link.back { right: 81px; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
