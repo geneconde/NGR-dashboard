@@ -16,5 +16,5 @@
 	$ctc 	= new CumulativeTestController();
 	$ctc->deleteCT($ctid);
 
-	header("Location: ct-settings.php");
+	header("Location: ct-test.php");
 ?>

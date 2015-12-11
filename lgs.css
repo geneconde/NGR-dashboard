@@ -9,9 +9,8 @@
     text-align: left;
 }
 .welcome {
-    margin-top: -10px;
-    margin-bottom: 15px;
     color: gray;
+    margin-top: 10px;
 }
 .lgs-text-sub {
     font-size: 15px;
@@ -53,9 +52,6 @@
 }
 .back {
     float: left;
-}
-.lgs-container {
-    display: inline;
 }
 .left {
     float: left;

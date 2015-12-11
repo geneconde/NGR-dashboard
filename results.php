@@ -34,20 +34,22 @@
 	else if ($link == 1) $link = 'parent';
 	else if ($link == 2) $link = 'student';
 ?>
+<script>
+	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
+	var pfCustomCSS = 'printfriendly2.php'
+	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+</script>
 
-	<script>
-		var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
-		var pfCustomCSS = 'printfriendly2.php'
-		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
-	</script>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
 
-	<div id="container">
-		<?php if ($link == 'teacher') { ?>
-		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
-		<?php } else { ?>
-		<a class="link back" href="<?php echo $link.'.php';?>">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-		<?php } ?>
-		<br><br>
+<div id="content">
+<div class="wrap">
 		<h1><?php echo _("Module Score Summary"); ?>
 			<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
 				<img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>
@@ -267,20 +269,6 @@
 		}
 	?>
 	<!-- End Email -->
-	<!-- start footer -->
-	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
-		<div class="copyright">
-			<p>© 2014 NexGenReady. <?php echo _("All Rights Reserved."); ?>
-			<a class="link f-link" href="../marketing/privacy-policy.php"><?php echo _("Privacy Policy"); ?></a> | 
-			<a class="link f-link" href="../marketing/terms-of-service.php"><?php echo _("Terms of Service"); ?></a>
-	
-			<a class="link fright f-link" href="../marketing/contact.php"><?php echo _("Need help? Contact our support team"); ?></a>
-			<span class="fright l-separator">|</span>
-			<a class="link fright f-link" href="../marketing/bug.php"><?php echo _("File Bug Report"); ?></a>
-			</p>
-		</div>
-	</div>
-	<!-- end footer -->
 	<script src="scripts/livevalidation.js"></script>
 	<script>document.getElementById('score').innerHTML = '<?php echo $score;?>%';</script>
 	<script>
@@ -325,5 +313,4 @@
 	    });
 	  }
     </script>
-</body>
-</html>
+<?php require_once "footer.php"; ?>

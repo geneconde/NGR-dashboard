@@ -312,33 +312,7 @@ ini_set('display_errors', 1);
 	$main_view = $grid->render("list1");
 
 ?>
-<!DOCTYPE html>
-<html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
-
-<head>
-	<title>NexGenReady</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
-	
-	<link rel="stylesheet" type="text/css" href="../style.css" />
-	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
-
-	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
-	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-	<?php
-	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
-	<?php }
-	if($language == "es_ES") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
-	<?php }
-	if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
-	<?php }
-	?>
+<?php require_once 'header.php'; ?>
 
 	<style>
 		.joytest2 ~ div a:nth-child(3){ display: none; }
@@ -347,44 +321,15 @@ ini_set('display_errors', 1);
 		a.current { color: gray; cursor: default; }
 	</style>
 
-	<!-- Run the plugin -->
-    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-</head>
-
-<body>
-	<div id="header">
-		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-		<div class="fright" id="logged-in">
-			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
-			<br>
-			<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-			<div class="languages fright">
-				<?php if(!empty($teacher_languages)) :
-					foreach($teacher_languages as $tl) : 
-						$lang = $lc->getLanguage($tl['language_id']); ?>
-						<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
-				<?php  endforeach;
-				else : ?>
-					<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("EN"); ?></a>
-				<?php endif; ?>
-				<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-			</div>
-		</div>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'dashboard'; ?>
+		<?php include "menu.php"; ?>
 	</div>
+</div>
 
-	<div id="content">
-	<div class="top-buttons">
-		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
-		<div class="buttons">
-			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
-			<a href="view-modules.php" class="uppercase fright manage-box"><?php echo _('View Modules'); ?></a>
-			<a href="statistics.php" class="uppercase fright manage-box"><?php echo _('Statistics'); ?></a>
-		</div>
-	</div>
-
-	<div class="clear"></div>
+<div id="content">
+<div class='wrap'>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("In this Account Management page, you can manage all floating accounts. Floating Accounts are accounts whose head/sub-admin is deleted from the Sub-Admin spreadsheet.  Please take note that all the students under these teachers are still listed in the Student spreadsheet."); ?>
@@ -404,19 +349,6 @@ ini_set('display_errors', 1);
 				</div>
 			</div>		
 			<div class="clear"></div>
-
-			<script>
-				/*var opts = {
-				    errorCell: function(res,stat,err)
-				    {
-						jQuery.jgrid.info_dialog(jQuery.jgrid.errors.errcap,
-							'<div class=\"ui-state-error\">'+ res.responseText +'</div>', 
-								jQuery.jgrid.edit.bClose,
-									{buttonalign:'right'}
-						);		    	
-				    }
-				};	*/
-			</script>
 
 			<div style="margin:10px 0">
 				<?php echo $main_view; ?>
@@ -456,20 +388,6 @@ ini_set('display_errors', 1);
 	    </ol>
 	</div> <!-- End of content -->
 
-	<!-- start footer -->
-	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
-		<div class="copyright">
-			<p>© 2014 NexGenReady. <?php echo _("All Rights Reserved."); ?>
-			<a class="link f-link" href="../../marketing/privacy-policy.php"><?php echo _("Privacy Policy"); ?></a> | 
-			<a class="link f-link" href="../../marketing/terms-of-service.php"><?php echo _("Terms of Service"); ?></a>
-	
-			<a class="link fright f-link" href="../../marketing/contact.php"><?php echo _("Need help? Contact our support team"); ?></a>
-			<span class="fright l-separator">|</span>
-			<a class="link fright f-link" href="../../marketing/bug.php"><?php echo _("File Bug Report"); ?></a>
-			</p>
-		</div>
-	</div>
-	<!-- end footer -->
 	<script>
 	var language;
 	$(document).ready(function() {
@@ -500,5 +418,4 @@ ini_set('display_errors', 1);
 		return true;
 	}
 	</script>
-</body>
-</html>
+<?php require_once "footer.php"; ?>

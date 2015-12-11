@@ -30,8 +30,17 @@
 	table td { width: 40% !important; }
 	table { width: 380px !important;}
 </style>
-<div id="container">
-<a class="link back" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="<?php echo $previous; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <br><br>
 <form method="post" action="" id="change-pw">
 	<center>

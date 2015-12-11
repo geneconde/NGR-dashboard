@@ -49,9 +49,8 @@
 	
 	}
 ?>
-<style>#logged-in { display: none; }</style>
-<br>
-<div class='lgs-container'>
+<div id="content">
+<div class='wrap'>
  	<div class="center">
  		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>
 		<p class="lgs-text-sub heading-input step step2"><?php echo _("Step 3: Your Modules"); ?></p>
@@ -95,18 +94,18 @@
 				<td class="dactivate">
 					<a class="pre-test"
 					<?php if($cea) { ?>
-						href="lgs-test.php?dtid=<?php echo $preID; ?>&action=edit"><?php echo _("Edit Pre-Diagnostic Test"); ?>
+						href="dt-item.php?dtid=<?php echo $preID; ?>&action=edit"><?php echo _("Edit Pre-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="lgs-test.php?module_id=<?php echo $moduleB; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
+						href="dt-item.php?module_id=<?php echo $moduleB; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>
 				<td class="dactivate">
 					<a class="post-test"
 					<?php if($ceb){ ?>
-						href="lgs-test.php?dtid=<?php echo $postID; ?>&action=edit"><?php echo _("Edit Post-Diagnostic Test"); ?>
+						href="dt-item.php?dtid=<?php echo $postID; ?>&action=edit"><?php echo _("Edit Post-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="lgs-test.php?module_id=<?php echo $moduleB; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
+						href="dt-item.php?module_id=<?php echo $moduleB; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>

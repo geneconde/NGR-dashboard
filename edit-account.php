@@ -25,13 +25,18 @@
 	select { width: 295px; }
 	.answer { width: 290px !important; }
 </style>
-<div id="container">
-<?php if($type == 2) { ?>
-<a class="link back" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a>
-<?php } else if($type == 0) { ?>
-<a class="link back" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-<?php } ?>
-<br><br>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+<br>
 <form method="post" action="save-account.php?user_id=<?php echo $userid; ?>&type=<?php echo $type; ?>" id="edit-account">
 	<center>
 		<table>

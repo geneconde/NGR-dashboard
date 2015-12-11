@@ -11,7 +11,9 @@
 	#dbguide, #logged-in { display: none; }
 	a.dashboard { text-transform: uppercase; }
 </style>
-<div class='lgs-container'>
+
+<div id="content">
+<div class="wrap">
  	<div class="center">
  		<h1 class="lgs-text"><?php echo _("You're done!"); ?></h1>
 		<p class="lgs-text-sub note"><?php echo _("Thank you for your patience in setting up your account. Your students can now log into their account and start the pre-diagnostic test (if you created one) and the module/s you activated."); ?></p>

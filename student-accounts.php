@@ -10,10 +10,18 @@
 	$sgc 		= new StudentGroupController();
 	$groups		= $sgc->getGroups($userid);
 ?>
-<div id="container">
-	<a class="link back" href="teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-	<br><br>
-	<?php 
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'student-groups'; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+	<?php
 		$assigned = array();
 		$grp = 1;
 		
@@ -22,7 +30,6 @@
 			$assigned = array_merge($assigned, $users);
 			
 			$ctr = 1;
-			
 	?>
 	<h2 class="group-name"><?php echo $group['group_name']; ?></h2>
 	<table class="students" id="group-<?php echo $group['group_id']; ?>">
@@ -60,22 +67,22 @@
 		?>
 	</table>
 	<div class="group-control" id="group-control-<?php echo $group['group_id']; ?>">
-	<?php echo _("Move to:"); ?>
-	<select id="select-<?php echo $grp; ?>">
-		<?php 
-			foreach($groups as $others) {
-				if($others['group_name'] != $group['group_name']) {
-		?>
-					<option value="<?php echo $others['group_id']; ?>"><?php echo $others['group_name']; ?></option>
-		<?php
+		<?php echo _("Move to:"); ?>
+		<select id="select-<?php echo $grp; ?>">
+			<?php 
+				foreach($groups as $others) {
+					if($others['group_name'] != $group['group_name']) {
+			?>
+						<option value="<?php echo $others['group_id']; ?>"><?php echo $others['group_name']; ?></option>
+			<?php
+					}
 				}
-			}
-		?>
-					<option value="nogroup"><?php echo _('No Group'); ?></option>
-	</select>
-	<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
-	<input type="button" class="button1 delete" value="<?php echo _("Delete Group"); ?>">
-	<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1 edit"><?php echo _("Edit Name"); ?></a>
+			?>
+						<option value="nogroup"><?php echo _('No Group'); ?></option>
+		</select>
+		<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
+		<input type="button" class="button1 delete" value="<?php echo _("Delete Group"); ?>">
+		<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1 edit"><?php echo _("Edit Name"); ?></a>
 	</div>
 	<?php $grp++; } ?>
 
@@ -126,7 +133,7 @@
 	<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
 	</div>
 	<br>
-	<a class="button1" id="create-group"><?php echo _("New Group"); ?></a>
+	<div class="group-control"><a class="button1" id="create-group"><?php echo _("New Group"); ?></a></div>
 	<form class="user-group" action="save-group.php" method="post">
 		<p><?php echo _("Group Name:"); ?></p>
 		<input type="text" id="group-name" name="groupname">

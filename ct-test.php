@@ -19,14 +19,23 @@
 ?>
 <style type="text/css">
 .button1 { display: inline !important; }
-td.ct_options { width: 33% !important; }
+td.ct_options { width: 43% !important; }
 <?php if($language == "es_ES") { ?>
 	.ct_options { width: 50% !important; }
 <?php } ?>
 </style>
 
-<div id="container">
-<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'cumulative-test'; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="teacher.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+
+<div class="wrap">
 <center>
 <br><br>
 <h2><?php echo _("Cumulative Test Settings"); ?></h2>
@@ -58,6 +67,9 @@ td.ct_options { width: 33% !important; }
 						</a>
 						<a class="button1 activate-ct" href="activate-group-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Activate on Groups"); ?>
+						</a>
+						<a class="button1 ct-res" href="all-students-ct-results.php?ctid=<?php echo $ct['ct_id']; ?>">
+							<?php echo _("Result"); ?>
 						</a>
 					</td>
 				</tr>

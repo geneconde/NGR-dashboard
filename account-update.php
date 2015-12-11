@@ -51,9 +51,8 @@
 		<style>select { -webkit-appearance: none !important; }</style>
 	<?php }
  ?>
- <style>#logged-in { display: none; }</style>
- <br>
- <div class='lgs-container'>
+
+ <div class='wrap'>
 	<form action="save-account.php?ut=<?php echo $type; ?>&ret=lgs" method="post" id="update-account">
 		<div class="center">
  		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>
@@ -135,6 +134,7 @@
 		<input id="save" class="nbtn" type="submit" value="<?php echo _('Next'); ?>"/>
 		</div>
 	</form>
+	<br><br>
 </div>
 <script>
 var olduname = "<?php echo $user->getUsername(); ?>";

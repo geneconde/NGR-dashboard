@@ -23,8 +23,16 @@
 <style>
 	.joyride-tip-guide:nth-child(7){ margin-left: -25px !important;	}
 </style>
-<div id="container" class="ct-container">
-	<a class="link back" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="ct-test.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div class="ct-container wrap">
 	<h1><?php echo _("Create Cumulative Test"); ?></h1>
 	<form action="add-ct.php" method="post" id="ct-form">
 		<table border="0" id="ct-details">
@@ -176,3 +184,4 @@ $.validate({
     });
   }
 </script>
+<?php require_once "footer.php"; ?>

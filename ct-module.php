@@ -31,13 +31,20 @@
 
 	$module = $mc->loadModule($mid);
 ?>
-<div id="container" class="ct-questions">
-	<?php if($action == "new"): ?>
-		<a class="link back" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
-	<?php elseif($action == "edit"): ?>
-		<a class="link back" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
-	<?php endif; ?>
 
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<?php if($action == "new"): ?>
+			<a class="link back" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
+		<?php elseif($action == "edit"): ?>
+			<a class="link back" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+		<?php endif; ?>
+	</div>
+</div>
+
+<div class="ct-questions wrap">
 	<h1><?php echo _($module->getModule_name()); ?></h1>
 	<form action="process-ct.php?mid=<?php echo $mid; ?><?php if(isset($ctid)) echo '&ctid='.$ctid; ?>" method="POST">
 		<input type="hidden" name="action" value="<?php echo $action; ?>">
@@ -159,3 +166,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+<?php include "footer.php"; ?>

@@ -36,7 +36,12 @@ if (isset($_SESSION['uname'])) {
 	$sc = new SubscriberController();
 	$sec = new SecurityController();
 ?>
-<style>#dbguide { display: none; }</style>
+<style>#dbguide, .top-buttons .buttons { display: none; }</style>
+	</div>
+</div>
+<div id="content">
+<div class="wrap">
+<br><br>
 <div class="grey"></div>
 
 <div class="mod-desc">
@@ -98,6 +103,7 @@ if (isset($_SESSION['uname'])) {
 	<p id="new_pass"></p>
 </center>
 
+</div>
 <script>
 
 	$(document).ready(function(){

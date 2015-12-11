@@ -43,9 +43,19 @@
 	else if($_SESSION["lang"] == "es_ES") $curlang = "spanish";
 	else if($_SESSION["lang"] == "zh_CN") $curlang = "chinese";	
 ?>
-<style> #dbguide { display: none; } </style>
-	<div id="container">
-		<a class="link" href="view-portfolio.php?user_id=<?php echo _($sid); ?>">&laquo <?php echo _("Go Back"); ?></a>
+<style>
+	table.result { width: 100% !important; }
+</style>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="view-portfolio.php?user_id=<?php echo _($sid); ?>">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 		<h1><?php echo _("Module Results"); ?></h1>
 		<div id="pdf-button">
 			<a href="php/generate-result.php" target="_blank"><img src="images/pdf.png" alt="Download PDF" title="Download PDF" /></a>

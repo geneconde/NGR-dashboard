@@ -21,7 +21,15 @@
 		header("Location: dt-results.php?sdtid={$sdtid}");
 	}
 ?>	
-<div id="container">
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 	<div id="confirm-box">
 		<div>
 			<form action="" method="post">

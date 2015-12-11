@@ -22,9 +22,6 @@ ini_set('display_errors', 1);
 	$sc = new SubscriberController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
-	//add parameter for is_deleted and is_archived later on method is under userController
-	//$student_count = $uc->countUserType($user->getSubscriber(), 2);
-	
 	$userid 			= $user->getUserid();
 	$usertype			= $user->getType();
 	$subid				= $user->getSubscriber();
@@ -410,8 +407,8 @@ ini_set('display_errors', 1);
 		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
-		.link.back { left: 81px; margin-top: 6px; }
-		html[dir="rtl"] .link.back { right: 81px; }
+		.link.back { left: 68px; margin-top: 6px; }
+		html[dir="rtl"] .link.back { right: 68px; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
@@ -435,17 +432,42 @@ ini_set('display_errors', 1);
 
 <body>
 <div id="header">
-	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
+	<div class="wrap">
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<div><span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <a class="link" href="../edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a> | <a class="link" id="logout" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			</div>
+			<div class="languages">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<a href="../teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<div class="buttons">
+			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+			<a class="uppercase fright manage-box active" href="manage-students.php" id="student-accounts"/><?php echo _("Student Accounts"); ?></a>
+			<a class="uppercase fright manage-box" href="../student-accounts.php" id="student-groups"/><?php echo _("Student Groups"); ?></a>
+			<a class="uppercase fright manage-box" href="../ct-test.php" id="cumulative-test"><?php echo _("Cumulative Test"); ?></a>
+			<a class="uppercase fright manage-box" href="../dt-test.php" id="diagnostic-test"><?php echo _("Diagnostic Test"); ?></a>
+			<a class="uppercase fright manage-box" href="../teacher.php" id="dashboard"><?php echo _("Dashboard"); ?></a>
+		</div>
+		<a class="link back" href="../teacher.php">&laquo; <?php echo _("Go Back"); ?></a>
 	</div>
 </div>
 
 <div id="content">
-	<div class="top-buttons">
-		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
-	</div>
-
+<div class="wrap">
 	<!-- messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
@@ -464,8 +486,6 @@ ini_set('display_errors', 1);
 	<?php endif; ?>
 	<!-- end messages -->
 
-	<a class="link back" href="../teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-	<br><br>
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>
@@ -508,6 +528,7 @@ ini_set('display_errors', 1);
 			</div>
 		</div>
 	</div>
+</div>
 
 	<!-- simple form, used to add a new row -->
     <div id="multipleaddform">

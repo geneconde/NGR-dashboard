@@ -41,4 +41,4 @@
 		unset($_SESSION['ct'.$userid.$md['module_id']]);
 	endforeach;
 
-	header("Location: ct-settings.php");
+	header("Location: ct-test.php");

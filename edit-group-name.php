@@ -4,36 +4,24 @@
 	include_once 'header.php';
 	require_once 'controller/StudentGroup.Controller.php';
 
-	if(isset($_GET['group_id']))
-	{
-		$group_id = $_GET['group_id'];	
+	if(isset($_GET['group_id'])){
+		$group_id = $_GET['group_id'];
+		$sgc 		= new StudentGroupController();
+		$groups = $sgc->getGroupName($group_id);
 	}
-	
-	$sgc 		= new StudentGroupController();
-	$groups = $sgc->getGroupName($group_id);
-
-	// $groups		= $sgc->getGroups($userid);
-
-	if(isset($_POST['gsave']))
-	{
-		$group_name = $_POST['gname'];
-		$id = $_POST['gid'];
-		if($group_name == "")
-		{
-			header("Location: edit-group-name.php?group_id=" . $id . "&err=1");
-		} 
-		else 
-		{
-			$sgc->updateGroupName($id, $group_name);
-			header("Location: edit-group-name.php?group_id=" . $id . "&msg=1");
-		}
-		
-	}
-	
 ?>
 <style> #dbguide { display: none; } </style>
-<div id="container">
-	<a class="link back" href="student-accounts.php">&laquo; <?php echo _("Go Back"); ?></a><br>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-accounts.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 	<div class="edit-group-name">
 		<?php if(isset($_GET['err'])) : ?>
 			<?php if($_GET['err'] == 1) : ?>
@@ -45,7 +33,7 @@
 				<p style="color: green;"><?php echo _('Successfully updated group name.'); ?></p>
 			<?php endif; ?>
 		<?php endif; ?>
-		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" id="edit-group-name">
+		<form method="post" action="update-group-name.php" id="edit-group-name">
 			<center>
 				<table>
 					<tr>

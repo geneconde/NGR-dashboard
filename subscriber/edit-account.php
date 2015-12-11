@@ -25,8 +25,17 @@
 	select { width: 295px; }
 	.answer { width: 290px !important; }
 </style>
-<div id="container">
-	<a class="link back" href="index.php">&laquo; <?php echo _("Go Back to Account Management"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="index.php">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class='wrap'>
 <br><br>
 <form method="post" action="save-account.php?user_id=<?php echo $userid; ?>&type=<?php echo $type; ?>" id="edit-account">
 	<center>

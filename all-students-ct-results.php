@@ -13,110 +13,118 @@
 	$ct_set		= $ctc->getCumulativeTestByID($ctid);
 	
 	if($ct_set):
-		//$ctid 		= $ct_set->getCTID();
 		$ctqid 		= explode(',',$ct_set->getQid());
 	endif;
 	
 	$scc		= new StudentCtController();
 ?>
-<br/>
-<a class="link back" href="all-ct.php">&laquo; <?php echo _("Go Back"); ?></a>
-<br>
-<h1><?php echo _("Students Cumulative Test Results"); ?></h1>
 
-<span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
-<ul class="list_notes">
-<li><?php echo _("Click the column header to view the statistics for each question."); ?></li>
-<li><?php echo _("If the table is not displaying correctly, please refresh this page."); ?></li>
-</ul>
-<br/>
-<?php 
-	if(!isset($ct_set)):
-		echo "<h3>"._("You have not set a cumulative test for this module.")."</h3>";
-	else:
-		$coltotal = array();
-		$totalrow = 0;
-		$ctr = 0;
-?>
-<div class="results ct_results">
-	<table id="table_id2">
-		<thead>	
-			<tr>
-				<th id="stdname"><?php echo _("Student Name"); ?></th>
-				<?php 
-					foreach($ctqid as $question):
-						$coltotal[$ctr] = 0;
-						$ctr++;
-				?>
-					<th id="qtns">
-						<li>
-							<a href="ct-stat.php?ctid=<?php echo $ctid; ?>&qid=<?php echo $question; ?>">Q#<?php echo $ctr; ?>
-								<!-- <img src="images/appbar.link.png"> -->
-							</a>
-						</li>
-					</th>
-				<?php endforeach; ?>
-				<th id="ttl"><?php echo _("Total %"); ?></th>
-			</tr>
-		</thead>	
-		<tbody>
-			<?php
-				foreach($students as $student):
-					$ct_set = $scc->getStudentCt($student['user_ID'],$ctid);
-					if($ct_set) $sctid = $ct_set->getSCTID();
-					
-					$totalpt = 0;
-					$cpt = 0;
-			?>
-			<tr>
-				<td class="bold">
-					<?php echo $student['last_name']; if ($student['last_name'] != '') echo ', '; echo $student['first_name'] ; ?>
-				</td>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="ct-test.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+	<h1><?php echo _("Students Cumulative Test Results"); ?></h1>
+
+	<span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
+	<ul class="list_notes">
+	<li><?php echo _("Click the column header to view the statistics for each question."); ?></li>
+	<li><?php echo _("If the table is not displaying correctly, please refresh this page."); ?></li>
+	</ul>
+	<br/>
+	<?php 
+		if(!isset($ct_set)):
+			echo "<h3>"._("You have not set a cumulative test for this module.")."</h3>";
+		else:
+			$coltotal = array();
+			$totalrow = 0;
+			$ctr = 0;
+	?>
+	<div class="results ct_results">
+		<table id="table_id2">
+			<thead>	
+				<tr>
+					<th id="stdname"><?php echo _("Student Name"); ?></th>
+					<?php 
+						foreach($ctqid as $question):
+							$coltotal[$ctr] = 0;
+							$ctr++;
+					?>
+						<th id="qtns">
+							<li>
+								<a href="ct-stat.php?ctid=<?php echo $ctid; ?>&qid=<?php echo $question; ?>">Q#<?php echo $ctr; ?>
+									<!-- <img src="images/appbar.link.png"> -->
+								</a>
+							</li>
+						</th>
+					<?php endforeach; ?>
+					<th id="ttl"><?php echo _("Total %"); ?></th>
+				</tr>
+			</thead>	
+			<tbody>
 				<?php
-					$ctr = 0;
-					foreach($ctqid as $question):
-						if($ct_set):
-							$sanswer = $scc->getCTStudentAnswerByQuestion($sctid, $question);
+					foreach($students as $student):
+						$ct_set = $scc->getStudentCt($student['user_ID'],$ctid);
+						if($ct_set) $sctid = $ct_set->getSCTID();
+						
+						$totalpt = 0;
+						$cpt = 0;
+				?>
+				<tr>
+					<td class="bold">
+						<?php echo $student['last_name']; if ($student['last_name'] != '') echo ', '; echo $student['first_name'] ; ?>
+					</td>
+					<?php
+						$ctr = 0;
+						foreach($ctqid as $question):
+							if($ct_set):
+								$sanswer = $scc->getCTStudentAnswerByQuestion($sctid, $question);
+									
+								if($sanswer[0]['mark'] == 1):
+									$cpt++;
+									$coltotal[$ctr]++;
+								endif;
 								
-							if($sanswer[0]['mark'] == 1):
-								$cpt++;
-								$coltotal[$ctr]++;
+								$totalpt++;
+					?>
+								<td><?php echo $sanswer[0]['mark']; ?></td>
+					<?php 	else: ?>
+									<td>—</td>
+					<?php
 							endif;
 							
-							$totalpt++;
-				?>
-							<td><?php echo $sanswer[0]['mark']; ?></td>
-				<?php 	else: ?>
-								<td>—</td>
-				<?php
+							$ctr++;
+						endforeach;
+					?>
+					<td>
+					<?php 
+						if(isset($ct_set)):
+							$totalrow += round(($cpt/$totalpt)*100);
+							echo round(($cpt/$totalpt)*100, 0)."%";
+						else:
+							echo "0"."%";
 						endif;
-						
-						$ctr++;
-					endforeach;
-				?>
-				<td>
-				<?php 
-					if(isset($ct_set)):
-						$totalrow += round(($cpt/$totalpt)*100);
-						echo round(($cpt/$totalpt)*100, 0)."%";
-					else:
-						echo "0"."%";
-					endif;
-				?>
-				</td>							
-			</tr>
-			<?php endforeach; ?>
-			<tr>
-				<td class="bold"><?php echo _("Total"); ?> (<?php echo count($students); ?>)</td>
-				<?php foreach ($coltotal as $total): ?>
-				<td class="bold"><?php echo number_format($total/count($students)*100).'%'; ?></td>
+					?>
+					</td>							
+				</tr>
 				<?php endforeach; ?>
-				<td class="bold"><?php echo number_format($totalrow/count($students)).'%'; ?></td>
-			</tr>
-		</tbody>
-	</table>
+				<tr>
+					<td class="bold"><?php echo _("Total"); ?> (<?php echo count($students); ?>)</td>
+					<?php foreach ($coltotal as $total): ?>
+					<td class="bold"><?php echo number_format($total/count($students)*100).'%'; ?></td>
+					<?php endforeach; ?>
+					<td class="bold"><?php echo number_format($totalrow/count($students)).'%'; ?></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<?php endif; ?>
 </div>
-<?php endif; ?>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
 	<li data-id="stdname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">

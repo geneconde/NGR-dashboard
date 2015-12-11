@@ -17,7 +17,7 @@
 	
 	$sgc		= new StudentGroupController();
 	$stg		= $sgc->getUsersInGroup($gid);
-	
+
 	$dtc 		= new DiagnosticTestController();
 	$gmc		= new GroupModuleController();
 	$gm			= $gmc->getModuleGroupByID($gid, $mid);
@@ -55,10 +55,18 @@
 	$prenotanswered = 0;
 	$postnotanswered = 0;
 ?>
-<br/>
 <style>.list_notes { font-size: 14px; }</style>
-<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
-<br>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <h1><?php echo _("Students Comparative Results"); ?></h1>
 
 <span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
@@ -431,6 +439,7 @@
 </div>
 <?php endif; ?>
 
+</div>
 <script>
 window.onresize = function() {
 	$('#table_id').dataTable().fnAdjustColumnSizing();

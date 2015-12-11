@@ -379,15 +379,27 @@ $main_view = $grid->render("list1");
 
 <body>
 <div id="header">
-	<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+	<div class="wrap">
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<div><span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <a class="link" id="logout" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			</div>
+			<div class="languages">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div id="content">
-	<div class="top-buttons">
-		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
-	</div>
-
-	<div class='lgs-container'>
+<div class="wrap">
 	<form action="../update-group-student.php" method="post" >
 		<div class="center"><br/>
 	 		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>

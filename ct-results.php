@@ -27,27 +27,29 @@
 	var pfCustomCSS = 'printfriendly2.php'
 	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 </script>
-<div id="container">
-<?php 
-	if ($user->getType() == 0 ) { 
-		if(isset($_GET['p'])) {
-?>
-			<a class="link" href="view-portfolio.php?user_id=<?php echo $scc_set->getUserID(); ?>">&laquo; <?php echo _("Go Back to Student Portfolio"); ?></a>
-<?php
-		} else {
-?>
-			<a class="link" href="student-results.php?m=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
-<?php 	} ?>
 
-<?php } else if ($user->getType() == 2 ) { ?>
-<?php if (isset($_GET['from'])) : ?>
-	<?php if ($_GET['from'] == 1) : ?>
-	<a class="link back" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
-	<?php endif; ?>
-<?php else : ?>
-	<a class="link back" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-<?php endif; ?>
-<?php } ?>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<?php if ($user->getType() == 0 ) : ?>
+			<?php if(isset($_GET['p'])) : ?>
+					<a class="link" href="view-portfolio.php?user_id=<?php echo $scc_set->getUserID(); ?>">&laquo; <?php echo _("Go Back to Student Portfolio"); ?></a>
+			<?php else : ?>
+					<a class="link" href="student-results.php?m=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+			<?php endif; ?>
+		<?php elseif ($user->getType() == 2 ) : ?>
+			<?php if (isset($_GET['from']) ) : ?>
+				<a class="link back" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
+			<?php else : ?>
+				<a class="link back" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+			<?php endif; ?>				
+		<?php endif; ?>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <h1><?php echo _("Cumulative Test Result"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
 <input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
 	<div id="results">

@@ -42,8 +42,17 @@
 	else if($_SESSION["lang"] == "es_ES") $curlang = "spanish";
 	else if($_SESSION["lang"] == "zh_CN") $curlang = "chinese";	
 ?>
-<div id="container">
-<a class="link back" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 
 <?php
 

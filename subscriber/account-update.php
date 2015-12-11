@@ -51,9 +51,9 @@
 		<style>select { -webkit-appearance: none !important; }</style>
 	<?php }
  ?>
- <style>#logged-in { display: none; }</style>
- <br>
- <div class='lgs-container'>
+
+<div id="content">
+<div class='wrap'>
 	<form action="save-account.php?ut=<?php echo $type; ?>&ret=lgs" method="post" id="update-account">
 		<div class="center">
  		<h1 class="lgs-text"><?php echo _("Let's Get Started"); ?></h1>

@@ -16,43 +16,52 @@
 
 ?>
 
-<div id="container">
-<a class="link back" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
-<center>
-<br><br>
-<h2><?php echo _("Cumulative Test Activation"); ?></h2>
-<?php if ($_GET['m'] == 1) echo '<p class="green">Cumulative Test activated for selected groups below.</p>'; ?>
-<form action="activate-ct.php?ctid=<?php echo $ctid; ?>" method="post">
-	<table border="0" class="result morepad">
-		<tr>
-			<th><?php echo _("Group Name"); ?></th>
-			<th id="gcheck"><?php echo _("Activate"); ?></th>
-		</tr>
-		<?php
-			foreach($groups as $group) :
-				$checked = '';
-				foreach($ct_groups as $ct_group) :
-					if($group['group_id'] == $ct_group['group_id']):
-						$checked = 'checked';
-					endif;
-				endforeach;
-		?>
-						<tr>
-							<td><?php echo $group['group_name']; ?></td>
-							<td>
-								<center>
-									<input type="checkbox" <?php echo $checked; ?> name="groups[<?php echo $group['group_id']; ?>]" class="activate" data-gid="<?php echo $group['group_id']; ?>">
-								</center>
-							</td>
-						</tr>
-		<?php
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="ct-test.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+	<center>
+	<br><br>
+	<h2><?php echo _("Cumulative Test Activation"); ?></h2>
+	<?php if (isset($_GET['m']) && $_GET['m'] == 1) echo '<p class="green">Cumulative Test activated for selected groups below.</p>'; ?>
+	<form action="activate-ct.php?ctid=<?php echo $ctid; ?>" method="post">
+		<table border="0" class="result morepad">
+			<tr>
+				<th><?php echo _("Group Name"); ?></th>
+				<th id="gcheck"><?php echo _("Activate"); ?></th>
+			</tr>
+			<?php
+				foreach($groups as $group) :
+					$checked = '';
+					foreach($ct_groups as $ct_group) :
+						if($group['group_id'] == $ct_group['group_id']):
+							$checked = 'checked';
+						endif;
+					endforeach;
+			?>
+							<tr>
+								<td><?php echo $group['group_name']; ?></td>
+								<td>
+									<center>
+										<input type="checkbox" <?php echo $checked; ?> name="groups[<?php echo $group['group_id']; ?>]" class="activate" data-gid="<?php echo $group['group_id']; ?>">
+									</center>
+								</td>
+							</tr>
+			<?php
+						
 					
-				
-			endforeach;
-		?>
-	<table>
-	<input id="activate" type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
-</form>
+				endforeach;
+			?>
+		<table>
+		<input id="activate" type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
+	</form>
+</div>
 <script>
 (function(){
 	var ctid = '<?php echo $ctid; ?>';

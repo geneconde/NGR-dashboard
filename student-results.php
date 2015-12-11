@@ -30,8 +30,17 @@
 	endif;
 	
 ?>
-	<div id="container">
-	<a class="link back" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+	<div class="wrap">
 	<h1><?php echo _("Students Results Summary"); ?></h1>	
 	<center>
 	<?php if(!empty($stg)): ?>
@@ -112,12 +121,12 @@
 	<div class="clear"></div>
 	<br/>
 	<div class="center"><a id="view-all" class="take-box" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>"><?php echo _("See how all your students did"); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="print" class="take-box" href="student-solutions.php?m=<?php echo $mid; ?>"><?php echo _("Print Student Solutions"); ?></a></div>
-	</div>
 	<?php else: ?>
 		<br>
 		<br>
 		<h3><?php echo _("There are no students assigned to this group yet."); ?></h3>
 	<?php endif; ?>
+	</div>
 	</center>
 	
 	<script>

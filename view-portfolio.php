@@ -35,10 +35,16 @@
 	$ctc			= new CumulativeTestController();
 	$sct 			= new StudentCtController();
 ?>
-<br><br>
-<div id="container">
-	<!-- <a class="link" href="manage-student-accounts.php">&laquo <?php echo _("Go Back"); ?></a>
-	<br><br> -->
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+	<br><br>
 	<center>
 	<h2><?php echo _("Student Portfolio"); ?></h2>
 	<br/>

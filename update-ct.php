@@ -25,4 +25,4 @@
 
 	$ctc->updateCumulativeTest($ctid, $values);
 
-	header("Location: ct-settings.php");
+	header("Location: ct-test.php");

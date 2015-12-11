@@ -31,10 +31,16 @@
 	.module-menu a { font-size: 15px !important; }
 </style>
 
-<br><br>
-<a class="link" href="index.php">&laquo; <?php echo _("Go Back to Account Management page"); ?></a>
-<br>
-<div class="clear"></div>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'modules'; ?>
+		<?php include "menu.php"; ?>
+	</div>
+</div>
+
+<div id="content">
+<div class='wrap'>
+<div class="grey" style="display: none;"></div>
 <h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
 <p><?php echo _("In this Dashboard, you can preview all the modules in your library."); ?></p><br><br><br>
 <div class="clear"></div>

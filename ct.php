@@ -75,10 +75,16 @@
 	
 	if(strlen($panswer) > 1) $pa = str_split($panswer);
 ?>
-<style> #dbguide { display: none; } </style>
-<div id="container">
-<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
-<br>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <h1><?php echo _("Cumulative Test"); ?></h1>
 <?php //echo _("You have"); ?> <?php //echo $timelimit; ?> <?php //echo _("minutes to answer the questions below."); ?>
 <form action="save-ct.php?sctid=<?php echo $sctid; ?>&qid=<?php echo $question[0]['qid']; ?>&index=<?php echo $index; ?>&fin=<?php echo $fin; ?>" method="post">

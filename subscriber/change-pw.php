@@ -28,8 +28,17 @@
 	span.form-error { position: absolute; margin-top: 3px; font-size: 12px !important; }
 	.guide { display: none; }
 </style>
-<div id="container">
-<a class="link back" href="edit-account.php?user_id=<?php echo $userid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="edit-account.php?user_id=<?php echo $userid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class='wrap'>
 <br><br>
 <form method="post" id="change-pw" action=""><!-- save-pw.php?user_id=<?php echo $userid; ?> -->
 	<center>

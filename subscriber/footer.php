@@ -22,7 +22,5 @@
 		});
 	});
 	</script>
-	
-	<!--<script type="text/javascript" src="scripts/main.js"></script> -->
 </body>
 </html>

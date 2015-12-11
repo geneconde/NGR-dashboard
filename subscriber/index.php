@@ -543,92 +543,33 @@ ini_set('display_errors', 1);
 		}
 	}
 
-
 ?>
-<!DOCTYPE html>
-<html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
+<?php require_once 'header.php'; ?>
 
-<head>
-	<title>NexGenReady</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
-	
-	<link rel="stylesheet" type="text/css" href="../style.css" />
-	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
+<style>
+	.joytest2 ~ div a:nth-child(3){ display: none; }
+	.joyride-tip-guide:nth-child(12){ margin-top: 15px !important; }
+	.ui-icon { display: inline-block !important; }
 
-	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<?php
-	if($_GET['type']=='0'){
-		echo '<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en-students.js" type="text/javascript"></script>';
-	} else { echo '<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>'; }
-	?>
-	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
-	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-	<?php
-	if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
-	<?php }
-	if($language == "es_ES") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
-	<?php }
-	if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
-	<?php }
-	?>
+	#delmodlist1 { width: auto !important; min-width: 240px; }
+	tr td:nth-child(13) a {
+	  background: rgb(66, 151, 215);
+	  color: #fff;
+	  padding: 3px 5px;
+	  border-radius: 3px;
+	}
+	tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
+	    color: #fff;
+	}
+	#list1_act { width: auto !important; }
+	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+	tr input { width: 90% !important; }
+	.ui-jqgrid .ui-search-input input { width: 100% !important; }
+	.ui-pg-input { width: auto !important; }
+	.DataTD input { width: 88% !important; }
+	a.current { color: gray; cursor: default; }
+</style>
 
-	<style>
-		.joytest2 ~ div a:nth-child(3){ display: none; }
-		.joyride-tip-guide:nth-child(12){ margin-top: 15px !important; }
-		.ui-icon { display: inline-block !important; }
-
-		#delmodlist1 { width: auto !important; min-width: 240px; }
-		tr td:nth-child(13) a {
-		  background: rgb(66, 151, 215);
-		  color: #fff;
-		  padding: 3px 5px;
-		  border-radius: 3px;
-		}
-		tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
-		    color: #fff;
-		}
-		#list1_act { width: auto !important; }
-		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
-		tr input { width: 90% !important; }
-		.ui-jqgrid .ui-search-input input { width: 100% !important; }
-		.ui-pg-input { width: auto !important; }
-		.DataTD input { width: 88% !important; }
-		a.current { color: gray; cursor: default; }
-	</style>
-
-	<!-- Run the plugin -->
-    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-</head>
-
-<body>
-	<div id="header">
-		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-		<div class="fright" id="logged-in">
-			<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link fright" href="../logout.php"><?php echo _("Logout?"); ?></a>
-			<br>
-			<a class="uppercase fright manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a>
-			<div class="languages fright">
-				<?php if(!empty($teacher_languages)) :
-					foreach($teacher_languages as $tl) : 
-						$lang = $lc->getLanguage($tl['language_id']); ?>
-						<a class="uppercase manage-box" href="index.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
-				<?php  endforeach;
-				else : ?>
-					<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("EN"); ?></a>
-				<?php endif; ?>
-				<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-			</div>
-		</div>
-	</div>
-
-	<!-- messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
 			<div class="error-msg"><p><?php echo _('Error! you are only allowed to create'); ?> <?php echo $sub->getTeachers(); ?> <?php echo _('teachers'); ?></p></div>
@@ -641,22 +582,18 @@ ini_set('display_errors', 1);
 	<?php if(isset($_GET['msg'])) : ?>
 		<?php if($_GET['msg'] == 1) : ?>
 			<div class="success-msg" style="background-color: green; padding: 5px; text-align: center;"><p style="color: white;"><?php echo _('Successfully created teachers.'); ?></p></div>
-
 		<?php endif; ?>
 	<?php endif; ?>
-	<!-- end messages -->
 
-	<div id="content">
-	<div class="top-buttons">
-		<div id="dbguide"><button class="uppercase fleft guide tguide" onClick="guide()">Guide Me</button></div>
-		<div class="buttons">
-			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
-			<a href="view-modules.php" class="uppercase fright manage-box"><?php echo _('View Modules'); ?></a>
-			<a href="statistics.php" class="uppercase fright manage-box"><?php echo _('Statistics'); ?></a>
-		</div>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'dashboard'; ?>
+		<?php include "menu.php"; ?>
 	</div>
+</div>
 
-	<div class="clear"></div>
+<div id="content">
+<div class='wrap'>
 
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<?php
@@ -670,7 +607,7 @@ ini_set('display_errors', 1);
 		endif;
 	endif;
 	?>
-	<p><?php echo _("This is the Account Management page, where you can manage all the user accounts under you."); ?>
+	<p><?php echo _("This is the Account Management page, where you can manage all teachers, sub-admins and students accounts under you."); ?>
 
 	<div class="wrap-container">
 		<div id="wrap">
@@ -767,22 +704,8 @@ ini_set('display_errors', 1);
 		    </form>
         </div>
     </div>	
+	</div>
 
-	</div>
-	<!-- start footer -->
-	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
-		<div class="copyright">
-			<p>© 2014 NexGenReady. <?php echo _("All Rights Reserved."); ?>
-			<a class="link f-link" href="../../marketing/privacy-policy.php"><?php echo _("Privacy Policy"); ?></a> | 
-			<a class="link f-link" href="../../marketing/terms-of-service.php"><?php echo _("Terms of Service"); ?></a>
-	
-			<a class="link fright f-link" href="../../marketing/contact.php"><?php echo _("Need help? Contact our support team"); ?></a>
-			<span class="fright l-separator">|</span>
-			<a class="link fright f-link" href="../../marketing/bug.php"><?php echo _("File Bug Report"); ?></a>
-			</p>
-		</div>
-	</div>
-	<!-- end footer -->
 	<script>
 	var language;
 	$(document).ready(function() {
@@ -867,5 +790,4 @@ ini_set('display_errors', 1);
 			} else { return true; }
 		}
 	</script>
-</body>
-</html>
+<?php require_once "footer.php"; ?>

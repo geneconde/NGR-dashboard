@@ -81,8 +81,17 @@
 		if($mode['mode'] == 2) $post_result = true;
 	}
 ?>
-<div id="container">
-<a class="link back" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="settings.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <br><br>
 <center>
 	<h2><?php echo $grp[0]['group_name']; ?></h2><br>

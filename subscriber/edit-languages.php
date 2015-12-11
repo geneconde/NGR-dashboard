@@ -52,11 +52,18 @@
 	}
 ?>
 <script type="text/javascript" src="../scripts/language-scripts.js"></script>
-<div class="clear"></div>
 
-<div id="container">
-	<a class="link back fleft" href="index.php">&laquo <?php echo _("Go Back to Account Management"); ?></a>
-	<br>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="index.php">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class='wrap'>
+	<center>
 	<div class="language-container">
 		<br/>
 		<h2><?php echo _("Set of Languages"); ?></h2>
@@ -137,6 +144,7 @@
 			</table>
 		</form>
 	</div>
+	</center>
 	<?php
 		if(isset($_SESSION['alert'])){
 			unset($_SESSION['alert']);
