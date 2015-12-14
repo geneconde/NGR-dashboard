@@ -31,13 +31,20 @@
 
 	$module = $mc->loadModule($mid);
 ?>
-<div id="container" class="ct-questions">
-	<?php if($action == "new"): ?>
-		<a class="link" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
-	<?php elseif($action == "edit"): ?>
-		<a class="link" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
-	<?php endif; ?>
 
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<?php if($action == "new"): ?>
+			<a class="link back" href="create-ct.php">&laquo <?php echo _("Go Back"); ?></a>
+		<?php elseif($action == "edit"): ?>
+			<a class="link back" href="edit-ct.php?ctid=<?php echo $ctid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+		<?php endif; ?>
+	</div>
+</div>
+
+<div class="ct-questions wrap">
 	<h1><?php echo _($module->getModule_name()); ?></h1>
 	<form action="process-ct.php?mid=<?php echo $mid; ?><?php if(isset($ctid)) echo '&ctid='.$ctid; ?>" method="POST">
 		<input type="hidden" name="action" value="<?php echo $action; ?>">
@@ -45,7 +52,7 @@
 			<tr>
 				<td colspan="2">
 					<p><?php echo _('Please select the questions that you would like to add to your cumulative test.'); ?></p>
-					<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the review itself"); ?></span></p>
+					<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span></p>
 				</td>
 			</tr>
 			<tr>
@@ -62,9 +69,9 @@
 				foreach($question_set as $question):
 			?>
 				<tr class="trline">
-					<td class="p-right15">
+					<td class="p-right15" style="position: relative">
 						<!-- <div class="onoffswitch1"> -->
-							<input type="checkbox" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
+							<input type="checkbox" style="position: absolute; top: 12px;" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
 							<!-- <input type="checkbox" name="questions[]" class="onoffswitch1-checkbox" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>> -->
 							<!-- <label class="onoffswitch1-label" for="myonoffswitch<?php echo $ctr + 1;?>">
 								<div class="onoffswitch1-inner<?php echo $lang; ?>"></div>
@@ -122,11 +129,11 @@
 </div>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="select-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions.</p>
+	<li data-id="select-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
 	</li>
-	<li data-id="save" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to save your changes.</p>
+	<li data-id="save" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to save your changes."); ?></p>
 	</li>
 </ol>
 <script>
@@ -138,8 +145,9 @@ function guide() {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 $(document).ready(function(){
@@ -147,14 +155,15 @@ $(document).ready(function(){
 		if($(this).is(':checked')) {
 			$('.q-cb').each(function(){
 				$(this).prop('checked', true);
-				$('#select-text').html('Deselect all questions');
+				$('#select-text').html('<?php echo _("Deselect all questions"); ?>');
 			});
 		} else {
 			$('.q-cb').each(function(){
 				$(this).prop('checked', false);
-				$('#select-text').html('Select all questions')
+				$('#select-text').html('<?php echo _("Select all questions"); ?>')
 			});
 		}
 	});
 });
 </script>
+<?php include "footer.php"; ?>

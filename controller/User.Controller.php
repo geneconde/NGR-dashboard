@@ -189,6 +189,19 @@ class UserController {
 		$db->disconnect();
 	}
 
+	public function updateStudentTeacher($userid) {
+		$where = array();
+		$where['user_ID'] = $userid;
+		
+		$data = array();
+		$data['teacher_id'] = 0;
+					
+		$db = new DB();
+		$db->connect();
+		$result = $db->update("users", $where, $data);
+		$db->disconnect();
+	}
+
 	public function updatePassword($userid, $newpassword){
 		$where = array();
 		$where['user_ID'] = $userid;
@@ -413,9 +426,17 @@ class UserController {
 	/* For retrieving level of accounts */
 	public function getUserLevel($user) {
 		
-		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user;
-
+		$custom_query = "SELECT * FROM users WHERE subhead_id=".$user." AND type <> 2";
 		return $custom_query;
+	}
+
+	public function getUserByUN($username) {
+		$where = array();
+		$where['username'] = $username;
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("users", $where);
+		return $result;
 	}
 	
 	public function hashPassword($password){
@@ -432,7 +453,14 @@ class UserController {
 		$db->connect();
 		$result = $db->cquery("UPDATE users SET password='$encryptPassword'");
 		$db->disconnect();
-		
+	}
+
+	public function select_custom($query) {
+		$db = new DB();
+		$db->connect();
+		$result = $db->query($query);
+		$db->disconnect();	
+		return $result;
 	}
 	
 	private function setUserValues($values) {

@@ -31,22 +31,10 @@
 	$ids   = array();
 	$mods  = array();
 
-	// echo '<pre>';
-	// print_r($sdt_set);
-	// echo '</pre>';
-
 	$uid = $sdt_set->getUserID();
 	$mod = $sdt_set->getModuleID();
-	// $fin = $sdt_set->getFinished();
-	// echo $uid . '<br/>' . $mod;
 
 	$test = $sdt->getStudentDtByEndDate($sdt_set->getUserID(), '0000-00-00 00:00:00');
-
-	// echo '<pre>';
-	// print_r($test);
-	// echo '</pre>';
-
-	// echo $test[0]['date_ended'];
 
 	if( !$test ) {
 		$end = '';
@@ -56,7 +44,7 @@
 		$id = $test[0]['user_id'];
 	}
 
-if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
+if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 	</br><a class="link" href="student.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
 	<div id="on_going">
 		<h1>This Page is temporary unavailable because you are taking  your exam.</h1>
@@ -67,20 +55,26 @@ if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
 	var pfCustomCSS = 'printfriendly2.php'
 	var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 </script>
-<div id="container">
-	<?php 
-		if ($user->getType() == 0 ): 
-			if(isset($_GET['p'])):
-	?>
-			<a class="link" href="view-portfolio.php?user_id=<?php echo $sdt_set->getUserID(); ?>">&laquo; <?php echo _("Go Back to Student Portfolio"); ?></a>
-	<?php   else: ?>
-			<a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sdt_set->getModuleID(); ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
-	<?php
-		endif;
-	?>
-	<?php elseif($user->getType() == 2 ): ?>
-		<a class="link" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-	<?php endif; ?>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<?php if ($user->getType() == 0 ): ?>
+			<?php if(isset($_GET['p'])): ?>
+				<a class="link back" href="view-portfolio.php?user_id=<?php echo $sdt_set->getUserID(); ?>">&laquo; <?php echo _("Go Back"); ?></a>
+			<?php else: ?>
+				<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sdt_set->getModuleID(); ?>">&laquo; <?php echo _("Go Back"); ?></a>
+			<?php endif; ?>
+		<?php elseif($user->getType() == 2 ): ?>
+			<a class="link back" href="student.php">&laquo; <?php echo _("Go Back"); ?></a>
+		<?php endif; ?>
+	</div>
+</div>
+
+<div id="content">
+
+<div class="wrap">
 	<?php if ($sdt_set->getMode() == 1): ?>
 	<h1><?php echo _("Student Pre-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
 	<?php else: ?>
@@ -165,7 +159,7 @@ if($end == '0000-00-00 00:00:00' && $id == $uid) : ?>
 						endif;
 					endforeach;
 
-					if(!$match) echo "Student Answer: <span class=\"s-answer\"></span>{$sanswer}<br>";
+					if(!$match) echo _("Student Answer:") . "<span class=\"s-answer\"></span>{$sanswer}<br>";
 				?>
 				</td>
 			</tr>
@@ -276,11 +270,11 @@ $(document).ready(function() {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to print this page.</p>
+	<li data-id="printfriendly" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _('Click here to print this page.'); ?></p>
 	</li>
-	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to email this page/results.</p>
+	<li data-id="email-btn" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _('Click here to email this page/results.'); ?></p>
 	</li>
 </ol>
 
@@ -293,8 +287,9 @@ $(document).ready(function() {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

@@ -29,5 +29,5 @@
 	$dtc 	= new DiagnosticTestController();
 	$dtc->deleteDT($dtid);
 
-	header("Location: settings.php?mid=".$mid);
+	header("Location: $_SERVER[HTTP_REFERER]");
 ?>

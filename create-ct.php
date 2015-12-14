@@ -21,14 +21,18 @@
 	$questions = '';
 ?>
 <style>
-	/*Custom joyride*/
-	.joyride-tip-guide:nth-child(7){
-	    margin-left: -25px !important;
-	}
-	/*End custom joyride*/
+	.joyride-tip-guide:nth-child(7){ margin-left: -25px !important;	}
 </style>
-<div id="container" class="ct-container">
-	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="ct-test.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div class="ct-container wrap">
 	<h1><?php echo _("Create Cumulative Test"); ?></h1>
 	<form action="add-ct.php" method="post" id="ct-form">
 		<table border="0" id="ct-details">
@@ -148,20 +152,20 @@ $.validate({
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="test-name" 	data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Enter a name for this test.</p>
+	<li data-id="test-name" 	data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Enter a name for this test."); ?></p>
 	</li>
-	<li data-id="hours" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Set the time limit for this cumulative test.</p>
+	<li data-id="hours" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Set the time limit for this cumulative test."); ?></p>
 	</li>
-	<li data-id="switch" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Toggle this switch (on/off) to active/deactivate this cumulative test.</p>
+	<li data-id="switch" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Toggle this switch (on/off) to active/deactivate this cumulative test."); ?></p>
 	</li>
-	<li data-id="action" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click <strong>Select Questions</strong> to choose the questions you want to add to the cumulative test from each module.</p>
+	<li data-id="action" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click <strong>Select Questions</strong> to choose the questions you want to add to the cumulative test from each module."); ?></p>
 	</li>
-	<li data-id="subtest" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click this button to save this test.</p>
+	<li data-id="subtest" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click this button to save this test."); ?></p>
 	</li>
 </ol>
 
@@ -174,8 +178,10 @@ $.validate({
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>
+<?php require_once "footer.php"; ?>

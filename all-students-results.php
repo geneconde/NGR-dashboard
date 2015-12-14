@@ -17,12 +17,11 @@
 	
 	$sgc		= new StudentGroupController();
 	$stg		= $sgc->getUsersInGroup($gid);
-	
+
 	$dtc 		= new DiagnosticTestController();
 	$gmc		= new GroupModuleController();
 	$gm			= $gmc->getModuleGroupByID($gid, $mid);
-	
-	
+
 	if($gm):
 		$preid		= $gm[0]['pretest_id'];
 		$postid		= $gm[0]['posttest_id'];
@@ -56,9 +55,18 @@
 	$prenotanswered = 0;
 	$postnotanswered = 0;
 ?>
-<br/>
 <style>.list_notes { font-size: 14px; }</style>
-<a class="link" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <h1><?php echo _("Students Comparative Results"); ?></h1>
 
 <span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
@@ -431,6 +439,7 @@
 </div>
 <?php endif; ?>
 
+</div>
 <script>
 window.onresize = function() {
 	$('#table_id').dataTable().fnAdjustColumnSizing();
@@ -490,14 +499,14 @@ $(document).ready( function () {
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="studname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>This column lists all students in this student group.</p>
+	<li data-id="studname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("This column lists all students in this student group."); ?></p>
 	</li>
-	<li data-id="questions" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>The top row contains the <strong>Quick Checks</strong> and <strong>Quiz Questions</strong>. These are clickable and will lead to the statistics page of the activity. Scroll left and right to view all the students' data.</p>
+	<li data-id="questions" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("The top row contains the <strong>Quick Checks</strong> and <strong>Quiz Questions</strong>. These are clickable and will lead to the statistics page of the activity. Scroll left and right to view all the students' data."); ?></p>
 	</li>
-	<li data-id="totala" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>This column shows the percentage of the correct and wrong answers for a student. Note that an activity (a Quick Check or a Quiz Question) takes a value of <strong>1</strong> if all answers in that activity are correct, otherwise the value is <strong>0</strong>.</p>
+	<li data-id="totala" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+		<p><?php echo _("This column shows the percentage of the correct and wrong answers for a student. Note that an activity (a Quick Check or a Quiz Question) takes a value of <strong>1</strong> if all answers in that activity are correct, otherwise the value is <strong>0</strong>."); ?></p>
 	</li>
 </ol>
 
@@ -510,8 +519,9 @@ $(document).ready( function () {
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

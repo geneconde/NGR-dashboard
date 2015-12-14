@@ -40,6 +40,22 @@ class StudentDtController {
 			return $sdt;
 		}
 	}
+
+	public function getStudentDtByEndDate($userid, $end) {
+		$where = array();
+		$where['user_id'] = $userid;
+		$where['date_ended'] = $end;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("student_dt", $where);
+		$db->disconnect();
+
+		// foreach($result as $row) {
+			// $sdt = $this->setStudentDt($row);
+			return $result;
+		// }
+	}
 	
 	public function getStudentDtByID($sdtid) {
 		$where = array();
@@ -250,5 +266,31 @@ class StudentDtController {
 		$result = $db->delete("student_dt_answers", $where);
 		$db->disconnect();
 	}
+
+	public function getTotalCorrectAnswers($sdtid) {
+		$where = array();
+		$where['student_dt_id'] = $sdtid;
+		$where['mark'] = 1;
+				
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("student_dt_answers", $where);
+		$db->disconnect();
+		return $result;
+	}
+
+	public function getStudentTestRecord($userid, $mid, $mode) {
+		$where = array();
+		$where['user_id'] 	= $userid;
+		$where['module_id'] = $mid;
+		$where['mode']		= $mode;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("student_dt", $where);
+		$db->disconnect();
+		return $result;
+	}
+
 }
 ?>

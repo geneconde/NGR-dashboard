@@ -92,9 +92,16 @@
 	
 	if(strlen($panswer) > 1) $pa = str_split($panswer);
 ?>
-<style> #dbguide { display: none; } </style>
-<div id="container">
-<a class="link" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
 <?php if($mode == 1): ?>
 <h1><?php echo _($module->getModule_name()); ?> - <?php echo _("Pre-Diagnostic Test"); ?></h1>
 <?php //echo _("You have"); ?> <?php //echo $timelimit; ?> <?php //echo _("minutes to answer the questions below."); ?>

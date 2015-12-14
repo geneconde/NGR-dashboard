@@ -15,25 +15,30 @@ ini_set('display_errors', 1);
 	include_once '../controller/TeacherModule.Controller.php';
 	include_once '../controller/Module.Controller.php';
 	include_once '../controller/Language.Controller.php';
+	include_once '../controller/User.Controller.php';
 	include_once('../controller/Subscriber.Controller.php');
 	include_once '../php/auto-generate-students.php';
 	
 	$sc = new SubscriberController();
 	$sub = $sc->loadSubscriber($user->getSubscriber());
 
-	//add parameter for is_deleted and is_archived later on method is under userController
-	//$student_count = $uc->countUserType($user->getSubscriber(), 2);
-	
 	$userid 			= $user->getUserid();
 	$usertype			= $user->getType();
 	$subid				= $user->getSubscriber();
-	$create_date		= date('Y-m-d');
-	$current_date		= date('Y-m-d');
-	$expire_date		= date('Y-m-d', strtotime("+30 days"));
+	$create_date		= date('Y-m-d G:i:s');
+	$current_date		= date('Y-m-d G:i:s');
+	$expire_date		= date('Y-m-d G:i:s', strtotime("+30 days"));
 	$updated_at 		= date('Y-m-d H:i:s');
 
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
+
+	$uc = new UserController();
+
+	if(isset($_GET['unassign']) && $_GET['unassign'] == 1){
+		$uc->updateStudentTeacher($_GET['user_id']);
+		header("Location: manage-students.php");
+	}
 
 	// include db config
 	include_once("config.php");
@@ -51,6 +56,8 @@ ini_set('display_errors', 1);
 	$last_name = _('Last Name');
 	$gender = _('Gender');
 	$grade_level = _('Grade Level');
+	$reset_student_password = _('Reset Student password');
+	$reset_password = _('Reset password');
 	$student_portfolio = _('Student Portfolio');
 	$student_information = _('Student Information');
 	$view_portfolio = _('View Portfolio');
@@ -71,6 +78,8 @@ ini_set('display_errors', 1);
 	$col["name"] = "username";
 	$col["width"] = "30";
 	$col["search"] = true;
+	// $col["searchoptions"] = array("defaultValue"=>'username'); 
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Username...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; // this column will not be exported
@@ -105,6 +114,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "first_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search First Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -115,6 +125,7 @@ ini_set('display_errors', 1);
 	$col["name"] = "last_name";
 	$col["width"] = "30";
 	$col["search"] = true;
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Last Name...')); 
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true; 
@@ -125,6 +136,8 @@ ini_set('display_errors', 1);
 	$col["name"] = "gender";
 	$col["width"] = "10";
 	$col["search"] = true;
+	$col["stype"] = "select";
+	$col["searchoptions"] = array("value"=>'M:M;F:F');
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$col["export"] = true;
@@ -169,7 +182,9 @@ ini_set('display_errors', 1);
 
 	$col = array();
 	$col["title"] = $grade_level; // caption of column
-	$col["width"] = "15";
+	$col["name"]  = "grade_level";
+	$col["searchoptions"] = array("attr"=>array("placeholder"=>'Search Level...')); 
+	$col["width"] = "17";
 	$col["editable"] = true;
 	$col["align"] = "center";
 	$cols[] = $col;
@@ -185,7 +200,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Reset Student password";
+	$col["title"] = $reset_student_password;
 	$col["name"] = "reset_pword";
 	$col["width"] = "25";
 	$col["align"] = "center";
@@ -193,7 +208,7 @@ ini_set('display_errors', 1);
 	$col["sortable"] = false;
 	$col["link"] = "../reset-password.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
 	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
-	$col["default"] = "Reset password"; // default link text
+	$col["default"] = $reset_password; // default link text
 	$col["export"] = false; // this column will not be exported
 	$cols[] = $col;
 
@@ -205,9 +220,32 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["link"] = "../view-portfolio.php?user_id={user_ID}"; // e.g. http://domain.com?id={id} given that, there is a column with $col["name"] = "id" exist
-	// $col["linkoptions"] = "target='_blank'"; // extra params with <a> tag
+	$col["linkoptions"] = "target='_blank'";
 	$col["default"] = $view_portfolio; // default link text
 	$col["export"] = false; // this column will not be exported
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "Action";
+	$col["name"] = "act";
+	$col["width"] = "50";
+	$cols[] = $col;
+
+	$col = array();
+	$col["title"] = "";
+	$col["name"] = "unassign";
+	$col["width"] = "15";
+	$col["align"] = "center";
+	$col["search"] = false;
+	$col["sortable"] = false;
+	$col["link"] = 'javascript:
+	var conf = confirm("Are you sure you want to unassign this student?");
+	if(conf==true) {
+		var conf2 = confirm("Proceeding with this will automatically remove the account from the list of students. Kindly contact the subscriber to retrieve the account again. Are you sure you want to do this?");
+		if(conf2==true) window.location = "manage-students.php?user_id={user_ID}&unassign=1";
+	}';
+	$col["default"] = "unassign";
+	$col["export"] = false;
 	$cols[] = $col;
 
 	$grid = new jqgrid();
@@ -223,8 +261,16 @@ ini_set('display_errors', 1);
 	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
-
 	$grid->set_options($opt);
+
+	$e["on_update"] = array("update_student", null, true);
+	$grid->set_events($e);
+
+	function update_student($data)
+	{
+		$data["params"]["username"] = trim($data["params"]["username"]);
+	}
+
 	$grid->debug = 0;
 	$grid->error_msg = "Username Already Exists.";
 
@@ -243,7 +289,7 @@ ini_set('display_errors', 1);
 	$grid->set_actions(array(
 				"add"=>true, // allow/disallow add
 				"edit"=>true, // allow/disallow edit
-				"delete"=>true, // allow/disallow delete
+				"delete"=>false, // allow/disallow delete
 				"bulkedit"=>true, // allow/disallow edit
 				"export_excel"=>true, // export excel button
 				//"export_pdf"=>true, // export pdf button
@@ -257,7 +303,7 @@ ini_set('display_errors', 1);
 	 	$grid->set_actions(array(
 	 				"add"=>false, // allow/disallow add
 	 				"edit"=>true, // allow/disallow edit
-	 				"delete"=>true, // allow/disallow delete
+	 				"delete"=>false, // allow/disallow delete
 	 				"bulkedit"=>true, // allow/disallow edit
 	 				"export_excel"=>true, // export excel button
 	 				//"export_pdf"=>true, // export pdf button
@@ -308,32 +354,9 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 	<style>
-		.ui-search-toolbar { display: none; }
-		.fleft { margin-top: -16px; }
-		.tguide { float: left; margin-top: -15px; }
-		.guide {
-			padding: 5px;
-			background-color: orange;
-			border-radius: 5px;
-			margin-right: 1px;
-			margin-left: 1px;
-			border: none;
-			font-size: 10px;
-			color: #000;
-			cursor: pointer;
-		}
-		.guide:hover {
-			background-color: orange;
-		}
-		.joytest2 ~ div a:nth-child(3){
-		    display: none;
-		}
-		.ui-icon {
-		  display: inline-block !important;
-		}
-		<?php if($language == "ar_EG") { ?>
-		.tguide { float: right; }
-		<?php } ?>
+		.joytest2 ~ div a:nth-child(3){ display: none; }
+		.ui-icon { display: inline-block !important; }
+		#delmodlist1 { width: auto !important; }
 
 		/*Custom joyride*/
 		.joyride-tip-guide:nth-child(7){
@@ -365,18 +388,31 @@ ini_set('display_errors', 1);
 			margin-top: 3px !important;
 		    margin-left: -25px !important;
 		}
-		.fr {float: right;}
-		.fl {float: left;}
-		.sQuestion
-		{
-			font-size: 1.17em;
-			font-weight : bold;
-		}
 		/*End custom joyride*/
+
+		tr td:nth-child(15) a {
+		  background: rgb(66, 151, 215);
+		  color: #fff;
+		  padding: 3px 5px;
+		  border-radius: 3px;
+		}
+		tr td:nth-child(15) a:hover, tr td:nth-child(15) a:link, tr td:nth-child(15) a:visited, tr td:nth-child(15) a:focus {
+			color: #fff;
+		}
+		#list1_act { width: auto !important; }
+		tr input { width: 90% !important; }
+		.ui-jqgrid .ui-search-input input { width: 100% !important; }
+		.ui-pg-input { width: auto !important; }
+		.ui-icon-pencil { float: none; }
+		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+		.ui-pg-input { width: 25px !important; }
+		.phpgrid input.editable { width: 90% !important; }
+		.link.back { left: 68px; margin-top: 6px; }
+		html[dir="rtl"] .link.back { right: 68px; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
-	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+	<script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en-students.js" type="text/javascript"></script>
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
@@ -384,18 +420,55 @@ ini_set('display_errors', 1);
     <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
     <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
     <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
-	
+	<?php
+	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+	<?php }
+	if($language == "es_ES") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+	<?php }
+	if($language == "zh_CN") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+	<?php }
+	?>
 </head>
 
 <body>
-	<!-- <div class="grey"></div> -->
-	<div id="header">
-
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
-
+<div id="header">
+	<div class="wrap">
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<div class="fright" id="logged-in">
+			<div><span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <a class="link" href="../edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a> | <a class="link" id="logout" href="../logout.php"><?php echo _("Logout?"); ?></a>
+			</div>
+			<div class="languages">
+				<?php if(!empty($teacher_languages)) :
+					foreach($teacher_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="?lang=en_US"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<a href="../teacher-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
+			</div>
+		</div>
 	</div>
-	
-	<!-- error and messages -->
+</div>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<div class="buttons">
+			<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
+			<a class="uppercase fright manage-box active" href="manage-students.php" id="student-accounts"/><?php echo _("Student Accounts"); ?></a>
+			<a class="uppercase fright manage-box" href="../student-accounts.php" id="student-groups"/><?php echo _("Student Groups"); ?></a>
+			<a class="uppercase fright manage-box" href="../ct-test.php" id="cumulative-test"><?php echo _("Cumulative Test"); ?></a>
+			<a class="uppercase fright manage-box" href="../dt-test.php" id="diagnostic-test"><?php echo _("Diagnostic Test"); ?></a>
+			<a class="uppercase fright manage-box" href="../teacher.php" id="dashboard"><?php echo _("Dashboard"); ?></a>
+		</div>
+		<a class="link back" href="../teacher.php">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+	<!-- messages -->
 	<?php if(isset($_GET['err'])) : ?>
 		<?php if($_GET['err'] == 1) : ?>
 			<!-- <div class="error-msg"><p><?php echo _('Error! you are only allowed to create'); ?> <?php echo $student_limit; ?> <?php echo _('students'); ?></p></div> -->
@@ -411,51 +484,8 @@ ini_set('display_errors', 1);
 
 		<?php endif; ?>
 	<?php endif; ?>
+	<!-- end messages -->
 
-	<!-- <div class="forgot-password mod-desc">
-		<div>
-			<legend>Forgot Password</legend>
-			<label for="email-add">Enter your email address: </label>
-			<input type="password" name="password">
-		</div>
-		<span class="close-btn"><?php echo _("Close!"); ?></span>
-	</div> -->
-
-	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-	</div>
-	<?php } ?>
-	<br/>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<br/>
-	<div class="clear"></div>
-
-	<a class="link" href="../teacher.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
-
-	<!-- <div class="fleft" id="language">
-		<?php echo _("Language"); ?>:
-		<select id="language-menu">
-			<?php
-				if(!empty($teacher_languages)) :
-					foreach($teacher_languages as $tl) : 
-						$lang = $lc->getLanguage($tl['language_id']);
-			?>
-						<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-			<?php 
-					endforeach; 
-				else :
-			?>
-				<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-			<?php endif; ?>
-		</select>
-		<a href="edit-languages.php" class="link"><?php echo _("Edit Languages"); ?></a>
-	</div> -->
-	<div class="fright m-top10" id="accounts">
-		<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>"><?php echo _("My Account"); ?></a> -->
-	</div>
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>
@@ -466,7 +496,7 @@ ini_set('display_errors', 1);
 			
 			<div class="sub-headers">
 				<h1><?php echo _('List of Students'); ?></h1>
-				<a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/>
+				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<!-- <div class="fright">
 					<a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> |
@@ -492,12 +522,13 @@ ini_set('display_errors', 1);
 			<!-- <div style="margin:10px 0">
 				<?php echo $excel_view; ?>
 			</div> -->
-			<div style="margin:10px 0">
+			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
-				<p><br/>* <?php echo _('Note: If the students request for a password reset, please change the student\'s password to something that\'s easy to remember. Once the spreadsheet is updated, the student will be able to use the new password.'); ?></p>
+				<p><br/>* <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 			</div>
 		</div>
 	</div>
+</div>
 
 	<!-- simple form, used to add a new row -->
     <div id="multipleaddform">
@@ -506,9 +537,9 @@ ini_set('display_errors', 1);
 				<?php //$difference = $user->getStudents() - $student_count; ?>
 				<p><?php echo _('You have already created') ?> <?php echo $student_count . '/' . $student_limit; ?> <?php echo _('students'); ?></p><br/>
 				<label><?php echo _('Student'); ?></label>:
-				<input type="text" value="" name="student_num" placeholder="Input number of students you want to add" class="validate[required,custom[integer]]"><br/>
+				<input type="text" value="" name="student_num" placeholder="<?php echo _('Input number of students you want to add'); ?>" class="validate[required,custom[integer]]"><br/>
 		        <input type="submit" id="addmultiplebutton" class="button" name="addmultiple" value="Submit">
-		        <a id="cancelbutton2" class="button">Cancel</a>
+		        <a id="cancelbutton2" class="button"><?php echo _('Cancel'); ?></a>
 		    </form>
         </div>
     </div>	
@@ -516,33 +547,33 @@ ini_set('display_errors', 1);
 	</div>
 	<!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="jqgh_list1_username" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To update information, you can do any of the following:</p>
-			<p>1. Double click on a cell to update the information then click Enter</p>
+		<li data-id="jqgh_list1_username" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
 		</li>
-		<li data-class="ui-custom-icon" 			data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or</p>
+		<li data-class="ui-custom-icon" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
+			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 		</li>
-		<li data-class="cbox" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>3. Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.</p>
+		<li data-class="cbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
 		</li>
-		<li data-id="cb_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>4. To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.</p>
+		<li data-id="cb_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
 		</li>
-		<li data-id="search_list1" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.</p>
+		<li data-id="search_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
 		</li>
-		<li data-class="ui-icon-extlink" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.</p>
+		<li data-class="ui-icon-extlink" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
 		</li>
-		<li data-id="next_list1_pager" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Go to the next set of students by clicking the left and right arrows; or</p>
+		<li data-id="next_list1_pager" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
 		</li>
-		<li data-class="ui-pg-input" 			data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Type in the page number and press Enter.</p>
+		<li data-class="ui-pg-input" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
 		</li>
-		<li data-class="ui-pg-selbox" 			data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-			<p>You can also modify the number of students you want to show in a page.</p>
+		<li data-class="ui-pg-selbox" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
 		</li>
     </ol>
 	<!-- start footer -->
@@ -565,6 +596,13 @@ ini_set('display_errors', 1);
 		$('#language-menu').change(function() {
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
+		});
+
+		$("tr th:nth-child(14)").each(function() {
+		    var t = $(this);
+		    var n = t.next();
+		    t.html(t.html() + n.html());
+		    n.remove();
 		});
 	});
 
@@ -629,10 +667,18 @@ ini_set('display_errors', 1);
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
 	  }
+
+	function cdl(event, element){
+		var cdl = confirm('<?php echo _("Are you sure you want to delete this student account?"); ?>');
+		if(!cdl){
+			event.stopPropagation();
+		}
+	}
 	</script>
 </body>
 </html>

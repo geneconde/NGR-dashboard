@@ -1453,7 +1453,7 @@ class jqgrid
 					}
 					
 					$id = "'".implode("','",explode(",",$id))."'";
-					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id)";
+					$sql = "DELETE FROM {$this->table} WHERE $pk_field IN ($id) or subhead_id = $id ";
 					$this->execute_query($sql);
 					
 					### P ###

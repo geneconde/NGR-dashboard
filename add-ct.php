@@ -26,8 +26,8 @@
 			'test_name' 	=> $_POST['test-name'],
 			'user_id'		=> $userid,
 			'qid'			=> $finalqs,
-			'date_created'	=> date('Y-m-d'),
-			'date_modified'	=> date('Y-m-d'),
+			'date_created'	=> date('Y-m-d G:i:s'),
+			'date_modified'	=> date('Y-m-d G:i:s'),
 			'timelimit'		=> $timelimit,
 			'isactive'		=> $active
 		);
@@ -41,4 +41,4 @@
 		unset($_SESSION['ct'.$userid.$md['module_id']]);
 	endforeach;
 
-	header("Location: ct-settings.php");
+	header("Location: ct-test.php");

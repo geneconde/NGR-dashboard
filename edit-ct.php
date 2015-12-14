@@ -35,9 +35,17 @@
 	$count = 0;
 	$total = 0;
 ?>
-<style> #dbguide { display: none; } </style>
-<div id="container" class="ct-container">
-	<a class="link" href="ct-settings.php">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="ct-test.php">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+<div class="ct-container wrap">
 	<h1><?php echo _("Edit Cumulative Test"); ?></h1>
 	<form action="update-ct.php?ctid=<?php echo $ctid; ?>" method="post">
 		<table border="0" class="result morepad" id="ct-details">
@@ -135,3 +143,4 @@ $(document).ready(function() {
 	$('#minutes').val('<?php echo $tl[1]; ?>');
 });
 </script>
+<?php include "footer.php"; ?>

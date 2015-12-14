@@ -50,35 +50,20 @@
 			$_SESSION['alert'] = 2;
 		}
 	}
-	
-
 ?>
-
 <script type="text/javascript" src="../scripts/language-scripts.js"></script>
-<div id="container">
-	<a class="link fleft" href="index.php">&laquo <?php echo _("Go Back to Dashboard"); ?></a>
-	<br/>
-	<div class="fleft" id="language" style="margin-left: 10px; margin-top: -2px;">
-		<?php echo _("Language"); ?>:
-	
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="edit-languages.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
 
-		?>
-			<a class="uppercase manage-box" href="index.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-		
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="index.php">&laquo; <?php echo _("Go Back"); ?></a>
 	</div>
-	<br/><br/>
+</div>
 
+<div id="content">
+<div class='wrap'>
+	<center>
 	<div class="language-container">
 		<br/>
 		<h2><?php echo _("Set of Languages"); ?></h2>
@@ -101,21 +86,7 @@
 			<?php } ?>
 		
 		<?php } ?>
-
-	
-	
-		<!--<?php //if(isset($_GET['msg'])) : ?>
-			<?php //if($_GET['msg'] == 1) : ?>
-				<p style="color: green;"><?php //echo _("Language settings have been updated. You can now go back to the dashboard."); ?></p>
-			<?php //endif; ?>
-		<?php //endif; ?>
 		
-		<?php //if(isset($_GET['err'])) : ?>
-			<?php //if($_GET['err'] == 1) : ?>
-				<p style="color: red;"><?php //echo _("Please select at least one default language. Thank you."); ?></p>
-			<?php //endif; ?>
-		<?php //endif; ?>
-		<br/>-->
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="language_form">
 			<table border="1" class="language-table">
 				<tr>
@@ -173,19 +144,21 @@
 			</table>
 		</form>
 	</div>
+	</center>
 	<?php
 		if(isset($_SESSION['alert'])){
 			unset($_SESSION['alert']);
 		} 
 	?>
 </div>
+
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="check-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the box (on the left) of the language/s you want to activate. Choose the default language you want to use by clicking the radio button on the right.  Note that the default language is set to English when you first log in.</p>
+	<li data-id="check-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click the box (on the left) of the language/s you want to activate. Choose the default language you want to use by clicking the radio button on the right.  Note that the default language is set to English when you first log in."); ?></p>
 	</li>
-	<li data-class="submit-language" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the <strong>Submit</strong> button to save your changes.</p>
+	<li data-class="submit-language" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Click the <strong>Submit</strong> button to save your changes."); ?></p>
 	</li>
 </ol>
 
@@ -199,8 +172,9 @@ $.noConflict();
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

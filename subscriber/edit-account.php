@@ -1,6 +1,6 @@
 <?php
 	require_once '../session.php';
-	require_once '../locale.php';
+	require_once 'locale.php';
 	require_once 'header.php';
 	require_once '../controller/User.Controller.php';
 	require_once '../controller/Security.Controller.php';
@@ -25,10 +25,17 @@
 	select { width: 295px; }
 	.answer { width: 290px !important; }
 </style>
-<div id="container">
 
-<a class="link" href="index.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="index.php">&laquo; <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
 
+<div id="content">
+<div class='wrap'>
 <br><br>
 <form method="post" action="save-account.php?user_id=<?php echo $userid; ?>&type=<?php echo $type; ?>" id="edit-account">
 	<center>
@@ -161,6 +168,8 @@ $(document).ready(function() {
 	
 	$('#uname').focusout(function() {
 		var uid = $(this).val();
+		uid = $.trim(uid);
+		$('#uname').val(uid);
 		if(uid != olduname) {
 			$.ajax({
 				type	: "POST",
@@ -190,29 +199,29 @@ $.validate({
 </script>
 <!-- Tip Content -->
 <ol id="joyRideTipContent">
-	<li data-id="uname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Update your <strong>username</strong> to something that you can easily remember.</p>
+	<li data-id="uname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Update your <strong>username</strong> to something that you can easily remember."); ?></p>
 	</li>
-	<li data-id="cp" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Update your <strong>password</strong> to something that you can easily remember.</p>
+	<li data-id="cp" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Update your <strong>password</strong> to something that you can easily remember."); ?></p>
 	</li>
-	<li data-id="fname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Update your <strong>first name</strong>.</p>
+	<li data-id="fname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Update your <strong>first name</strong>."); ?></p>
 	</li>
-	<li data-id="lname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Update your <strong>last name</strong>.</p>
+	<li data-id="lname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Update your <strong>last name</strong>."); ?></p>
 	</li>
-	<li data-id="gender" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Select your <strong>gender</strong>.</p>
+	<li data-id="gender" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Select your <strong>gender</strong>."); ?></p>
 	</li>
-	<li data-id="squestion" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future.</p>
+	<li data-id="squestion" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future."); ?></p>
 	</li>
-	<li data-id="sanswer" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Enter the answer to your security question. This is case sensitive.</p>
+	<li data-id="sanswer" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+		<p><?php echo _("Enter the answer to your security question. This is case sensitive."); ?></p>
 	</li>
 	<li data-id="save" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-		<p>Click the <strong>Save Changes</strong> button to save your changes.</p>
+		<p><?php echo _("Click the <strong>Save Changes</strong> button to save your changes."); ?></p>
 	</li>
 </ol>
 
@@ -225,8 +234,9 @@ $.validate({
         $(this).joyride('set_li', false, 1);
       }
     },
-    // modal:true,
-    // expose: true
+    'template' : {
+        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+      }
     });
   }
 </script>

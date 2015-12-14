@@ -106,6 +106,19 @@ class DiagnosticTestController {
 		}
 	}
 	
+	public function getTotalDiagnosticTest($userid, $mid, $mode) {
+		$where = array();
+		$where['user_id'] 	= $userid;
+		$where['module_id'] = $mid;
+		$where['mode']		= $mode;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("dt", $where);
+		$db->disconnect();
+		return $result;
+	}
+	
 	public function getDiagnosticTestByID($dtid) {
 		$where = array();
 		$where['dt_id'] = $dtid;

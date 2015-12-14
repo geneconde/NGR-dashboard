@@ -35,10 +35,13 @@ if (isset($_SESSION['uname'])) {
 	$uc = new UserController();
 	$sc = new SubscriberController();
 	$sec = new SecurityController();
-
-	// $exist = $sc->checkEmailExistsSubscribe('julius.caluminga@jigzen.com');
 ?>
-
+<style>#dbguide, .top-buttons .buttons { display: none; }</style>
+	</div>
+</div>
+<div id="content">
+<div class="wrap">
+<br><br>
 <div class="grey"></div>
 
 <div class="mod-desc">
@@ -100,6 +103,7 @@ if (isset($_SESSION['uname'])) {
 	<p id="new_pass"></p>
 </center>
 
+</div>
 <script>
 
 	$(document).ready(function(){

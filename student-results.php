@@ -30,8 +30,17 @@
 	endif;
 	
 ?>
-	<div id="container">
-	<a class="link" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<a class="link back" href="student-group-results.php?mid=<?php echo $mid; ?>">&laquo <?php echo _("Go Back"); ?></a>
+	</div>
+</div>
+
+<div id="content">
+	<div class="wrap">
 	<h1><?php echo _("Students Results Summary"); ?></h1>	
 	<center>
 	<?php if(!empty($stg)): ?>
@@ -112,12 +121,12 @@
 	<div class="clear"></div>
 	<br/>
 	<div class="center"><a id="view-all" class="take-box" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>"><?php echo _("See how all your students did"); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="print" class="take-box" href="student-solutions.php?m=<?php echo $mid; ?>"><?php echo _("Print Student Solutions"); ?></a></div>
-	</div>
 	<?php else: ?>
 		<br>
 		<br>
 		<h3><?php echo _("There are no students assigned to this group yet."); ?></h3>
 	<?php endif; ?>
+	</div>
 	</center>
 	
 	<script>
@@ -129,23 +138,23 @@
 	</script>
 	<!-- Tip Content -->
     <ol id="joyRideTipContent">
-		<li data-id="studname" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>This column lists all students in this student group.</p>
+		<li data-id="studname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("This column lists all students in this student group."); ?></p>
 		</li>
-		<li data-id="prebtn" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this button to view the result of this student's pre-diagnostic test. This button is grayed out if the student has not yet taken the test.</p>
+		<li data-id="prebtn" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("Click this button to view the result of this student's pre-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
 		</li>
-		<li data-id="statmodule" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this button to view the result of the module activities of this student. This button is grayed out if the student has not yet taken the module. It will also say <strong>"In Progress"</strong> if the student is currently taking the module.</p>
+		<li data-id="statmodule" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("Click this button to view the result of the module activities of this student. This button is grayed out if the student has not yet taken the module. It will also say <strong>\"In Progress\"</strong> if the student is currently taking the module."); ?></p>
 		</li>
-		<li data-id="postbtn" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this button to view the result of this student's post-diagnostic test. This button is grayed out if the student has not yet taken the test.</p>
+		<li data-id="postbtn" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("Click this button to view the result of this student's post-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
 		</li>
-		<li data-id="view-all" 		data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this button to view the summary tables for all <strong>Quick Checks</strong> and <strong>Quiz Questions</strong> embedded in the module and on the pre-diagnostic test and post-diagnostic test for the module.</p>
+		<li data-id="view-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("Click this button to view the summary tables for all <strong>Quick Checks</strong> and <strong>Quiz Questions</strong> embedded in the module and on the pre-diagnostic test and post-diagnostic test for the module."); ?></p>
 		</li>
-		<li data-id="print" 		data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this button to view and/or print the answers of the students in the <strong>Problem Solving</strong> section of the module.</p>
+		<li data-id="print" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+			<p><?php echo _("Click this button to view and/or print the answers of the students in the <strong>Problem Solving</strong> section of the module."); ?></p>
 		</li>
     </ol>
 
@@ -158,8 +167,9 @@
 	        $(this).joyride('set_li', false, 1);
 	      }
 	    },
-	    // modal:true,
-	    // expose: true
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
 	    });
 	  }
     </script>

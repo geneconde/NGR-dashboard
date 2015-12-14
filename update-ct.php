@@ -11,7 +11,7 @@
 			'test_name' 	=> $_POST['test-name'],
 			'timelimit'		=> $timelimit,
 			'isactive'		=> $active,
-			'date_modified'	=> date('Y-m-d')
+			'date_modified'	=> date('Y-m-d G:i:s')
 		);
 
 	$ctc 	= new CumulativeTestController();
@@ -25,4 +25,4 @@
 
 	$ctc->updateCumulativeTest($ctid, $values);
 
-	header("Location: ct-settings.php");
+	header("Location: ct-test.php");

@@ -2,12 +2,18 @@
 	ini_set('display_errors', 1);
 	require_once 'session.php';
 	require_once 'locale.php';
-	include_once 'header.php';
+	require_once 'header.php';
 	include_once 'controller/DiagnosticTest.Controller.php';
 	include_once 'controller/TeacherModule.Controller.php';
 	include_once 'controller/Module.Controller.php';
 	include_once 'controller/Language.Controller.php';
-	
+	include_once 'controller/StudentGroup.Controller.php';
+	include_once 'controller/GroupModule.Controller.php';
+
+	$type = $user->getType();
+	if($type == 3 || $type == 4) { header("Location: subscriber/index.php"); }
+	if($type == 2) { header("Location: student.php"); }
+
 	$userid 			= $user->getUserid();
 	$dtc 				= new DiagnosticTestController();
 	$ct  				= $dtc->getCumulativeTest($userid);
@@ -17,10 +23,13 @@
 	$tm_set = $tmc->getTeacherModule($userid);
 	
 	$mc = new ModuleController();
+	$gmc 		= new GroupModuleController();
+
+	$sgc		= new StudentGroupController();
+	$groups		= $sgc->getActiveGroups($userid);
 
 	$teachermodules = array();
-	
-	//added for languages by jp
+
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher($userid);
 
@@ -28,53 +37,24 @@
 	if($ufl == 1){ header("Location: account-update.php"); }
 ?>
 <style>
-	<?php if($language == "es_ES") { ?>
-		.module-menu {
-		 	width: 105% !important;
-		 	margin: 0 auto;
-		 	padding-top: 10px;
-		  	text-align: center;
-			margin-left: -8px !important;
-		}
-	<?php } ?> 
-	<?php if($language == "es_ES") {  ?>
-		.close-btn { width: 65px !important; }
-	<?php } if($language == "zh_CN") { ?>
-		.close-btn { width: 40px !important; }
-	<?php } if($language == "ar_EG") { ?>
-		#gm-language {
-			float: right;
-		  	margin-right: -54px;
-		}
-	<?php } ?>
-
-	.tguide { margin-top: 9px; }
-	.first-timer {
-		background-color: #D6E3BC;
-		border-radius: 25px;
-		width: 95%;
-		margin: 0 auto;
-		margin-bottom: 10px;
-	}
-	.first-timer p{
-		padding: 15px;
-		line-height: 1.4rem;
-		font: 18px;
-	}
-	.first-timer button{
-		padding: 5px;
-	}
-	#gm-language { margin-left: -54px; }
 	a.ngss_link:hover {
 		text-decoration: none;
 		background-color: #FAEBD7;
 	}
 	<?php if($language == "es_ES") {  ?>
 		.close-btn { width: 65px !important; }
+	<?php } else if($language == "zh_CN") { ?>
+		.close-btn { width: 40px !important; }
 	<?php } ?>
+	.joyride-tip-guide:nth-child(13) {
+	    left: 73% !important;
+	    top: 39px !important;
+	}
+	.joyride-tip-guide:nth-child(13) .joyride-nub { left: 85%; }
+	.joyride-tip-guide:nth-child(5) { margin-left: 105px; }
 </style>
-<div class="grey"></div>
 
+<<<<<<< HEAD
 <div class="fleft" id="gm-language">
 	<?php echo _("Language"); ?>:
 	
@@ -123,148 +103,173 @@
 			<option value="phpgrid/manage-students.php"><?php echo _('Student Accounts'); ?></option>
 			<option value="student-accounts.php"><?php echo _('Student Groups'); ?></option>
 		</select> -->
+=======
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = 'dashboard'; ?>
+		<?php include "menu.php"; ?>
+>>>>>>> 0240534f696de171eb4dbf9b134f4f5c0e24474b
 	</div>
-	<!-- <a class="link fright" href="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _("Manage Teacher Account"); ?></a><p class="fright margin-sides">|</p>
-	<a class="link fright" href="manage-student-accounts.php"><?php echo _("Manage Student Accounts"); ?></a><p class="fright margin-sides">|</p>
-	<a class="link fright" href="student-accounts.php"><?php echo _("Manage Student Groups"); ?></a> -->
-	<a class="link fright m-top10 ngss_link" href="../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 </div>
-<div class="clear"></div>
-<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstname(); ?></span>!</h1>
-<?php
-	if(isset($_GET["ft"])):
-		if($_GET["ft"]==1): ?>
-			<div class="first-timer">
-				<p>It looks like this is your first time to visit your dashboard...<br/>
-				Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.</p>
-			</div>
-		<?php
-		endif;
-	endif;
-?>
-<p><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p></br>
 
-<br/>
-<div id="dash"></div>
-<br/>
-<div id="ct">
-<center>
-	<a class="take-box" href="ct-settings.php" id="gm-cumulative-settings"><?php echo _("CUMULATIVE TEST SETTINGS"); ?></a>
-	<a class="take-box" href="all-ct.php" id="gm-cumulative-results"><?php echo _("CUMULATIVE TEST RESULTS"); ?></a>
-</center>
-</div>
-<br/>
-<div id="dash"></div>
-<br/><br/>
-<div id="gm-module"></div>
-<?php 
-	$modules = $mc->getAllModules();
-	foreach($modules as $module):
-		foreach($tm_set as $sm):
-			if($module['module_ID'] == $sm['module_id']):
-				array_push($teachermodules, $module['module_ID']);
-?>
-<div class="module-box teacher-mb">
-	<span><?php echo _($module['category']); ?></span>
-	<!-- <span class="desc-btn"><?php echo _("Overview"); ?></span> -->
-	
-	<div class="mod-desc">
-		<div><?php echo _($module['module_desc']); ?></div>
-		<span class="close-btn"><?php echo _("Close!"); ?></span>
-	</div>
+<div id="content">
+<div class='wrap'>
+	<div class="grey" style="display: none;"></div>
+	<div class="clear"></div>
 
-	<h2><?php echo _($module['module_name']); ?></h2>
-	<br/>
-	<div class="module-menu">
-		<span class="take-box desc-btn"><?php echo _("Overview"); ?></span>
-		<a id="vmodule" class="take-box" href="demo/<?php echo $module['module_ID']; ?>/1.php"><?php echo _("Module"); ?></a>
-		<a id="settings" class="take-box" href="settings.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Settings"); ?></a>
-		<a id="results" class="take-box" href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><?php echo _("Results"); ?></a>
-	</div>
-	<br>
-</div>
-<?php 
+	<h1 class="dash-welcome">Dashboard</h1>
+	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Step by Step Page Guide</button></div>
+	<?php
+		if(isset($_GET["ft"])):
+			if($_GET["ft"]==1): ?>
+				<div class="first-timer">
+					<p><?php echo _("It looks like this is your first time to visit your dashboard..."); ?><br/>
+					<?php echo _('Here at NexGenReady, we place great emphasis on making our interface easy for you to use. To help you learn how to get the most out of all the features of our site, you can click on the <button class="uppercase guide" onClick="guide()">Guide Me</button>button on each page. This will help you navigate and utilize all the things you can do in each section.'); ?></p>
+				</div>
+			<?php
 			endif;
-		endforeach;
-	endforeach;
+		endif;
+	?>
+	<p class="dash-message"><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
+	<br><br>
 
-	$_SESSION['modules'] = $teachermodules;
-?>
+	<div class="fleft">
+		<button class="btn-portfilter active" data-toggle="portfilter" data-target="<?php echo _('all'); ?>"><?php echo _('View All'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Earth Science'); ?>"><?php echo _('Earth Science'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Life Science'); ?>"><?php echo _('Life Science'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Physical Science'); ?>"><?php echo _('Physical Science'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('STEM Skills and Practices'); ?>"><?php echo _('Stem Skills and Practices'); ?></button>
+	</div>
+	<div class="clear"></div>
+	<ul class="thumbnails gallery">
 
-<div class="clear"></div>
-<!-- guide me content -->
-<ol id="joyRideTipContent">
-  <li data-id="edit-lang" data-text="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its  functions can be viewed. You can change the language anytime by selecting a language in the drop down box.</p>
-  </li>
-  <li data-id="teacher-account" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to personalize your information.</p>
-  </li>
-  <li data-id="student-accounts" data-button="Next" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Click this button to manage account and change password of your students.</p>
-  </li>
-  <li data-id="student-groups" data-button="Next" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Click this button to manage student groups. You can create groups and transfer students as well.</p>
-  </li>
-  <li data-id="gm-module" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module.</p>
-  </li>
-  <li data-id="vmodule" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved.</p>
-  </li>
-  <li data-id="settings" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>The settings button will take you to a screen that allows you to do the following:</p>
-    <ul style="padding-left: 20px; font-size: 14px;">
-    	<li>Open/close the module completely for any or all groups</li>
-    	<li>Create, edit or delete a pre and/or post diagnostic test</li>
-    	<li>Open/close a pre and post diagnostic tests for the student groups</li>
-    	<li>Set time limits for the test for each student group</li>
-    </ul>
-    <p></p>
-  </li>
-  <li data-id="results" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a "cumulative" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students.</p>
-    <p>Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group.</p>
-  </li>
-  <li data-id="gm-cumulative-settings" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to create a <strong>"cumulative test"</strong>. This test can cover any or all modules.<br/>Creating and administering a <strong>"cumulative test"</strong> across several modules is optional.</p>
-  </li>
-  <li data-id="gm-cumulative-results" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-    <p>Click this button to view the results of the cumulative tests of students.</p>
-  </li>
-  <li data-id="lout" data-button="Close" data-options="tipLocation:left;tipAnimation:fade">
-    <p>Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard.</p>
-  </li>
-</ol>
-<script>
-	$("#manage-menu").change(function() {
-		window.location = $(this).find("option:selected").val();
-	});
+	<?php $modules = $mc->getAllModules(); ?>
+	<?php foreach($modules as $module): ?>
+		<?php foreach($tm_set as $sm): ?>
+			<?php if($module['module_ID'] == $sm['module_id']): ?>
+			<?php $mod = 0; $pre = 0; $post = 0; ?>
+				<?php foreach($groups as $group): ?>
+					<?php
+					$gm = $gmc->getModuleGroupByID($group['group_id'], $module['module_ID']);
+					if(!empty($gm)){
+						$mod += $gm[0]['review_active'];
+						$pre += $gm[0]['pre_active'];
+						$post += $gm[0]['post_active'];
+					}
+					?>
+				<?php endforeach; ?>
+				<?php array_push($teachermodules, $module['module_ID']); ?>
+				<li class="clearfix gm-module" data-tag='<?php echo _($module['category']); ?>'>
+					<div class="thumbnail">
+						<div class="caption">
+							<div class="mod-desc">
+								<div><?php echo _($module['module_desc']); ?></div>
+								<span class="close-btn"><?php echo _("Close!"); ?></span>
+							</div>
+							<div class="fleft"><h3><?php echo _($module['module_name']); ?></h3></div>
+							<div class="fright cat"><label><?php echo _($module['category']); ?></label></div>
+							<div class="clear"></div>
+							<div class="fleft module-img">
+								<img src="images\portfolio\<?php echo $module['module_ID']; ?>.jpg" alt="<?php echo _($module['module_name']); ?>">
+							</div>
+							<div class="fleft module-buttons">
+								<a href="#" class="desc-btn"><i class="fa fa-search"></i><?php echo _("Overview"); ?></a><br/>
+								<a class="view-module" href="demo/<?php echo $module['module_ID']; ?>/1.php"><i class="fa fa-picture-o"></i><?php echo _("Module"); ?></a><br>
+								<a class="settings" href="settings.php?mid=<?php echo $module['module_ID']; ?>"><i class="fa fa-cog"></i><?php echo _("Settings"); ?></a><br/>
+								<a class="results" href="student-group-results.php?mid=<?php echo $module['module_ID']; ?>"><i class="fa fa-file-text-o"></i><?php echo _("Results"); ?></a><br>
+							</div>
+							<div class="fleft status-buttons">
+								<div class="status-lbl"><?php echo _('Current Status'); ?></div>
+								<div class="<?php echo ($mod >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Module Active'); ?></div>
+								<div class="<?php echo ($pre >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Pre-test Inactive'); ?></div>
+								<div class="<?php echo ($post >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Post-test Inactive'); ?></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</li>
+		<?php endif; ?>
+		<?php endforeach; ?>
+	<?php endforeach; ?>
+	<?php $_SESSION['modules'] = $teachermodules; ?>
+	</ul>
 
-	$(".close-btn").on("click", function(){
-		$(".mod-desc").css("display", "none");
-		$(".grey").css("display", "none");
-	});
-	
-	$(".desc-btn").on("click", function(){
-		$(this).parent().parent().find(".mod-desc").css("display", "block");
+	<ol id="joyRideTipContent">
+	  <li data-class="languages" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+	    <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed."); ?></p>
+	  </li>
+	  <li data-id="my-account" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+	    <p><?php echo _("Click this button to personalize your information."); ?></p>
+	  </li>
+	  <li data-id="student-accounts" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+	    <p><?php echo _("Click this button to manage account and change password of your students."); ?></p>
+	  </li>
+	  <li data-id="student-groups" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
+	    <p><?php echo _("Click this button to manage student groups. You can create groups and transfer students as well."); ?></p>
+	  </li>
+	  <li data-class="gm-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _("This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module."); ?></p>
+	  </li>
+	  <li data-class="view-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _("Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved."); ?></p>
+	  </li>
+	  <li data-class="settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _("The settings button will take you to a screen that allows you to do the following:"); ?></p>
+	    <ul style="padding-left: 20px; font-size: 14px;">
+	    	<li><?php echo _("Open/close the module completely for any or all groups"); ?></li>
+	    	<li><?php echo _("Create, edit or delete a pre and/or post diagnostic test"); ?></li>
+	    	<li><?php echo _("Open/close a pre and post diagnostic tests for the student groups"); ?></li>
+	    	<li><?php echo _("Set time limits for the test for each student group"); ?></li>
+	    </ul>
+	    <p></p>
+	  </li>
+	  <li data-class="results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _("All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a \"cumulative\" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students."); ?></p>
+	    <p><?php echo _("Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group."); ?></p>
+	  </li>
+	<!--   <li data-id="gm-cumulative-settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _('Click this button to create a <strong>"cumulative test"</strong>. This test can cover any or all modules. Creating and administering a <strong>"cumulative test"</strong> across several modules is optional.'); ?></p>
+	  </li>
+	  <li data-id="gm-cumulative-results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
+	    <p><?php echo _("Click this button to view the results of the cumulative tests of students."); ?></p>
+	  </li> -->
+	  <li data-id="logout" data-button="<?php echo _('Close'); ?>" data-options="tipLocation:bottom;tipAnimation:fade">
+	    <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
+	  </li>
+	</ol>
+
+	<script>
+		$(".close-btn").on("click", function(){
+			$(".mod-desc").css("display", "none");
+			$(".grey").css("display", "none");
+		});
 		
-		//$(".mod-desc").css("display", "block");
-		$(".grey").css("display", "block");
-	});
-</script>
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    // modal:true,
-    // expose: true
-    });
-  }
-</script>
+		$(".desc-btn").on("click", function(){
+			$(this).parent().parent().find(".mod-desc").css("display", "block");
+			$(".grey").css("display", "block");
+		});
+
+		$('.btn-portfilter').click(function () {
+			$('.btn-portfilter').removeClass('active');
+			$(this).addClass('active');
+		});
+	</script>
+	<script>
+	  function guide() {
+	  	$('#joyRideTipContent').joyride({
+	      autoStart : true,
+	      postStepCallback : function (index, tip) {
+	      if (index == 12) {
+	        $(this).joyride('set_li', false, 1);
+	      }
+	    },
+	    'template' : {
+	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
+	      }
+	    });
+	  }
+
+	  $('.wrap').css("min-height",$('#content').height());
+	</script>
+	<script src="scripts/bootstrap-portfilter.min.js"></script>
 <?php require_once "footer.php"; ?>

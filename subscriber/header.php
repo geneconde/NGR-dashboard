@@ -1,3 +1,16 @@
+<?php
+	include_once '../controller/User.Controller.php';
+	include_once '../controller/Language.Controller.php';
+
+	if (isset($_SESSION['uname'])) {
+		$type = $user->getType();
+		$lc = new LanguageController();
+		$user_id = $user->getUserid();
+		$languages = $lc->getAllLanguages();
+		$user_languages = $lc->getLanguageByTeacher($user_id);
+		$ufl = $user->getFirstLogin();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 <head>
@@ -5,13 +18,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style.css" />
-<link rel="stylesheet" type="text/css" href="../styles/layerslider.css" />
-<link rel="stylesheet" type="text/css" href="../styles/jquery.countdown.css" />
 <link rel="stylesheet" type="text/css" href="../lgs.css">
 <link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
 
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-<!-- <link rel="stylesheet" href="css/responsive.css" type="text/css" media="screen" /> -->
 <script type="text/javascript" src="scripts/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../scripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../scripts/FixedColumns.js"></script>
@@ -20,7 +29,6 @@
 <script type="text/javascript" src="../scripts/jquery.plugin.js"></script>
 <script type="text/javascript" src="../scripts/jquery.countdown.js"></script>
 
-<!-- Run the plugin -->
 <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
 <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
 <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
@@ -31,49 +39,49 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
 <link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 
-<!-- <link rel="stylesheet" type="text/css" href="../style.css" /> -->
-
 <script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 <script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
-<style>
-	.fleft { margin-top: -16px; }
-	.tguide { float: left; margin-top: -15px; font-family: inherit; }
-	.guide {
-		padding: 5px;
-		background-color: orange;
-		border-radius: 5px;
-		margin-right: 1px;
-		margin-left: 1px;
-		border: none;
-		font-size: 10px;
-		color: #000;
-		cursor: pointer;
-	}
-	.guide:hover {
-		background-color: orange;
-	}
-	<?php if($language == "ar_EG") { ?>
-		.tguide { float: right; }
-	<?php } ?>
-</style>
-<?php if (isset($user)) { $type = $user->getType(); } ?>
+
+<?php
+if($language == "ar_EG") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
+<?php }
+if($language == "es_ES") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
+<?php }
+if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-cn.js" type="text/javascript"></script>
+<?php } ?>
 </head>
+
 <body>
-	<div id="header">
-		<!-- <div class="logo"><span class="big">N</span>EX<span class="big">G</span>EN<span class="big">R</span>EADY</a></div> -->
-		<a href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+<div id="header">
+	<div class="wrap">
+		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<?php if (isset($user)) {
+			$type = $user->getType();
+		?>
+		<div class="fright" id="logged-in">
+			<div>
+				<?php if($ufl == 1) : ?>
+				<span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <a class="link" id="logout" href="../logout.php"><?php echo _("Logout?"); ?></a>
+				<?php else : ?>
+				<span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <?php if($type==0) { ?><a class="link" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a><?php } ?> | <a class="link" id="logout" href="../logout.php"><?php echo _("Logout?"); ?></a>
+				<?php endif; ?>
+			</div>
+			<div class="languages">
+				<?php if(!empty($user_languages)) :
+					foreach($user_languages as $tl) : 
+						$lang = $lc->getLanguage($tl['language_id']); ?>
+						<a class="uppercase manage-box" href="<?php echo ($type==0 ? 'index.php?lang='.$lang->getLanguage_code() : 'student.php?lang='.$lang->getLanguage_code()); ?>"/><?php echo $lang->getShortcode(); ?></a>
+				<?php  endforeach;
+				else : ?>
+					<a class="uppercase manage-box" href="<?php echo ($type==0 ? 'teacher.php?lang=en_US' : 'student.php?lang=en_US'); ?>"/><?php echo _("EN"); ?></a>
+				<?php endif; ?>
+				<?php if($ufl != 1) { ?>
+					<a href="edit-languages.php" class="edit-languages link"><?php echo _("Edit Languages"); ?></a>
+				<?php } ?>
+			</div>
+		</div>
+		<?php } ?>
 	</div>
-	<div id="content">
-	<br>
-	<?php if (isset($user)) { ?>
-	<div class="fright" id="logged-in">
-		<?php echo _("You are currently logged in as"); ?> <span class="upper bold"><?php echo $user->getUsername(); ?></span>. <a class="link" href="../logout.php"><?php echo _("Logout?"); ?></a>
-	</div>
-	<?php } ?>
-	<div class="clear"></div>
-	
-	<?php if (isset($user)) { ?>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Guide Me</button></div>
-	<?php } ?>
+</div>

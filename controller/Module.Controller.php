@@ -28,7 +28,7 @@ class ModuleController {
 		
 		$db = new DB();
 		$db->connect();
-		$result = $db->select("module","","*","module_name ASC");
+		$result = $db->select("module","","*","category ASC, module_name ASC");
 		$db->disconnect();
 		return $result;
 	}
