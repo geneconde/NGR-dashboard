@@ -115,6 +115,7 @@
 			<a id="teacher-account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Teacher Account"); ?></a>
 			<a id="student-accounts" class="uppercase manage-box" href="phpgrid/manage-students.php"/><?php echo _("Student Accounts"); ?></a>
 			<a id="student-groups" class="uppercase manage-box" href="student-accounts.php"/><?php echo _("Student Groups"); ?></a>
+			<a id="student-groups" class="uppercase manage-box" href="phpgrid/test-questions.php"/><?php echo _("Test Questions"); ?></a>
 
 		<!-- <select id="manage-menu">
 			<option selected><?php echo _('Options'); ?></option>

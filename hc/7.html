@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Heating and Cooling</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="stylesheet" href="css/locale.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/jpreloader.css" />
+	<link rel="stylesheet" href="css/global.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<style>
+		html, body {overflow: hidden;}
+		.bg { background-image: url('images/7/bg.jpg'); background-repeat: no-repeat; background-size: 100% 100%; width:100%; height:100%; position: relative; }
+		.bg ul { padding-left: 20px; }
+		.bg li { font-size: 22px; }
+		#answers { display: none; }
+		#answers p { padding: 0; }
+		#question1, #question2, #answer1, #answer2 {
+			overflow: hidden;
+			background-color: rgba(135, 206, 250, .3);
+			margin: 0 auto;
+			-webkit-border-radius:10px;
+			-moz-border-radius:10px;
+			border-radius:10px;
+			margin-bottom: 10px;
+			padding: 0 10px;
+			width: 97%;
+		}
+		#ans2 { padding-bottom: 10px; }
+		#box { width: 90%; margin: 20px auto 10px; }
+		#box .info { width: 600px; float: right; padding: 20px 0; }
+		
+		input[type="checkbox"] { display:none; }
+		input[type="checkbox"] + label span {
+			display:inline-block;
+			width:24px;
+			height:24px;
+			background:url('images/misc/water.png') no-repeat;
+			cursor: pointer;
+			vertical-align: top;
+		}
+		input[type="checkbox"]:checked + label span {
+			background:url('images/misc/fire.png') no-repeat;
+		}
+		label { cursor: pointer; }
+		
+		html[dir="rtl"] #hexaflip { float: left; margin-bottom: 10px; }
+		#dp_swf_engine { display: none; }
+		/*li { margin: 5px 0 5px 30px; }*/
+
+		@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+			#box { height: 240px; }
+			#hexaflip { display: block; margin: 0 auto; }
+			html[dir="rtl"] #hexaflip { float: none; }
+		}	
+
+		@media only screen and (max-width: 1250px) {
+			h2, p, li {font-size:20px !important; padding:3px 0;}
+
+		}	
+		@media only screen and (max-width: 1040px) {
+			h2, p, li {font-size:20px !important; padding:3px 0;}
+			#box p {font-size:18px !important;}
+			#box .info {padding: 35px 0; width: 600px;}
+		}
+		@media only screen and (max-width: 960px) {
+			h2, p, li {font-size:18px !important;}
+			#box p {font-size:16px !important;}
+			#box .info {padding: 35px 0; width: 500px;}
+		}
+
+		@media only screen and (max-width: 768px) {
+			h2, p, li {font-size:16px !important;}
+			#box p {font-size:14px !important;}
+			#box .info {padding: 35px 0; width: 400px;}
+		}
+		#buttons .next { display: none; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="bg">
+			<div id="questions">
+				<h1>Quick Check #2</h1>
+				
+				<div id="question1">
+					<h2>Question A. Click on <span class='blink'>all</span> the statements that are correct.</h2>
+					
+					<ul>
+						<li>
+							<input type="checkbox" name="q1" id="a1" value="A">
+							<label for="a1"><span></span>We can get heat from friction, electricity, and natural gas.</label>
+						</li>
+						<li>
+							<input type="checkbox" name="q1" id="b1" value="B">
+							<label for="b1"><span></span>Not all the effects of heat are reversible.</label>
+						</li>
+					
+						<li>
+							<input type="checkbox" name="q1" id="c1" value="C">
+							<label for="c1"><span></span>Heat always causes the substance it is heating to change into something new.</label>
+						</li>
+					
+						<li>
+							<input type="checkbox" name="q1" id="d1" value="D">
+							<label for="d1"><span></span>We can transform different types of energy into heat.</label>
+						</li>
+					</ul>
+				</div>
+				<div id="question2">
+					<h2>Question B. What does <span class='blink'>not</span> happen when you burn a piece of wood in a campfire?</h2>
+					<ul>
+						<li>A. Chemical energy in the molecules of wood is released.</li>
+						<li>B. The air around the burning wood increases in temperature.</li>
+						<li>C. The wood undergoes a chemical change.</li>
+						<li>D. Energy is released due to friction.</li>
+					</ul>
+					<div id="box">
+						<p class="info">Rotate or flip the box below either up or down to set your answer. Click, hold and slide mouse up or down.</p>
+						<div id="hexaflip"></div>
+					</div>
+				</div>
+				
+				<p id="temp" class="hidden"></p>
+			</div>
+			<div id="answers">
+				<h1>Quick Check #2 - How did I do?</h1>
+				
+				<div id="answer1">
+					<h2>Question A. Click on <span class='blink'>all</span> the statements that are correct.
+					</h2><p class="center">You answered...</p>
+					<div id="ans1"></div>
+				</div>
+				<div id="answer2">
+					<h2>Question B. What does <span class='blink'>not</span> happen when you burn a piece of wood in a campfire?</h2>
+					<p class="center">You answered...</p>
+					<div id="ans2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="buttons">
+		<a href="#" class="back back-toggle" title="Back"><i class="fa fa-arrow-left"></i></a>
+		<a href="8.html" class="next next-toggle" title="Next"><i class="fa fa-arrow-right"></i></a>
+		<a href="#" class="checkanswer check-toggle" title="Check Answer"><i class="fa fa-question"></i></a>
+	</div>
+	<section id="preloader"><section class="selected"><strong>Chopping wood...</strong></section></section>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/jpreloader.js"></script>
+	<script src="scripts/blink.js"></script>
+	<script src="scripts/saveanswer.js"></script>
+	<script src="scripts/rightclick.js"></script>
+	
+	<script>
+
+		var answered = 0,
+			temp = $('#temp'),
+			questions = $('#questions'),
+			answers = $('#answers'),
+			q1 = $('#question1').find('input[type=checkbox]'),
+			a1 = $('#a1'),
+			b1 = $('#b1'),
+			c1 = $('#c1'),
+			d1 = $('#d1'),
+			e1 = $('#e1'),
+			answer1 = $('#ans1'),
+			answer2 = $('#ans2'),
+			check = $('a.checkanswer'),
+			back = $('a.back'),
+			next = $('a.next');
+
+		$('.blink').blink({ speed: 500, blinks: 1000 });
+		q1.on('click', function() {
+			temp.html('');
+			q1.each(function() {
+				if ($(this).is(':checked'))
+					temp.append($('label[for="' + $(this).attr('id') + '"]').html() + '<br/>');
+			});
+		});
+		check.on('click', function() {
+			if (q1.is(':checked')) {
+				questions.fadeOut(function() {
+					answers.fadeIn();
+					window.location.hash = "#answers";
+				});
+				check.fadeOut(function() {
+					next.fadeIn();
+					back.fadeIn();
+				});
+				if ( a1.is(':checked') == true &&
+					 b1.is(':checked') == true &&
+					 c1.is(':checked') == false &&
+					 d1.is(':checked') == true ) {
+					answer1.html('<p class="center">' + temp.html() + '</p>' +
+						'<p class="green center"><img src="images/misc/correct.png" alt="Correct" /> Great job! We can get heat from friction, electricity, and natural gas. We can transform different types of energy into heat. Some of the effects of heat are reversible, some are not.</p>'
+					);
+				}
+				else {
+					answer1.html('<p class="center">' + temp.html() + '</p>' +
+						'<p class="red center"><img src="images/misc/wrong.png" alt="Wrong" /> Not quite. We can get heat from friction, electricity, and natural gas. We can transform different types of energy into heat. Some of the effects of heat are reversible, some are not.</p>'
+					);
+				}
+				save();
+			} else {
+				alert('Please select your answers.');
+			}
+		});
+		back.on('click', function() {
+			if (questions.is(':visible')) { document.location.href = "6.html"; }
+			else {
+				answers.fadeOut(function() {
+					questions.fadeIn();
+				});
+				next.fadeOut(function() {
+					check.fadeIn();
+				});
+			}
+		});
+		function save() {
+			var a1 = "",
+				a2 = null;
+			if ($('#a1').is(':checked')) a1 = 'A';
+			if ($('#b1').is(':checked')) a1 += 'B';
+			if ($('#c1').is(':checked')) a1 += 'C';
+			if ($('#d1').is(':checked')) a1 += 'D';
+			if ($('#e1').is(':checked')) a1 += 'E';
+			var hexaValue = hexa.getValue();
+
+			if (hexaValue == './images/misc/a.png') {
+
+				answer2.html(
+					'<p class="image"><img src="./images/misc/a.png" alt="A" width="120" /></p>' +
+					'<p class="center">Chemical energy in the molecules of wood is released.</p>' + 
+					'<p class="red center"><img src="images/misc/wrong.png" alt="Wrong" /> No, chemical energy in the wood is released.</p>'
+				);
+
+				a2 = 'A';
+
+			}
+
+			if (hexaValue == './images/misc/b.png') {
+
+				answer2.html(
+					'<p class="image"><img src="./images/misc/b.png" alt="B" width="120" /></p>' +
+					'<p class="center">The air around the burning wood increases in temperature.</p>' + 
+					'<p class="red center"><img src="images/misc/wrong.png" alt="Wrong" /> No, the temperature of the air does increase.</p>'
+				);
+
+				a2 = 'B';
+
+			}
+
+			if (hexaValue == './images/misc/c.png') {
+
+				answer2.html(
+					'<p class="image"><img src="./images/misc/c.png" alt="C" width="120" /></p>' +
+					'<p class="center">The wood undergoes a chemical change.</p>' + 
+					'<p class="red center"><img src="images/misc/wrong.png" alt="Wrong" /> No, the wood does change chemically when it burns.</p>'
+				);
+
+				a2 = 'C';
+
+			}
+
+			if (hexaValue == './images/misc/d.png') {
+
+				answer2.html(
+					'<p class="image"><img src="./images/misc/d.png" alt="D" width="120" /></p>' +
+					'<p class="center">Energy is released due to friction.</p>' + 
+					'<p class="green center"><img src="images/misc/correct.png" alt="Correct" /> Correct! Heat energy is released from stored chemical energy, not from friction.</p>'
+				);
+
+				a2 = 'D';
+
+			}
+
+			
+			if (answered == 0) {
+
+				saveAnswer('heating-and-cooling-qc2-a', a1);
+				saveAnswer('heating-and-cooling-qc2-b', a2);
+
+				answered = 1;
+			}
+		}
+
+		$(window).resize(function() { makeHexa(); });
+	</script>
+
+	<script>
+		var hexa,
+            images = [
+                './images/misc/a.png',
+                './images/misc/b.png',
+                './images/misc/c.png',
+                './images/misc/d.png'
+            ];
+
+		hexa = new HexaFlip(document.getElementById('hexaflip'), { set: images }, { size: 120 });
+	</script>
+
+</body>
+</html>

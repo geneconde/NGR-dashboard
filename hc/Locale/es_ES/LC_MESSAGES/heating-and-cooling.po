@@ -1,0 +1,1087 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Heating and Cooling\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Katie Juehring\n"
+"Language-Team: Katie Juehring\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"Language: es_ES\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: 1-conductor-2-conductor
+msgid "A. 1 - Conductor, 2 - Conductor"
+msgstr "A. 1 - Conductor, 2 - Conductor"
+
+#: 1-conductor-2-insulator
+msgid "B. 1 - Conductor, 2 - Insulator"
+msgstr "B. 1 - Conductor, 2 - Aislador"
+
+#: 1-insulator-2-conductor
+msgid "C. 1 - Insulator, 2 - Conductor"
+msgstr "C. 1 - Aislador, 2 - Conductor"
+
+#: 1-insulator-2-insulator
+msgid "D. 1 - Insulator, 2 - Insulator"
+msgstr "D. 1 - Aislador, 2 - Aislador"
+
+#: Back
+msgid "Back"
+msgstr "Volver"
+
+msgid "Check Answer"
+msgstr "Comprobar respuesta"
+
+#: Conduction
+msgid "Conduction"
+msgstr "Conducción"
+
+msgid "Frying pan with wooden handle"
+msgstr "Sartén con mango de madera"
+
+#: Conductor
+msgid "Conductor"
+msgstr "Conductor"
+
+#: Convection
+msgid "Convection"
+msgstr "Convección"
+
+#: Friction
+msgid "Friction"
+msgstr "Fricción"
+
+#: Heat
+msgid "Heat"
+msgstr "Calor"
+
+#: Insulator
+msgid "Insulator"
+msgstr "Aislador "
+
+#: Method
+msgid "Method"
+msgstr "Método"
+
+#: Next
+msgid "Next"
+msgstr "Siguiente"
+
+#: Radiation
+msgid "Radiation"
+msgstr "Radiación"
+
+#: Start
+msgid "Start"
+msgstr "Empezar"
+
+#: Temperature
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: Vibrate
+msgid "Vibrate"
+msgstr "Vibrar"
+
+#: a-chemical-change-is-a-change-in-the-chemical-comp
+msgid "A chemical change is a change in the chemical composition of a substance to produce a new material with different properties. When we turn batter into a pancake, we are using heat to cook and chemically change the raw ingredients into something different."
+msgstr "Un cambio químico es un cambio en la composición química de una sustancia a"
+
+#: a-chemical-energy-in-the-molecules-of-wood-is-rele
+msgid "A. Chemical energy in the molecules of wood is released."
+msgstr "A. Energía química en las moléculas de la madera se suelta."
+
+#: a-conductor-is-something-that-lets-heat-go-through
+msgid "A conductor is something that lets heat go through it. Conductors are used to transfer energy from place to place."
+msgstr "Un conductor es algo que permite que el calor vaya a través de ella. Los conductores se destinan a... "
+
+#: a-convection
+msgid "A. Convection"
+msgstr "A. Convección "
+
+#: a-heats-up-much-faster-than-the-metal-cup
+msgid "heats up much faster than the metal cup."
+msgstr "se calienta mucho más rápido que la Copa de metal."
+
+#: a-the-bread-is-heated
+msgid "A. The bread is heated"
+msgstr "A.  El pan se calienta"
+
+#: a-we-can-get-heat-from-friction-electricity-and-na
+msgid "We can get heat from friction, electricity, and natural gas."
+msgstr "Podemos obtener calor de fricción, la electricidad y el gas natural."
+
+#: all-of-the-above
+msgid "All of the above"
+msgstr "Todo lo de arriba"
+
+#: aluminum-deliveries-coming-up
+msgid "Aluminum deliveries coming up!"
+msgstr "se acercan las entregas de aluminio!"
+
+#: an-insulator-is-something-that-does-not-let-heat-g
+msgid "An insulator is something that does not let heat go through it easily."
+msgstr "Un aislante es algo que no dejar que el calor pase a través de ellos con facilidad."
+
+#: another-example-is-sawdust-if-someone-takes-an-axe
+msgid "Another example is sawdust. If someone takes a saw and saws into wood, some of the wood breaks into tiny pieces and becomes sawdust. The sawdust is still wood. It is just wood in a different form. It has gone through a physical change."
+msgstr "Otro ejemplo es el aserrín. Si alguien toma un hacha y chuletas en madera, s"
+
+#: at-warm-temperatures-molecules-become-larger
+msgid "B. At warm temperatures, molecules become larger."
+msgstr "B. En temperaturas cálidas, las moléculas se hacen más grandes."
+
+#: at-warm-temperatures-molecules-combine-with-each-o
+msgid "At warm temperatures, molecules combine with each other more."
+msgstr "A temperaturas calientes, las moléculas se combinan el uno con el otro más."
+
+#: at-warm-temperatures-molecules-exchange-electrons-
+msgid "A. At warm temperatures, molecules exchange electrons more."
+msgstr "A. En temperaturas cálidas, las moléculas intercambian electrones más."
+
+#: at-warm-temperatures-molecules-move-around-more
+msgid "C. At warm temperatures, molecules move around faster."
+msgstr "C. En temperaturas cálidas, las moléculas se mueven más."
+
+#: b-conduction
+msgid "B. Conduction"
+msgstr "B.  Conducción"
+
+#: b-heat-only-causes-substances-to-have-an-increase-
+msgid "B. Heat only causes substances to have an increase in temperature."
+msgstr "Calor sólo causa sustancias tengan un aumento en la temperatura."
+
+#: b-the-air-around-the-bread-is-heated
+msgid "B. The air around the bread is heated."
+msgstr "B. El aire alrededor del pan se calienta"
+
+#: b-the-air-around-the-burning-wood-increases-in-tem
+msgid "B. The air around the burning wood increases in temperature."
+msgstr "B. El aire alrededor de la madera ardiendo aumenta de temperatura."
+
+#: b-transfers-heat-better-than-the-metal-cup
+msgid "transfers heat better than the metal cup."
+msgstr "transfiere el calor mejor que la Copa de metal."
+
+#: bathing-in-a-hot-tub-of-water
+msgid "Bathing in a hot tub of water"
+msgstr "Bañarse en una tina de agua caliente"
+
+#: boiling-water-in-a-pot
+msgid "Boiling water in a pot"
+msgstr "Hervir agua en una olla"
+
+#: c-both-a-and-b
+msgid "C. Both A and B"
+msgstr "C. Tanto A como B"
+
+#: c-is-a-better-conductor-of-heat-than-the-metal-cup
+msgid "is a better conductor of heat than the metal cup."
+msgstr "es un mejor conductor de calor que la Copa de metal."
+
+#: c-not-all-the-effects-of-heat-are-reversible
+msgid "Not all the effects of heat are reversible."
+msgstr "No todos los efectos del calor son reversibles."
+
+#: c-radiation
+msgid "C. Radiation"
+msgstr "C. Radiación"
+
+#: c-the-wood-undergoes-a-chemical-change
+msgid "C. The wood undergoes a chemical change."
+msgstr "C. La madera se somete a un cambio químico."
+
+#: check-answer
+msgid "Check answer"
+msgstr "verificar respuesta"
+
+#: checking-what-you-already-know-about-heating-and-c
+msgid "Checking what you already know... about heating and cooling"
+msgstr "Comprobando lo que ya sabes... de calefacción y refrigeración"
+
+#: checking-what-you-now-know-about-heating-and-cooli
+msgid "Checking what you now know... about heating and cooling"
+msgstr "Comprobación de lo que ahora sabes... de calefacción y refrigeración"
+
+#: chemical-change
+msgid "Chemical change"
+msgstr "Cambio químico"
+
+#: chemical-energy-in-the-molecules-of-wood-is-releas
+msgid "Chemical energy in the molecules of wood is released."
+msgstr "Energía química en las moléculas de la madera es liberado."
+
+#: choose-from-the-items-to-select-your-answer
+msgid "Choose from the items to select your answer."
+msgstr "Elija una de las opciones para seleccionar la respuesta."
+
+#: chopping-woods
+msgid "Chopping wood..."
+msgstr "Maderas para picar..."
+
+#: clanging-metals
+msgid "Clanging metals..."
+msgstr "Metales tañer"
+
+#: click-here-to-start-typing-your-answer
+msgid "Click here to start typing your answer..."
+msgstr "Haga clic aquí para empezar a escribir su respuesta..."
+
+#: cold-energy-from-the-drink-flows-into-to-the-surro
+msgid "Cold energy from the drink flows into to the surrounding air."
+msgstr "La energía en frío de la bebida fluye hacia al aire circundante."
+
+#: cold-energy-from-the-surrounding-air-flows-into-th
+msgid "Cold energy from the surrounding air flows into the food."
+msgstr "Energía fría desde el aire fluye en la comida."
+
+#: conduction
+msgid "conduction"
+msgstr "conducción"
+
+#: conduction-is-the-process-by-which-heat-energy-flo
+msgid "Conduction is the process by which heat energy flows from an object at a higher temperature that comes in contact with an object at a lower temperature. If you have ever picked up a spoon from a hot cup of chocolate, the spoon became hotter by conduction."
+msgstr "La conducción es el proceso por el cual calor la energía fluye desde un objeto a una alta velocidad"
+
+#: congratulations
+msgid "Congratulations, "
+msgstr " ¡Felicidades!"
+
+#: convection
+msgid "convection"
+msgstr "convección"
+
+#: convection-is-when-something-moves-by-changing-pla
+msgid "Heat can move from one place to another by convection. Convection is when heat energy moves when matter containing the heat moves like warm air rising. It is usually warmer near the ceiling of a room than on the floor because the warmer air rises to the ceiling by convection and cold air sinks to the bottom of the room. Warm water also rises and cold water sinks by convection."
+msgstr "Convección es cuando algo se mueve por cambiar de lugar. El calor puede pasar de"
+
+#: cool-countertop
+msgid "Cool countertop"
+msgstr "Encimera fría"
+
+#: correct-1-is-convection-2-is-conduction-and-3-is-r
+msgid "Correct. 1 is convection, 2 is conduction, and 3 is radiation."
+msgstr "Correcto.  1 es convección, 2 es conducción, y 3 es radiación. "
+
+#: correct-a-conductor-is-any-material-that-transfers
+msgid "Correct. A conductor is any material that transfers heat energy easily."
+msgstr "Correcto. Un conductor es cualquier material que transfiere el calor energía fácilmente."
+
+#: correct-as-temperature-rises-molecules-move-around
+msgid "Correct. As temperature rises, molecules move around faster."
+msgstr "Correcto. Cuando la temperatura se eleva, las moléculas se mueven más."
+
+#: correct-heat-always-moves-from-object-at-higher-te
+msgid "Correct. Heat always moves from object at higher temperature to objects at lower temperature."
+msgstr "Correcto. Calor siempre se mueve desde un objeto a una temperatura superior a los objetos a temperaturas más bajas."
+
+#: correct-heat-energy-from-the-campfire-is-transferr
+msgid "Correct. Heat energy from the campfire is transferred to both the air and bread."
+msgstr "Correcto. La energía calórica de la fogata se transfiere tanto al aire como a pan."
+
+#: correct-sunlight-can-pass-through-empty-space-it-d
+msgid "Correct, sunlight can pass through empty space—it doesn’t need any matter."
+msgstr "Correcto, la luz del sol puede pasar por el espacio vacío — no necesita ningún asunto."
+
+#: correct-temperature-measures-the-motion-of-molecul
+msgid "Correct. Temperature measures the motion of molecules, and heat is the total energy of the molecules."
+msgstr "Correcto. Temperatura mide el movimiento de las moléculas, y la calefacción"
+
+#: correct-the-energy-released-is-chemical-not-due-to
+msgid "Correct, the energy released is chemical, not due to friction."
+msgstr "Correcto, la energía liberada es química, no debido a la fricción."
+
+#: correct-the-foam-cup-does-not-conduct-heat-well-bu
+msgid "Correct. The foam cup does not conduct heat well but the metal cup does."
+msgstr "Correcto.  La taza de espuma no conducir bien el calor pero sí la Copa de metal."
+
+#: correct-the-temperature-changes-when-a-metal-is-he
+msgid "Correct, the temperature changes when a metal is heated."
+msgstr "Correcto, se cambia la temperatura cuando un metal se calienta."
+
+#: correct-when-ice-melts-into-water-its-weight-stays
+msgid "Correct. When ice melts into water its weight stays the same."
+msgstr "Correcto. Cuando el hielo se derrite en el agua su peso sigue siendo el mismo."
+
+#: d-all-of-the-above
+msgid "D. All of the above"
+msgstr "D. Todo lo de arriba"
+
+#: d-all-of-the-above-are-possible
+msgid "D. All of the above are possible."
+msgstr "D. todas las anteriores son posibles"
+
+#: d-energy-is-released-to-due-friction
+msgid "D. Energy is released due to friction."
+msgstr "D. Se libera energía debido a la fricción."
+
+#: d-is-a-better-insulator-of-heat-than-the-metal-cup
+msgid "is a better insulator of heat than the metal cup."
+msgstr "es un mejor aislante de calor de la taza de metal."
+
+#: d-we-can-transform-different-types-of-energy-into-
+msgid "We can transform different types of energy into heat."
+msgstr "Podemos transformar distintos tipos de energía en calor."
+
+#: different-types-of-vibrations-happen-around-us-all
+msgid "Different types of vibrations happen around us all the time. People, animals, cars, and machines make sounds when they cause particles in the air to vibrate. Dropping a pebble in the water makes the surface of the water vibrate. Earthquakes cause buildings to vibrate as well."
+msgstr "Diferentes tipos de vibraciones pasan alrededor de nosotros todo el tiempo. Personas, animales..."
+
+#: drying-your-hair-with-a-hair-dryer
+msgid "Drying your hair with a hair dryer"
+msgstr "Secar el cabello con un secador de pelo"
+
+#: e-heat-always-causes-the-substance-it-is-heating-t
+msgid "Heat always causes the substance it is heating to change into something new."
+msgstr "Calor siempre causa la sustancia que se está calentando para cambiar en algo diferente"
+
+#: energy-is-released-to-due-friction
+msgid "Energy is released due to friction."
+msgstr "Se libera energía debido a la fricción."
+
+#: energy-is-transferred-by-direct-contact
+msgid "Energy is transferred by direct contact"
+msgstr "Energía se transfiere por contacto directo"
+
+#: energy-is-transferred-by-electromagnetic-radiation
+msgid "Energy is transferred by electromagnetic radiation"
+msgstr "La energía es transferida por radiación electromagnética"
+
+#: energy-is-transferred-by-the-mass-motion-of-molecu
+msgid "Energy is transferred by the mass motion of molecules"
+msgstr "La energía es transferida por el movimiento de masas de moléculas"
+
+#: freezing-ice-cubes
+msgid "Freezing ice cubes..."
+msgstr "congelación cubitos de hielo"
+
+#: friction-is-the-force-between-two-things-or-surfac
+msgid "Friction is the force between two things or surfaces that rub together. Since there is always friction when two things rub together, there is always heat energy generated."
+msgstr "La fricción es la fuerza entre dos cosas o superficies que frotan. Desde..."
+
+#: great-job-we-can-get-heat-from-friction-electricit
+msgid "Great job! We can get heat from friction, electricity, and natural gas. We can transform different types of energy into heat. Some of the effects of heat are reversible, some are not."
+msgstr "¡ Buen trabajo! Podemos obtener calor de fricción, electricidad y gas natural..."
+
+#: heat-always-moves-from-object-at
+msgid "Heat always moves from objects at"
+msgstr "Calor siempre se mueve desde el objeto en"
+
+#: heat-energy-from-the-air-flows-into-the-cooler-dri
+msgid "Heat energy from the air flows into the cooler drink."
+msgstr "La energía de calor desde el aire fluye en la bebida más fresco."
+
+#: heat-energy-from-the-food-flows-into-the-cooler-ai
+msgid "Heat energy from the food flows into the cooler air around it."
+msgstr "La energía térmica de la comida desemboca en el aire más frío que lo rodea."
+
+#: heat-flows-differently-through-different-materials
+msgid "Heat flows differently through different materials. A metal spoon transmits heat easily. A wooden spoon does not transfer heat easily. The metal is a conductor and the plastic is an insulator. A <span class='key'>conductor</span> is something that lets heat go through it and an <span class='key'>insulator</span> is something that does not let heat go through it easily."
+msgstr "El calor fluye de manera diferente a través de diferentes materiales. Una cuchara de metal transmite el calor con facilidad. Una cuchara de madera no transfiere calor fácilmente. El metal es un conductor y el plástico es un aislante. Un <span class='key'> conductor </ span> es algo que deja el calor vaya a través de él y un <span class='key'> aislante </ span> es algo que no deja que el calor vaya a través de él con facilidad."
+
+#: text changed
+msgid "Heat is a form of energy that causes the tiny particles of matter to vibrate."
+msgstr "El calor es una forma de energía que hace que las pequeñas partículas de la materia a vibrar."
+
+#: heat-is-usually-caused-by-the-sun-and-temperature-
+msgid "Heat is usually caused by the sun and temperature is caused by conditions in the atmosphere."
+msgstr "El calor es generalmente causada por el sol y la temperatura es causada por las condiciones en la atmósfera."
+
+#: heating-and-cooling
+msgid "Heating and Cooling"
+msgstr "Calefacción y Refrigeración"
+
+#: higher-temperature
+msgid "higher temperature"
+msgstr "temperatura más alta"
+
+#: hot-and-cold
+msgid "Hot and cold"
+msgstr "caliente y fría"
+
+#: hot-hot-hot
+msgid "Hot, hot, hot!"
+msgstr "¡caliente, caliente, caliente!"
+
+#: hot-soup
+msgid "Hot soup"
+msgstr "Sopa caliente"
+
+#: --text changed--
+msgid "How fast or slowly the tiny particles of matter vibrate or move around is called temperature. The faster the particles move, the higher the temperature is. The more slowly the particles move, the lower the temperature is."
+msgstr "Cómo rápidamente o lentamente las partículas diminutas de la materia vibran o moverse se denomina temperatura. Las partículas se mueven más rápido, más alto es la temperatura. Las partículas se mueven más lentamente, cuanto más baja es la temperatura."
+
+#: how-much-heat-energy-is-needed-to-raise-or-lower-t
+msgid "How much heat energy is needed to raise or lower the temperature of matter depends on the amount of matter involved. The more matter there is, the more heat energy has to be exchanged to raise or lower the temperature."
+msgstr "¿Cuánta energía de calor es necesario para subir o bajar la temperatura de la materia...?"
+
+#: in-cup-a-there-is-an-ice-cube-that-weighs-12-grams
+msgid "In cup A there is an ice cube that weighs 12 grams. Over time it has melted and all of it was poured into cup B. How much does the substance in cup B weigh? Why?"
+msgstr "En la copa A hay un cubo de hielo que pesa 12 gramos. Con el tiempo ha derretido"
+
+#: in-each-example-how-does-heat-energy-transfer-drag
+msgid "In each example, how does heat energy transfer? Drag the methods either on conduction, convection, or radiation for each question."
+msgstr "En cada ejemplo, ¿cómo transferir energía en forma de calor? Arrastre los métodos en c"
+
+#: insulators-are-used-to-prevent-heat-energy-from-mo
+msgid "Insulators are used to prevent heat energy from moving from place to place. The special mitten that you use to take something from the oven acts as an insulator."
+msgstr "Los aislantes son usados para impedir a la energía calórica moverse de un lugar a otro."
+
+#: its-chemicals
+msgid "its chemicals"
+msgstr "sus productos químicos"
+
+#: its-color
+msgid "its color"
+msgstr "su color"
+
+#: its-mass
+msgid "its mass"
+msgstr "su masa"
+
+#: its-temperature
+msgid "its temperature"
+msgstr "su temperatura"
+
+#: lower-temperature
+msgid "lower temperature"
+msgstr "temperatura más baja"
+
+#: metal-pot
+msgid "Metal pot"
+msgstr "Olla de metal"
+
+#: more-core-ideas-about-heating-and-cooling
+msgid "More big ideas... about heating and cooling"
+msgstr "Más ideas básicas... de calefacción y refrigeración"
+
+#: no-1-is-convection-2-is-conduction-and-3-is-radiat
+msgid "No. 1 is convection, 2 is conduction, and 3 is radiation."
+msgstr "No.  1 es convección, 2 es conducción, y 3 es radiación. "
+
+#: no-a-barometer-measures-the-pressure-of-air-in-the
+msgid "No. A barometer measures the pressure of air in the atmosphere."
+msgstr "No. El barómetro mide la presión del aire en la atmósfera."
+
+#: no-at-warm-temperatures-molecules-move-around-more
+msgid "No. At warm temperatures, molecules move around more not less."
+msgstr "No. En temperaturas cálidas, las moléculas se mueven más no menos."
+
+#: no-chemical-energy-in-the-wood-is-released
+msgid "No, chemical energy in the wood is released."
+msgstr "No, se libera energía química de la madera."
+
+#: no-convection-is-a-way-of-transferring-heat-energy
+msgid "No. Convection is a way of transferring heat energy - it is not a material."
+msgstr "No. La convección es una forma de transferir energía calórica - no es un material."
+
+#: no-heat-always-moves-from-object-at-higher-tempera
+msgid "No. Heat always moves from object at higher temperature to objects at lower temperature."
+msgstr "No. Calor siempre se mueve desde el objeto a temperatura superior a los objetos a temperaturas más bajas"
+
+#: no-heat-and-temperature-are-related-but-they-are-n
+msgid "No. Heat and temperature are related, but they are not the same thing."
+msgstr "Calor y temperatura están relacionadas, pero no son la misma cosa."
+
+#: no-heat-energy-that-moves-by-radiation-does-not-re
+msgid "No. Heat energy that moves by radiation does not require any material."
+msgstr "No. La energía térmica que se mueve por la radiación no requiere ningún material."
+
+#: no-its-mass-does-not-change-when-a-metal-is-heated
+msgid "No, its mass does not change when a metal is heated."
+msgstr "No, su masa no cambia cuando un metal se calienta."
+
+#: no-molecules-don-t-change-size-at-different-temper
+msgid "No. Molecules don’t change size at different temperatures."
+msgstr "No. Las moléculas no cambian tamaño a diferentes temperaturas."
+
+#: no-sunlight-is-only-transferred-by-radiation-throu
+msgid "No, sunlight is only transferred by radiation through empty space."
+msgstr "No, la luz del sol sólo es transferido por radiación a través del espacio vacío."
+
+#: no-temperature-doesn-t-have-anything-to-do-with-el
+msgid "No. Temperature doesn’t have anything to do with electron exchanges."
+msgstr "No. La temperatura no tiene algo que ver con cambios de electrones."
+
+#: no-temperature-measures-the-motion-of-molecules-an
+msgid "No. Temperature measures the motion of molecules, and heat is the total energy of the molecules."
+msgstr "Temperatura mide el movimiento de las moléculas, y el calor es la energía total de las moléculas."
+
+msgid "No. Temperature measures the motion of molecules,and heat is the energy that moves from a substance at a higher temperature to a substance at a lower temperature."
+msgstr "No. Temperatura mide el movimiento de las moléculas, y el calor es la energía que se mueve de una sustancia a una temperatura superior a una sustancia en un menor temperatura."
+
+#: no-the-chemicals-making-up-a-metal-do-not-change-w
+msgid "No, the chemicals making up a metal do not change when it is heated."
+msgstr "No, los productos químicos que componen un metal no cambia cuando se calienta."
+
+#: no-the-foam-cup-does-not-conduct-heat-well-and-doe
+msgid "No. The foam cup does not conduct heat well and does not heat up easily either."
+msgstr "No. La Copa de espuma no conducir bien el calor y no se calienta fácilmente tampoco"
+
+#: no-the-foam-cup-is-an-insulator-it-does-not-transf
+msgid "No. The foam cup is an insulator; it does not transfer heat very well at all."
+msgstr "No.  La Copa de espuma es un aislante; No transfiere calor muy bien en absoluto."
+
+#: no-the-metals-color-may-change-but-not-necessarily
+msgid "No, the metal’s color may change, but not necessarily."
+msgstr "No, el color del metal puede cambiar, pero no necesariamente."
+
+#: no-the-opposite-actually-an-insulator-does-not-tra
+msgid "No, the opposite actually. An insulator does not transfer heat energy easily."
+msgstr "No, al contrario en realidad. Un aislante no transfiere energía calórica fácilmente."
+
+#: no-the-temperature-of-the-air-does-increase
+msgid "No, the temperature of the air does increase."
+msgstr "No, la temperatura del aire realmente aumenta."
+
+#: no-the-wood-does-change-chemically-when-it-burns
+msgid "No, the wood does change chemically when it burns."
+msgstr "No, la madera realmente cambia por medios químicos cuando se quema."
+
+#: no-transfer-by-conduction-requires-a-substance-spa
+msgid "No, transfer by conduction requires a substance—space is empty."
+msgstr "No, transferencia por conducción requiere una sustancia — espacio está vacío."
+
+#: no-transfer-by-convection-requires-a-substance-spa
+msgid "No, transfer by convection requires a substance—space is empty."
+msgstr "No, transferencia por convección requiere una sustancia — espacio está vacío."
+
+#: no-when-ice-melts-into-water-its-weight-stays-the-
+msgid "No. When ice melts into water its weight stays the same."
+msgstr "No.  Cuando el hielo se derrite en agua su peso sigue siendo el mismo"
+
+#: not-quite-the-air-is-heated-but-so-is-the-bread
+msgid "Not quite, the air is heated, but so is the bread."
+msgstr "No completamente, el aire se calienta, pero el pan también."
+
+#: not-quite-the-bread-is-heated-but-so-is-the-air-ar
+msgid "Not quite, the bread is heated but so is the air around it."
+msgstr "No completamente, el pan se calienta, pero también es el aire alrededor de él ."
+
+#: not-quite-we-can-get-heat-from-friction-electricit
+msgid "Not quite. We can get heat from friction, electricity, and natural gas. We can transform different types of energy into heat. Some of the effects of heat are reversible, some are not."
+msgstr "No completamente. Podemos obtener el calor de fricción, electricidad y gas natural. Podemos transformar diferente..."
+
+#: physical-change
+msgid "Physical change"
+msgstr "Cambio físico"
+
+#: please-check-your-answers
+msgid "Please check your answers."
+msgstr "Por favor revisar sus respuestas"
+
+#: please-select-your-answer
+msgid "Please select your answer."
+msgstr "por favor, seleccione su respuesta."
+
+#: please-select-your-answers
+msgid "Please select your answers."
+msgstr "Por favor, seleccione sus respuestas."
+
+#: please-type-your-answer
+msgid "Please type your answer."
+msgstr "Por favor escriba a máquina su respuesta."
+
+#: question-a-click-on-all-the-statements-that-are-co
+msgid "Question A. Click on <span class='blink'>all</span> the statements that are correct."
+msgstr "Pregunta A. Haga clic en <span class='blink'>TODAS</span> las declaraciones que son correctas."
+
+#: question-a-drag-the-heat-transfer-method-on-exampl
+msgid "Question A. Drag the heat transfer method onto the example it matches."
+msgstr "Pregunta A.  Arrastre el método de transferencia de calor en el ejemplo al cual corresponde."
+
+#: question-a-how-do-molecules-at-warm-temperatures-d
+msgid "Question A. How do molecules at warm temperatures differ from molecules at cool temperatures?"
+msgstr "Pregunta A. ¿En qué difieren las moléculas en temperaturas cálidas de moléculas en frío?"
+
+#: question-a-select-the-image-that-shows-the-materia
+msgid "Question A. Select the image that shows the material that transfers heat energy easily."
+msgstr "Pregunta A. Seleccione la imagen que muestra el material que transfiere energía térmica."
+
+#: question-b-choose-the-answer-that-correctly-names-
+msgid "Question B. Choose the answer that correctly names 1 and 2."
+msgstr "Pregunta B. elige la respuesta que nombra correctamente 1 y 2."
+
+#: question-b-sunlight-is-a-form-of-energy-that-trave
+msgid "Question B. Sunlight is a form of energy that travels through space without the aid of fluids or solids. Which method of heat transfer is sunlight?"
+msgstr "Pregunta B. La luz del sol es una forma de energía que viaja por el espacio sin el"
+
+#: question-b-what-does-not-happen-when-you-burn-a-pi
+msgid "Question B. What does <span class='blink'>not</span> happen when you burn a piece of wood in a campfire?"
+msgstr "Pregunta B. ¿Qué <span class='blink'>no</span> a suceder cuando se quema un trozo de madera en una fogata?"
+
+#: question-b-what-is-the-difference-between-heat-and
+msgid "Question B. What is the difference between heat and temperature?"
+msgstr "Pregunta B. ¿Cuál es la diferencia entre calor y temperatura?"
+
+#: question-c-what-happens-when-you-make-toast-over-a
+msgid "Question C. What happens when you make toast over a campfire?"
+msgstr "Pregunta C.  ¿Qué pasa cuando hace la tostada sobre una fogata?"
+
+#: quick-check-4
+msgid "Quick Check #4"
+msgstr "Comprobación rápida #4"
+
+#: radiation
+msgid "radiation"
+msgstr "radiación"
+
+#: radiation-is-any-energy-that-is-given-off-by-a-sou
+msgid "Radiation is any energy that is given off by a source and moves as waves, particles, or rays. There are many different types of radiation. Light and heat are both forms of radiation."
+msgstr "La radiación es cualquier energía que se emite por una fuente y se mueve como olas, partículas o rayos. Hay muchos tipos diferentes de radiación. La luz y el calor son formas de radiación."
+
+#: read-more
+msgid "Read more"
+msgstr "Leer más"
+
+msgid "Read More"
+msgstr "Leer más"
+
+#: reviewing-core-ideas-about-heating-and-cooling
+msgid "Reviewing big ideas... about heating and cooling"
+msgstr "La revisión de las ideas fundamentales ... sobre la calefacción y la refrigeración"
+
+#: reviewing-key-vocabularies-related-to-heating-and-
+msgid "Reviewing key vocabulary related to... heating and cooling"
+msgstr "Revisión de vocabularios claves relacionadas con...  calefacción y refrigeración"
+
+#: rotate-or-flip-the-box-below-either-up-or-down-to-
+msgid "Rotate or flip the box below either up or down to set your answer. Click, hold and slide mouse up or down."
+msgstr "Girar o voltear el cuadro de abajo hacia arriba o hacia abajo para ajustar su respuesta."
+
+#: rubbing-hands
+msgid "Rubbing hands..."
+msgstr "calor del frotamiento"
+
+#: same-temperature
+msgid "same temperature"
+msgstr "la misma temperatura"
+
+#: shaking-thermometers
+msgid "shaking thermometers..."
+msgstr "sacudiendo los termómetros..."
+
+#: sitting-out-in-a-sunny-day
+msgid "Sitting out in a sunny day"
+msgstr "sentado en un día soleado"
+
+#: some-types-of-radiation-can-be-very-harmful-to-peo
+msgid "Some types of radiation can be very harmful to people, but other types of radiation can be helpful. A special type of radiation, called gamma radiation, can be used to help people fight diseases such as cancer. Gamma radiation kills cells, but when pointed directly at cancer cells, it can help a person fight off cancer by killing these diseased cells."
+msgstr "Algunos tipos de radiación pueden ser muy dañinos para la gente, pero otros tipos de radiación"
+
+#: summarizing-core-ideas-about-heating-and-cooling
+msgid "Summarizing big ideas... about heating and cooling"
+msgstr "Resumiendo ideas básicas... de calefacción y refrigeración"
+
+#: temperature-is-a-measure-of-the-motion-of-molecule
+msgid "Temperature is a measure of the motion of molecules and heat is the total energy of the molecules."
+msgstr "La temperatura es una medida del movimiento de las moléculas y el calor es el"
+
+#: temperature-is-measured-with-a-thermometer-and-hea
+msgid "B. Temperature is measured with a thermometer and heat is measured with a barometer."
+msgstr "B. La temperatura se mide con un termómetro y se mide el calor"
+
+#: the-air-around-the-bread-is-heated
+msgid "The air around the bread is heated"
+msgstr "Se calienta el aire alrededor del pan"
+
+#: the-air-around-the-burning-wood-increases-in-tempe
+msgid "The air around the burning wood increases in temperature."
+msgstr "El aire alrededor de la madera ardiendo aumenta de temperatura."
+
+#: the-best-explanation-for-this-difference-in-temper
+msgid "The best explanation for this difference in temperature is that the foam cup:"
+msgstr "La mejor explicación para esta diferencia de temperatura que es la Copa de espuma:"
+
+#: the-bread-is-heated
+msgid "The bread is heated"
+msgstr "El pan se calienta"
+
+#: the-bread-is-heated-and-the-air-around-the-bread-i
+msgid "The bread is heated and the air around the bread is heated"
+msgstr "El pan se calienta y se calienta el aire alrededor del pan"
+
+#: the-numbered-arrows-show-the-transfer-of-heat-from
+msgid "The numbered arrows show the transfer of heat from the pot of soup to the surrounding environment."
+msgstr "Las flechas numeradas indican a la transferencia de calor de la olla de sopa para el superficie"
+
+#: the-situation
+msgid "The Situation"
+msgstr "La Situación"
+
+#: the-wood-undergoes-a-chemical-change
+msgid "The wood undergoes a chemical change."
+msgstr "La madera somete a un cambio químico."
+
+#: there-is-no-difference-they-are-the-same-thing
+msgid "C. There is no difference — heat and temperature are the same."
+msgstr "C. No hay ninguna diferencia — son la misma cosa."
+
+#: thinking-about-heating-and-cooling
+msgid "Thinking about... heating and cooling"
+msgstr "Pensando en calefacción y refrigeración"
+
+#: to-objects-at
+msgid "to objects at"
+msgstr "a los objetos en"
+
+#: touching-the-handle-of-a-hot-pot-from-the-stove
+msgid "Touching the handle of a hot pot from the stove"
+msgstr "Tocar el mango de una olla caliente de la estufa"
+
+#: transferring-heat
+msgid "Transferring heat..."
+msgstr "transferencia de calor"
+
+#: two-students-make-hot-chocolate-one-student-pours-
+msgid "Two students make hot chocolate. One student pours the hot chocolate into a foam cup. The other student pours the hot chocolate into a metal cup. The metal cup becomes too hot to touch, but the foam cup can be held comfortably."
+msgstr "Dos estudiantes hacer chocolate caliente. Un estudiante vierte el chocolate caliente en un"
+
+#: using-what-you-know-about-heating-and-cooling-to-s
+msgid "Using what you know... about heating and cooling... to solve a problem"
+msgstr "Utilizando lo que sabe... acerca de calefacción y refrigeración... para resolver un problema"
+
+#: warm-water-rising-in-a-lake-and-cold-water-descend
+msgid "Warm water rising in a lake and cold water descending"
+msgstr "Agua caliente, aumentando en un lago y el agua fría descendente"
+
+#: warming-up
+msgid "Warming up..."
+msgstr "calentando..."
+
+#: welcome-to-the-heating-and-cooling-review
+msgid "Welcome to the Heating and Cooling module"
+msgstr "¡Bienvenido(a) a la Revisión de Refrigeración y Calefacción!"
+
+#: when-a-piece-of-metal-is-heated-what-definitely-ch
+msgid "When a piece of metal is heated, what definitely changes?"
+msgstr "¿Cuando se calienta un trozo de metal, lo que definitivamente cambia?"
+
+#: when-a-substance-goes-through-a-physical-change-on
+msgid "When a substance goes through a physical change, only its form or appearance changes. Even though it may look different, it is still the same substance. For example, when water freezes, it turns to ice. The ice and the water are the same substance. Only their forms are different."
+msgstr "Cuando una sustancia pasa a través de un cambio físico, sólo su forma o apariencia..."
+
+#: when-something-vibrates-it-moves-back-and-forth-or
+msgid "When something vibrates, it moves back and forth or up and down. Vibrations are made when something that is in a resting position is disturbed in some way. Vibrations can cause the movement of other objects nearby and can create sound."
+msgstr "Cuando algo vibra, se mueve hacia adelante y hacia atrás o hacia arriba y hacia abajo. Vibración..."
+
+#: which-list-identi-es-each-method-of-heat-transfer-
+msgid "Which list correctly identiﬁes each method of heat transfer? Click the row to select an answer."
+msgstr "¿Cual lista que identiﬁca cada método de transferencia de calor? Haga clic en la fila para seleccionar"
+
+#: who-wants-soup
+msgid "Who wants soup?"
+msgstr "¿Quién quiere sopa?"
+
+#: wood-or-metal
+msgid "Wood or metal?"
+msgstr "¿Madera o metal?"
+
+#: words-and-definitions
+msgid "Words and explanations"
+msgstr "Palabras y explicaciones"
+
+#: your-task
+msgid "Your Task"
+msgstr "Su Tarea"
+
+#: you-answered
+msgid "You answered..."
+msgstr "Ha respondido..."
+
+#: youve-completed-the-heating-and-cooling-review
+msgid "You've completed the Heating and Cooling module."
+msgstr "Ya ha completado la revisión de Refrigeración y Calefacción."
+
+# no translation---------------------------------------------------------------------
+#: quick-check-1
+msgid "Quick Check #1"
+msgstr "Comprobación rápida #1"
+
+#: quick-check-2
+msgid "Quick Check #2"
+msgstr "Comprobación rápida #2"
+
+#: quick-check-3
+msgid "Quick Check #3"
+msgstr "Comprobación rápida #3"
+
+msgid "Learning science is cool!"
+msgstr "Aprender ciencias es divertido!"
+
+# 4a
+msgid "<span class='key'>Heat</span> is a form of energy that causes atoms and molecules, the particles of matter, to <span class='key'>vibrate</span> or move around faster. When heat energy is taken away from matter the particles vibrate less and move around more slowly."
+msgstr "<span class='key'>El calor</span>es una forma de energía que hace que los átomos y moléculas, las partículas de la materia, para <span class='key'>vibran</span> o moverse más rápido. Cuando se añade energía calórica a la materia, las partículas vibre o se mueva más rápido. Cuando la energía de calor se saca fuera de la materia, las partículas vibran menos o se mueven alrededor de menos."
+
+# 4a
+msgid "How fast or slowly the tiny particles of matter vibrate or move around is called <span class='key'>temperature</span>. The faster the particles move, the higher the temperature is. The more slowly the particles move, the lower the temperature is. How much heat energy is needed to raise or lower the temperature of matter depends on the amount of matter involved. The more matter there is, the more heat energy has to be exchanged to raise or lower the temperature. The heat energy of something is the total amount of energy."
+msgstr "¿Qué tan rápido o lentamente las diminutas partículas de materia vibrar o moverse se llama <span class='key'> temperatura </span> . Cuanto más rápido se mueven las partículas, mayor es la temperatura es. El más lentamente las partículas se mueven, menor es la temperatura. ¿Cuánto se necesita energía de calor para subir o bajar la temperatura de la materia depende de la cantidad de la materia en cuestión. El asunto más hay, más energía de calor se debe cambiar para subir o bajar la temperatura. La energía térmica de algo es la cantidad total de energía."
+
+# 5
+msgid "Preparing your first quick check!"
+msgstr "preparando su primero Comprobación rápida!"
+
+# 5
+msgid "D. At cold temperatures, molecules become smaller."
+msgstr "D. En temperaturas frías, las moléculas se hacen más pequeñas."
+
+# 5
+msgid "A. Temperature is related to the motion of the particles in a substance and heat is related to how much energy moves between substances at different temperatures."
+msgstr "A. La temperatura está relacionada con el movimiento de las partículas en una sustancia y calor se relaciona con cuanta energía se mueve entre las sustancias a diferentes temperaturas.Audio"
+
+# 5
+msgid "There is no difference—heat and temperature are the same."
+msgstr "No hay diferencia: calor y temperatura son lo mismo."
+
+# 5
+msgid "D. Heat refers to how hot a substance is but temperature measures both how hot or cold a substance is."
+msgstr "D. Calor se refiere a lo caliente que es una sustancia pero temperatura mide una sustancia como caliente o frío."
+
+msgid "No. Temperature… and heat is the energy that moves from a substance at a higher temperature to a substance at a lower temperature."
+msgstr "No. La temperatura … y calor es la energía que se mueve de una sustancia a una temperatura más alta a una sustancia a una temperatura inferior."
+
+msgid "Correct! Heat energy is released from stored chemical energy, not from friction."
+msgstr "¡ Correcto! La energía calórica es liberada de energía química almacenada, no de fricción."
+
+msgid "Another quick check on the way!"
+msgstr "¡Otra  comprobación rápida pronto!"
+
+# 10
+msgid "Heat flows differently through different materials. A metal spoon transmits heat easily. A wooden spoon does not transfer heat easily. The metal is a <span class='key'>conductor</span> and the wood is an <span class='key'>insulator</span>. A conductor is something that lets heat go through it and an insulator is something that does not let heat go through it easily."
+msgstr "Flujos de calor diferente a través de diversos materiales. Una cuchara de metal transmite calor fácilmente. Una cuchara de madera no transfiere calor fácilmente. El metal es un <span class='key'>conductor</span> y la madera es un <span class='key'>aislante</span>. Un conductor es algo que suelta calor a través de un aislante y es algo que no suelta calor a través de ella fácilmente. "
+
+# 10
+msgid "Insulators are used to prevent heat energy from moving from place to place. The special mitten that you use to take something from the oven acts as an insulator. The mitten prevents the heat energy from moving from the pan or dish that is at a high temperature to your hand that is at a lower temperature. The special jackets, pants and gloves that you wear in the winter are made of insulating materials to keep heat energy from going from your warm body to the cold outside air."
+msgstr "Los aislantes se utilizan para evitar que la energía calórica de movimiento de un lugar a otro. El guante especial que se utiliza para sacar algo de el horno actúa como un aislante. La manopla impide que la energía en forma de calor por el movimiento de la bandeja o plato que está a una temperatura elevada a la mano que está a una temperatura inferior. El especial chaquetas, pantalones y guantes que se desgaste en el invierno son hechas de materiales aislantes para mantener el calor de energía de su cuerpo cálido al frío aire exterior. "
+
+# 11
+msgid "Mittens"
+msgstr "Mitónes"
+
+# 11
+msgid "Silverware"
+msgstr "Vajilla de plata"
+
+# 11
+msgid "Metal soup ladle"
+msgstr "Cucharón de sopa metálico"
+
+# 11
+msgid "Wooden spoon"
+msgstr "Cuchara de madera"
+
+# 11
+msgid "Paper cup"
+msgstr "vaso de papel"
+
+# 11
+msgid "Frozen fish wrapped in aluminum foil"
+msgstr "Pescados congelados envueltos en papel de aluminio"
+
+# 11
+msgid "Question A. Drag each item into the column that best describes how it acts—as a conductor of heat or as an insulator."
+msgstr "Pregunta A. arrastrar cada elemento en la columna que mejor describe cómo actúa — como un conductor de calor o como aislante."
+
+# 11
+msgid "Correct. The metal (1) is a conductor, and the wooden handle (2) is an insulator."
+msgstr "Correcto. El metal (1) es un conductor, y el mango de madera (2) es un aislante."
+
+# 11
+msgid "No. Only the metal (1) is a conductor, the wooden handle (2) is an insulator."
+msgstr "No.  Solo el metal (1) es un conductor, y el mango de madera (2) es un aislante."
+
+# 11
+msgid "No. Just the opposite. The metal (1) is a conductor and the wooden handle (2) an insulator."
+msgstr "No. Justo lo contrario. El metal (1) es un conductor y la de madera de mango (2) un aislante."
+
+# 11
+msgid "No, The wooden handle (2) is an insulator, but the metal (1) is a conductor."
+msgstr "No, el mango de madera (2) es un aislante, pero el metal (1) es un conductor."
+
+# 13
+msgid "Putting it all together..."
+msgstr "Juntándolo todo"
+
+# 13 summary
+msgid "<span class='key'>Heat</span> is a form of energy. Heat can be produced from other forms of energy when wood or gas burns. Heat is also produced by <span class='key'>friction</span> when two objects or materials rub together. Heat energy causes the tiny particles of matter to vibrate or move about.  The more heat that is added to the particles, the faster the particles will vibrate or move. <span class='key'>Temperature</span> is a measure of how fast or slowly the particles are moving. Heat is the measure of the total energy of the particles in a system. Heat energy always moves from something at a high temperature to something at a lower temperature. Heat energy can move from one place to another by means of <span class='key'>conduction</span>, <span class='key'>convection</span> or <span class='key'>radiation</span>. Heating and cooling both involve the movement of heat energy.  Things get hotter when heat energy is added and things get colder when heat energy is taken away. Heat energy can be prevented from moving from place to place with <span class='key'>insulation</span>."
+msgstr ""
+"<span class='key'>Calor</span> es una forma de energy. Puede producir calor de otras formas de energía como quemar madera o gas. Calor es también producido por <span class='key'>la fricción</span> cuando dos objetos o materiales rozan juntos. La energía calórica hace que las partículas diminutas de la materia a vibrar o moverse. Cuanto más calor que se le agrega a las partículas, más rápido las partículas vibran o se mueva. <span class='key'>Temperatura</span> es una medida de como rápido o lentamente las partículas estan moviendo. Calor is la medida Heat energy de la energía total de las partículas en un sistema. La energía calórica siempre se mueve de algo a una alta temperatura a algo a una temperatura inferior. La energía calórica se puede mover de un lugar al otro por medio de <span class='key'>conducción</span>, <span class='key'>convección</span> o <span class='key'>radiación</span>. Calefacción y refrigeración ambos implican el movimiento de energía en forma de calor. Las cosas se calienta más cuando se añade energía en forma de calor y las cosas se pone colder when heat "
+"energy is taken away. Energía calórica puede ser impedido de mover de un lugar de otro con <span class='key'>aislamiento</span>."
+
+# 14
+msgid "Heat is the energy that moves from a hotter to a colder substance. Heat energy causes the particles of a substance to wiggle or vibrate faster if the particles are fixed in a place or to move around faster if the particles are free to move."
+msgstr "Calor es la energía que se mueve de una temperatura más alta a una más fría. Energía en forma de calor hace que las partículas de una sustancia para moverse o vibrar más rápido si las partículas son fijados en un mismo lugar o de moverse más rápido si las partículas se pueden mover libremente."
+
+msgid "Close me!"
+msgstr "¡Ciérreme!"
+
+# 14
+msgid "A conductor is a material that easily transfers heat or electrical energy. Most metals are good conductors for both heat and electrical energy."
+msgstr "Un conductor es un material que transfiere fácilmente calor o energía eléctrica. La mayoría de los metales son buenos conductores o calor y energía eléctrica."
+
+# 14
+msgid "An insulator is a material that does not easily transfer energy heat or electrical energy. The special mitten that you use to take something from the oven acts as an insulator."
+msgstr "Un aislante es un material que no es fácil transferir la energía térmica o energía eléctrica. El guante especial que se utiliza para sacar algo de el horno actúa como un aislante."
+
+# 15
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "Respondiendo a las siguientes seis (6) preguntas le dará una idea de lo que ya sabe y lo que te queda por estudiar."
+
+# 15
+msgid "Click the NEXT button when you are ready."
+msgstr "Haga clic en el botón PRÓXIMO cuando esté listo."
+
+# 15
+msgid "Let's check what you now know"
+msgstr "Vamos a comprobar lo que sabes ahora"
+
+# 16
+msgid "And the first quiz question is..."
+msgstr "La primera pregunta es…"
+
+#: quiz-question-1
+msgid "Quiz Question #1"
+msgstr "Pregunta del Cuestionario #1"
+
+#: quiz-question-2
+msgid "Quiz Question #2"
+msgstr "Pregunta del Cuestionario #2"
+
+#: quiz-question-3
+msgid "Quiz Question #3"
+msgstr "Pregunta del Cuestionario #3"
+
+#: quiz-question-4
+msgid "Quiz Question #4"
+msgstr "Pregunta del Cuestionario #4"
+
+#: quiz-question-5
+msgid "Quiz Question #5"
+msgstr "Pregunta del Cuestionario #5"
+
+#: quiz-question-6
+msgid "Quiz Question #6"
+msgstr "Pregunta del Cuestionario #6"
+
+# 18
+msgid "select"
+msgstr "Selecto"
+
+# 18
+msgid "Higher or lower?"
+msgstr "¿Más alto o más abajo?"
+
+# 20
+msgid "Sitting by a campfire"
+msgstr "Sentada junto a una fogata"
+
+# 20
+msgid "Bubbles rising in a pot of water on the stove"
+msgstr "Burbujas de levantamiento en una olla de agua en la estufa"
+
+# 20
+msgid "Person warming their hands on a cup of hot chocolate"
+msgstr "Persona calentando sus manos en una taza de chocolate caliente"
+
+# 21
+msgid "10 grams, because the solid ice loses material when it turns into liquid."
+msgstr "10 gramos, porque el hielo sólido pierde material cuando se convierte en líquido."
+
+# 21
+msgid "12 grams, because only the form not the amount of matter changes."
+msgstr "12 gramos, porque solamente la forma cambia no la cantidad de materia."
+
+# 21
+msgid "14 grams, because there is more water than ice."
+msgstr "14 gramos, porque hay más agua que hielo."
+
+# 21
+msgid "The weight in B could be more or less—it depends on how fast the ice melted."
+msgstr "El peso de B podría ser más o menos, depende de la rapidez con la que el hielo se derritió."
+
+# 22
+msgid "You're done!"
+msgstr "¡Se termina!"
+
+# 22
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "Puede comprobar cómo lo has hecho en la \"Comprobación rápida\" y \"Preguntas del cuestionario\" para este examen haciendo clic en el botón de abajo."
+
+# 22
+msgid "How did I do?"
+msgstr "¿Cómo hice?"
+
+#: let's begin
+msgid "Let's begin!"
+msgstr "¡Vamos a empezar!"
+
+msgid "Are you ready, "
+msgstr "¿Estás listo?"
+
+# 2: incomplete translation
+msgid "What if someone told you that heating something like a pizza or cup of soup and cooling something like a soft drink or a dessert are sort of the same thing? You would probably say that sounds crazy!  But after you complete this review you will see that this is not such a crazy idea after all."
+msgstr "¿Qué pasa si alguien dijera que calentar algo como una pizza o una taza de sopa y la refrigeración de algo como una bebida o un postre son más o menos la misma cosa? Probablemente dirías que parece una locura! Pero después de completar esta revisión se verá que esto no es una idea tan descabellada después de todo."
+
+# 2 not sure if complete translation, no punctuation mark
+msgid "When you sit at the dinner table, you probably wait until your food gets cool enough to eat, but you drink your water while it is still cold."
+msgstr "Cuando uno se sienta en la mesa de la cena, probablemente espere a que su comida se enfríe lo suficiente para comer, pero beber tu agua mientras está todavía frío."
+
+# 2 not sure if complete translation, no punctuation mark
+msgid "Click on <span class='blink'>all</span> the correct statements you think are related to why our food get cooler, but our drinks get warmer at the dinner table."
+msgstr "Haga un click en<span class='blink'>todas</span> las afirmaciones correctas usted piensa que están relacionados con nuestra alimentos obtener más frescas, pero nuestras bebidas más cálidos en la mesa."
+
+# 2
+msgid "If you marked A and B, you are on the right track. Heat energy only goes from something hot to something cold. As you go through this module, you may be surprised to find out that there really isn’t any such thing as <span class='key'>cold energy</span>."
+msgstr "Si usted marca A y B, estás en el camino correcto. Energía calórica sólo va de algo caliente a algo frío. Como vas a través de esta revisión, se sorprendió al descubrir que no hay tal cosa como <span class='key'>energía fría</span>."
+
+msgid "Other forms of energy can be changed into heat energy.  Wood and natural gas can be burned to produce heat for your home. Electricity can be used to create heat in your toaster, oven or microwave to cook your food. Pressing your hands together and rubbing back and forth quickly produces heat energy. This heat is produced by <span class='key'>friction</span>, the force between two things or surfaces that rub together. Since there is always friction when two things rub together, there is always heat energy generated."
+msgstr "Otras formas de la energía se pueden cambiar en la energía calórica. La madera y el gas natural se pueden quemar para producir el calor para su casa. La electricidad puede ser usada para crear el calor en su tostadora, horno o microonda para cocinar su comida. El apretamiento de sus manos juntos y el frotamiento de acá para allá rápidamente producen la energía calórica. Este calor es producido por <span class='key'>la fricción</span>, la fuerza entre dos cosas o superficies que rozan juntos. Ya que siempre hay la fricción cuando dos cosas rozan juntos, siempre hay la energía calórica generada."
+
+# 6b
+msgid "When we add heat to a substance, the substance changes in some way. For example,  by adding heat to an ice cube it causes it to change from a solid to a liquid. In this case only the form has changed. This is called a <span class='key'>physical change</span>. But sometimes heat can change a substance into a new substance. This is called a <span class='key'>chemical change</span>. The new substance  has a different chemical composition with different properties. When we turn batter into a pancake, we are using  heat to cook and chemically change the batter ingredients into something different -- a pancake."
+msgstr "Cuando añadimos calor a una sustancia, la sustancia cambia de alguna manera. Por ejemplo, mediante la adición de calor a un cubo de hielo causa que cambie de sólido a líquido. En este caso solamente la forma ha cambiado. Esto se llama un <span class='key'>cambio físico</span>. Pero a veces el calor puede cambiar una sustancia en una nueva sustancia.  Esto se llama un <span class='key'>cambio químico</span>. La nueva sustancia tiene una composición química diferente con diferentes propiedades.  Cuando convertimos la masa en un panqueque, estamos utilizando calor para cocinar y químicamente cambiar los ingredientes de la masa en algo diferente, un panqueque."
+
+# 6b
+msgid "In a physical change, we can often reverse the change. In the example of heating an ice cube, we can reverse it and freeze the water again. But in a chemical change, we often cannot reverse the change. In the example of making pancakes, we can't change the pancakes back into batter again."
+msgstr "En un cambio físico, a menudo podemos revertir el cambio. En el ejemplo de un cubo de hielo de la calefacción, podemos revertirlo y congelar el agua otra vez. Pero en un cambio químico, a menudo no podemos revertir el cambio. En el ejemplo de hacer panqueques, no podemos cambiar las panqueques en masa otra vez. "
+
+# 7
+msgid "Heat energy only moves from a hotter substance to a colder substance."
+msgstr "La energía calórica sólo se mueve de una sustancia más caliente a una sustancia más fría."
+
+# 8
+msgid "Heat energy can move from place to place in different ways. When two objects or substances at different temperatures touch each other, heat energy flows from the one at the higher temperature to the one at the lower temperature by <span class='key'>conduction</span>. If you have ever picked up a spoon from a hot cup of chocolate, the spoon became hotter by conduction."
+msgstr "La energía térmica puede moverse de un lugar a otro de diferentes maneras. Cuando dos objetos o sustancias a diferentes temperaturas se tocan entre sí, energía térmica fluye de uno en la temperatura más alta a la que está en la temperatura más baja por <span class='key'>conducción</span>. Si alguna vez ha recogido una cuchara de una taza de chocolate caliente, la cuchara se convirtió en calor por conducción."
+
+# 8
+msgid "Particles that are free to move from one place to another can also carry heat energy from one place to another by <span class='key'>convection</span>. The bubbles in a pot of boiling water are carrying heat energy in the particles of water that move to the surface and escape."
+msgstr "Las partículas que se mueven libremente de un lugar a otro también puede llevar energía en forma de calor de un lugar a otro por<span class='key'>convección</span>. Las burbujas en una olla de agua hirviendo se llevar energía térmica de las partículas de agua que suben a la superficie y escapar."
+
+# 8
+msgid "Heat energy can also move from place to place by <span class='key'>radiation</span>. If you ever sat near a roaring campfire or next to a hot stove, you probably felt the warmth of the heat by radiation."
+msgstr "La energía calórica también se puede mover de un lugar a otro por la <span class='key'>radiación</span>. Si alguna vez se sentara cerca de una fogata rugiente o al lado de una estufa caliente, probablemente sintió el calor del calor por la radiación."
+
+# 12
+msgid "You are an engineer at a company that just purchased a new aluminum radiant barrier product. The product is in the shape of flat panels made with a layer of laminated aluminum film on one side. You are assigned the task of applying this new product to keep the company building cool in the hot summer days."
+msgstr "Usted es un ingeniero de una empresa que acaba de comprar un nuevo producto de aluminio barrera radiante. El producto se encuentra en la forma de las pantallas planas con una capa de aluminio laminado película sobre un lado. Se le ha asignado la tarea de aplicar este nuevo producto para mantener el edificio de la compañía fresco en los días calurosos de verano."
+
+#: how-would-you-go-about-installing-the-panels-to-ke
+msgid "How would you go about installing the panels to keep the company building cool in the hot summer days? Explain why your installation plan will keep the building cool."
+msgstr "¿Cómo hacer para instalar los paneles para mantener el edificio de la compañía fresco en los días calurosos de verano. Explique cómo su plan de instalación mantener el edificio fresco."
+
+#: a-metal-pot-with-hot-soup-in-it-is-placed-on-a-coo
+msgid "A metal pot with hot soup in it is placed on a cool stone countertop as shown in the diagram at the right. The numbered arrows show different ways heat is transferred  in the system containing the pot, counter top and surrounding air."
+msgstr "Una olla de metal con sopa caliente en se coloca sobre una encimera de piedra fría, como se muestra en el diagrama a la derecha. Los números se definen a continuación."
+
+# 17:
+msgid "cool stone countertop"
+msgstr "encimeras de piedra fría"
+
+msgid "Go to dashboard"
+msgstr "Vaya al panel de control"
+
+msgid "Go Back to Dashboard"
+msgstr "Vaya al panel de control"

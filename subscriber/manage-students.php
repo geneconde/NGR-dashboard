@@ -141,7 +141,23 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
+	$q = "SELECT * FROM users WHERE subhead_id IS NOT NULL";
+	$grid->select_command = $q;	
+	$id = [];
+
+	$result = mysql_query($q);
+	//$data = mysql_fetch_array($result,MYSQL_ASSOC);
+	while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+	{
+		echo '<pre>';
+		print_r($row['subhead_id']);
+		echo '</pre>';
+	}
+	$count = mysql_num_rows($result);	
+	
+
 	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
+		
 	$col["editoptions"] = array("value"=>$str); 
 	$col["formatter"] = "select"; // display label, not value
 	$cols[] = $col;
