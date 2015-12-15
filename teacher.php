@@ -54,61 +54,12 @@
 	.joyride-tip-guide:nth-child(5) { margin-left: 105px; }
 </style>
 
-<<<<<<< HEAD
-<div class="fleft" id="gm-language">
-	<?php echo _("Language"); ?>:
-	
-	<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<a class="uppercase manage-box" href="teacher.php?lang=<?php echo $lang->getLanguage_code(); ?>"/><?php echo $lang->getLanguage(); ?></a>
-		<?php 
-				endforeach; 
-			else :
 
-		?>
-			<a class="uppercase manage-box" href="teacher.php?lang=en_US"/><?php echo _("English"); ?></a>
-		<?php endif; ?>
-
-	<!-- <select id="language-menu">
-		<?php
-			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
-		?>
-					<option value="<?php echo $lang->getLanguage_code(); ?>" <?php if($language == $lang->getLanguage_code()) { ?> selected <?php } ?>><?php echo $lang->getLanguage(); ?></option>
-		<?php 
-				endforeach; 
-			else :
-		?>
-			<option value="en_US" <?php if($language == "en_US") { ?> selected <?php } ?>><?php echo _("English"); ?></option>
-		<?php endif; ?>
-	</select> -->
-	<a href="teacher-languages.php" class="link" id="edit-lang"><?php echo _("Edit Languages"); ?></a>
-</div>
-<div class="fright m-top10" id="accounts">
-	<div id="manage-container">
-		<?php echo _('Manage:'); ?> 
-		
-			<a id="teacher-account" class="uppercase manage-box" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Teacher Account"); ?></a>
-			<a id="student-accounts" class="uppercase manage-box" href="phpgrid/manage-students.php"/><?php echo _("Student Accounts"); ?></a>
-			<a id="student-groups" class="uppercase manage-box" href="student-accounts.php"/><?php echo _("Student Groups"); ?></a>
-			<a id="student-groups" class="uppercase manage-box" href="phpgrid/test-questions.php"/><?php echo _("Test Questions"); ?></a>
-
-		<!-- <select id="manage-menu">
-			<option selected><?php echo _('Options'); ?></option>
-			<option value="edit-account.php?user_id=<?php echo $userid; ?>&f=0"><?php echo _('Teacher Account'); ?></option>
-			<option value="phpgrid/manage-students.php"><?php echo _('Student Accounts'); ?></option>
-			<option value="student-accounts.php"><?php echo _('Student Groups'); ?></option>
-		</select> -->
-=======
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = 'dashboard'; ?>
 		<?php include "menu.php"; ?>
->>>>>>> 0240534f696de171eb4dbf9b134f4f5c0e24474b
+
 	</div>
 </div>
 

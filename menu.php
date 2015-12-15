@@ -7,6 +7,7 @@
 		<a class="uppercase fright manage-box <?php echo ($active=='cumulative-test' ? 'active' : ''); ?>" id="cumulative-test" href="ct-test.php"><?php echo _("Cumulative Test"); ?></a>
 		<a class="uppercase fright manage-box <?php echo ($active=='diagnostic-test' ? 'active' : ''); ?>" id="diagnostic-test" href="dt-test.php"><?php echo _("Diagnostic Test"); ?></a>
 		<a class="uppercase fright manage-box <?php echo ($active=='dashboard' ? 'active' : ''); ?>" id="dashboard" href="teacher.php"><?php echo _("Dashboard"); ?></a>
+		<a class="uppercase fright manage-box" href="phpgrid/test-questions.php"><?php echo _("Test Questions"); ?></a>
 	<?php elseif ($type == 2) : ?>
 		<a class="uppercase fright manage-box <?php echo ($active=='dashboard' ? 'active' : ''); ?>" id="dashboard" href="student.php"><?php echo _("Dashboard"); ?></a>
 	<?php endif; ?>
