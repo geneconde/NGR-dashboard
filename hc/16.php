@@ -115,7 +115,7 @@
 		});
 
 		back.on('click', function() {
-			if (question.is(':visible')) { document.location.href = "15.php"; }
+			if (question.is(':visible')) { document.location.href = "14.php"; }
 			else {
 				answer.fadeOut(function() { question.fadeIn(); });
 				next.fadeOut(function() { check.fadeIn(); });
