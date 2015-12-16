@@ -95,7 +95,7 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["export"] = false;
-	$col["editable"] = false;
+	$col["editable"] = true;
 
 	$cols[] = $col;
 
@@ -199,7 +199,7 @@ ini_set('display_errors', 1);
 	<div class="top-buttons">
 		<div class="wrap">
 			<div class="buttons">
-				<a class="uppercase fright manage-box active" href="phpgrid/test-questions.php"><?php echo _("Test Questions"); ?></a>
+				<a class="uppercase fright manage-box active" href="phpgrid/question-library.php"><?php echo _("Test Questions Library"); ?></a>
 				<a class="uppercase fright manage-box" target="_blank" href="../../marketing/ngss.php"/><?php echo _("See the NGSS Alignment"); ?></a>
 				<a class="uppercase fright manage-box" href="manage-students.php" id="student-accounts"/><?php echo _("Student Accounts"); ?></a>
 				<a class="uppercase fright manage-box" href="../student-accounts.php" id="student-groups"/><?php echo _("Student Groups"); ?></a>
@@ -242,9 +242,9 @@ ini_set('display_errors', 1);
 
 					<div style="margin:10px 0">
 						<fieldset> 
-					        <form> 
+					        <form id="form_search"> 
 					        Search: <input type="text" id="filter"/> 
-					        <input type="submit" id="search" value="Search" class="manage-box"> 
+					        <!-- <input type="submit" id="search" value="Search" class="manage-box">  -->
 					        </form> 
 					    </fieldset>
 						<?php echo $main_view; ?>				
@@ -275,10 +275,11 @@ ini_set('display_errors', 1);
 		$('#language-menu').change(function() {
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
-		});
 
-		$("#search").click(function() { 
-	        grid = jQuery("#list1"); 
+		});
+		
+		$('#filter').keyup(function () { 
+			grid = jQuery("#list1"); 
 
 	        var searchFiler = jQuery("#filter").val(), f; 
 
@@ -292,7 +293,6 @@ ini_set('display_errors', 1);
 	        // operators: ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc'] 
 
 	        f.rules.push({field:"module_id",op:"cn",data:searchFiler}); 
-	        //f.rules.push({field:"module_id",op:"cn",data:searchFiler}); 
 
 	        grid[0].p.search = true; 
 	        jQuery.extend(grid[0].p.postData,{filters:JSON.stringify(f)}); 
@@ -300,7 +300,7 @@ ini_set('display_errors', 1);
 	        grid.trigger("reloadGrid",[{jqgrid_page:1,current:true}]); 
 
 	        return false; 
-	    }); 
+		});
 
 	});
 
