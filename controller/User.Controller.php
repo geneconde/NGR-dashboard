@@ -202,11 +202,26 @@ class UserController {
 		$db->disconnect();
 	}
 
+	
 	public function updatePassword($userid, $newpassword){
 		$where = array();
 		$where['user_ID'] = $userid;
 		
 		$newpassword = UserController::hashPassword($newpassword);
+		$data = array();
+		$data['password'] = $newpassword;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->update("users", $where, $data);
+		$db->disconnect();
+	}
+	
+	// 12-16-15 Student Remove encryption
+	public function updateStudentPassword($userid, $newpassword){
+		$where = array();
+		$where['user_ID'] = $userid;
+		
 		$data = array();
 		$data['password'] = $newpassword;
 		

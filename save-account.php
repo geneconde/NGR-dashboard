@@ -35,7 +35,7 @@
 			$level = $_POST['level'];
 		}
 		$uc->updateUser($userid, $uname, $fname, $lname, $gender, $level);
-		if(!empty($password)){ $uc->updatePassword($userid, $password); }
+		if(!empty($password)){ $uc->updateStudentPassword($userid, $password); }
 		if (isset($_GET['ut'])) {
 			if($_GET['ut'] == "2"){
 				$uc->updateUserFL($userid);
