@@ -60,7 +60,7 @@
 	<div class="wrap">
 		<div class="bg">
 			<div id="screen1">
-				<h1><?php echo _("More big ideas... about heating and cooling"); ?></h1>
+				<h1><?php echo _("More big ideas... about heating and cooling"); ?><span id="ans"></span></h1>
 				
 				<p><?php echo _("Other forms of energy can be changed into heat energy.  Wood and natural gas can be burned to produce heat for your home. Electricity can be used to create heat in your toaster, oven or microwave to cook your food. Pressing your hands together and rubbing back and forth quickly produces heat energy. This heat is produced by <span class='key'>friction</span>, the force between two things or surfaces that rub together. Since there is always friction when two things rub together, there is always heat energy generated."); ?></p>
 				
@@ -96,6 +96,7 @@
 	<script src="scripts/jquery.jplayer.min.js"></script>
 	<script src="scripts/rightclick.js"></script>
 	<script>
+		$("span#ans").innerHTML = localStorage.getItem("qc1-a");
 		$("#jquery_jplayer_1").jPlayer({
 	   ready: function () {
 		$(this).jPlayer("setMedia", {
@@ -103,7 +104,6 @@
 		 m4v: "images/6/match.m4v"		 
 		}).jPlayer("play");
 	   },
-
 
 	  ended: function() { // The $.jPlayer.event.ended event
 		$(this).jPlayer("play"); // Repeat the media

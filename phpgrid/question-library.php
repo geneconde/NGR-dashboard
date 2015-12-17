@@ -69,6 +69,7 @@ ini_set('display_errors', 1);
 	$col["editable"] = false;
 	$col["sortable"] = false;
 	$col["export"] = false;
+	$col["sortable"] = true;
 	$str = $grid->get_dropdown_values("select distinct module_id as k, REPLACE(module_id, '-', ' ') as v from dt_pool"); 
 	//$str = str_replace("-", " ", $_str);
 
@@ -94,7 +95,7 @@ ini_set('display_errors', 1);
 	$col["title"] = "Question";
 	$col["name"] = "question";
 	$col["search"] = false;
-	$col["sortable"] = false;
+	$col["sortable"] = true;
 	$col["export"] = false;
 	$col["editable"] = false;
 	$cols[] = $col;
@@ -102,7 +103,7 @@ ini_set('display_errors', 1);
 	$opt["caption"] = "Questions";
 	$opt["height"] = "";
 	$opt["autowidth"] = true; // expand grid to screen width
-	$opt["multiselect"] = true; // allow you to multi-select through checkboxes
+	$opt["multiselect"] = false; // allow you to multi-select through checkboxes
 	$opt["hiddengrid"] = false;
 	$opt["reloadedit"] = true;
 
@@ -120,7 +121,7 @@ ini_set('display_errors', 1);
 			"delete"=>false, // allow/disallow delete
 			"bulkedit"=>false, // allow/disallow edit
 			"export_excel"=>true, // export excel button
-			"rowactions"=>true,
+			"rowactions"=>false,
 			"search" => "simple" // show single/multi field search condition (e.g. simple or advance)
 	));
 	$grid->table = "dt_pool";
