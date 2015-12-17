@@ -66,7 +66,7 @@ ini_set('display_errors', 1);
 	$col["dbname"] = "dt_pool.module_id";
 	$col["width"] = "20";
 	$col["search"] = true;	
-	$col["editable"] = true;
+	$col["editable"] = false;
 	$col["sortable"] = false;
 	$col["export"] = false;
 	$str = $grid->get_dropdown_values("select distinct module_id as k, REPLACE(module_id, '-', ' ') as v from dt_pool"); 
@@ -96,7 +96,7 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["sortable"] = false;
 	$col["export"] = false;
-	$col["editable"] = true;
+	$col["editable"] = false;
 	$cols[] = $col;
 
 	$opt["caption"] = "Questions";
@@ -116,7 +116,7 @@ ini_set('display_errors', 1);
 
 	$grid->set_actions(array(
 			"add"=>false, // allow/disallow add
-			"edit"=>true, // allow/disallow edit
+			"edit"=>false, // allow/disallow edit
 			"delete"=>false, // allow/disallow delete
 			"bulkedit"=>false, // allow/disallow edit
 			"export_excel"=>true, // export excel button
@@ -293,6 +293,7 @@ ini_set('display_errors', 1);
 	        // operators: ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en','cn','nc'] 
 
 	        f.rules.push({field:"module_id",op:"cn",data:searchFiler}); 
+	        f.rules.push({field:"question",op:"cn",data:searchFiler}); 
 
 	        grid[0].p.search = true; 
 	        jQuery.extend(grid[0].p.postData,{filters:JSON.stringify(f)}); 
