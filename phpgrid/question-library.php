@@ -32,7 +32,8 @@ ini_set('display_errors', 1);
 
 	$uc = new UserController();
 
-	if(isset($_GET['unassign']) && $_GET['unassign'] == 1){
+	if(isset($_GET['unassign']) && $_GET['unassign'] == 1)
+	{
 		$uc->updateStudentTeacher($_GET['user_id']);
 		header("Location: manage-students.php");
 	}
@@ -68,7 +69,7 @@ ini_set('display_errors', 1);
 	$col["editable"] = true;
 	$col["sortable"] = false;
 	$col["export"] = false;
-	$str = $grid->get_dropdown_values("select distinct module_id as k, module_id as v from dt_pool"); 
+	$str = $grid->get_dropdown_values("select distinct module_id as k, REPLACE(module_id, '-', ' ') as v from dt_pool"); 
 	//$str = str_replace("-", " ", $_str);
 
 	$col["stype"] = "select"; 
@@ -96,7 +97,6 @@ ini_set('display_errors', 1);
 	$col["sortable"] = false;
 	$col["export"] = false;
 	$col["editable"] = true;
-
 	$cols[] = $col;
 
 	$opt["caption"] = "Questions";
@@ -121,7 +121,7 @@ ini_set('display_errors', 1);
 			"bulkedit"=>false, // allow/disallow edit
 			"export_excel"=>true, // export excel button
 			"rowactions"=>true,
-			"search" => "advance" // show single/multi field search condition (e.g. simple or advance)
+			"search" => "simple" // show single/multi field search condition (e.g. simple or advance)
 	));
 	$grid->table = "dt_pool";
 
