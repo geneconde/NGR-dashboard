@@ -50,36 +50,40 @@
 
 <div id="content">
 <div class="wrap">
-<h1><?php echo _("Cumulative Test Result"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
-<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
+<h1><?php echo _("Cumulative Test Result"); ?></h1>
+	<div class="btn">
+		<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+		<a id="email-btn" class="btn fleft" href="#"><i class="fa fa-envelope"></i><?php echo _('Email'); ?></a>
+	</div>
+	<div class="clear"></div>
 	<div id="results">
-		<table border="0">
+		<table border="0" class="details">
 			<tr>
-				<td class="bold alignright"><?php echo _("Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Name"); ?></td>
 				<td><?php echo $student->getFirstname() . ' ' . $student->getLastname(); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Test Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Test Name"); ?></td>
 				<td><?php echo $ctc_set->getTestName(); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Date"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Date"); ?></td>
 				<td><?php echo date('M d, Y', strtotime($scc_set->getStartDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Time Started"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Started"); ?></td>
 				<td><?php echo date('h:i:s', strtotime($scc_set->getStartDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Time Ended"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Ended"); ?></td>
 				<td><?php echo date('h:i:s', strtotime($scc_set->getEndDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold"><?php echo _("Score Percentage"); ?> :&nbsp;&nbsp;&nbsp;</td>
-				<td><h2 id="score"></h2></td>
+				<td class="bold"><?php echo _("Score"); ?></td>
+				<td><span id="score"></span></td>
 			</tr>
 		</table>
-		<table border="0" class="result morepad">
+		<table border="0" class="result morepad ct-results">
 		<?php
 			foreach($questions as $q):
 			//if(in_array($row['qid'], $questions)):
@@ -88,7 +92,7 @@
 					$qinfo = $dtc->getTargetQuestion($q);
 		?>
 			<tr class="trline">
-				<td><img class="img-answer" /><?php echo _($qinfo[0]['question']); ?>
+				<td><i class="fa answer"></i><?php echo _($qinfo[0]['question']); ?>
 				<?php if($qinfo[0]['image']) :
 					$image = $qinfo[0]['image'];
 					$img = trim($image, "en.jpg");
@@ -166,7 +170,7 @@
 				</tr>
 			</table>
 			<input type="hidden" name="resultcontent" id="emailcontent" value="" />
-			<input name="sendresults" type="submit" value="Send">
+			<input name="sendresults" id="email-send" type="submit" value="Send">
 		</form>
 		</div>
 	</div>
@@ -196,14 +200,16 @@
 ?>
 <!-- End Email -->
 <!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-class="printfriendly" 		data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to print this page.</p>
-	</li>
-	<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:left;tipAnimation:fade">
-		<p>Click here to email this page/results.</p>
-	</li>
-</ol>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget="#print">
+    <p><?php echo _("Click here to print this page."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#email-btn">
+    <p><?php echo _("Click here to email this page/results."); ?></p>
+  </li>
+</ul>
+
 <script src="scripts/livevalidation.js"></script>
 <script>
 var totalquestions = 0,
@@ -216,10 +222,10 @@ $(document).ready(function() {
 		var sAnswer = $(this).find('.s-answer').html();
 		
 		if(cAnswer == sAnswer) {
-			$(this).find('img.img-answer').attr('src','http://corescienceready.com/dashboard/images/correct.png');
+			$(this).find('.fa.answer').addClass("fa-check");
 			correct++;
 		} else {
-			$(this).find('img.img-answer').attr('src','http://corescienceready.com/dashboard/images/wrong.png');
+			$(this).find('.fa.answer').addClass("fa-times");
 		}
 	});
 	

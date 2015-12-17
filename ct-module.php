@@ -47,31 +47,32 @@
 <div class="ct-questions wrap">
 	<h1><?php echo _($module->getModule_name()); ?></h1>
 	<form action="process-ct.php?mid=<?php echo $mid; ?><?php if(isset($ctid)) echo '&ctid='.$ctid; ?>" method="POST">
+		<div class="dt-test-note">
+			<p><?php echo _('Please select the questions that you would like to add to your cumulative test.'); ?></p>
+			<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span></p>
+		</div>
+
+		<input type="text" id="search-test" placeholder="<?php echo _('Search...'); ?>">
 		<input type="hidden" name="action" value="<?php echo $action; ?>">
-		<table border="0" class="result morepad">
-			<tr>
-				<td colspan="2">
-					<p><?php echo _('Please select the questions that you would like to add to your cumulative test.'); ?></p>
-					<p><span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span></p>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<center>
+		<table border="0" class="result morepad" id="ct-table">
+			<thead>
+				<tr>
+					<td>
 						<input type="checkbox" id="select-all">
-					</center>
-				</td>
-				<td>
-					<p id="select-text" style="vertical-align: middle;"><?php echo _("Select all questions"); ?></p>
-				</td>
-			</tr>
+					</td>
+					<td>
+						<b><p id="select-text" style="vertical-align: middle;"><?php echo _("Select all questions"); ?></p></b>
+					</td>
+				</tr>
+			</thead>
+			<tbody>
 			<?php
 				foreach($question_set as $question):
 			?>
 				<tr class="trline">
-					<td class="p-right15" style="position: relative">
+					<td class="p-right15 check">
 						<!-- <div class="onoffswitch1"> -->
-							<input type="checkbox" style="position: absolute; top: 12px;" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
+							<input type="checkbox" name="questions[]" class="q-cb" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>>
 							<!-- <input type="checkbox" name="questions[]" class="onoffswitch1-checkbox" id="myonoffswitch<?php echo $ctr + 1;?>" value="<?php echo $question['qid']; ?>" <?php if(isset($qid) && in_array($question['qid'], $qid)) { ?> checked <?php } ?>> -->
 							<!-- <label class="onoffswitch1-label" for="myonoffswitch<?php echo $ctr + 1;?>">
 								<div class="onoffswitch1-inner<?php echo $lang; ?>"></div>
@@ -112,7 +113,7 @@
 					<br/>
 					<small><?php echo _("Choices"); ?>:<br/>
 					<?php foreach($choices as $choice): ?>
-						<span class='letters'><?php echo $choice['order']; ?></span>. <?php echo _($choice['choice']); ?><br>
+						<span class="letters <?php echo($choice['order']==$question['answer'] ? 'correct-ans' : ''); ?>"><?php echo $choice['order']; ?>. <?php echo _($choice['choice']); ?></span><br>
 					<?php endforeach; ?>
 					<?php echo _("Answer"); ?>: <?php echo _($question['answer']); ?>
 					</small>
@@ -122,34 +123,27 @@
 					$ctr++;
 				endforeach;
 			?>
+			</tbody>
 		</table>
-		<br>
-		<input id="save" type="submit" value="<?php if($action == 'new'): echo _("Save Questions"); elseif($action =='edit'): echo _("Update Questions"); endif; ?>"  class="button1">
+		<input id="save" class="button1 save-changes" type="submit" value="<?php if($action == 'new'): echo _("Save Questions"); elseif($action =='edit'): echo _("Update Questions"); endif; ?>">
+		<?php if($action == "new"): ?>
+			<a class="button1 cancel-changes" href="create-ct.php"><?php echo _("Cancel"); ?></a>
+		<?php elseif($action == "edit"): ?>
+			<a class="button1 cancel-changes" href="edit-ct.php?ctid=<?php echo $ctid; ?>"><?php echo _("Cancel"); ?></a>
+		<?php endif; ?>
 	</form>
 </div>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="select-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
-	</li>
-	<li data-id="save" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to save your changes."); ?></p>
-	</li>
-</ol>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget="#select-all">
+    <p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
+  </li>
+  <li class="tlypageguide_left" data-tourtarget="#save">
+    <p><?php echo _("Click this button to save your changes."); ?></p>
+  </li>
+</ul>
+
 <script>
-function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 1) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
 $(document).ready(function(){
 	$('#select-all').click(function(){
 		if($(this).is(':checked')) {
@@ -164,6 +158,17 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	$("#search-test").keyup(function(){
+        _this = this;
+        $.each($("table tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
+    });
 });
 </script>
 <?php include "footer.php"; ?>

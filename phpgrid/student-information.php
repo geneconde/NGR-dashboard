@@ -310,44 +310,18 @@ $main_view = $grid->render("list1");
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<link rel="stylesheet" type="text/css" href="../lgs.css" />
-	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
+
+	<?php if($language == "ar_EG") : ?>
+		<link rel="stylesheet" href="../styles/pageguide.min-ar.css" />
+	<?php else : ?>
+		<link rel="stylesheet" href="../styles/pageguide.min.css" />
+	<?php endif; ?>
+
 	<style>
 		.ui-search-toolbar { display: none; }
 		.ui-icon { display: inline-block !important; }
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
-
-		/*Custom joyride*/
-		.joyride-tip-guide:nth-child(8){
-			margin-top: 20px !important;
-		}
-		.joyride-tip-guide:nth-child(10){
-			margin-top: 20px !important;
-		    margin-left: -30px !important;
-		}
-		.joyride-tip-guide:nth-child(11){
-		    margin-left: -30px !important;
-		}
-		.joyride-tip-guide:nth-child(12){
-		    margin-top: 5px !important;
-		    margin-left: -20px !important;
-		}
-		.joyride-tip-guide:nth-child(13){
-		    margin-left: -20px !important;
-		}
-		.joyride-tip-guide:nth-child(14){
-			margin-top: 5px !important;
-		    margin-left: -23px !important;
-		}
-		.joyride-tip-guide:nth-child(15){
-			margin-top: 5px !important;
-		    margin-left: -23px !important;
-		}
-		.joyride-tip-guide:nth-child(16){
-			margin-top: 3px !important;
-		    margin-left: -25px !important;
-		}
-		/*End custom joyride*/
 		<?php
 		$user_agent = getenv("HTTP_USER_AGENT");
 		if(strpos($user_agent, "Win") !== FALSE) { ?>
@@ -362,10 +336,6 @@ $main_view = $grid->render("list1");
 	<script src="lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
-	<!-- Run the plugin -->
-    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
 	<?php
 	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }
@@ -434,43 +404,43 @@ $main_view = $grid->render("list1");
 	</div>	
 
 	</div>
-	<!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-id="group" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('We created a default student group for you named <strong>"Default Group"</strong>. You can change the name of this group or leave it as it is. All student accounts created for you are included in this group.'); ?></p>
-		</li>
-		<li data-id="jqgh_list1_username" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
-			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
-		</li>
-		<li data-class="ui-custom-icon" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then click Enter; or'); ?></p>
-		</li>
-		<li data-class="cbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
-		</li>
-		<li data-id="cb_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
-		</li>
-		<li data-id="search_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
-		</li>
-		<li data-class="ui-icon-extlink" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
-		</li>
-		<li data-id="next_list1_pager" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
-		</li>
-		<li data-class="ui-pg-input" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
-		</li>
-		<li data-class="ui-pg-selbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
-		</li>
- 		<li data-class="next" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-			<p><?php echo _('Click <strong>Next</strong> to save your changes and go to the next page.'); ?></p>
-		</li>
-    </ol>
+
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_right" data-tourtarget="#group">
+		<p><?php echo _('We created a default student group for you named <strong>"Default Group"</strong>. You can change the name of this group or leave it as it is. All student accounts created for you are included in this group.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_top" data-tourtarget="#jqgh_list1_username">
+		<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+		<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-custom-icon">
+	    <p>2. <?php echo _('Click the pencil icon <small class="ui-icon ui-icon-pencil"></small> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="tr.jqgrow td .cbox">
+	    <p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <small class="ui-icon ui-icon-pencil "></small> at the bottom left of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#cb_list1">
+	    <p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="search_list1">
+	    <p><?php echo _('To search for a record, click the magnifying glass icon <small class="ui-icon ui-icon-search"></small> at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-icon-extlink">
+	    <p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#next_list1_pager">
+	    <p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-input">
+	    <p><?php echo _('Type in the page number and press Enter.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-selbox">
+	    <p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget=".next">
+	    <p><?php echo _('Click <strong>Next</strong> to save your changes and go to the next page.'); ?></p>
+	  </li>
+	</ul>
 
 	<!-- start footer -->
 	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
@@ -486,28 +456,25 @@ $main_view = $grid->render("list1");
 		</div>
 	</div>
 	<!-- end footer -->
-	<script>
-	var language;
-	$(document).ready(function() {
-		$('#language-menu').change(function() {
-			language = $('#language-menu option:selected').val();
-			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
-		});
-	});
 
-	function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
+	<?php if($language == "ar_EG") : ?>
+		<script src="../scripts/pageguide.min-ar.js"></script>
+	<?php else : ?>
+		<script src="../scripts/pageguide.min.js"></script>
+	<?php endif; ?>
+
+	<script>
+		jQuery(document).ready(function() {
+	        var pageguide = tl.pg.init();
 	    });
-	  }
+
+		var language;
+		$(document).ready(function() {
+			$('#language-menu').change(function() {
+				language = $('#language-menu option:selected').val();
+				document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
+			});
+		});
 	</script>
 </body>
 </html>

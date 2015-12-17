@@ -76,32 +76,38 @@ if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 
 <div class="wrap">
 	<?php if ($sdt_set->getMode() == 1): ?>
-	<h1><?php echo _("Student Pre-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
+	<h1><?php echo _("Student Pre-test"); ?></h1>
 	<?php else: ?>
-	<h1><?php echo _("Student Post-test"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
+	<h1><?php echo _("Student Post-test"); ?></h1>
 	<?php endif; ?>
-	<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
+	
+	<div class="btn">
+		<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+		<a id="email-btn" class="btn fleft" href="#"><i class="fa fa-envelope"></i><?php echo _('Email'); ?></a>
+	</div>
+	<div class="clear"></div>
+
 	<div id="results">
-		<table border="0" id="info">
+		<table border="0" id="info" class="details">
 			<tr>
-				<td class="bold alignright"><?php echo _("Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Name"); ?></td>
 				<td><?php echo $student->getFirstname() . ' ' . $student->getLastname(); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Module"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Module"); ?></td>
 				<td><?php echo _($module->getModule_name()); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Date Started"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Started"); ?></td>
 				<td><?php echo date('M d, Y h:i:s', strtotime($sdt_set->getStartDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold alignright"><?php echo _("Date Finished"); ?> :&nbsp;&nbsp;&nbsp;</td>
+				<td class="bold"><?php echo _("Finished"); ?></td>
 				<td><?php echo date('M d, Y h:i:s', strtotime($sdt_set->getEndDate())); ?></td>
 			</tr>
 			<tr>
-				<td class="bold"><?php echo _("Score Percentage"); ?> :&nbsp;&nbsp;&nbsp;</td>
-				<td><h2 id="score"></h2></td>
+				<td class="bold"><?php echo _("Score"); ?></td>
+				<td><span id="score"></span></td>
 			</tr>
 		</table>
 		<table border="0" class="result morepad">
@@ -115,7 +121,7 @@ if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 					
 		?>
 			<tr class="trline" id="quest">
-				<td><img class="img-answer" /><?php echo _($qinfo[0]['question']); ?>
+				<td class='dt-result-test'><i class="fa answer"></i><?php echo _($qinfo[0]['question']); ?>
 				<?php if($qinfo[0]['image']) :
 					$image = $qinfo[0]['image'];
 					$img = trim($image, "en.jpg");
@@ -193,7 +199,7 @@ if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 				</tr>
 			</table>
 			<input type="hidden" name="resultcontent" id="emailcontent" value="" />
-			<input name="sendresults" type="submit" value="<?php echo _('Send'); ?>">
+			<input name="sendresults" id="email-send" type="submit" value="<?php echo _('Send'); ?>">
 		</form>
 		</div>
 	</div>
@@ -233,6 +239,16 @@ if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 <?php endif; ?>	
 
 <!-- End Email -->
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#print">
+    <p><?php echo _("Click here to print this page."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#email-btn">
+    <p><?php echo _("Click here to email this page/results."); ?></p>
+  </li>
+</ul>
+
 <script src="scripts/livevalidation.js"></script>
 <script>
 var totalquestions = 0,
@@ -244,10 +260,10 @@ $(document).ready(function() {
 		var sAnswer = $(this).find('.s-answer').html();
 		
 		if(cAnswer == sAnswer) {
-			$(this).find('img.img-answer').attr('src','http://corescienceready.com/dashboard/images/correct.png');
+			$(this).find('.fa.answer').addClass("fa-check");
 			correct++;
 		} else {
-			$(this).find('img.img-answer').attr('src','http://corescienceready.com/dashboard/images/wrong.png');
+			$(this).find('.fa.answer').addClass("fa-times");
 		}
 	});
 	
@@ -268,29 +284,5 @@ $(document).ready(function() {
   	subEadd2.add( Validate.Email );
 });
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="printfriendly" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _('Click here to print this page.'); ?></p>
-	</li>
-	<li data-id="email-btn" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _('Click here to email this page/results.'); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
 <?php require_once "footer.php"; ?>

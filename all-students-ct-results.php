@@ -30,13 +30,13 @@
 <div id="content">
 <div class="wrap">
 	<h1><?php echo _("Students Cumulative Test Results"); ?></h1>
-
-	<span class="red upper bold"><?php echo _("Note:"); ?></span><br/>
+	<br>
+	<span class="red upper bold"><?php echo _("Note:"); ?></span><br>
 	<ul class="list_notes">
-	<li><?php echo _("Click the column header to view the statistics for each question."); ?></li>
-	<li><?php echo _("If the table is not displaying correctly, please refresh this page."); ?></li>
+		<li><?php echo _("Click the column header to view the statistics for each question."); ?></li>
+		<li><?php echo _("If the table is not displaying correctly, please refresh this page."); ?></li>
 	</ul>
-	<br/>
+	<br>
 	<?php 
 		if(!isset($ct_set)):
 			echo "<h3>"._("You have not set a cumulative test for this module.")."</h3>";
@@ -125,24 +125,24 @@
 	</div>
 	<?php endif; ?>
 </div>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="stdname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This column lists all students in this student group."); ?></p>
-	</li>
-	<li data-id="qtns" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("The heading represents the question items. Click the heading to show the statistics for that question. Scroll left and right to view all the students' information. Note that each question takes the value of 1 for the correct answer and 0 for the wrong answer."); ?></p>
-	</li>
-	<li data-id="ttl" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade;modal:true;expose: true">
-		<p><?php echo _("This column shows the percentage of the correct answer vs. the total number of questions taken in this test/module."); ?></p>
-	</li>
-</ol>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_top" data-tourtarget="#stdname">
+    <p><?php echo _("This column lists all students in this student group."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#qtns">
+    <p><?php echo _("The heading represents the question items. Click the heading to show the statistics for that question. Scroll left and right to view all the students' information. Note that each question takes the value of 1 for the correct answer and 0 for the wrong answer."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#ttl">
+    <p><?php echo _("This column shows the percentage of the correct answer vs. the total number of questions taken in this test/module."); ?></p>
+  </li>
+</ul>
 
 <script>
 window.onresize = function() {
     $('#table_id2').dataTable().fnAdjustColumnSizing();
 }
-	
+
 $(document).ready( function () {
  	var oTable = $('#table_id2').dataTable({
  		"sScrollX": "100%",
@@ -160,25 +160,6 @@ $(document).ready( function () {
 		"iRightWidth": 90,
  	});
 
-
- 	new $.fn.dataTable.FixedColumns(oTable, {
-        heightMatch: 'none'
-    });
-
-	
 });
-function guide() {
-	$('#joyRideTipContent').joyride({
-	  autoStart : true,
-	  postStepCallback : function (index, tip) {
-	  if (index == 2) {
-	    $(this).joyride('set_li', false, 1);
-	  }
-	},
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-}
 </script>
 <?php require_once "footer.php"; ?>

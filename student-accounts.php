@@ -80,9 +80,9 @@
 			?>
 						<option value="nogroup"><?php echo _('No Group'); ?></option>
 		</select>
-		<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
-		<input type="button" class="button1 delete" value="<?php echo _("Delete Group"); ?>">
-		<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1 edit"><?php echo _("Edit Name"); ?></a>
+		<input type="button" class="button1 transfer cool-btn" value="<?php echo _("Transfer"); ?>">
+		<input type="button" class="button1 delete danger-btn" value="<?php echo _("Delete Group"); ?>">
+		<a href="edit-group-name.php?group_id=<?php echo $group['group_id']; ?>" class="button1 edit cool-btn"><?php echo _("Edit Name"); ?></a>
 	</div>
 	<?php $grp++; } ?>
 
@@ -130,41 +130,42 @@
 			<option value="<?php echo $others['group_id']; ?>"><?php echo $others['group_name']; ?></option>
 		<?php } ?>
 	</select>
-	<input type="button" class="button1 transfer" value="<?php echo _("Transfer"); ?>">
+	<input type="button" class="button1 transfer cool-btn" value="<?php echo _("Transfer"); ?>">
 	</div>
 	<br>
-	<div class="group-control"><a class="button1" id="create-group"><?php echo _("New Group"); ?></a></div>
+	<div class="group-control"><a class="button1 cool-btn" id="create-group"><?php echo _("New Group"); ?></a></div>
 	<form class="user-group" action="save-group.php" method="post">
 		<p><?php echo _("Group Name:"); ?></p>
 		<input type="text" id="group-name" name="groupname">
 		<div class="clear"></div>
 		<div id="group-controls">
-			<input type="submit" value="<?php echo _("Create"); ?>" class="button1">
-			<a class="link" id="cancel"><?php echo _("Cancel"); ?></a>
+			<input type="submit" value="<?php echo _("Create"); ?>" class="button1 save-changes">
+			<a class="button1 cancel-changes" id="cancel"><?php echo _("Cancel"); ?></a>
 		</div>
 	</form>
 </div>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="create-group" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to create a new group. Enter the group name and click <strong>Create</strong>. This step is optional but be reminded that you cannot transfer students to other groups if you don't create one."); ?></p>
-	</li>
-	<li data-class="suser" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("To transfer students to another group, select the checkbox beside the student's username. You can also click on the first checkbox to select all students."); ?></p>
-	</li>
-	<li data-class="grps" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade;">
-		<p><?php echo _("Select a group where you want the students to be transferred to."); ?></p>
-	</li>
-	<li data-class="transfer" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to transfer your students to the new/other group."); ?></p>
-	</li>
-	<li data-class="delete" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _('Click this button to delete a group. All students from the deleted group will go to the "Unassigned" table.'); ?></p>
-	</li>
-	<li data-class="edit" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to update the name of the group."); ?></p>
-	</li>
-</ol>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget="#create-group">
+    <p><?php echo _("Click this button to create a new group. Enter the group name and click <strong>Create</strong>. This step is optional but be reminded that you cannot transfer students to other groups if you don't create one."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget=".suser">
+    <p><?php echo _("To transfer students to another group, select the checkbox beside the student's username. You can also click on the first checkbox to select all students."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".grps">
+    <p><?php echo _("Select a group where you want the students to be transferred to."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".transfer">
+    <p><?php echo _("Click this button to transfer your students to the new/other group."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".delete">
+    <p><?php echo _("Click this button to delete a group. All students from the deleted group will go to the \"Unassigned\" table."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget=".edit">
+    <p><?php echo _("Click this button to update the name of the group."); ?></p>
+  </li>
+</ul>
+
 <script>
 $(document).ready( function () {	
 	$('#create-group').click(function() {
@@ -236,18 +237,6 @@ $(document).ready(function(){
 		}
 	});
 });
-function guide() {
-	$('#joyRideTipContent').joyride({
-	  autoStart : true,
-	  postStepCallback : function (index, tip) {
-	  if (index == 10) {
-	    $(this).joyride('set_li', false, 1);
-	  }
-	},
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-}
+
 </script>
 <?php require_once "footer.php"; ?>

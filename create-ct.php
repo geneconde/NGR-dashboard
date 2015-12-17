@@ -20,10 +20,6 @@
 
 	$questions = '';
 ?>
-<style>
-	.joyride-tip-guide:nth-child(7){ margin-left: -25px !important;	}
-</style>
-
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = ''; ?>
@@ -115,8 +111,9 @@
 			?>
 		</table>
 		<input type='hidden' name="questions" value="<?php echo $questions; ?>">
-		<div class="center-button">
-			<input id="subtest" type="submit" class="button1" value="<?php echo _("Create Test"); ?>" id="subtest">
+		<div>
+			<input type="submit" id="subtest" class="button1 save-test" value="<?php echo _('Create Test'); ?>">
+			<a href="ct-test.php" class="button1 cancel-test"><?php echo _("Cancel"); ?></a>
 		</div>
 	</form>
 </div>
@@ -150,38 +147,23 @@ $.validate({
   form : '#ct-form'
 });
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="test-name" 	data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Enter a name for this test."); ?></p>
-	</li>
-	<li data-id="hours" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Set the time limit for this cumulative test."); ?></p>
-	</li>
-	<li data-id="switch" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Toggle this switch (on/off) to active/deactivate this cumulative test."); ?></p>
-	</li>
-	<li data-id="action" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click <strong>Select Questions</strong> to choose the questions you want to add to the cumulative test from each module."); ?></p>
-	</li>
-	<li data-id="subtest" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to save this test."); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#test-name">
+    <p><?php echo _("Enter a name for this test."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#hours">
+    <p><?php echo _("Set the time limit for this cumulative test."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#switch">
+    <p><?php echo _("Toggle this switch (on/off) to active/deactivate this cumulative test."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#action">
+    <p><?php echo _("Click <strong>Select Questions</strong> to choose the questions you want to add to the cumulative test from each module."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#subtest">
+    <p><?php echo _("Click this button to save this test."); ?></p>
+  </li>
+</ul>
+
 <?php require_once "footer.php"; ?>

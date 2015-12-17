@@ -58,15 +58,17 @@
 		<p class="lgs-text-sub note"><?php echo _("Listed below are 3 of the modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests."); ?></p>
 		<table class="modules">			
 			<?php 
-		 	$modulesB = array("fossils", "gathering-data", "how-animals-behave");
-			foreach ($modulesB as $key => $moduleB) : ?>
+			$modules = $mc->getAllModules();
+			$catTemp = 'module-category';
+			foreach ($modules as $key => $module) : ?>
 			<?php
-				$mname = $gmc->getModuleName($moduleB);
-				$gm = $gmc->getModuleGroupByID($groupID,$moduleB);
+				$category = $module['category'];
+				$mname = $gmc->getModuleName($module['module_ID']);
+				$gm = $gmc->getModuleGroupByID($groupID,$module['module_ID']);
 				if(!$gm):
 					$values = array(
 						"group_id" 			=> $groupID,
-						"module_id"			=> $moduleB,
+						"module_id"			=> $module['module_ID'],
 						"pretest_id"		=> 0,
 						"posttest_id"		=> 0,
 						"review_active"		=> 0,
@@ -77,35 +79,39 @@
 					);
 					$gmc->addGroupModule($values);
 				endif;
-				$cea = $dtc->getDiagnosticTest($moduleB, $userid, 1);
-				$ceb = $dtc->getDiagnosticTest($moduleB, $userid, 2);
+				$cea = $dtc->getDiagnosticTest($module['module_ID'], $userid, 1);
+				$ceb = $dtc->getDiagnosticTest($module['module_ID'], $userid, 2);
 				$preID = "";
 				$postID = "";
 				if ($cea) $preID = $cea->getDTID();
 				if ($ceb) $postID = $ceb->getDTID();
-				$gmActive = $gmc->getModuleGroupByID($groupID,$moduleB);
+				$gmActive = $gmc->getModuleGroupByID($groupID,$module['module_ID']);
 			?>
 
+			<?php if($catTemp != $category) { ?>
+			<tr><td class="category"><?php echo _($category); ?></td></tr>
+			<?php $catTemp = $category; ?>
+			<?php } ?>
 
 			<tr>
 				<td id="module-name" class="module-name"><?php echo _($mname); ?></td>
 			</tr>
 			<tr class="lgs-modules">
-				<td class="dactivate">
+				<td class="dactivate a">
 					<a class="pre-test"
 					<?php if($cea) { ?>
 						href="dt-item.php?dtid=<?php echo $preID; ?>&action=edit"><?php echo _("Edit Pre-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="dt-item.php?module_id=<?php echo $moduleB; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
+						href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>
-				<td class="dactivate">
+				<td class="dactivate b">
 					<a class="post-test"
 					<?php if($ceb){ ?>
 						href="dt-item.php?dtid=<?php echo $postID; ?>&action=edit"><?php echo _("Edit Post-Diagnostic Test"); ?>
 					<?php } else { ?>
-						href="dt-item.php?module_id=<?php echo $moduleB; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
+						href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?>
 					<?php } ?>
 					</a>
 				</td>
@@ -125,10 +131,10 @@
 					}
 				}
 
-				$adc = $moduleB.': '.$groupID.': '.$preID.': '.$postID.': '.$mname.': '.$dtAn.': '.$dtBn.': '.$adActivated.': '.$group_name;
+				$adc = $module['module_ID'].': '.$groupID.': '.$preID.': '.$postID.': '.$mname.': '.$dtAn.': '.$dtBn.': '.$adActivated.': '.$group_name;
 				?>
-				<td class="dactivate">
-					<input class="dactivatemin" type="button" id="<?php echo $moduleB; ?>" value="<?php echo $btnLabel; ?>" onclick="toggle('<?php echo $adc; ?>');">
+				<td class="dactivate btn">
+					<input class="dactivatemin" type="button" id="<?php echo $module['module_ID']; ?>" value="<?php echo $btnLabel; ?>" onclick="toggle('<?php echo $adc; ?>');">
 				</td>
 			</tr>
 		<?php endforeach; ?>
@@ -195,35 +201,18 @@
 		}
 	}
 </script>
-      <!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-class="pre-test" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Create a pre-diagnostic test for any module by clicking the button below. After you create a pre-diagnostic test, the button's text will change to <strong>Edit Pre-Diagnostic test</strong>. Clicking this button will let you update the test."); ?></p>
-		</li>
-		<li data-class="post-test" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Create a post-diagnostic test for any module by clicking the button below. After you create a post-diagnostic test, the button's text will change to <strong>Edit Post-Diagnostic test</strong>. Clicking this button will let you update the test."); ?></p>
-		</li>
-		<li data-class="dactivatemin" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to activate the module as well as the pre-diagnostic test and post-diagnostic test, if you created any."); ?></p>
-		</li>
-		<li data-id="next" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-			<p><?php echo _("Click <strong>Next</strong> to go to the next page."); ?></p>
-		</li>
-    </ol>
-
-    <script>
-      function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
-    </script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget=".dactivate.a">
+    <p><?php echo _("Create a pre-diagnostic test for any module by clicking the button below. After you create a pre-diagnostic test, the button's text will change to <strong>Edit Pre-Diagnostic test</strong>. Clicking this button will let you update the test."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget=".dactivate.b">
+    <p><?php echo _("Create a post-diagnostic test for any module by clicking the button below. After you create a post-diagnostic test, the button's text will change to <strong>Edit Post-Diagnostic test</strong>. Clicking this button will let you update the test."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget=".dactivate.btn">
+    <p><?php echo _("Click this button to activate the module as well as the pre-diagnostic test and post-diagnostic test, if you created any."); ?></p>
+  </li>
+  <li class="tlypageguide_left" data-tourtarget="#next">
+    <p><?php echo _("Click <strong>Next</strong> to go to the next page."); ?></p>
+  </li>
+</ul>
 <?php include "footer.php"; ?>

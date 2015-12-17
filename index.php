@@ -36,9 +36,22 @@ if (isset($_SESSION['uname'])) {
 	$sc = new SubscriberController();
 	$sec = new SecurityController();
 ?>
-<style>#dbguide, .top-buttons .buttons { display: none; }</style>
-	</div>
-</div>
+<style>
+	body {
+		background: #083B91;
+		overflow: hidden;
+	}
+	.wrap {
+		text-align: center;
+		margin: 5% auto;
+	}
+	#header a.logo {
+		float: none;
+		margin: 0;
+	}
+	.top-buttons .buttons { display: none; }
+</style>
+
 <div id="content">
 <div class="wrap">
 <br><br>
@@ -76,8 +89,6 @@ if (isset($_SESSION['uname'])) {
 	<span class="close-btn"><?php echo _("Close!"); ?></span>
 </div>
 
-<center><?php echo _("Welcome to NexGenReady! Please log in to your account."); ?></center>
-
 <form method="post" action="login.php" name="login" id="login" class="box-shadow">
 	<?php if (isset($_GET['msg'])) { ?>
 		<?php if($_GET['msg']== 1) {?>
@@ -97,7 +108,7 @@ if (isset($_SESSION['uname'])) {
 	<span><?php echo _("Password"); ?></span><br/>
 	<div class="input"><input type="password" class="login_field" name="password" id="password"/></div>
 	<input type="submit" class="button1" value="Login" name="login" />
-	<a href="#" class="desc-btn" style="float:right;">Forgot Password?</a>
+	<a href="#" class="desc-btn" >Forgot Password?</a>
 </form>
 <center>
 	<p id="new_pass"></p>

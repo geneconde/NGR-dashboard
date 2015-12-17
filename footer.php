@@ -21,8 +21,12 @@
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
 	});
+
+    jQuery(document).ready(function() {
+        var pageguide = tl.pg.init();
+    });
 	</script>
-	
-	<!--<script type="text/javascript" src="scripts/main.js"></script> -->
+
+	<script src="scripts/pageguide.min.js"></script>
 </body>
 </html>

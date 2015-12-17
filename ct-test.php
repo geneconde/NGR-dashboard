@@ -34,11 +34,8 @@ td.ct_options { width: 43% !important; }
 </div>
 
 <div id="content">
-
 <div class="wrap">
-<center>
-<br><br>
-<h2><?php echo _("Cumulative Test Settings"); ?></h2>
+<h1><?php echo _("Cumulative Test Settings"); ?></h1>
 <table border="0" class="result morepad">
 	<tr>
 		<th><?php echo _("Test Name"); ?></th>
@@ -59,16 +56,16 @@ td.ct_options { width: 43% !important; }
 						<?php endforeach; ?>
 					</td>
 					<td class="ct_options">
-						<a class="button1 edit-ct" href="edit-ct.php?ctid=<?php echo $ct['ct_id']; ?>" data-id="<?php echo $ct['ct_id']; ?>">
+						<a class="button1 edit-ct cool-btn" href="edit-ct.php?ctid=<?php echo $ct['ct_id']; ?>" data-id="<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Edit"); ?>
 						</a>
-						<a class="button1 ct-del" href="delete-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
+						<a class="button1 ct-del danger-btn" href="delete-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Delete"); ?>
 						</a>
-						<a class="button1 activate-ct" href="activate-group-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
+						<a class="button1 activate-ct cool-btn" href="activate-group-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Activate on Groups"); ?>
 						</a>
-						<a class="button1 ct-res" href="all-students-ct-results.php?ctid=<?php echo $ct['ct_id']; ?>">
+						<a class="button1 ct-res cool-btn" href="all-students-ct-results.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Result"); ?>
 						</a>
 					</td>
@@ -82,8 +79,7 @@ td.ct_options { width: 43% !important; }
 		</tr>
 	<?php endif; ?>
 </table>
-<a class="button1" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a>
-</center>
+<a class="button1 create-test-btn" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a>
 </div>
 <script type="text/javascript" src="scripts/chosen.jquery.js" ></script>
 <script>
@@ -145,8 +141,6 @@ $(document).ready(function() {
 		});
 	});
 
-	$('.chosen').chosen();
-
 	$('.chosen').on('change', function(){
 		var id = $(this).parent().find('.ctid').val();
 		var groups = $(this).val();
@@ -159,37 +153,26 @@ $(document).ready(function() {
 	});
 });
 </script>
-  <!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="grpc" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
-	</li>
-	<li data-class="edit-ct" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click the <strong>Edit</strong> button to edit/update the cumulative test you created."); ?></p>
-	</li>
-	<li data-class="ct-del" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to delete the cumulative test/s you created."); ?></p>
-	</li>
-	<li data-class="activate-ct" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to activate the cumulative test to one or more student groups."); ?></p>
-	</li>
-	<li data-id="cct" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to create a cumulative test."); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_top" data-tourtarget="#grpc">
+    <p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".edit-ct">
+    <p><?php echo _("Click the <strong>Edit</strong> button to edit/update the cumulative test you created."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".ct-del">
+    <p><?php echo _("Click this button to delete the cumulative test/s you created."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".activate-ct">
+    <p><?php echo _("Click this button to activate the cumulative test to one or more student groups."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget=".ct-res">
+    <p><?php echo _("Click this button to view the result."); ?></p>
+  </li>
+  <li class="tlypageguide_bottom" data-tourtarget="#cct">
+    <p><?php echo _("Click this button to create a cumulative test."); ?></p>
+  </li>
+</ul>
+
+<?php require_once "footer.php"; ?>

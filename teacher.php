@@ -18,10 +18,10 @@
 	$dtc 				= new DiagnosticTestController();
 	$ct  				= $dtc->getCumulativeTest($userid);
 	$diagnostic_test  	= $dtc->getAllTeacherTests($userid);
-	
+
 	$tmc = new TeacherModuleController();
 	$tm_set = $tmc->getTeacherModule($userid);
-	
+
 	$mc = new ModuleController();
 	$gmc 		= new GroupModuleController();
 
@@ -46,12 +46,6 @@
 	<?php } else if($language == "zh_CN") { ?>
 		.close-btn { width: 40px !important; }
 	<?php } ?>
-	.joyride-tip-guide:nth-child(13) {
-	    left: 73% !important;
-	    top: 39px !important;
-	}
-	.joyride-tip-guide:nth-child(13) .joyride-nub { left: 85%; }
-	.joyride-tip-guide:nth-child(5) { margin-left: 105px; }
 </style>
 
 <div class="top-buttons">
@@ -62,12 +56,12 @@
 </div>
 
 <div id="content">
-<div class='wrap'>
+<div class='wrap teacher-dash'>
 	<div class="grey" style="display: none;"></div>
 	<div class="clear"></div>
 
 	<h1 class="dash-welcome">Dashboard</h1>
-	<div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Step by Step Page Guide</button></div>
+	<!-- <div id="dbguide"><button class="uppercase guide tguide" onClick="guide()">Step by Step Page Guide</button></div> -->
 	<?php
 		if(isset($_GET["ft"])):
 			if($_GET["ft"]==1): ?>
@@ -143,49 +137,45 @@
 	<?php $_SESSION['modules'] = $teachermodules; ?>
 	</ul>
 
-	<ol id="joyRideTipContent">
-	  <li data-class="languages" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-	    <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed."); ?></p>
-	  </li>
-	  <li data-id="my-account" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-	    <p><?php echo _("Click this button to personalize your information."); ?></p>
-	  </li>
-	  <li data-id="student-accounts" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-	    <p><?php echo _("Click this button to manage account and change password of your students."); ?></p>
-	  </li>
-	  <li data-id="student-groups" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-	    <p><?php echo _("Click this button to manage student groups. You can create groups and transfer students as well."); ?></p>
-	  </li>
-	  <li data-class="gm-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _("This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module."); ?></p>
-	  </li>
-	  <li data-class="view-module" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _("Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved."); ?></p>
-	  </li>
-	  <li data-class="settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _("The settings button will take you to a screen that allows you to do the following:"); ?></p>
+    <ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+      <li class="tlypageguide_right" data-tourtarget=".languages">
+        <p><?php echo _("Click on <strong>Edit Languages</strong> to set the language options in which the modules themselves and your dashboard and its functions can be viewed."); ?></p>
+      </li>
+      <li class="tlypageguide_left" data-tourtarget="#my-account">
+        <p><?php echo _("Click this button to personalize your information."); ?></p>
+      </li>
+      <li class="tlypageguide_bottom" data-tourtarget="#student-accounts">
+        <p><?php echo _("Click this button to manage account and change password of your students."); ?></p>
+      </li>
+      <li class="tlypageguide_bottom" data-tourtarget="#student-groups">
+        <p><?php echo _("Click this button to manage student groups. You can create groups and transfer students as well."); ?></p>
+      </li>
+      <li class="tlypageguide_left" data-tourtarget=".gm-module">
+        <p><?php echo _("This is the module box. This is where you can manage data related to the module. You can click on the <strong>Overview</strong> button to view the description of each module."); ?></p>
+      </li>
+      <li class="tlypageguide_left" data-tourtarget=".gm-module">
+        <p><?php echo _("Clicking this button will allow you to go through the module as a student would experience it. This is for demonstration purposes only so answers are not saved."); ?></p>
+      </li>
+      <li class="tlypageguide_left" data-tourtarget=".view-module">
+        Here is the fourth item description. The number will appear below the element.
+      </li>
+      <li class="tlypageguide_left" data-tourtarget=".settings">
+        <p><?php echo _("The settings button will take you to a screen that allows you to do the following:"); ?></p>
 	    <ul style="padding-left: 20px; font-size: 14px;">
 	    	<li><?php echo _("Open/close the module completely for any or all groups"); ?></li>
 	    	<li><?php echo _("Create, edit or delete a pre and/or post diagnostic test"); ?></li>
 	    	<li><?php echo _("Open/close a pre and post diagnostic tests for the student groups"); ?></li>
 	    	<li><?php echo _("Set time limits for the test for each student group"); ?></li>
 	    </ul>
-	    <p></p>
-	  </li>
-	  <li data-class="results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _("All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a \"cumulative\" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students."); ?></p>
+      </li>
+      <li class="tlypageguide_bottom" data-tourtarget="#cumulative-test">
+        <p><?php echo _("All student's responses to questions embedded in a module, including questions on the pre and post diagnostic tests for a module and a \"cumulative\" post-diagnostic test across several modules, are automatically recorded in a database and will be available for individual students and groups of students."); ?></p>
 	    <p><?php echo _("Clicking on this button will take you to a screen where you can select a group and view the test results of the students in that group."); ?></p>
-	  </li>
-	<!--   <li data-id="gm-cumulative-settings" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _('Click this button to create a <strong>"cumulative test"</strong>. This test can cover any or all modules. Creating and administering a <strong>"cumulative test"</strong> across several modules is optional.'); ?></p>
-	  </li>
-	  <li data-id="gm-cumulative-results" data-button="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-	    <p><?php echo _("Click this button to view the results of the cumulative tests of students."); ?></p>
-	  </li> -->
-	  <li data-id="logout" data-button="<?php echo _('Close'); ?>" data-options="tipLocation:bottom;tipAnimation:fade">
-	    <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
-	  </li>
-	</ol>
+      </li>
+      <li class="tlypageguide_right" data-tourtarget="#logout">
+        <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
+      </li>
+    </ul>
 
 	<script>
 		$(".close-btn").on("click", function(){
@@ -202,23 +192,10 @@
 			$('.btn-portfilter').removeClass('active');
 			$(this).addClass('active');
 		});
-	</script>
-	<script>
-	  function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 12) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
+		
+		$('.wrap').css("min-height",$('#content').height());
 
-	  $('.wrap').css("min-height",$('#content').height());
 	</script>
 	<script src="scripts/bootstrap-portfilter.min.js"></script>
+
 <?php require_once "footer.php"; ?>

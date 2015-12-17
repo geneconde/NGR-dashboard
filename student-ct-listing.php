@@ -25,7 +25,6 @@
 
 <div id="content">
 <div class='wrap'>
-	<center>
 	<br><br>
 	<h2><?php echo _("Cumulative Test Results"); ?></h2>
 	<br>
@@ -48,26 +47,12 @@
 		endforeach; 
 	?>
 	</table>
-	</center>
 </div>
-	<!-- Tip Content -->
-	<ol id="joyRideTipContent">
-		<li data-id="ct-del" data-text="Close" data-options="tipLocation:top;tipAnimation:fade">
-			<p>Click this to view the cumulative test result.</p>
-		</li>
-	</ol>
-	<script>
-	  function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 1) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    // modal:true,
-	    // expose: true
-	    });
-	  }
-	</script>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#ct-del">
+    <p><?php echo _("Click this to view the cumulative test result."); ?></p>
+  </li>
+</ul>
+
 <?php require_once "footer.php"; ?>

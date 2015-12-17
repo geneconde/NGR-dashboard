@@ -23,7 +23,7 @@
 	$mc			= new ModuleController();
 	$module_set	= $mc->loadModule($mid);
 	$module_name = $module_set->getModule_name();
-	
+
 	$dtc		= new DiagnosticTestController();
 	$test		= $dtc->getDiagnosticTestByID($dtid);
 

@@ -26,10 +26,8 @@
 
 <div id="content">
 <div class="wrap">
-	<center>
-	<br><br>
-	<h2><?php echo _("Cumulative Test Activation"); ?></h2>
-	<?php if (isset($_GET['m']) && $_GET['m'] == 1) echo '<p class="green">Cumulative Test activated for selected groups below.</p>'; ?>
+	<h1><?php echo _("Cumulative Test Activation"); ?></h1>
+	<?php if (isset($_GET['m']) && $_GET['m'] == 1) echo '<p class="green" style="padding: 10px 0">'._('Cumulative Test activated for selected groups below.').'</p>'; ?>
 	<form action="activate-ct.php?ctid=<?php echo $ctid; ?>" method="post">
 		<table border="0" class="result morepad">
 			<tr>
@@ -58,9 +56,10 @@
 					
 				endforeach;
 			?>
-		<table>
-		<input id="activate" type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
+		</table>
+		<input id="activate" type="submit" class="button1 update-btn" value="<?php echo _('Activate Cumulative Test'); ?>">
 	</form>
+</div>
 </div>
 <script>
 (function(){
@@ -93,28 +92,14 @@
 	});
 })();
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="gcheck" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
-	</li>
-	<li data-id="activate" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to save your changes."); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#gcheck">
+    <p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#activate">
+    <p><?php echo _("Click this button to save your changes."); ?></p>
+  </li>
+</ul>
+
+<?php require_once "footer.php"; ?>

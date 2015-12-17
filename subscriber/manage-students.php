@@ -345,8 +345,6 @@ ini_set('display_errors', 1);
 <?php require_once 'header.php'; ?>
 
 <style>
-	.joytest2 ~ div a:nth-child(3){ display: none; }
-	.joyride-tip-guide:nth-child(8){ margin-top: 15px !important; }
 	.ui-icon { display: inline-block !important; }
 	#delmodlist1 { width: auto !important; }
 
@@ -412,45 +410,46 @@ ini_set('display_errors', 1);
 				};	*/
 			</script>
 
-			<div style="margin:10px 0">
+			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
 			</div>
 		</div>
-	</div>	
-		<!-- Tip Content -->
-	    <ol id="joyRideTipContent">
-			<li data-id="jqgh_list1_username" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-				<p><?php echo _('To update information, you can do any of the following:'); ?></p>
-				<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
-			</li>
-			<li data-class="ui-custom-icon" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
-				<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
-			</li>
-			<li data-class="cbox" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-				<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
-			</li>
-			<li data-id="cb_list1" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-				<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
-			</li>
-			<li data-class="ui-icon-search" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-				<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
-			</li>
-			<li data-class="ui-icon-extlink" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-				<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
-			</li>
-			<li data-id="next_list1_pager" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-				<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
-			</li>
-			<li data-class="ui-pg-input" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-				<p><?php echo _('Type in the page number and press Enter.'); ?></p>
-			</li>
-			<li data-class="ui-pg-selbox" data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-				<p><?php echo _('You can also modify the number of accounts you want to show in a page.'); ?></p>
-			</li>
-			<li data-class="c-link" data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-				<p><?php echo _('You may also view the portfolio of student.'); ?></p>
-			</li>
-	    </ol>
+	</div>
+
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_top" data-tourtarget="#jqgh_list1_username">
+		<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+		<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
+	  </li>
+	  <li class="tlypageguide_top" data-tourtarget=".ui-custom-icon">
+	    <p>2. <?php echo _('Click the pencil icon <small class="ui-icon ui-icon-pencil"></small> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="tr.jqgrow td .cbox">
+	    <p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <small class="ui-icon ui-icon-pencil "></small> at the bottom left of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#cb_list1">
+	    <p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="search_list1">
+	    <p><?php echo _('To search for a record, click the magnifying glass icon <small class="ui-icon ui-icon-search"></small> at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-icon-extlink">
+	    <p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#next_list1_pager">
+	    <p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-input">
+	    <p><?php echo _('Type in the page number and press Enter.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-selbox">
+	    <p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_top" data-tourtarget=".c-link">
+	    <p><?php echo _('You may also view the portfolio of student.'); ?></p>
+	  </li>
+	</ul>
+
 	</div> <!-- End of content -->
 
 	<script>
