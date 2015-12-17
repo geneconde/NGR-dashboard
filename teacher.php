@@ -48,10 +48,12 @@
 	<?php } ?>
 </style>
 
+
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = 'dashboard'; ?>
 		<?php include "menu.php"; ?>
+
 	</div>
 </div>
 

@@ -10,7 +10,7 @@
 	$saved = false;
 	if(isset($_POST['save'])) {
 		$password = $_POST['password'];
-		$uc->updatePassword($userid, $password);
+		$uc->updateStudentPassword($userid, $password);
 		$saved = true;
 		//header("Location: reset-password.php?user_id=$userid&f=1");
 		$previous = "javascript:history.go(-2)";

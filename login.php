@@ -12,9 +12,14 @@
 	$sc = new SubscriberController();
 
 	if (isset($_POST['username'])) {
+		$user = $uc->getUserByUsername($_POST['username']);
+		$userType = $user[0]['type'];
+
 		$password = $_POST['password'];
 
-		$password = $uc->hashPassword($password);
+		if($userType != 2){
+			$password = $uc->hashPassword($password);
+		}
 		
 		$retObj = $uc->loginUser($_POST['username'],$password);
 		if ((is_object($retObj)) && ($retObj instanceof User)) {
