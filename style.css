@@ -482,6 +482,9 @@ font-size:13px
     text-align: left;
     color: #fff;
 }
+html[dir="rtl"] #login {
+    text-align: right;
+}
 .button{
     padding: 5px 15px;
     cursor: default;
@@ -1597,10 +1600,16 @@ div#pdf-button img {
     color: #fff;
     text-decoration: underline;
     }
+html[dir="rtl"] #login .desc-btn {
+    float: right;
+}
 #login input.button1 {
     float: right;
     background: #F99737;
     width: 120px;
+}
+html[dir="rtl"] #login input.button1 {
+    float: left;
 }
 .edit-group-name{
     /* padding: 10px; */
@@ -2129,6 +2138,6 @@ li.settings-pre, li.settings-post {
     padding: 5px;
     margin-top: 10px; 
 }
-.phpgrid table {
+.phpgrid table, .DelTable, .EditTable {
     margin: initial !important;
 }

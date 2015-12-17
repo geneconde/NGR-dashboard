@@ -91,12 +91,12 @@ if (isset($_SESSION['uname'])) {
 
 <form method="post" action="login.php" name="login" id="login" class="box-shadow">
 	<?php if (isset($_GET['msg'])) { ?>
-		<?php if($_GET['msg']== 1) {?>
+		<?php if($_GET['msg']== 1) { ?>
 			<span class="msg"><?php echo _("Registration Sucessful. We sent you an email. Please verify your account."); ?></span><br/><br/>
-		<?php } else {?>
+		<?php } else { ?>
 			<span class="msg"><?php echo _("Your new password is sent to your email."); ?></span><br/><br/>
 		<?php } ?>
-	<?php }  ?>
+	<?php } ?>
 	<?php if (isset($_GET['err'])) { ?>
 		<span class="err"><?php echo _("Sorry, wrong username or password."); ?></span><br/><br/>
 	<?php } ?>

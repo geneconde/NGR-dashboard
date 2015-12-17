@@ -27,6 +27,10 @@
     });
 	</script>
 
-	<script src="scripts/pageguide.min.js"></script>
+	<?php if($language == "ar_EG") : ?>
+		<script src="scripts/pageguide.min-ar.js"></script>
+	<?php else : ?>
+		<script src="scripts/pageguide.min.js"></script>
+	<?php endif; ?>
 </body>
 </html>

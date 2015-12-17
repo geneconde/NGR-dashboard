@@ -470,14 +470,13 @@ ini_set('display_errors', 1);
 		}
 	}
 
-	$e["on_insert"] = array("add_student", null, true);
+	$e["on_insert"] = array("create_account", null, true);
 	$e["on_update"] = array("update_client", null, true);
 	$e["on_delete"] = array("delete_client", null, true);
 	$grid->set_events($e);
 
-	function add_student($data) 
+	function create_account($data) 
 	{
-		// $sid = $data['params']['subhead_id'];
 		$data["params"]["username"] = trim($data["params"]["username"]);
 		// phpgrid_error(print_r($data["params"]));
 	}

@@ -24,7 +24,11 @@
 <link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
 <link rel="stylesheet" type="text/css" href="lgs.css">
 <link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
-<link rel="stylesheet" href="styles/pageguide.min.css" />
+<?php if($language == "ar_EG") : ?>
+	<link rel="stylesheet" href="styles/pageguide.min-ar.css" />
+<?php else : ?>
+	<link rel="stylesheet" href="styles/pageguide.min.css" />
+<?php endif; ?>
 
 <script type="text/javascript" src="scripts/jquery-1.8.3.min.js" ></script>
 <script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
