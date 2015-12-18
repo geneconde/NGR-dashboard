@@ -46,7 +46,7 @@
 <body>
 <div id="header">
 	<div class="wrap">
-		<a class="logo fleft" href="index.php"><img src="images/logo2.jpg"></a>
+		<a class="logo fleft" href="index.php"><img src="images/logo.png"></a>
 		<?php if (isset($user)) {
 			$type = $user->getType();
 		?>

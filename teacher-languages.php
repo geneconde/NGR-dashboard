@@ -95,7 +95,7 @@
 			</tr>
 			<?php
 				$ctr = 0;
-				foreach($languages as $languagex) : 
+				foreach($languages as $language) : 
 				$ctr++;
 			?>
 				<tr>
@@ -103,11 +103,11 @@
 						<?php 
 							$found = false;
 							foreach($teacher_languages as $tl):
-								if($tl['language_id'] == $languagex->getLanguage_id()): 
+								if($tl['language_id'] == $language->getLanguage_id()): 
 									$found = true;
 						?>
 							<div class="onoffswitch">
-								<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $languagex->getLanguage_id(); ?>" checked>
+								<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>" checked>
 								<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
 									<div class="onoffswitch-inner<?php echo $lang; ?>"></div>
 									<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
@@ -121,7 +121,7 @@
 						<?php if(!$found):	?>
 							<!-- <input type="checkbox" name="cbx[]" value="<?php echo $language->getLanguage_id(); ?>" id="lang_<?php echo $ctr; ?>" /> -->
 								<div class="onoffswitch">
-									<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $languagex->getLanguage_id(); ?>">
+									<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>">
 									<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
 										<div class="onoffswitch-inner<?php echo $lang; ?>" ></div>
 										<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
@@ -129,22 +129,22 @@
 								</div>
 						<?php endif; ?>
 					</td>
-					<td><?php echo $languagex->getLanguage(); ?></td>
+					<td><?php echo $language->getLanguage(); ?></td>
 					<td>
 						<center>
 							<?php 
 								$found2 = false;
 								foreach($teacher_languages as $tl2):
-									if($tl2['language_id'] == $languagex->getLanguage_id() && $tl2['is_default'] == 1) : 
+									if($tl2['language_id'] == $language->getLanguage_id() && $tl2['is_default'] == 1) : 
 										$found2 = true;
 							?>
-								<input type="radio" value="<?php echo $languagex->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" checked />
+								<input type="radio" value="<?php echo $language->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" checked />
 							<?php 
 									endif; 
 								endforeach;
 							?>
 							<?php if(!$found2):	?>
-								<input type="radio" value="<?php echo $languagex->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" />
+								<input type="radio" value="<?php echo $language->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" />
 							<?php endif; ?>
 							<?php echo _("Set as default"); ?>
 						</center>

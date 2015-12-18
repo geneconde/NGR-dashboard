@@ -56,6 +56,7 @@
 		<p class="lgs-text-sub heading-input step step2"><?php echo _("Step 3: Your Modules"); ?></p>
 		<p class="lgs-text-sub heading-input"><?php echo _("Modules"); ?></p>
 		<p class="lgs-text-sub note"><?php echo _("Listed below are 3 of the modules available in your account. You can choose to start by creating the pre and post diagnostic tests for any module (first two buttons) and then simply click on Activate (last button), or you can choose to quickly activate any or all of the modules by clicking on the Activate button (last button) and skip the pre and post diagnostic tests."); ?></p>
+		<p class="lgs-text-sub note"><b>Note: </b>You also have the option to activate any of the 30 modules in the Dashboard later.</p>
 		<table class="modules">			
 			<?php 
 			$modules = $mc->getAllModules();
