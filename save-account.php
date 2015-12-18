@@ -34,32 +34,62 @@
 		if (isset($_POST['level'])) {
 			$level = $_POST['level'];
 		}
-		$uc->updateUser($userid, $uname, $fname, $lname, $gender, $level);
-		if(!empty($password)){ $uc->updateStudentPassword($userid, $password); }
-		if (isset($_GET['ut'])) {
-			if($_GET['ut'] == "2"){
-				$uc->updateUserFL($userid);
-				header("Location: student.php?ft=1");
-			} else{
-				$squestion	= $_POST['squestion'];
-				$sanswer	= $_POST['sanswer'];
-				
-				$securityRecord = $sc->getSecurityRecord($userid);
-				if(sizeof($securityRecord) == 1){
-					$sc->updateSecurityQuestion($squestion, $sanswer, $userid);
-				} else {
-					$sc->setSecurityQuestion($squestion, $sanswer, $userid);
+		if($type == 2){
+			$uc->updateUser($userid, $uname, $fname, $lname, $gender, $level);
+			if(!empty($password)){ $uc->updateStudentPassword($userid, $password); }
+			if (isset($_GET['ut'])) {
+				if($_GET['ut'] == "2"){
+					$uc->updateUserFL($userid);
+					header("Location: student.php?ft=1");
+				} else{
+					$squestion	= $_POST['squestion'];
+					$sanswer	= $_POST['sanswer'];
+					
+					$securityRecord = $sc->getSecurityRecord($userid);
+					if(sizeof($securityRecord) == 1){
+						$sc->updateSecurityQuestion($squestion, $sanswer, $userid);
+					} else {
+						$sc->setSecurityQuestion($squestion, $sanswer, $userid);
+					}
+					if(isset($_POST['dlang'])){	
+						$dlang_id = $_POST['dlang'];
+						$lc->deleteTeacherLanguage($userid);
+						$langs = $lc->getLanguage($dlang_id);
+						$lc->setDefaultLanguage($userid, $dlang_id);
+						$lang = $langs->getLanguage_code();
+						header("Location: phpgrid/student-information.php?lang=$lang");
+					}
 				}
-				if(isset($_POST['dlang'])){	
-					$dlang_id = $_POST['dlang'];
-					$lc->deleteTeacherLanguage($userid);
-					$langs = $lc->getLanguage($dlang_id);
-					$lc->setDefaultLanguage($userid, $dlang_id);
-					$lang = $langs->getLanguage_code();
-					header("Location: phpgrid/student-information.php?lang=$lang");
+			}
+		}else{
+			$uc->updateUser($userid, $uname, $fname, $lname, $gender, $level);
+			if(!empty($password)){ $uc->updatePassword($userid, $password); }
+			if (isset($_GET['ut'])) {
+				if($_GET['ut'] == "2"){
+					$uc->updateUserFL($userid);
+					header("Location: student.php?ft=1");
+				} else{
+					$squestion	= $_POST['squestion'];
+					$sanswer	= $_POST['sanswer'];
+					
+					$securityRecord = $sc->getSecurityRecord($userid);
+					if(sizeof($securityRecord) == 1){
+						$sc->updateSecurityQuestion($squestion, $sanswer, $userid);
+					} else {
+						$sc->setSecurityQuestion($squestion, $sanswer, $userid);
+					}
+					if(isset($_POST['dlang'])){	
+						$dlang_id = $_POST['dlang'];
+						$lc->deleteTeacherLanguage($userid);
+						$langs = $lc->getLanguage($dlang_id);
+						$lc->setDefaultLanguage($userid, $dlang_id);
+						$lang = $langs->getLanguage_code();
+						header("Location: phpgrid/student-information.php?lang=$lang");
+					}
 				}
 			}
 		}
+
 		$_SESSION['uname'] = $uname;
 	} else{
 		$uc->updateUser($userid, $uname, $fname, $lname, $gender);
