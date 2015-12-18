@@ -4,7 +4,16 @@
 	include_once 'header.php';
 	include_once 'controller/Language.Controller.php';
 	include_once 'controller/User.Controller.php';
-	
+
+	if($language == "ar_EG") $lang = "-ar";
+	else if($language == "es_ES") $lang = " spanish";
+	else if($language == "zh_CN") $lang = " chinese";
+	else if($language == "en_US") $lang = "";
+
+	$lc = new LanguageController();
+	$languages = $lc->getAllLanguages();
+	$teacher_languages = $lc->getLanguageByTeacher($teacher_id);
+
 	if(isset($_POST['submit-language']))
 	{
 		if(isset($_POST['locale']))
@@ -40,6 +49,7 @@
 			$_SESSION['alert'] = 2;
 		}
 	}
+
 ?>
 <script type="text/javascript" src="scripts/language-scripts.js"></script>
 
@@ -85,7 +95,7 @@
 			</tr>
 			<?php
 				$ctr = 0;
-				foreach($languages as $language) : 
+				foreach($languages as $languagex) : 
 				$ctr++;
 			?>
 				<tr>
@@ -93,14 +103,14 @@
 						<?php 
 							$found = false;
 							foreach($teacher_languages as $tl):
-								if($tl['language_id'] == $language->getLanguage_id()): 
+								if($tl['language_id'] == $languagex->getLanguage_id()): 
 									$found = true;
 						?>
 							<div class="onoffswitch">
-								<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>" checked>
+								<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $languagex->getLanguage_id(); ?>" checked>
 								<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
-									<div class="onoffswitch-inner"></div>
-									<div class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
+									<div class="onoffswitch-inner<?php echo $lang; ?>"></div>
+									<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
 								</label>
 							</div>
 						<?php  
@@ -110,31 +120,31 @@
 							
 						<?php if(!$found):	?>
 							<!-- <input type="checkbox" name="cbx[]" value="<?php echo $language->getLanguage_id(); ?>" id="lang_<?php echo $ctr; ?>" /> -->
-							<div class="onoffswitch">
-								<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>">
-								<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
-									<div class="onoffswitch-inner"></div>
-									<div class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
-								</label>
-							</div>
+								<div class="onoffswitch">
+									<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $languagex->getLanguage_id(); ?>">
+									<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
+										<div class="onoffswitch-inner<?php echo $lang; ?>" ></div>
+										<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
+									</label>
+								</div>
 						<?php endif; ?>
 					</td>
-					<td><?php echo $language->getLanguage(); ?></td>
+					<td><?php echo $languagex->getLanguage(); ?></td>
 					<td>
 						<center>
 							<?php 
 								$found2 = false;
 								foreach($teacher_languages as $tl2):
-									if($tl2['language_id'] == $language->getLanguage_id() && $tl2['is_default'] == 1) : 
+									if($tl2['language_id'] == $languagex->getLanguage_id() && $tl2['is_default'] == 1) : 
 										$found2 = true;
 							?>
-								<input type="radio" value="<?php echo $language->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" checked />
+								<input type="radio" value="<?php echo $languagex->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" checked />
 							<?php 
 									endif; 
 								endforeach;
 							?>
 							<?php if(!$found2):	?>
-								<input type="radio" value="<?php echo $language->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" />
+								<input type="radio" value="<?php echo $languagex->getLanguage_id(); ?>" name="locale" id="locale_<?php echo $ctr; ?>" />
 							<?php endif; ?>
 							<?php echo _("Set as default"); ?>
 						</center>

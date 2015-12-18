@@ -26,19 +26,19 @@
 	<link rel="stylesheet" href="../styles/pageguide.min.css" />
 <?php endif; ?>
 
-<script type="text/javascript" src="../scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();</script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
+<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
+
+<script type="text/javascript" src="../scripts/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../scripts/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../scripts/FixedColumns.js"></script>
 <script type="text/javascript" src="../scripts/jquery.form-validator.min.js"></script>
 <script type="text/javascript" src="../scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="../scripts/jquery.plugin.js"></script>
 <script type="text/javascript" src="../scripts/jquery.countdown.js"></script>
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();</script>
-
-<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
-<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 
 <script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
 <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
@@ -57,7 +57,7 @@ if($language == "zh_CN") { ?> <script src="../phpgrid/lib/js/jqgrid/js/i18n/grid
 <body>
 <div id="header">
 	<div class="wrap">
-		<a class="logo fleft" href="<?php echo $link; ?>"><img src="../images/logo2.png"></a>
+		<a class="logo fleft" href="index.php"><img src="../images/logo2.jpg"></a>
 		<?php if (isset($user)) {
 			$type = $user->getType();
 		?>

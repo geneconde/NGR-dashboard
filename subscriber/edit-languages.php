@@ -10,11 +10,16 @@
 		$user = $uc->loadUser($_SESSION['uname']);
 	}
 	$teacher_id = $user->getUserid();
-	
+
+	if($language == "ar_EG") $lang = "-ar";
+	else if($language == "es_ES") $lang = " spanish";
+	else if($language == "zh_CN") $lang = " chinese";
+	else if($language == "en_US") $lang = "";
+
 	$lc = new LanguageController();
 	$languages = $lc->getAllLanguages();
 	$teacher_languages = $lc->getLanguageByTeacher($teacher_id);
-	
+
 	if(isset($_POST['submit-language']))
 	{
 		if(isset($_POST['locale']))
@@ -111,8 +116,8 @@
 								<div class="onoffswitch">
 									<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>" checked>
 									<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
-										<div class="onoffswitch-inner"></div>
-										<div class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
+										<div class="onoffswitch-inner<?php echo $lang; ?>" ></div>
+										<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
 									</label>
 								</div>
 							<?php  
@@ -125,8 +130,8 @@
 								<div class="onoffswitch">
 									<input type="checkbox" name="cbx[]" class="onoffswitch-checkbox" id="lang_<?php echo $ctr; ?>" value="<?php echo $language->getLanguage_id(); ?>">
 									<label class="onoffswitch-label" for="lang_<?php echo $ctr; ?>">
-										<div class="onoffswitch-inner"></div>
-										<div class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
+										<div class="onoffswitch-inner<?php echo $lang; ?>" ></div>
+										<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
 									</label>
 								</div>
 							<?php endif; ?>

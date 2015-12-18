@@ -733,9 +733,9 @@ ini_set('display_errors', 1);
 	</script>
 	
 	<!-- jQuery Validation Engine -->
-	<link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
-	<script src="scripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-	<script src="scripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="../styles/validationEngine.jquery.css" type="text/css"/>
+	<script src="../scripts/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../scripts/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 	
 	<script>
 		jQuery(document).ready(function(){

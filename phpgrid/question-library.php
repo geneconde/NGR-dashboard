@@ -241,7 +241,7 @@ ini_set('display_errors', 1);
 						};	
 					</script>
 
-					<div style="margin:10px 0">
+					<div style="margin:10px 0" class="phpgrid">
 						<fieldset> 
 					        <form id="form_search"> 
 					        Search: <input type="text" id="filter"/> 

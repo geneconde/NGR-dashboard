@@ -132,10 +132,10 @@ ini_set('display_errors', 0);
     { color: #000; text-decoration: none; }
 </style>
 
-<link rel="stylesheet" href="css/jquery.dataTables.css" />
-<script src="scripts/jquery-1.8.2.min.js"></script> 
-<script src="scripts/jquery.dataTables.js"></script>
-<script src="scripts/dataTables.fixedColumns.min.js"></script>
+<link rel="stylesheet" href="../styles/jquery.dataTables.css" />
+<script src="../scripts/jquery-1.8.3.min.js"></script> 
+<script src="../scripts/jquery.dataTables.js"></script>
+<script src="../scripts/dataTables.fixedColumns.min.js"></script>
 
 <div class="top-buttons">
 	<div class="wrap">
