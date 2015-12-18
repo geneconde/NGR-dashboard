@@ -46,71 +46,89 @@
 <div id="content">
 <div class="wrap">
 	<?php if ($mode == 1): ?>
-	<h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1>
-	<?php echo _("The pre-diagnostic test will be available before taking the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?>
+	<h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Pre-Diagnostic Test"); ?></h1><br>
+	<p><?php echo _("The pre-diagnostic test will be available before taking the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?></p>
 	<?php else: ?>
 	<h1><?php echo $display = ($action == "edit"? _("Edit") : _("Create")); ?> <?php echo _("Post-Diagnostic Test"); ?></h1>
-	<?php echo _("The post-diagnostic test will be taken after the students completed the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?>
+	<p><?php echo _("The post-diagnostic test will be taken after the students completed the module. This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?></p>
 	<?php endif; ?>
-	<br><br>
-	<span class="bold"><?php echo _('Test name:'); ?>  </span><input type="text" id="test-name" value="<?php if(isset($testname)) echo $testname; ?>">
-	<table border="0" class="result morepad">
-		<tr>
-			<td colspan="2">
-				<span class="bold"><?php echo _("Choose Questions"); ?></span><br/>
-				<?php echo _("This is the pool of questions you can choose from."); ?><br/>
-				<span class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<center>
+
+	<div class="dt-test-name">
+		<p class="bold"><?php echo _('Test name'); ?></p>
+		<input type="text" id="test-name" value="<?php if(isset($testname)) echo $testname; ?>">
+	</div>
+	<div class="dt-test-note">
+		<p class="bold"><?php echo _("Choose Questions"); ?></p>
+		<p><?php echo _("This is the pool of questions you can choose from."); ?></p>
+		<p class="rvw"><?php echo "(*) - "._("questions with asterisk are from the module itself"); ?></p>
+	</div>
+
+	<input type="text" id="search-test" placeholder="<?php echo _('Search...'); ?>">
+	<table border="0" class="result morepad" id="dt-table">
+		<thead>
+			<tr>
+				<td>
 					<input type="checkbox" id="select-all">
-				</center>
-			</td>
-			<td>
-				<p id="select-text"><?php echo _("Select all questions"); ?></p>
-			</td>
-		</tr>
-		<br>
+				</td>
+				<td>
+					<p id="select-text"><b><?php echo _("Select all questions"); ?></b></p>
+				</td>
+			</tr>
+		</thead>
 		<?php
 			$ctr = 1;
 			foreach($question_set as $row):
 		?>
-		<tr class="trline">
-			<td style="position: relative">
-				<input type="checkbox" style="position: absolute; top: 12px;" name="onoffswitch<?php echo $ctr;?>" class="q-cb" id="myonoffswitch<?php echo $ctr;?>" value="<?php echo $row['qid']; ?>" <?php if(isset($qid)): if(in_array($row['qid'], $qid)): echo "checked"; endif; endif; ?>>
-			</td>
-			<td>
+		<tbody>
+			<tr class="trline">
+				<td class="check">
+					<input type="checkbox" name="onoffswitch<?php echo $ctr;?>" class="q-cb" id="myonoffswitch<?php echo $ctr;?>" value="<?php echo $row['qid']; ?>" <?php if(isset($qid)): if(in_array($row['qid'], $qid)): echo "checked"; endif; endif; ?>>
+				</td>
+				<td>
+				<?php 
+					if($row['from_review']) echo _("<span class='ask'>* </span>");
+					echo _($row['question']);
+					echo '<br/>';
+					
+					if($row['image'])
+						echo '<img src="'.$row['image'].'" class="dtq-image">';
+					
+					$choices = $dtq->getQuestionChoices($row['qid']);
+				?>
+				<br/>
+				<small><?php echo _("Choices"); ?>:<br/>
+				<?php foreach($choices as $choice): ?>
+					<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>"><?php echo $choice['order']; ?>. <?php echo _($choice['choice']); ?></span><br>
+				<?php endforeach; ?>
+				<br/><?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
+				</small>
+				</td>
+			</tr>
 			<?php 
-				if($row['from_review']) echo _("<span class='ask'>* </span>");
-				echo _($row['question']);
-				echo '<br/>';
-				
-				if($row['image'])
-					echo '<img src="'.$row['image'].'" class="dtq-image">';
-				
-				$choices = $dtq->getQuestionChoices($row['qid']);
+					$ctr++;
+				endforeach; 
 			?>
-			<br/>
-			<small><?php echo _("Choices"); ?>:<br/>
-			<?php foreach($choices as $choice): ?>
-				<span class='letters'><?php echo $choice['order']; ?></span>. <?php echo _($choice['choice']); ?><br>
-			<?php endforeach; ?>
-			<br/><?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
-			</small>
-			</td>
-		</tr>
-		<?php 
-				$ctr++;
-			endforeach; 
-		?>
+		</tbody>
 	</table>
 	<div class="clear"></div>
-	<br>
-	<a href="#" class="button1" id="save"><?php echo _("Save Changes"); ?></a>
+	<a href="#" class="button1 save-changes" id="save"><?php echo _("Save Changes"); ?></a>
+	<a href="#" onclick="location.href = document.referrer;" class="button1 cancel-changes"><?php echo _("Cancel"); ?></a>
+	<br><br>
 	</form>
 </div>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#test-name">
+    <p><?php echo _("Enter a title for your test."); ?></p>
+  </li>
+  <li class="tlypageguide_left" data-tourtarget="#select-all">
+    <p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#save">
+    <p><?php echo _("Click this button to save your changes."); ?></p>
+  </li>
+</ul>
+
 <script>
 	var action 		= '<?php echo $action; ?>';
 	var	moduleid 	= '<?php echo $mid; ?>';
@@ -169,33 +187,18 @@
 				});
 			}
 		});
+
+		$("#search-test").keyup(function(){
+	        _this = this;
+	        $.each($("table tbody").find("tr"), function() {
+	            console.log($(this).text());
+	            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+	                $(this).hide();
+	            else
+	                $(this).show();                
+	        });
+	    });
 	});
 </script>
-    <ol id="joyRideTipContent">
-		<li data-id="test-name" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Enter a title for your test."); ?></p>
-		</li>
-		<li data-id="select-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Select questions to include in your test by clicking the checkbox beside each question. You can click the first checkbox to select all the questions."); ?></p>
-		</li>
-		<li data-id="save" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to save your changes."); ?></p>
-		</li>
-    </ol>
 
-    <script>
-      function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
-    </script>
 <?php require_once "footer.php"; ?>

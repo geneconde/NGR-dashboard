@@ -41,8 +41,7 @@
 
 <div id="content">
 	<div class="wrap">
-	<h1><?php echo _("Students Results Summary"); ?></h1>	
-	<center>
+	<h1><?php echo _("Students Results Summary"); ?></h1>
 	<?php if(!empty($stg)): ?>
 	<table border="0" class="result morepad">
 		<tr>
@@ -68,7 +67,7 @@
 
 					if($pretest):
 				?>
-					<a id="prebtn" class="button1" href="dt-results.php?sdtid=<?php echo $pretest->getStudentDtID(); ?>&gid=<?php echo $gid; ?>"><?php echo _("Pre-Test"); ?></a>
+					<a id="prebtn" class="button1 cool-btn" href="dt-results.php?sdtid=<?php echo $pretest->getStudentDtID(); ?>&gid=<?php echo $gid; ?>"><?php echo _("Pre-Test"); ?></a>
 				<?php else: ?>
 					<a id="prebtn" class="button1 disabled" href="#"><?php echo _("Pre-Test"); ?></a>
 				<?php endif; ?>
@@ -85,7 +84,7 @@
 							
 							if ($finished == 1 && $sm['module_ID'] == $mid):
 				?>
-							<a id="statmodule" class="button1" href="results.php?smid=<?php echo $sm['student_module_ID']; ?>&gid=<?php echo $gid; ?>"><?php echo _("Module"); ?></a>
+							<a id="statmodule" class="button1 cool-btn" href="results.php?smid=<?php echo $sm['student_module_ID']; ?>&gid=<?php echo $gid; ?>"><?php echo _("Module"); ?></a>
 				<?php 	
 							elseif ($finished == 0 && $sm['module_ID'] == $mid): 
 				?>
@@ -107,7 +106,7 @@
 					
 					if($posttest):
 				?>
-					<a id="postbtn" class="button1" href="dt-results.php?sdtid=<?php echo $posttest->getStudentDtID(); ?>&gid=<?php echo $gid; ?>"><?php echo _("Post-Test"); ?></a>
+					<a id="postbtn" class="button1 cool-btn" href="dt-results.php?sdtid=<?php echo $posttest->getStudentDtID(); ?>&gid=<?php echo $gid; ?>"><?php echo _("Post-Test"); ?></a>
 				<?php else: ?>
 					<a id="postbtn" class="button1 disabled" href="#"><?php echo _("Post-Test"); ?></a>
 				<?php endif; ?>
@@ -119,15 +118,14 @@
 		?>
 	</table>
 	<div class="clear"></div>
-	<br/>
-	<div class="center"><a id="view-all" class="take-box" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>"><?php echo _("See how all your students did"); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="print" class="take-box" href="student-solutions.php?m=<?php echo $mid; ?>"><?php echo _("Print Student Solutions"); ?></a></div>
+	<br><br>
+	<div><a id="view-all" class="take-box" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>"><?php echo _("See how all your students did"); ?></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="print" class="take-box" href="student-solutions.php?m=<?php echo $mid; ?>"><?php echo _("Print Student Solutions"); ?></a></div>
 	<?php else: ?>
 		<br>
 		<br>
 		<h3><?php echo _("There are no students assigned to this group yet."); ?></h3>
 	<?php endif; ?>
 	</div>
-	</center>
 	
 	<script>
 	$(document).ready(function() {
@@ -136,41 +134,26 @@
 		});
 	});
 	</script>
-	<!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-id="studname" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("This column lists all students in this student group."); ?></p>
-		</li>
-		<li data-id="prebtn" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to view the result of this student's pre-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
-		</li>
-		<li data-id="statmodule" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to view the result of the module activities of this student. This button is grayed out if the student has not yet taken the module. It will also say <strong>\"In Progress\"</strong> if the student is currently taking the module."); ?></p>
-		</li>
-		<li data-id="postbtn" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to view the result of this student's post-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
-		</li>
-		<li data-id="view-all" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to view the summary tables for all <strong>Quick Checks</strong> and <strong>Quiz Questions</strong> embedded in the module and on the pre-diagnostic test and post-diagnostic test for the module."); ?></p>
-		</li>
-		<li data-id="print" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Click this button to view and/or print the answers of the students in the <strong>Problem Solving</strong> section of the module."); ?></p>
-		</li>
-    </ol>
 
-    <script>
-      function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
-    </script>
-	<?php require_once "footer.php"; ?>
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_right" data-tourtarget="#studname">
+	    <p><?php echo _("This column lists all students in this student group."); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#prebtn">
+	    <p><?php echo _("Click this button to view the result of this student's pre-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#statmodule">
+	    <p><?php echo _("Click this button to view the result of the module activities of this student. This button is grayed out if the student has not yet taken the module. It will also say <strong>\"In Progress\"</strong> if the student is currently taking the module."); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#postbtn">
+	    <p><?php echo _("Click this button to view the result of this student's post-diagnostic test. This button is grayed out if the student has not yet taken the test."); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#view-all">
+	    <p><?php echo _("Click this button to view the summary tables for all <strong>Quick Checks</strong> and <strong>Quiz Questions</strong> embedded in the module and on the pre-diagnostic test and post-diagnostic test for the module."); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#print">
+	    <p><?php echo _("Click this button to view and/or print the answers of the students in the <strong>Problem Solving</strong> section of the module."); ?></p>
+	  </li>
+	</ul>
+
+<?php require_once "footer.php"; ?>

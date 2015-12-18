@@ -176,42 +176,26 @@
 		<br>
 		<div id="dash"></div>
 	<?php endif; ?>
-	<!-- guide me content -->
-	<ol id="joyRideTipContent">
-	  <li data-class="languages" data-text="Next" data-options="tipLocation:left;tipAnimation:fade">
-	    <p>If there are several languages available, click on the button of the language you want to use for all modules and dashboard interface.</p>
+
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_right" data-tourtarget=".languages">
+	    <p><?php echo _("If there are several languages available, click on the button of the language you want to use for all modules and dashboard interface."); ?></p>
 	  </li>
-	  <li data-class="module-box" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-	    <p>This is the module box. Click the buttons to take modules and pre/post tests and view your results.</p>
+	  <li class="tlypageguide_left" data-tourtarget=".module-box">
+	    <p><?php echo _("This is the module box. Click the buttons to take modules and pre/post tests and view your results."); ?></p>
 	  </li>
-	  <li data-class="take-cumulative" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-	    <p>Click this button to take the cumulative test.</p>
-	    <p></p>
+	  <li class="tlypageguide_right" data-tourtarget=".take-cumulative">
+	    <p><?php echo _("Click this button to take the cumulative test."); ?></p>
 	  </li>
-	  <li data-class="cumulative-results" data-button="Next" data-options="tipLocation:top;tipAnimation:fade">
-	    <p>Click this button to view the results of the cumulative tests.</p>
-	    <p></p>
+	  <li class="tlypageguide_right" data-tourtarget="#logout">
+	    <p><?php echo _("Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard."); ?></p>
 	  </li>
-	  <li data-id="logout" data-button="Close" data-options="tipLocation:bottom;tipAnimation:fade">
-	    <p>Clicking the <strong>Logout</strong> link will log you out of NexGenReady dashboard.</p>
-	  </li>
-	</ol>
+	</ul>
+
 	<script>
-	function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 4) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    // modal:true,
-	    // expose: true
-	    });
-	}
 	$(document).ready(function() {
 		language = "<?php echo $language; ?>";
-		
+
 		if(language == "ar_EG" || language == "es_ES") {
 			$('.module-box .take-box').css('padding','15px 5px');
 			$('.module-box .take-box').css('fontSize','14px');

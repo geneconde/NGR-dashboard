@@ -19,7 +19,6 @@
 	}
 ?>
 <style>
-	#dbguide { display: none; }
 	.generate {
 		cursor: default;
 		background: lightgray;
@@ -41,45 +40,19 @@
 
 <div id="content">
 <div class="wrap">
-<br><br>
 <form method="post" action="" id="change-pw">
-	<center>
-		<table>
-			<?php if($saved) : ?>
-
-				<tr>
-					<td colspan="3">
-						<center><span class='green'><?php echo _("You have updated the account."); ?></span></center>
-					</td>
-				</tr>
-			<?php endif; ?>
-			<tr>
-				<td colspan="3">
-					<strong><center><?php echo _("Reset Password"); ?></center></strong>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label><?php echo _("New Password"); ?>:</label>
-
-				</td>
-				<td>
-					<input type="text" name="password" id="password" class="editable" placeholder="<?php echo _('Enter new password'); ?>" minlength="6" required>
-				</td>
-				<td><a onclick="generatePass();" name="generate" class="generate" ><?php echo _('Generate'); ?></a></td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<br>
-					<center>
-					<div>
-						<input id="save" class="button1" type="submit" name="save" value="<?php echo _("Save Changes"); ?>">
-					</div>
-					</center>
-				</td>
-			</tr>
-		</table>
-	</center>
+	<?php if($saved) : ?>
+		<span class='green'><?php echo _("You have updated the account."); ?></span><br>
+	<?php endif; ?>
+	<br>
+	<h2><?php echo _("Reset Password"); ?></h2><br>
+	<label><?php echo _("New Password"); ?>:</label>
+	<input type="text" name="password" id="password" class="editable" placeholder="<?php echo _('Enter new password'); ?>" minlength="6" required>
+	<a onclick="generatePass();" name="generate" class="generate" ><?php echo _('Generate'); ?></a>
+	<br><br>
+	<div>
+		<input id="save" class="button1 save-test" type="submit" name="save" value="<?php echo _("Save Changes"); ?>">
+	</div>
 </form>
 </div>
 <script>

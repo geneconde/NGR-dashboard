@@ -89,6 +89,9 @@ html[dir="rtl"] #header .languages {
     font-size:40px;
     color:#00171C;
 }
+.logo img{
+    max-width: 300px;
+}
 .big {
     font-size: 50px;
     color: #DBD8C7;
@@ -513,8 +516,11 @@ table.valigntop td { vertical-align:top;}
 table.exam td { padding: 10px; }
 
 .onoffswitch {
-    position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    position: relative;
+    width: 90px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select: none;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -538,14 +544,19 @@ table.exam td { padding: 10px; }
 }
 .onoffswitch-inner:before {
     content: "ON";
+<<<<<<< HEAD
     padding-left: 10px;
+=======
+    padding-left: 10%;
+>>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
     background-color: #3598DC;
     color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "OFF";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
+    padding-right: 10%;
+    background-color: #EEEEEE;
+    color: #999999;
     text-align: right;
 }
 .onoffswitch-switch {
@@ -591,25 +602,45 @@ table.exam td { padding: 10px; }
 
 /* Arabic */
 .onoffswitch-inner-ar {
-    width: 200%; margin-right: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+    width: 200%;
+    margin-right: -100%;
+    -moz-transition: margin 0.3s ease-in 0s;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
+    transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner-ar:before, .onoffswitch-inner-ar:after {
-    float: right; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    float: right;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .onoffswitch-inner-ar:before {
     content: "في";
+<<<<<<< HEAD
     padding-right: 10px;
     background-color: #3598DC;
     color: #FFFFFF;
+=======
+    padding-right: 20%;
+    background-color: #3598DC;
+    color: #FFFFFF;
+    text-align: right;
+>>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
 }
 .onoffswitch-inner-ar:after {
     content: "بعيدا";
-    padding-left: 10px;
-    background-color: #EEEEEE; color: #999999;
+    padding-left: 20px;
+    background-color: #EEEEEE;
+    color: #999999;
     text-align: left;
 }
 .onoffswitch-switch-ar {
@@ -2146,4 +2177,5 @@ table#dt-table th, table#dt-table td{
 } 
 table.dataTable.no-footer{
     border-bottom: #fff !important;
+
 }

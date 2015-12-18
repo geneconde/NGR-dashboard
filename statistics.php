@@ -55,7 +55,6 @@
 <div class="wrap">
 
 <?php
-
 if($language == "ar_EG") {
 	echo "
 	<script>
@@ -71,22 +70,27 @@ if($language == "ar_EG") {
 		var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
 	</script>";
 }
-
 ?>
 
-<h1><?php echo _("Exercise Statistics"); ?> <a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF"><img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
-<h3><?php echo _($exercise['title']); ?> <?php echo _("Screenshot"); ?></h3>
+<h1><?php echo _("Exercise Statistics"); ?></h1>
+
+<div class="btn">
+	<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+</div>
+<div class="clear"></div>
+
+<h3 class="result-title"><?php echo _($exercise['title']); ?> <?php echo _("Screenshot"); ?></h3>
 <?php echo _("The image below is an actual screenshot of the exercise in the review. It shows the question items and the correct answers."); ?><br/><br/>
 <?php
 	$arr = explode('/', $exercise['screenshot']);
 	array_splice($arr, 5, 0, $curlang );
-	$ex_screenshot = implode("/", $arr);
-	
+	$ex_screenshot = implode("/", $arr);	
 ?>
+
 <center><img id="xshot" src="<?php echo $ex_screenshot;?>" width="80%"></center>
-<br/>
+<br>
 <?php foreach ($eq as $question) { ?>
-<h3><?php echo _("Question") . " " . _($question['section']); ?> - <?php echo _($question['title']); ?></h3>
+<h3 class="result-title"><?php echo _("Question") . " " . _($question['section']); ?> - <?php echo _($question['title']); ?></h3>
 <?php echo _("Correct Answer"); ?>: <span class="green bold upper"><?php echo _($question['correct_answer']); ?> </span><br/>
 <div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div>
 <div id="<?php echo 'q2_'.$question['section'].$question['title']; ?>" class="pchart p2"></div>
@@ -143,32 +147,17 @@ if($language == "ar_EG") {
 		<?php endforeach; ?>
   }
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="xshot" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This page shows the information and statistics of a question or activity. This is the screenshot of the activity in the actual module."); ?></p>
-	</li>
-	<li data-class="p1" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This pie chart shows the percentage of the correct and wrong answers (for this item) of all the students who took the test."); ?></p>
-	</li>
-	<li data-class="p2" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This pie chart shows the percentage of the students who selected the same answer for this question (Example: Out of 5 students, 2 answered A and 3 answered B. Pie chart will show 40% for A and 60% or B)"); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget="#xshot">
+    <p><?php echo _("This page shows the information and statistics of a question or activity. This is the screenshot of the activity in the actual module."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget=".p1">
+    <p><?php echo _("This pie chart shows the percentage of the correct and wrong answers (for this item) of all the students who took the test."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget=".p2">
+    <p><?php echo _("This pie chart shows the percentage of the students who selected the same answer for this question (Example: Out of 5 students, 2 answered A and 3 answered B. Pie chart will show 40% for A and 60% or B)"); ?></p>
+  </li>
+</ul>
+
 <?php require_once "footer.php"; ?>

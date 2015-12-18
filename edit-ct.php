@@ -48,7 +48,7 @@
 <div class="ct-container wrap">
 	<h1><?php echo _("Edit Cumulative Test"); ?></h1>
 	<form action="update-ct.php?ctid=<?php echo $ctid; ?>" method="post">
-		<table border="0" class="result morepad" id="ct-details">
+		<table border="0" class="result morepad details" id="ct-details">
 			<tr>
 				<td><span class="bold"><?php echo _("Test name:"); ?>  </span></td>
 				<td><input type="text" id="test-name" name="test-name" value="<?php echo $ct->getTestName(); ?>"></td>
@@ -132,9 +132,8 @@
 				<td></td> 
 			</tr>
 		</table>
-		<div class="center-button">
-			<input type="submit" class="button1" value="<?php echo _('Update Test'); ?>">
-		</div>
+		<input type="submit" class="button1 save-changes" value="<?php echo _('Update Test'); ?>">
+		<a href="ct-test.php" class="button1 cancel-changes"><?php echo _("Cancel"); ?></a>
 	</form>
 </div>
 <script>

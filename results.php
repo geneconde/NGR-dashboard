@@ -28,11 +28,6 @@
 	$qq 	= $ec->loadExercisesByType($sm['module_ID'],1);
 	$totalcorrect = 0;
 	$total = 0;
-	
-	$link = $user->getType();
-	if ($link == 0) $link = 'teacher';
-	else if ($link == 1) $link = 'parent';
-	else if ($link == 2) $link = 'student';
 ?>
 <script>
 	var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 1;var pfDisablePrint = 0;
@@ -44,45 +39,49 @@
 	<div class="wrap">
 		<?php $active = ''; ?>
 		<?php include "menu.php"; ?>
-		<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo <?php echo _("Go Back"); ?></a>
+		<?php if($type==0): ?>
+			<a class="link back" href="student-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $sm['module_ID']; ?>">&laquo <?php echo _("Go Back"); ?></a>
+		<?php else : ?>
+			<a class="link back" href="student.php">&laquo <?php echo _("Go Back"); ?></a>
+		<?php endif; ?>
 	</div>
 </div>
 
 <div id="content">
 <div class="wrap">
-		<h1><?php echo _("Module Score Summary"); ?>
-			<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
-				<img id="printfriendly" style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="<?php echo _("Print Friendly and PDF"); ?>"/>
-			</a>
-		</h1>
+		<h1><?php echo _("Module Score Summary"); ?></h1>
+		<p class="text"><?php echo _("The pre-diagnostic test will be available before taking the module. This test must be completed within the specified time. Only answers that are completed within the time limit will be recorded."); ?></p>
+		<div class="btn">
+			<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+			<a id="email-btn" class="btn fleft" href="#"><i class="fa fa-envelope"></i><?php echo _('Email'); ?></a>
+		</div>
+		<div class="clear"></div>
 
-		<input type="submit" value="" id="email-btn" class="email-btn" style="float: right;" />
 		<div id="results">
-			
-			<table border="0">
+			<table border="0" class="details">
 				<tr>
-					<td class="bold alignright"><?php echo _("Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Name"); ?></td>
 					<td><?php echo $u->getFirstname() . ' ' . $u->getLastname(); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Module"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Module"); ?></td>
 					<td><?php echo _($m->getModule_name()); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Date Started"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Started"); ?></td>
 					<td><?php echo date('F j, Y H:i:s',strtotime($sm['date_started'])); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Date Finished"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Finished"); ?></td>
 					<td><?php echo date('F j, Y H:i:s',strtotime($sm['date_finished'])); ?></td>
 				</tr>
 				<tr>
-					<td class="bold"><?php echo _("Score Percentage"); ?> :&nbsp;&nbsp;&nbsp;</td>
-					<td><h2 id="score"></h2></td>
+					<td class="bold"><?php echo _("Score"); ?></td>
+					<td><span id="score"></span></td>
 				</tr>
 			</table>
-			<br/>
-			<h3><?php echo _("Quick Check Results"); ?></h3>
+
+			<h3 class="result-title"><?php echo _("Quick Check Results"); ?></h3>
 			<?php foreach ($qc as $exercise) {
 				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
@@ -91,6 +90,7 @@
 			<table border="0" class="result fleft" id="qcr">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
+					<th class="empty"></th>
 				</tr>
 				<?php
 					$numberOfsecA = $qnc->getExercisePerSections($exercise['exercise_ID'],'A');
@@ -125,11 +125,11 @@
 							}
 						?>
 					</td>
-					<td>
+					<td class="mark">
 						<?php if($img == 'correct') { ?>
-							<img src="http://dev.jigzen.com/shymansky/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-check"></i>
 						<?php } else { ?>
-							<img src="http://dev.jigzen.com/shymansky/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-times"></i>
 						<?php } ?>
 					</td>
 				</tr>
@@ -137,7 +137,7 @@
 			</table>
 			<?php } ?>
 			<div class="clear"></div>
-			<h3><?php echo _("Quiz Question Results"); ?></h3>
+			<h3 class="result-title"><?php echo _("Quiz Question Results"); ?></h3>
 			<?php foreach ($qq as $exercise) {
 				$counter = 1;
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
@@ -146,6 +146,7 @@
 			<table border="0" class="result fleft" id="qqr">
 				<tr>
 					<th colspan="2"><?php echo _($exercise['title']); ?></th>
+					<th class="empty"></th>
 				</tr>
 				<?php
 					$numberOfsecA = $qnc->getExercisePerSections($exercise['exercise_ID'],'A');
@@ -180,11 +181,11 @@
 							}
 						?>
 					</td>
-					<td>
+					<td class="mark">
 						<?php if($img == 'correct') { ?>
-							<img src="http://dev.jigzen.com/shymansky/dashboard/images/correct.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-check"></i>
 						<?php } else { ?>
-							<img src="http://dev.jigzen.com/shymansky/dashboard/images/wrong.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-times"></i>
 						<?php } ?>
 					</td>
 				</tr>
@@ -192,22 +193,18 @@
 			</table>
 			<?php } ?>
 			<div class="clear"></div>
-			<h3><?php echo _("Problem Solving"); ?></h3>
+			<h3 class="result-title"><?php echo _("Problem Solving"); ?></h3>
 			<?php 
 				$problem = $mmc->getModuleProblem($sm['module_ID']);
 				$answer = $mac->getProblemAnswer($smid,$problem['meta_ID']);
 			?>
-			<br/>
-			<table border="0" class="valigntop">
+			<table border="0" class="problem-solving">
 				<tr>
-					<td class="bold"><?php echo _("Problem:"); ?> &nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Problem"); ?></td>
 					<td><?php echo _($problem['meta_desc']); ?></td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;</td>
-				</tr>
-				<tr>
-					<td class="bold"><?php echo _("Solution:"); ?> &nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Solution"); ?></td>
 					<td><?php echo $answer; ?></td>
 				</tr>
 			</table>
@@ -238,7 +235,7 @@
 					</tr>
 				</table>
 				<input type="hidden" name="resultcontent" id="emailcontent" value="" />
-				<input name="sendresults" type="submit" value="<?php echo _('Send'); ?>">
+				<input name="sendresults" id="email-send" type="submit" value="<?php echo _('Send'); ?>">
 			</form>
 			</div>
 		</div>
@@ -269,6 +266,16 @@
 		}
 	?>
 	<!-- End Email -->
+
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_left" data-tourtarget="#print">
+	    <p><?php echo _("Click here to print this page."); ?></p>
+	  </li>
+	  <li class="tlypageguide_right" data-tourtarget="#email-btn">
+	    <p><?php echo _("Click here to email this page/results."); ?></p>
+	  </li>
+	</ul>
+
 	<script src="scripts/livevalidation.js"></script>
 	<script>document.getElementById('score').innerHTML = '<?php echo $score;?>%';</script>
 	<script>
@@ -289,28 +296,4 @@
 	});
 	</script>
 
-	<!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-id="printfriendly" 		data-text="Next" data-options="tipLocation:right;tipAnimation:fade">
-			<p>Click here to print this page.</p>
-		</li>
-		<li data-id="email-btn" 		data-text="Close" data-options="tipLocation:right;tipAnimation:fade">
-			<p>Click here to email this page/results.</p>
-		</li>
-    </ol>
-
-    <script>
-      function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    // modal:true,
-	    // expose: true
-	    });
-	  }
-    </script>
 <?php require_once "footer.php"; ?>

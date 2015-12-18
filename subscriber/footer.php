@@ -20,7 +20,18 @@
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
+
+	    jQuery(document).ready(function() {
+	        var pageguide = tl.pg.init();
+	    });
 	});
 	</script>
+
+	<?php if($language == "ar_EG") : ?>
+		<script src="../scripts/pageguide.min-ar.js"></script>
+	<?php else : ?>
+		<script src="../scripts/pageguide.min.js"></script>
+	<?php endif; ?>
+
 </body>
 </html>

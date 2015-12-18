@@ -49,7 +49,19 @@
 							<?php foreach ($pre as $test) : ?>
 								<tr>
 									<td class='test-name'><?php echo $test['test_name']; ?></td>
-									<td><?php echo "<a class='button1' href='dt-item.php?dtid=".$test['dt_id']."&action=edit' class='action-dt'>"._('Edit')."</a>"."<a class='button1' href='delete-dt.php?dtid=".$test['dt_id']."&module_id=".$module['module_ID']."&mode=pre' class='action-dt'>"._('Delete')."</a>"; ?>
+									<td>
+										<a class="button1 pre-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit">
+											<span>
+												<i class="fa fa-pencil-square-o"></i>
+												<!-- <?php echo _("Edit"); ?> -->
+											</span>
+										</a>
+										<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $module['module_ID']; ?>mode=pre">
+											<span>
+												<i class="fa fa-trash-o"></i>
+												<!-- <?php echo _("Delete"); ?> -->
+											</span>
+										</a>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -66,7 +78,18 @@
 								<tr>
 									<td class='test-name'><?php echo $test['test_name']; ?></td>
 									<td>
-										<?php echo "<a class='button1' href='dt-item.php?dtid=".$test['dt_id']."&action=edit' class='action-dt'>"._('Edit')."</a>"."<a class='button1' href='delete-dt.php?dtid=".$test['dt_id']."&module_id=".$module['module_ID']."&mode=post' class='action-dt'>"._('Delete')."</a>"; ?>
+										<a class="button1 pre-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit">
+											<span>
+												<i class="fa fa-pencil-square-o"></i>
+												<!-- <?php echo _("Edit"); ?> -->
+											</span>
+										</a>
+										<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $module['module_ID']; ?>mode=post">
+											<span>
+												<i class="fa fa-trash-o"></i>
+												<!-- <?php echo _("Delete"); ?> -->
+											</span>
+										</a>
 									</td>
 								</tr>
 							<?php endforeach; ?>
@@ -77,8 +100,8 @@
 					</td>
 				</tr>
 				<tr class='create-act'>
-					<td><a href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=pre&action=new" class=" button1 create-dt"><?php echo _('Create Pre-Diagnostic Test'); ?></a></td>
-					<td><a href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=post&action=new" class=" button1 create-dt"><?php echo _('Create Post-Diagnostic Test'); ?></a></td>
+					<td><a href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=pre&action=new" class="create-test-btn button1 create-dt"><?php echo _('Create Pre-Diagnostic Test'); ?></a></td>
+					<td><a href="dt-item.php?module_id=<?php echo $module['module_ID']; ?>&mode=post&action=new" class="create-test-btn button1 create-dt"><?php echo _('Create Post-Diagnostic Test'); ?></a></td>
 				</tr>
 				<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
 				<?php endif; ?>

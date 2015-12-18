@@ -44,8 +44,7 @@
 
 <div id="content">
 <div class="wrap">
-	<br><br>
-	<center>
+	<br>
 	<h2><?php echo _("Student Portfolio"); ?></h2>
 	<br/>
 	<h2><?php echo _("Student Name"); ?><?php echo ': '. $student->getFirstname() . ' ' . $student->getLastname(); ?></h2>
@@ -94,9 +93,7 @@
 				</tr>
 		<?php } ?>
 	</table>
-	</center>
 	<br/>
-	<center>
 	<h3><?php echo _("Review"); ?></h3>
 	<table border="0" class="result morepad">
 		<tr>
@@ -191,39 +188,22 @@
 			endforeach;
 		?>
 	</table>
-	</center>
-
 	
 </div>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="btnCumulative" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _("Clicking this button will show the Cumulative Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
-	</li>
-	<li data-id="btnMQ" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to view the screenshots of all the Quick Checks and Quiz Questions in the module, the student's answer, the correct answer and the feedback statements. This is grayed out if the student hasn't taken the module yet."); ?></p>
-	</li>
-	<li data-id="btnPreT" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This will show the Pre-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
-	</li>
-	<li data-id="btnPostT" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This will show the Post-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_top" data-tourtarget="#btnCumulative">
+    <p><?php echo _("Clicking this button will show the Cumulative Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#btnMQ">
+    <p><?php echo _("Click this button to view the screenshots of all the Quick Checks and Quiz Questions in the module, the student's answer, the correct answer and the feedback statements. This is grayed out if the student hasn't taken the module yet."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#btnPreT">
+    <p><?php echo _("This will show the Pre-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
+  </li>
+  <li class="tlypageguide_top" data-tourtarget="#btnPostT">
+    <p><?php echo _("This will show the Post-Diagnostic Test result of the student. This is grayed out if the student hasn't taken the test yet."); ?></p>
+  </li>
+</ul>
+
 <?php require_once "footer.php"; ?>
