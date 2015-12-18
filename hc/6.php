@@ -96,7 +96,6 @@
 	<script src="scripts/jquery.jplayer.min.js"></script>
 	<script src="scripts/rightclick.js"></script>
 	<script>
-		$("span#ans").innerHTML = localStorage.getItem("qc1-a");
 		$("#jquery_jplayer_1").jPlayer({
 	   ready: function () {
 		$(this).jPlayer("setMedia", {
