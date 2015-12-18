@@ -1,7 +1,6 @@
 <?php if(!isset($active)) $active=''; ?>
 <div class="buttons">
-	<?php if($type == 0) : ?>
-		<a class="uppercase fright manage-box" href="phpgrid/question-library.php"><?php echo _("Test Questions Library"); ?></a>
+	<?php if($type == 0) : ?>		
 		<a class="uppercase fright manage-box" target="_blank" href="../marketing/ngss.php"><?php echo _("See the NGSS Alignment"); ?></a>
 		<a class="uppercase fright manage-box <?php echo ($active=='student-accounts' ? 'active' : ''); ?>" id="student-accounts" href="phpgrid/manage-students.php"><?php echo _("Student Accounts"); ?></a>
 		<a class="uppercase fright manage-box <?php echo ($active=='student-groups' ? 'active' : ''); ?>" id="student-groups" href="student-accounts.php"><?php echo _("Student Groups"); ?></a>

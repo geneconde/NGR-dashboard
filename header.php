@@ -23,6 +23,7 @@
 <link rel="stylesheet" type="text/css" href="styles/layerslider.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
 <link rel="stylesheet" type="text/css" href="lgs.css">
+<link rel="stylesheet" type="text/css" href="styles/jquery.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
 <?php if($language == "ar_EG") : ?>
 	<link rel="stylesheet" href="styles/pageguide.min-ar.css" />

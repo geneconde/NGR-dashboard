@@ -172,9 +172,9 @@
 		// }
 
 		function save() {
-			var answer = $('#answer').val();
-			
+			var answer = $('#answer').val();			
 			if (answered == 0) {
+				localStorage.setItem("problem-solving", answer);
 				saveMeta('heating-and-cooling',answer);
 				answered = 1;
 			}

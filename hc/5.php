@@ -272,7 +272,6 @@
 
 		q1.on('click', function() {
 			var radio = $(this).val();
-			localStorage.setItem("qc1-a", radio);
 			if (radio == 'A') {
 				answer1.find('.answer').html(
 					'<p class="center"><?php echo _("A. At warm temperatures, molecules exchange electrons more."); ?></p>' + '<p class="red center"><img src="images/misc/wrong.png" alt="Wrong" /> <?php echo _("No. Temperature doesn’t have anything to do with electron exchanges."); ?></p>');
@@ -290,7 +289,7 @@
 
 		q2.on('click', function() {
 			var radio = $(this).val();
-			localStorage.setItem("qc1-b", radio);
+			
 			if (radio == 'A') {
 				answer2.html(
 					'<p class="center"><?php echo _("A. Temperature is related to the motion of the particles in a substance and heat is related to how much energy moves between substances at different temperatures."); ?></p>' +
@@ -316,7 +315,7 @@
 
 		function save() {
 			var answer1,
-				answer2;
+				answer2;				
 
 			if (a1.is(':checked')) answer1 = a1.val();
 			if (b1.is(':checked')) answer1 = b1.val();
@@ -329,6 +328,9 @@
 			if (d2.is(':checked')) answer2 = d2.val();
 
 			if (answered == 0) {
+				localStorage.setItem("qc1-a", answer1);
+				localStorage.setItem("qc1-b", answer2);
+				
 				saveAnswer('heating-and-cooling-qc1-a', answer1);
 				saveAnswer('heating-and-cooling-qc1-b', answer2);
 

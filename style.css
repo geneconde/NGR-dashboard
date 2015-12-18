@@ -544,7 +544,11 @@ table.exam td { padding: 10px; }
 }
 .onoffswitch-inner:before {
     content: "ON";
+<<<<<<< HEAD
+    padding-left: 10px;
+=======
     padding-left: 10%;
+>>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
     background-color: #3598DC;
     color: #FFFFFF;
 }
@@ -621,10 +625,16 @@ table.exam td { padding: 10px; }
 }
 .onoffswitch-inner-ar:before {
     content: "في";
+<<<<<<< HEAD
+    padding-right: 10px;
+    background-color: #3598DC;
+    color: #FFFFFF;
+=======
     padding-right: 20%;
     background-color: #3598DC;
     color: #FFFFFF;
     text-align: right;
+>>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
 }
 .onoffswitch-inner-ar:after {
     content: "بعيدا";
@@ -2161,4 +2171,11 @@ li.settings-pre, li.settings-post {
 }
 .phpgrid table, .DelTable, .EditTable {
     margin: initial !important;
+}
+table#dt-table th, table#dt-table td{
+    border: 1px solid #fff;
+} 
+table.dataTable.no-footer{
+    border-bottom: #fff !important;
+
 }

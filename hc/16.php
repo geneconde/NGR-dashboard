@@ -156,6 +156,7 @@
 			}
 
 			if (answered == 0) {
+				localStorage.setItem("qq-1", ans);
 				saveAnswer('heating-and-cooling-qq1-a', ans);
 				answered = 1;
 			}

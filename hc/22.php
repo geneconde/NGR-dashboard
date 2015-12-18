@@ -1,4 +1,5 @@
 <?php 
+	ini_set('display_errors', 1);
 	require_once "../tempsession.php";
 	$_SESSION['cmodule'] = 'heating-and-cooling';
 	require_once "locale.php";

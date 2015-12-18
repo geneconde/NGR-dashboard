@@ -48,6 +48,17 @@ class LanguageController {
 		$db->insert("teacher_language", $data);
 		$db->disconnect();
 	}
+
+	public function getLanguages() {
+		$where = array();
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("languages");
+		$db->disconnect();
+		
+		return $result;
+	}
 	
 	// public function updateTeacherLanguage($teacher_id, $language_id, $is_active) {
 		// $where = array();
