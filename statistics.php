@@ -150,8 +150,8 @@ if($language == "ar_EG") {
 				else array_push($arrTemp, $value); 
 			}
 			$index = 99;
-			if(in_array('"'._($question['correct_answer']).'"', $arrTemp)){
-				$index = array_search('"'._($question['correct_answer']).'"', $arrTemp);
+			if(in_array('"'.$question['correct_answer'].'"', $arrTemp)){
+				$index = array_search('"'.$question['correct_answer'].'"', $arrTemp);
 			}
 			foreach ($arr2 as $value) {
 				if(is_numeric($value)) unset($value);
