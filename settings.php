@@ -45,7 +45,7 @@
 	<p class="dash-message"><?php echo _("This is the Module Settings page. On this page, you can activate this module on groups as well as create, assign, activate and deactivate pre-dianostic tests and post-diagnostic tests."); ?></p>
 	<br>
 
-	<div class="fleft">
+	<div class="fleft dotted-border">
 		<button class="btn-portfilter active" data-toggle="portfilter" data-target="<?php echo _('Group Activation'); ?>"><?php echo _('Group Activation'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Pre-diagnostic tests'); ?>"><?php echo _('Pre-diagnostic tests'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Post-diagnostic tests'); ?>"><?php echo _('Post-diagnostic tests'); ?></button>
@@ -122,90 +122,104 @@
 		<li class="clearfix settings-pre" data-tag='<?php echo _("Pre-diagnostic tests"); ?>'>
 			<h2><?php echo _("Pre-Diagnostic Tests"); ?></h2>
 			<a class="button1 create-test-btn" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?></a>
+			<div class="search-container">
+				<input type="text" class="search pre-test-search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+			</div>
 			<table border="0" class="result morepad">
-				<tr>
-					<th class="bold" id="pre-diag"><?php echo _("Test Title"); ?></th>
-					<th class="bold"><?php echo _("# of Questions"); ?></th>
-					<th class="bold"><?php echo _("Action"); ?></th>
-				</tr>
-				<?php if($testsA): ?>
-					<?php foreach($testsA as $test): ?>
-				<tr>
-					<td><?php echo $test['test_name']; ?></td>
-					<td>
-						<center>
-						<?php
-							$count = count(explode(',',$test['qid']));
-							echo $count;
-						?>
-						</center>
-					</td>
-					<td>
-						<a class="button1 pre-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
-							<span>
-								<i class="fa fa-pencil-square-o"></i>
-								<!-- <?php echo _("Edit"); ?> -->
-							</span>
-						</a>
-						<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
-							<span>
-								<i class="fa fa-trash-o"></i>
-								<!-- <?php echo _("Delete"); ?> -->
-							</span>
-						</a>
-					</td>
-				</tr>
-					<?php endforeach; ?>
-				<?php else: ?>
+				<thead>
 					<tr>
-						<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						<th class="bold" id="pre-diag"><?php echo _("Test Title"); ?></th>
+						<th class="bold"><?php echo _("# of Questions"); ?></th>
+						<th class="bold"><?php echo _("Action"); ?></th>
 					</tr>
-				<?php endif; ?>
+				</thead>
+				<tbody>
+					<?php if($testsA): ?>
+						<?php foreach($testsA as $test): ?>
+					<tr>
+						<td><?php echo $test['test_name']; ?></td>
+						<td>
+							<center>
+							<?php
+								$count = count(explode(',',$test['qid']));
+								echo $count;
+							?>
+							</center>
+						</td>
+						<td>
+							<a class="button1 pre-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
+								<span>
+									<i class="fa fa-pencil-square-o"></i>
+									<!-- <?php echo _("Edit"); ?> -->
+								</span>
+							</a>
+							<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
+								<span>
+									<i class="fa fa-trash-o"></i>
+									<!-- <?php echo _("Delete"); ?> -->
+								</span>
+							</a>
+						</td>
+					</tr>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						</tr>
+					<?php endif; ?>
+				</tbody>
 			</table>
 		</li>
 
 		<li class="clearfix settings-post" data-tag='<?php echo _("Post-diagnostic tests"); ?>'>
 			<h2><?php echo _("Post-Diagnostic Tests"); ?></h2>
 			<a class="button1 create-test-btn" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?></a>
+			<div class="search-container">
+				<input type="text" class="search pre-test-search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+			</div>
 			<table border="0" class="result morepad">
-				<tr>
-					<th class="bold"  id="post-test"><?php echo _("Test Title"); ?></th>
-					<th class="bold"><?php echo _("# of Questions"); ?></th>
-					<th class="bold"><?php echo _("Action"); ?></th>
-				</tr>
-				<?php if($testsB): ?>
-					<?php foreach($testsB as $test): ?>
-				<tr>
-					<td><?php echo $test['test_name']; ?></td>
-					<td>
-						<center>
-						<?php
-							$count = count(explode(',',$test['qid']));
-							echo $count;
-						?>
-						</center>
-					</td>
-					<td>
-						<a class="button1 post-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
-							<span>
-								<i class="fa fa-pencil-square-o"></i>
-								<!-- <?php echo _("Edit"); ?> -->
-							</span>
-						</a>
-						<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
-							<span>
-								<i class="fa fa-trash-o"></i>
-								<!-- <?php echo _("Delete"); ?> -->
-							</span>
-						</a>
-					</td>
-				</tr>
-					<?php endforeach; ?>
-				<?php else: ?>
+				<thead>
 					<tr>
-						<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						<th class="bold"  id="post-test"><?php echo _("Test Title"); ?></th>
+						<th class="bold"><?php echo _("# of Questions"); ?></th>
+						<th class="bold"><?php echo _("Action"); ?></th>
 					</tr>
-				<?php endif; ?>
+				</thead>
+				<tbody>
+					<?php if($testsB): ?>
+						<?php foreach($testsB as $test): ?>
+					<tr>
+						<td><?php echo $test['test_name']; ?></td>
+						<td>
+							<center>
+							<?php
+								$count = count(explode(',',$test['qid']));
+								echo $count;
+							?>
+							</center>
+						</td>
+						<td>
+							<a class="button1 post-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
+								<span>
+									<i class="fa fa-pencil-square-o"></i>
+									<!-- <?php echo _("Edit"); ?> -->
+								</span>
+							</a>
+							<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
+								<span>
+									<i class="fa fa-trash-o"></i>
+									<!-- <?php echo _("Delete"); ?> -->
+								</span>
+							</a>
+						</td>
+					</tr>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						</tr>
+					<?php endif; ?>
+				</tbody>
 			</table>
 		</li>
 		<br>
@@ -291,9 +305,9 @@ $(document).ready(function() {
 		$('#tlyPageGuideWrapper #tlyPageGuideMessages .tlypageguide_close').trigger('click');
 	});
 
-	$("#search-table").keyup(function(){
+	$(".search").keyup(function(){
         _this = this;
-        $.each($("table#group-table tbody").find("tr"), function() {
+        $.each($("table tbody").find("tr"), function() {
             console.log($(this).text());
             if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
                 $(this).hide();

@@ -303,7 +303,7 @@ ini_set('display_errors', 1);
 
 	<style>
 		.ui-icon { display: inline-block !important; }
-		#delmodlist1 { width: auto !important; }
+		#delmodlist1 { width: auto !important; min-width: 240px; }
 		a.current { color: gray; cursor: default; }
 	</style>
 

@@ -140,6 +140,10 @@ hr {
     padding: 6px 0px;
     margin: 0;
     color: #F99737;
+    float: left;
+}
+html[dir="rtl"] .link.back {
+    float: right;
 }
 h1 {
     padding: 20px 0 0px;
@@ -499,8 +503,7 @@ html[dir="rtl"] #login {
 }
 
 
-table.result {font-size: 13px;border-collapse: collapse;margin: 5px 0px;
-border-collapse: separate; border-spacing: 1px;text-align: center;}
+table.result {font-size: 13px;border-collapse: collapse;margin: 5px 0px;border-collapse: separate;border-spacing: 1px;text-align: center;}
 
 table.result td, table.result th { padding: 5px; }
 .dt-result-test {
@@ -538,17 +541,23 @@ table.exam td { padding: 10px; }
     -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+    float: left;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .onoffswitch-inner:before {
     content: "ON";
-<<<<<<< HEAD
-    padding-left: 10px;
-=======
     padding-left: 10%;
->>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
+    text-align: left;
     background-color: #3598DC;
     color: #FFFFFF;
 }
@@ -625,16 +634,10 @@ table.exam td { padding: 10px; }
 }
 .onoffswitch-inner-ar:before {
     content: "في";
-<<<<<<< HEAD
-    padding-right: 10px;
-    background-color: #3598DC;
-    color: #FFFFFF;
-=======
     padding-right: 20%;
     background-color: #3598DC;
     color: #FFFFFF;
     text-align: right;
->>>>>>> 0f161892ba9784818960eaef5adfcb4b05605b95
 }
 .onoffswitch-inner-ar:after {
     content: "بعيدا";
@@ -757,7 +760,7 @@ table.exam td { padding: 10px; }
     right: 0px; 
 }
 
-tr.trline { border-top:1px dashed #888; }
+tr.trline {border-top:1px dashed #888;}
 tr.trline td.check { vertical-align: top; }
 tr.trline input[type="radio"] { vertical-align: middle; line-height: 13px; cursor: pointer; }
 tr.trline input[type="radio"] + label { margin-left: 10px; cursor: pointer; }
@@ -883,7 +886,7 @@ table.dataTable { margin: initial !important; }
 .results2 a{color:inherit;}
 .results a{color:inherit;}
 table.result th { font-weight: bold; text-transform: uppercase; font-size: 11px;background-color: #D1E6F6;color: #1D5987;padding: 10px;}
-table.result td { background-color: #E2E2E2; }
+table.result td {background-color: #F1F3FA;}
 /*th:hover {background-color:lightblue;}
 tr.odd { background-color: lightblue;}*/
 
@@ -1035,6 +1038,7 @@ span.form-error { font-size: 10px; font-style: italic; color: red; display: bloc
 .students a:hover { text-decoration: underline; }
 .students td:nth-child(2) { width: 20px; }
 .students td:nth-child(3) { padding-left: 10px; text-align: left !important; }
+.students td { background-color: #F1F3FA; }
 
 .group-name {/* text-align: center; */ margin-top: 10px;}
 .transfer, .delete { height: 22px !important; padding: 3px 8px !important; }
@@ -1239,9 +1243,6 @@ html[dir="rtl"] .dataTables_wrapper {
     width: 50%;
     margin-bottom: 10px !important;
 }
-#ct-details td, #ct-details th {
-    padding: 10px; 
-}
 .p-right15 {
     padding-right: 15px;
 }
@@ -1309,7 +1310,7 @@ html[dir="rtl"] .dataTables_wrapper {
 }
 
 .dataTable td {
-    background-color: #E2E2E2;
+    background-color: #F1F3FA;
 }
 
 .f-link {
@@ -1568,7 +1569,7 @@ div#pdf-button img {
 }
 .language-table tr td {
     padding: 10px;
-    background-color: #E2E2E2;
+    background-color: #F1F3FA;
 }
 
 /* module description */
@@ -1858,7 +1859,6 @@ button.btn-portfilter {
     color: #555;
     cursor: pointer;
     margin-right: 5px;
-    margin-bottom: 10px;
 }
 button.btn-portfilter:hover, button.btn-portfilter.active {
     background: #3598DC !important;
@@ -1931,15 +1931,9 @@ html[dir="rtl"] .module-buttons a .fa {
     margin-left: 5px;
 }
 .status-buttons {
-    margin-top: 6px;
     font-family: trebuchet ms;
     font-size: 11px;
     text-transform: uppercase;
-    margin-left: 5px;
-}
-html[dir="rtl"] .status-buttons {
-    margin-left: 0px;
-    margin-right: 5px;
 }
 .status-lbl {
     padding: 10px 6px;
@@ -1996,10 +1990,12 @@ div.status label {
     width: 65%;
     padding: 10px 0;
     text-align: center;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 .dt-test .outer-table tr.m-name {background-color: #D1E6F6;      color: #1D5987;}
-.dt-test .test-container, .dt-test .create-act, .dt-test th.dt-header { background: #E2E2E2; padding: 5px; }
-.dt-test .test-container td, .dt-test .create-act td { padding: 7px; vertical-align: top; }
+.dt-test .test-container, .dt-test .create-act, .dt-test th.dt-header {background: #F1F3FA; padding: 5px;}
+.dt-test .test-container td, .dt-test .create-act td { padding: 7px; vertical-align: top;background-color: #F1F3FA;}
 .dt-test .test-container .inner-table td, .dt-test .create-act .inner-table td { padding: 0; text-align: right; }
 .dt-test .inner-table td:nth-child(2) { width: 30%; text-align: center; }
 .dt-test .test-container td.test-name, .dt-test .test-container td.test-note { vertical-align: middle; text-align: right;width: 65%;}
@@ -2014,6 +2010,8 @@ div.status label {
     text-align: left;
     /* margin: 0 auto; */
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 .dt-test .inner-table a { margin: 0 3px; }
 
@@ -2032,18 +2030,22 @@ div.status label {
 table#dt-table, table#ct-table {
     text-align: left !important;
     margin-bottom: 10px !important;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 table#dt-table thead td, table#ct-table thead td {
     background-color: #D1E6F6;
     color: #1D59A2;
 }
 table {
-    margin-left: -2px !important;
-    margin-right: -2px !important;
+    margin-left: -1px !important;
+    margin-right: -1px !important;
     margin-bottom: 20px !important;
 }
 table.problem-solving {
     vertical-align: middle;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 table.problem-solving td:first-child {
     background-color: #D1E6F6;
@@ -2053,7 +2055,7 @@ table.problem-solving td:first-child {
 table.details td:nth-child(2), table.problem-solving td:nth-child(2) {
     padding: 10px;
     text-align: left !important;
-    background-color: #E2E2E2;
+    background-color: #F1F3FA;
 }
 table th.empty {
     padding: 5px !important;
@@ -2092,6 +2094,8 @@ div.btn a.btn:hover, #email-container #email-send:hover {
 }
 table.details {
     margin: 10px 0px;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 table.details td:first-child {
     background-color: #D1E6F6 !important;
@@ -2099,7 +2103,7 @@ table.details td:first-child {
     padding: 10px;
     text-align: right;
 }
-li.settings-pre, li.settings-post {
+li.settings-pre, li.settings-post, li.submit-test-item, li.submitted-test-items {
     display: none;
 }
 .module-settings th {
@@ -2123,6 +2127,9 @@ li.settings-pre, li.settings-post {
 .create-test-btn, .update-btn {
     background: #3598DC !important;
     color: white !important;
+}
+.ct-results {
+    width: 90%;
 }
 .dt-stat td, .ct-results td {
     text-align: left;
@@ -2177,5 +2184,63 @@ table#dt-table th, table#dt-table td{
 } 
 table.dataTable.no-footer{
     border-bottom: #fff !important;
-
+}
+div#test_question_list table {
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+div#test_question_list table td:nth-child(2), div#test_question_list table th:nth-child(2) {
+    text-align: left;
+}
+div#test_question_list table td:first-child {
+    vertical-align: top;
+}
+div#test_question_list #select-module {
+    padding: 3px 2px;
+}
+table.dataTable td, table.dataTable th {
+    border: 1px solid #fff;
+}
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1px solid #fff !important;
+}
+.dotted-border {
+    border-top: 1px dotted gray;
+    border-bottom: 1px dotted gray;
+    padding: 10px 0px;
+}
+.module-filter {
+    margin-bottom: 10px;
+}
+#test-list {
+    margin: 5px 0px !important;
+}
+#search-cumulative-settings {
+    margin-top: 10px;
+    padding: 3px 2px;
+}
+.ct-name, .ct-limit {
+    padding: 10px 0px;
+    line-height: 17px;
+}
+.ct-name input, .ct-limit input, .cumulative-results {
+    padding: 3px 2px;
+}
+table.activate-group-ct {
+    margin-bottom: 0px !important;
+}
+.module-res th, .pre-res th, .post-res th {
+    color: #1D5987;
+}
+.module-res th a, .pre-res th a, .post-res th a {
+    color: #1D5987;
+    text-decoration: underline;
+}
+.pre-test-search, .post-test-search {
+    margin-top: 10px;
+    padding: 3px 2px;
+}
+.teacher-dash .status-buttons {
+    margin-left: 5px;
+    margin-top: 6px;
 }

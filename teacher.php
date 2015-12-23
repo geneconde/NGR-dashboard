@@ -78,7 +78,7 @@
 	<p class="dash-message"><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
 	<br><br>
 
-	<div class="fleft">
+	<div class="fleft module-filter">
 		<button class="btn-portfilter active" data-toggle="portfilter" data-target="<?php echo _('all'); ?>"><?php echo _('View All'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Earth Science'); ?>"><?php echo _('Earth Science'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Life Science'); ?>"><?php echo _('Life Science'); ?></button>
@@ -125,9 +125,9 @@
 							</div>
 							<div class="fleft status-buttons">
 								<div class="status-lbl"><?php echo _('Current Status'); ?></div>
-								<div class="<?php echo ($mod >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Module Active'); ?></div>
-								<div class="<?php echo ($pre >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Pre-test Inactive'); ?></div>
-								<div class="<?php echo ($post >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo _('Post-test Inactive'); ?></div>
+								<div class="<?php echo ($mod >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo ($mod >= 1 ? _('Module Active') : _('Module Inactive')); ?></div>
+								<div class="<?php echo ($pre >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo ($pre >= 1 ? _('Pre-test Inactive') : _('Pre-test Active')); ?></div>
+								<div class="<?php echo ($post >= 1 ? 'status-active' : 'status-inactive'); ?>"><?php echo ($post >= 1 ? _('Post-test Inactive') : _('Post-test Active')); ?></div>
 							</div>
 							<div class="clear"></div>
 						</div>

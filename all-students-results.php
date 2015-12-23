@@ -9,12 +9,12 @@
 	require_once 'controller/StudentModule.Controller.php';
 	require_once 'controller/StudentGroup.Controller.php';
 	require_once 'controller/GroupModule.Controller.php';
-	
+
 	$mid 		= $_GET['mid'];
 	$gid		= $_GET['gid'];
 	$userid 	= $user->getUserid();
 	$students 	= $uc->loadUserType(2, $userid);
-	
+
 	$sgc		= new StudentGroupController();
 	$stg		= $sgc->getUsersInGroup($gid);
 
@@ -36,17 +36,17 @@
 			$qidpost = explode(',', $dt_post->getQid());
 		endif;
 	endif;
-	
+
 	$qs 	= new QuestionController();
 	$sa 	= new StudentAnswerController();
 	$ec 	= new ExerciseController();
 	$smc 	= new StudentModuleController();
-	
+
 	$qc = $ec->loadExercisesByType($mid,0);
 	$qq = $ec->loadExercisesByType($mid,1);
-	
+
 	$sdt		= new StudentDtController();
-	
+
 	$exercisetotal = count($qc) + count($qq);
 	$coltotal = array();
 	$totalrowtotal = 0;
@@ -98,7 +98,6 @@
 									<li>
 										<a href="statistics.php?e=<?php echo $exercise['exercise_ID']; ?>&mid=<?php echo $mid; ?>&gid=<?php echo $gid; ?>">
 											<?php echo $exercise['shortcode'];?>
-											<img src="images/appbar.link.png">
 										</a>
 									</li>
 								</th>
@@ -114,7 +113,6 @@
 									<li>
 										<a href="statistics.php?e=<?php echo $exercise['exercise_ID']; ?>&mid=<?php echo $mid; ?>&gid=<?php echo $gid; ?>">
 											<?php echo $exercise['shortcode']; ?>
-											<img src="images/appbar.link.png">
 										</a>
 									</li>
 								</th>
@@ -222,7 +220,7 @@
 						endforeach;
 					?>
 					<?php
-						$countusers = count($stg);
+						$countusers = count($stg) - 1;
 						$modanswerees = ceil($countusers-$modnotanswered/$ctr); ?><?php //echo $ctr; echo $notanswered; echo $countusers; ?>
 					<tr>
 						<td class="bold">
@@ -260,7 +258,6 @@
 					<th>
 						<li>
 							<a href="dt-stat.php?dtid=<?php echo $preid; ?>&qid=<?php echo $qpre; ?>&page=comparative&gid=<?php echo $gid; ?>">Q#<?php echo $ctr; ?>
-								<img src="images/appbar.link.png">
 							</a>
 						</li>
 					</th>
@@ -329,14 +326,14 @@
 					endforeach;
 				?>
 				<?php
-					$countusers = count($stg);
+					$countusers = count($stg) - 1;
 					$preanswerees = ceil($countusers-$prenotanswered/$ctr); ?>
 				<tr>
 					<td class="bold"><?php echo _("Total"); ?>: <?php echo $preanswerees; ?></td>
 					<?php foreach ($coltotal as $total): ?>
-					<td class="bold"><?php echo number_format($total/$preanswerees*100).'%'; ?></td>
+					<td class="bold"><?php echo ($preanswerees > 0 ? number_format($total/$preanswerees*100).'%' : "0%"); ?></td>
 					<?php endforeach; ?>
-					<td class="bold"><?php echo number_format($totalrow/$preanswerees).'%'; ?></td>
+					<td class="bold"><?php echo ($preanswerees > 0 ? number_format($total/$preanswerees*100).'%' : "0%"); ?></td>
 				</tr>
 			</tbody>
 		</table>
@@ -366,7 +363,7 @@
 					?>
 						<th>
 							<li>
-								<a href="dt-stat.php?dtid=<?php echo $postid; ?>&qid=<?php echo $qpost; ?>&page=comparative&gid=<?php echo $gid; ?>">Q#<?php echo $ctr; ?><img src="images/appbar.link.png"></a>
+								<a href="dt-stat.php?dtid=<?php echo $postid; ?>&qid=<?php echo $qpost; ?>&page=comparative&gid=<?php echo $gid; ?>">Q#<?php echo $ctr; ?></a>
 							</li>
 						</th>
 					<?php endforeach; ?>
@@ -434,14 +431,14 @@
 					endforeach;
 				?>
 				<?php
-					$countusers = count($stg);
+					$countusers = count($stg) - 1;
 					$postanswerees = ceil($countusers-$postnotanswered/$ctr); ?>
 				<tr>
 					<td class="bold"><?php echo _("Total"); ?>: <?php echo $postanswerees; ?></td>
 					<?php foreach ($coltotal as $total) { ?>
-					<td class="bold"><?php echo number_format($total/$postanswerees*100).'%'; ?></td>
+					<td class="bold"><?php echo ($postanswerees > 0 ? number_format($total/$postanswerees*100).'%' : "0%"); ?></td>
 					<?php } ?>
-					<td class="bold"><?php echo number_format($totalrow/$postanswerees).'%'; ?></td>
+					<td class="bold"><?php echo ($postanswerees > 0 ? number_format($totalrow/$postanswerees*100).'%' : "0%"); ?></td>
 				</tr>
 			</tbody>
 		</table>

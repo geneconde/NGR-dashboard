@@ -34,15 +34,15 @@
 		<?php include "menu.php"; ?>
 		<?php if ($user->getType() == 0 ) : ?>
 			<?php if(isset($_GET['p'])) : ?>
-					<a class="link" href="view-portfolio.php?user_id=<?php echo $scc_set->getUserID(); ?>">&laquo; <?php echo _("Go Back to Student Portfolio"); ?></a>
+					<a class="link back" href="view-portfolio.php?user_id=<?php echo $scc_set->getUserID(); ?>">&laquo; <?php echo _("Go Back"); ?></a>
 			<?php else : ?>
-					<a class="link" href="student-results.php?m=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Results Summary"); ?></a>
+					<a class="link back" href="student-results.php?m=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
 			<?php endif; ?>
 		<?php elseif ($user->getType() == 2 ) : ?>
 			<?php if (isset($_GET['from']) ) : ?>
 				<a class="link back" href="student-ct-listing.php">&laquo; <?php echo _("Go Back"); ?></a>
 			<?php else : ?>
-				<a class="link back" href="student.php">&laquo; <?php echo _("Go Back to Dashboard"); ?></a>
+				<a class="link back" href="student.php">&laquo; <?php echo _("Go Back"); ?></a>
 			<?php endif; ?>				
 		<?php endif; ?>
 	</div>
@@ -83,6 +83,9 @@
 				<td><span id="score"></span></td>
 			</tr>
 		</table>
+
+		<input type="text" class="search cumulative-results" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+
 		<table border="0" class="result morepad ct-results">
 		<?php
 			foreach($questions as $q):
@@ -247,17 +250,15 @@ $(document).ready(function() {
 });
 </script>
 <script>
-function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    // modal:true,
-    // expose: true
+	$(".search").keyup(function(){
+        _this = this;
+        $.each($("table.ct-results tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
     });
-  }
 </script>
 <?php require_once "footer.php"; ?>

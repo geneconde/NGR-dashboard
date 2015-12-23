@@ -26,82 +26,102 @@
 	</div>
 </div>
 
-<div id="content" id="test_question_list">
-	<div class="wrap">
-		<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
-		<p><?php echo _("This is your Dashboard. In this page, you can view all the questions in every modules."); ?><br><br></p>
+<div id="content">
+	<div class="wrap" id="test_question_list">
+		<h1><?php echo _("Test Item Library"); ?></h1>
+		<br>
+		<p><?php echo _("This is the Test Item Library page. In this page, you can view and search all questions available for the the diagnostic and cumulative tests. You can copy and paste the items to a Word document for whatever purpose it may serve you."); ?></p><br>
 
+		<div class="fleft dotted-border">
+			<button class="btn-portfilter active" data-toggle="portfilter" data-target="Test Item List"><?php echo _('Test Item List'); ?></button>
+			<button class="btn-portfilter" data-toggle="portfilter" data-target="Submit Test Item"><?php echo _('Submit Test Item'); ?></button>
+			<button class="btn-portfilter" data-toggle="portfilter" data-target="Submitted Test Items"><?php echo _('Submitted Test Items'); ?></button>
+		</div>
+		
+		<div class="clear"></div>
 
-		<input type="text" id="search-test" placeholder="<?php echo _('Search...'); ?>"> <br><br>
-		<select name="module" id="select-module">
-			<option value="all">All</option>
-			<?php foreach($modules as $module) : ?>
-				<option value="<?php echo $module['module_id'] ?>">
-					<?php 
-						$_data = str_replace("-", " ", $module['module_id']);
-						$name = ucwords($_data);
-						echo $name;
-					?>
-				</option>
-			<?php endforeach; ?>
+		<ul class="thumbnails gallery module-settings">
+			<li class="clearfix settings-group" data-tag='Test Item List'>
+				<h2><?php echo _("Test Item List"); ?></h2>
+				<div class="search-container">
+					<select name="module" id="select-module">
+						<option value="all">All</option>
+						<?php foreach($modules as $module) : ?>
+							<option value="<?php echo $module['module_id'] ?>">
+								<?php 
+									$_data = str_replace("-", " ", $module['module_id']);
+									$name = ucwords($_data);
+									echo $name;
+								?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+					<input type="text" id="search-test" placeholder="<?php echo _('Search...'); ?>">
+				</div>
 
-		</select>
-		<br><br>
-
-		<table class="result morepad table table-striped table-bordered" id="dt-table">
-			<thead>
-				<tr>
-					<th>
-						<span id="select-text"><strong><?php echo _("Module"); ?></strong></span>
-					</th>
-					<th>
-						<span id="select-text"><strong><?php echo _("Questions"); ?></strong></span>
-					</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<?php foreach($question_set as $row) : ?>
-					<tr class="trline">
-						<td>
-							<?php 
-								$_data = str_replace("-", " ", $row['module_id']);
-								$module = ucwords($_data);
-								echo $module;
-							?>
-						</td>
-						<td>
-							<?php 
-								if($row['from_review']) echo _("<span class='ask'>* </span>");
-								echo _($row['question']);
-								echo '<br/>';
-								
-								if($row['image'])
-									echo '<img src="'.$row['image'].'" class="dtq-image">';
-								
-								$choices = $dtq->getQuestionChoices($row['qid']);
-							?>
-							<br/>
-							<small><?php echo _("Choices"); ?>:<br/>
-							<?php foreach($choices as $choice): ?>
-								<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>"><?php echo $choice['order']; ?>. <?php echo _($choice['choice']); ?></span><br>
-							<?php endforeach; ?>
-							<br/><?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
-							</small>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
+				<table class="result morepad table table-striped table-bordered" id="test-list">
+					<thead>
+						<tr>
+							<th>
+								<span id="select-text"><strong><?php echo _("Module"); ?></strong></span>
+							</th>
+							<th>
+								<span id="select-text"><strong><?php echo _("Questions"); ?></strong></span>
+							</th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<?php foreach($question_set as $row) : ?>
+							<tr class="trline">
+								<td>
+									<?php 
+										$_data = str_replace("-", " ", $row['module_id']);
+										$module = ucwords($_data);
+										echo $module;
+									?>
+								</td>
+								<td>
+									<?php 
+										if($row['from_review']) echo _("<span class='ask'>* </span>");
+										echo _($row['question']);
+										echo '<br/>';
+										
+										if($row['image'])
+											echo '<img src="'.$row['image'].'" class="dtq-image">';
+										
+										$choices = $dtq->getQuestionChoices($row['qid']);
+									?>
+									<br/>
+									<small><?php echo _("Choices"); ?>:<br/>
+									<?php foreach($choices as $choice): ?>
+										<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>"><?php echo $choice['order']; ?>. <?php echo _($choice['choice']); ?></span><br>
+									<?php endforeach; ?>
+									<br/><?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
+									</small>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</li>
+			<li class="clearfix submit-test-item" data-tag='Submit Test Item'>
+				<h2><?php echo _("Submit Test Item"); ?></h2>
+			</li>
+			<li class="clearfix submitted-test-items" data-tag='Submitted Test Items'>
+				<h2><?php echo _("Submitted Test Items"); ?></h2>
+			</li>
+		</ul>
 
 	</div>
 </div>
 
 <script type="text/javascript" src="scripts/jquery.dataTables2.min.js"></script>
+<script src="scripts/bootstrap-portfilter.min.js"></script>
 <script>
 
 $(document).ready(function() {
-	$('#dt-table').DataTable({
+	$('#test-list').DataTable({
     	"iDisplayLength": 15,
         "bPaginate": true,
         "bFilter": true,
@@ -111,22 +131,26 @@ $(document).ready(function() {
     });
 	
 	$("#search-test").keyup(function(){
-        $('#dt-table').dataTable().fnFilter(this.value);
+        $('#test-list').dataTable().fnFilter(this.value);
     });
 
-    
-
 });
+
+$('.btn-portfilter').click(function () {
+	$('.btn-portfilter').removeClass('active');
+	$(this).addClass('active');
+});
+
 $('#select-module').on('change', function() {
     	
     var selected = $( "#select-module option:selected" ).text();
     var string = selected.replace(/^\s+|\s+$/g, "");
 
-    $('#dt-table').dataTable().fnFilter(string);
+    $('#test-list').dataTable().fnFilter(string);
 
     if(selected == 'All')
     {
-    	$('#dt-table').dataTable().ajax.reload();
+    	$('#test-list').dataTable().ajax.reload();
     }
 
 });

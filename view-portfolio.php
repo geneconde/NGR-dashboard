@@ -45,10 +45,9 @@
 <div id="content">
 <div class="wrap">
 	<br>
-	<h2><?php echo _("Student Portfolio"); ?></h2>
-	<br/>
-	<h2><?php echo _("Student Name"); ?><?php echo ': '. $student->getFirstname() . ' ' . $student->getLastname(); ?></h2>
-	<br/>
+	<h2><?php echo _("Student Portfolio of ") . $student->getFirstname() . ' ' . $student->getLastname();; ?></h2>
+	<p><?php echo _("This page shows all tests and modules taken by the student."); ?></p>
+	<br>
 	<h3><?php echo _("Cumulative Tests"); ?></h3>
 	<table border="0" class="result morepad">
 		<tr>
@@ -94,7 +93,7 @@
 		<?php } ?>
 	</table>
 	<br/>
-	<h3><?php echo _("Review"); ?></h3>
+	<h3><?php echo _("Module"); ?></h3>
 	<table border="0" class="result morepad">
 		<tr>
 			<th class="bold"><?php echo _("Module"); ?></th>

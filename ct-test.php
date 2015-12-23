@@ -17,14 +17,6 @@
 
 	$scc 		= new StudentCtController();
 ?>
-<style type="text/css">
-.button1 { display: inline !important; }
-td.ct_options { width: 43% !important; }
-<?php if($language == "es_ES") { ?>
-	.ct_options { width: 50% !important; }
-<?php } ?>
-</style>
-
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = 'cumulative-test'; ?>
@@ -36,18 +28,27 @@ td.ct_options { width: 43% !important; }
 <div id="content">
 <div class="wrap">
 <h1><?php echo _("Cumulative Test Settings"); ?></h1>
+<div class="dt-test-note">
+	<p><?php echo _('Create Cumulative Test'); ?></p>
+</div>
+<a class="button1 create-test-btn" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a><br>
+<input type="text" id="search-cumulative-settings" placeholder="<?php echo _('Search...'); ?>">
 <table border="0" class="result morepad">
-	<tr>
-		<th><?php echo _("Test Name"); ?></th>
-		<th id="grpc"><?php echo _("ACTIVATED FOR"); ?></th>
-		<th><?php echo _("Action"); ?></th>
-		<!-- <th><?php echo _("Set"); ?></th> -->
-	</tr>
+	<thead>
+		<tr>
+			<th><?php echo _("Test Name"); ?></th>
+			<th id="grpc"><?php echo _("ACTIVATED FOR"); ?></th>
+			<th><?php echo _("Activate"); ?></th>
+			<th><?php echo _("Results"); ?></th>
+			<th><?php echo _("Action"); ?></th>
+		</tr>
+	</thead>
+	<tbody>
 	<?php 
 		if($ct_set):
 			foreach($ct_set as $ct): ?>
 				<tr>
-					<td style="vertical-align:top;"><?php echo $ct['test_name']; ?></td>
+					<td><?php echo $ct['test_name']; ?></td>
 					<td>
 						<?php $ct_groups	= $scc->getGroupsInCT($ct['ct_id']); ?>
 						<?php foreach($ct_groups as $ct_group) : ?>
@@ -55,18 +56,24 @@ td.ct_options { width: 43% !important; }
 						<p><?php echo $gnamearr[0]['group_name']; ?></p>
 						<?php endforeach; ?>
 					</td>
-					<td class="ct_options">
-						<a class="button1 edit-ct cool-btn" href="edit-ct.php?ctid=<?php echo $ct['ct_id']; ?>" data-id="<?php echo $ct['ct_id']; ?>">
-							<?php echo _("Edit"); ?>
-						</a>
-						<a class="button1 ct-del danger-btn" href="delete-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
-							<?php echo _("Delete"); ?>
-						</a>
+					<td>
 						<a class="button1 activate-ct cool-btn" href="activate-group-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Activate on Groups"); ?>
 						</a>
+					</td>
+					<td>
 						<a class="button1 ct-res cool-btn" href="all-students-ct-results.php?ctid=<?php echo $ct['ct_id']; ?>">
 							<?php echo _("Result"); ?>
+						</a>
+					</td>
+					<td class="ct_options">
+						<a class="button1 edit-ct cool-btn" href="edit-ct.php?ctid=<?php echo $ct['ct_id']; ?>" data-id="<?php echo $ct['ct_id']; ?>">
+							<i class="fa fa-pencil-square-o"></i>
+							<!-- <?php echo _("Edit"); ?> -->
+						</a>
+						<a class="button1 ct-del danger-btn" href="delete-ct.php?ctid=<?php echo $ct['ct_id']; ?>">
+							<i class="fa fa-trash-o"></i>
+							<!-- <?php echo _("Delete"); ?> -->
 						</a>
 					</td>
 				</tr>
@@ -75,11 +82,11 @@ td.ct_options { width: 43% !important; }
 		else :
 	?>
 		<tr>
-			<td colspan="4"><center><?php echo _("You have not created any cumulative tests yet."); ?></center></td>
+			<td colspan="5"><center><?php echo _("You have not created any cumulative tests yet."); ?></center></td>
 		</tr>
 	<?php endif; ?>
+	</tbody>
 </table>
-<a class="button1 create-test-btn" href="create-ct.php" id="cct"><?php echo _("Create Cumulative Test"); ?></a>
 </div>
 <script type="text/javascript" src="scripts/chosen.jquery.js" ></script>
 <script>
@@ -175,4 +182,16 @@ $(document).ready(function() {
   </li>
 </ul>
 
+<script>
+	$("#search-cumulative-settings").keyup(function(){
+        _this = this;
+        $.each($("table tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
+    });
+</script>
 <?php require_once "footer.php"; ?>

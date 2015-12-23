@@ -31,52 +31,48 @@
 <div class="ct-container wrap">
 	<h1><?php echo _("Create Cumulative Test"); ?></h1>
 	<form action="add-ct.php" method="post" id="ct-form">
-		<table border="0" id="ct-details">
-			<tr>
-				<td><span class="bold"><?php echo _("Test name:"); ?>  </span></td>
-				<td><input type="text" id="test-name" name="test-name" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a test name."); ?>"></td>
-			</tr>
-			<tr>
-				<td class="bold"><?php echo _("Time Limit"); ?></td>
-				<td><p><?php echo _("This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?></p>
-					<select id="hours" name="hours">
-						<option value="00">0</option>
-						<option value="01">1</option>
-						<option value="02">2</option>
-						<option value="03">3</option>
-					</select>
-					<?php echo _("Hour/s and"); ?> 
-					<select id="minutes" name="minutes">
-						<option value="00">00</option>
-						<option value="05">05</option>
-						<option value="10">10</option>
-						<option value="15">15</option>
-						<option value="20">20</option>
-						<option value="25">25</option>
-						<option value="30">30</option>
-						<option value="35">35</option>
-						<option value="40">40</option>
-						<option value="45" selected>45</option>
-						<option value="50">50</option>
-						<option value="55">55</option>
-					</select>
-					<?php echo _("Minutes"); ?>
-				</td>
-			</tr>
-			<tr>
-				<td class="bold"><?php echo _("Ready?"); ?></td>
-				<td>
-					<p><?php echo _("Turn on this feature to make it available to your students. When turned on, the \"Take Cumulative Test\" button will be available in the student's front page when they log in."); ?></p>
-					<div class="onoffswitch">
-					<input type="checkbox" name="active" class="onoffswitch-checkbox" id="myonoffswitch" <?php if(isset($active) && $active) { ?> checked <?php } ?>>
-					<label class="onoffswitch-label" for="myonoffswitch">
-					<div class="onoffswitch-inner<?php echo $lang; ?>"></div>
-					<div id="switch" class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
-					</label>
-					</div>
-				</td>
-			</tr>
-		</table>
+		<div class="ct-name">
+			<p class="bold"><?php echo _("Test name"); ?></p>
+			<input type="text" id="test-name" name="test-name" data-validation="required" data-validation-error-msg="<?php echo _("You must enter a test name."); ?>">
+		</div>
+		<div class="ct-limit">
+			<p class="bold"><?php echo _("Time Limit"); ?></p>
+			<p><?php echo _("This test must be completed within the specified time limit. Only answers that are completed within the time limit will be recorded."); ?></p>
+			<select id="hours" name="hours">
+				<option value="00">0</option>
+				<option value="01">1</option>
+				<option value="02">2</option>
+				<option value="03">3</option>
+			</select>
+			<?php echo _("Hour/s and"); ?> 
+			<select id="minutes" name="minutes">
+				<option value="00">00</option>
+				<option value="05">05</option>
+				<option value="10">10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="35">35</option>
+				<option value="40">40</option>
+				<option value="45" selected>45</option>
+				<option value="50">50</option>
+				<option value="55">55</option>
+			</select>
+			<?php echo _("Minutes"); ?>
+		</div>
+		<div class="dt-test-note">
+			<p class="bold"><?php echo _("Ready?"); ?></p>
+			<p><?php echo _("Turn on this feature to make it available to your students. When turned on, the \"Take Cumulative Test\" button will be available in the student's front page when they log in."); ?></p>
+			<div class="onoffswitch">
+				<input type="checkbox" name="active" class="onoffswitch-checkbox" id="myonoffswitch" <?php if(isset($active) && $active) { ?> checked <?php } ?>>
+				<label class="onoffswitch-label" for="myonoffswitch">
+				<div class="onoffswitch-inner<?php echo $lang; ?>"></div>
+				<div id="switch" class="onoffswitch-switch<?php if($language == 'ar_EG') { echo $lang; } ?>"></div>
+				</label>
+			</div>
+		</div>
+
 		<table border="0" class="result morepad" id="ct-modules">
 			<tr>
 				<th><?php echo _("Module Title"); ?></th>
@@ -104,7 +100,7 @@
 								endif;
 							?>
 						</td>
-						<td><a class="button1" href="ct-module.php?mid=<?php echo $md['module_id']; ?>"><?php echo _("Select Questions"); ?></a></td>
+						<td><a class="button1 cool-btn" href="ct-module.php?mid=<?php echo $md['module_id']; ?>"><?php echo _("Select Questions"); ?></a></td>
 					</tr>
 			<?php
 				}
@@ -112,8 +108,8 @@
 		</table>
 		<input type='hidden' name="questions" value="<?php echo $questions; ?>">
 		<div>
-			<input type="submit" id="subtest" class="button1 save-test" value="<?php echo _('Create Test'); ?>">
-			<a href="ct-test.php" class="button1 cancel-test"><?php echo _("Cancel"); ?></a>
+			<input type="submit" id="subtest" class="button1 save-changes" value="<?php echo _('Create Test'); ?>">
+			<a href="ct-test.php" class="button1 cancel-changes"><?php echo _("Cancel"); ?></a>
 		</div>
 	</form>
 </div>

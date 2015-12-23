@@ -348,7 +348,7 @@ ini_set('display_errors', 1);
 			</div>		
 			<div class="clear"></div>
 
-			<div style="margin:10px 0">
+			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
 			</div>
 		</div>

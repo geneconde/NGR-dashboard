@@ -59,7 +59,7 @@ ini_set('display_errors', 1);
 	$reset_student_password = _('Reset Student password');
 	$reset_password = _('Reset password');
 	$student_portfolio = _('Student Portfolio');
-	$student_information = _('Student Information');
+	$student_information = _('Student Accounts');
 	$view_portfolio = _('View Portfolio');
 
 	/** Main Grid Table **/
@@ -258,8 +258,8 @@ ini_set('display_errors', 1);
 	$opt["reloadedit"] = true;
 
 	//Export Options
-	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Student Information";
+	$opt["export"] = array("filename"=>"Student Accounts", "heading"=>"Student Accounts", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Student Accounts";
 	$opt["export"]["range"] = "filtered";
 	$grid->set_options($opt);
 
@@ -465,6 +465,7 @@ ini_set('display_errors', 1);
 				<h1><?php echo _('List of Students'); ?></h1>
 				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				<p> * <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 				<!-- <div class="fright">
 					<a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> |
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> | 
@@ -491,7 +492,6 @@ ini_set('display_errors', 1);
 			</div> -->
 			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
-				<p><br/>* <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 			</div>
 		</div>
 	</div>

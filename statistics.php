@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once 'session.php';
 	require_once 'locale.php';
 	require_once 'header.php';
@@ -92,7 +92,7 @@ if($language == "ar_EG") {
 <?php foreach ($eq as $question) { ?>
 <h3 class="result-title"><?php echo _("Question") . " " . _($question['section']); ?> - <?php echo _($question['title']); ?></h3>
 <?php echo _("Correct Answer"); ?>: <span class="green bold upper"><?php echo _($question['correct_answer']); ?> </span><br/>
-<div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div>
+<!-- <div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div> -->
 <div id="<?php echo 'q2_'.$question['section'].$question['title']; ?>" class="pchart p2"></div>
 <div class="clear"></div>
 <?php } ?>
@@ -128,22 +128,43 @@ if($language == "ar_EG") {
 		?>
 		data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
 		options = { is3D: true, colors: ['green', 'red'], title: '<?php echo _("Correct and Wrong Statistics"); ?>' }
-		chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q1_'.$question['section'].$question['title']; ?>'));
-		chart.draw(data, options);
+		// chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q1_'.$question['section'].$question['title']; ?>'));
+		// chart.draw(data, options);
 		
 		<?php 
-				$uniques = array_count_values($values);
-				$arr = array(array('',''));
-				foreach ($uniques as $key => $value):
-					$temparr = array("$key",$value);
-					array_push($arr,$temparr);
-				endforeach;
-				$cwpie = json_encode($arr);
+			$uniques = array_count_values($values);
+			$arr = array(array('',''));
+			foreach ($uniques as $key => $value):
+				$temparr = array("$key",$value);
+				array_push($arr,$temparr);
+			endforeach;
+			$cwpie = json_encode($arr);
+			$temp = str_replace('[["",""],', '', $cwpie);
+			$temp = str_replace('[', '', $temp);
+			$temp = str_replace(']', '', $temp);
+			$arr2 = explode(",", $temp);
+			$arrTemp = array();
+
+			foreach ($arr2 as $value) {
+				if(is_numeric($value)) unset($value);
+				else array_push($arrTemp, $value); 
+			}
+			$index = 99;
+			if(in_array('"'._($question['correct_answer']).'"', $arrTemp)){
+				$index = array_search('"'._($question['correct_answer']).'"', $arrTemp);
+			}
+			foreach ($arr2 as $value) {
+				if(is_numeric($value)) unset($value);
+			}
 		?>
 		data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
-		options = { is3D: true, title: '<?php echo _("Student Answers Statistics"); ?>' }
+		options = { is3D: true, colors: ['#FF0000','#FF3030','#FF4040','#FF6666','#FFC1C1'],
+			slices: {
+	            <?php echo $index; ?>: { color: 'green' },
+	         },
+          	title: '<?php echo _("Student Answers Statistics"); ?>' }
 		chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q2_'.$question['section'].$question['title']; ?>'));
-		chart.draw(data, options);	
+		chart.draw(data, options);
 		<?php endforeach; ?>
   }
 </script>
