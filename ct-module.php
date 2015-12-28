@@ -125,7 +125,7 @@
 			?>
 			</tbody>
 		</table>
-		<input id="save" class="button1 save-changes" type="submit" value="<?php if($action == 'new'): echo _("Save Questions"); elseif($action =='edit'): echo _("Update Questions"); endif; ?>">
+		<input id="save" class="button1 save-changes" type="submit" value="<?php echo _("Save Questions"); ?>">
 		<?php if($action == "new"): ?>
 			<a class="button1 cancel-changes" href="create-ct.php"><?php echo _("Cancel"); ?></a>
 		<?php elseif($action == "edit"): ?>

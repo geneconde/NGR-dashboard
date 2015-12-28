@@ -137,7 +137,7 @@ hr {
 .link.back {
     font-size: 11px;
     text-transform: uppercase;
-    padding: 6px 0px;
+    padding: 5px 0px;
     margin: 0;
     color: #F99737;
     float: left;
@@ -934,7 +934,7 @@ span.form-error { font-size: 10px; font-style: italic; color: red; display: bloc
 #edit-account table { width: 320px; }
 #edit-account table tr, #change-pw table tr { height: 30px; }
 #edit-account table td:first-child, #change-pw table td:first-child { width: 100px; text-align: left !important;}
-#edit-account table td:last-child { width: 200px; }
+#edit-account table td:last-child { width: 200px;display: inline-block;}
 #edit-account table input[type=text] { width: 170px; padding: 2px; border: 1px solid #ccc; }
 #edit-account td { text-align: center !important; }
 #edit-account td.squestion, #edit-account td.sanswer { background-color: #E2E2E2 !important; }
@@ -2186,7 +2186,7 @@ table.dataTable.no-footer{
     border-bottom: #fff !important;
 }
 div#test_question_list table {
-    border-collapse: separate;
+    border-collapse: collapse;
     border-spacing: 1px;
 }
 div#test_question_list table td:nth-child(2), div#test_question_list table th:nth-child(2) {
@@ -2236,7 +2236,7 @@ table.activate-group-ct {
     color: #1D5987;
     text-decoration: underline;
 }
-.pre-test-search, .post-test-search {
+.pre-test-search, .post-test-search, .search-portfolio {
     margin-top: 10px;
     padding: 3px 2px;
 }

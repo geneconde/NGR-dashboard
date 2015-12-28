@@ -58,7 +58,7 @@
 			<h2><?php echo _("Group Activation"); ?></h2>
 			<div class="search-container">
 				<input type="text" class="search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
-				<span><?php echo _('Type group names and test names. You can also filter by typing "Module Inactive", "Pre-test Active", etc.'); ?></span>
+				<span><?php echo _('Type group names and test names. You can also filter by typing "Module Inactive", "Pre-test Active" or "Post-test Inactive".'); ?></span>
 			</div>
 			<table border="0" class="result morepad" id="group-table">
 				<thead>

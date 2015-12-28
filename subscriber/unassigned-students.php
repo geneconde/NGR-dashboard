@@ -305,6 +305,7 @@ ini_set('display_errors', 1);
 		.ui-icon { display: inline-block !important; }
 		#delmodlist1 { width: auto !important; min-width: 240px; }
 		a.current { color: gray; cursor: default; }
+		input.delete-rule.ui-del { width: 13px; }
 	</style>
 
 <div class="top-buttons">
@@ -317,15 +318,15 @@ ini_set('display_errors', 1);
 <div id="content">
 <div class='wrap'>
 
-	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("In this Account Management page, you can manage all unassigned students. Unassigned students are accounts that were taken out of the student spreadsheet due to transfer, move or drop out within the school year."); ?>
+	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
 				<h1><?php echo _('List of Unassigned Students'); ?></h1>
 				
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
-				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+				<p> * <?php echo _("In this Account Management page, you can manage all unassigned students. Unassigned students are accounts that were taken out of the student spreadsheet due to transfer, move or drop out within the school year."); ?></p>
+				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p>
+				<p> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
 					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 
