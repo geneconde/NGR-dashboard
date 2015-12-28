@@ -59,7 +59,7 @@ ini_set('display_errors', 1);
 	$reset_student_password = _('Reset Student password');
 	$reset_password = _('Reset password');
 	$student_portfolio = _('Student Portfolio');
-	$student_information = _('Student Information');
+	$student_information = _('Student Accounts');
 	$view_portfolio = _('View Portfolio');
 
 	/** Main Grid Table **/
@@ -258,8 +258,8 @@ ini_set('display_errors', 1);
 	$opt["reloadedit"] = true;
 
 	//Export Options
-	$opt["export"] = array("filename"=>"Student Information", "heading"=>"Student Information", "orientation"=>"landscape", "paper"=>"a4");
-	$opt["export"]["sheetname"] = "Student Information";
+	$opt["export"] = array("filename"=>"Student Accounts", "heading"=>"Student Accounts", "orientation"=>"landscape", "paper"=>"a4");
+	$opt["export"]["sheetname"] = "Student Accounts";
 	$opt["export"]["range"] = "filtered";
 	$grid->set_options($opt);
 
@@ -352,43 +352,14 @@ ini_set('display_errors', 1);
 	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
-	<link rel="stylesheet" href="../libraries/joyride/joyride-2.1.css">
+	<?php if($language == "ar_EG") : ?>
+		<link rel="stylesheet" href="../styles/pageguide.min-ar.css" />
+	<?php else : ?>
+		<link rel="stylesheet" href="../styles/pageguide.min.css" />
+	<?php endif; ?>
 	<style>
-		.joytest2 ~ div a:nth-child(3){ display: none; }
 		.ui-icon { display: inline-block !important; }
 		#delmodlist1 { width: auto !important; }
-
-		/*Custom joyride*/
-		.joyride-tip-guide:nth-child(7){
-			margin-top: 20px !important;
-		}
-		.joyride-tip-guide:nth-child(9){
-			margin-top: 20px !important;
-		    margin-left: -30px !important;
-		}
-		.joyride-tip-guide:nth-child(10){
-		    margin-left: -30px !important;
-		}
-		.joyride-tip-guide:nth-child(11){
-		    margin-top: 5px !important;
-		    margin-left: -20px !important;
-		}
-		.joyride-tip-guide:nth-child(12){
-		    margin-left: -20px !important;
-		}
-		.joyride-tip-guide:nth-child(13){
-			margin-top: 5px !important;
-		    margin-left: -23px !important;
-		}
-		.joyride-tip-guide:nth-child(14){
-			margin-top: 5px !important;
-		    margin-left: -23px !important;
-		}
-		.joyride-tip-guide:nth-child(15){
-			margin-top: 3px !important;
-		    margin-left: -25px !important;
-		}
-		/*End custom joyride*/
 
 		tr td:nth-child(15) a {
 		  background: rgb(66, 151, 215);
@@ -416,10 +387,6 @@ ini_set('display_errors', 1);
 	<script src="../phpgrid/lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>	
 	<script src="../phpgrid/lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 
-	<!-- Run the plugin -->
-    <script type="text/javascript" src="../libraries/joyride/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/modernizr.mq.js"></script>
-    <script type="text/javascript" src="../libraries/joyride/jquery.joyride-2.1.js"></script>
 	<?php
 	if($language == "ar_EG") { ?> <script src="lib/js/jqgrid/js/i18n/grid.locale-ar.js" type="text/javascript"></script>
 	<?php }
@@ -498,6 +465,7 @@ ini_set('display_errors', 1);
 				<h1><?php echo _('List of Students'); ?></h1>
 				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
+				<p> * <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 				<!-- <div class="fright">
 					<a href="import-csv.php" class="link" style="display: inline-block;">Import Teachers</a> |
 					<a href="view-modules.php" class="link" style="display: inline-block;">View Modules</a> | 
@@ -524,7 +492,6 @@ ini_set('display_errors', 1);
 			</div> -->
 			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
-				<p><br/>* <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 			</div>
 		</div>
 	</div>
@@ -545,37 +512,38 @@ ini_set('display_errors', 1);
     </div>	
 
 	</div>
-	<!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-id="jqgh_list1_username" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To update information, you can do any of the following:'); ?></p>
-			<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
-		</li>
-		<li data-class="ui-custom-icon" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:right;tipAnimation:fade">
-			<p>2. <?php echo _('Click the pencil icon <span class="ui-icon ui-icon-pencil"></span> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
-		</li>
-		<li data-class="cbox" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <span class="ui-icon ui-icon-pencil "></span> at the bottom left of the table.'); ?></p>
-		</li>
-		<li data-id="cb_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
-		</li>
-		<li data-id="search_list1" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To search for a record, click the magnifying glass icon <span class="ui-icon ui-icon-search"></span> at the bottom of the table.'); ?></p>
-		</li>
-		<li data-class="ui-icon-extlink" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
-		</li>
-		<li data-id="next_list1_pager" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
-		</li>
-		<li data-class="ui-pg-input" 			data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('Type in the page number and press Enter.'); ?></p>
-		</li>
-		<li data-class="ui-pg-selbox" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
-		</li>
-    </ol>
+
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_top" data-tourtarget="#jqgh_list1_username">
+		<p><?php echo _('To update information, you can do any of the following:'); ?></p>
+		<p>1. <?php echo _('Double click on a cell to update the information then press Enter'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-custom-icon">
+	    <p>2. <?php echo _('Click the pencil icon <small class="ui-icon ui-icon-pencil"></small> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="tr.jqgrow td .cbox">
+	    <p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <small class="ui-icon ui-icon-pencil "></small> at the bottom left of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#cb_list1">
+	    <p>4. <?php echo _('To update a column for multiple students (same information in the same column for multiple students), click the checkbox of multiple rows and click the <strong>Bulk Edit</strong> button at the bottom of the table. A pop up will show. Update only the field/s that you want to update and it will be applied to the students you selected.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="search_list1">
+	    <p><?php echo _('To search for a record, click the magnifying glass icon <small class="ui-icon ui-icon-search"></small> at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-icon-extlink">
+	    <p><?php echo _('To export/save the student list to an Excel file, click the <strong>Excel</strong> button at the bottom of the table.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget="#next_list1_pager">
+	    <p><?php echo _('Go to the next set of students by clicking the left and right arrows; or'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-input">
+	    <p><?php echo _('Type in the page number and press Enter.'); ?></p>
+	  </li>
+	  <li class="tlypageguide_bottom" data-tourtarget=".ui-pg-selbox">
+	    <p><?php echo _('You can also modify the number of students you want to show in a page.'); ?></p>
+	  </li>
+	</ul>
+
 	<!-- start footer -->
 	<div id="footer" <?php if($language == "ar_EG") { ?> dir="rtl" <?php } ?>>
 		<div class="copyright">
@@ -590,6 +558,7 @@ ini_set('display_errors', 1);
 		</div>
 	</div>
 	<!-- end footer -->
+
 	<script>
 	var language;
 	$(document).ready(function() {
@@ -658,27 +627,24 @@ ini_set('display_errors', 1);
 			}
 		}
 	</script> -->
-	<script>
-	function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
 
-	function cdl(event, element){
-		var cdl = confirm('<?php echo _("Are you sure you want to delete this student account?"); ?>');
-		if(!cdl){
-			event.stopPropagation();
+	<?php if($language == "ar_EG") : ?>
+		<script src="../scripts/pageguide.min-ar.js"></script>
+	<?php else : ?>
+		<script src="../scripts/pageguide.min.js"></script>
+	<?php endif; ?>
+
+	<script>
+	    jQuery(document).ready(function() {
+	        var pageguide = tl.pg.init();
+	    });
+
+		function cdl(event, element){
+			var cdl = confirm('<?php echo _("Are you sure you want to delete this student account?"); ?>');
+			if(!cdl){
+				event.stopPropagation();
+			}
 		}
-	}
 	</script>
 </body>
 </html>

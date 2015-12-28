@@ -18,7 +18,7 @@
 
 	$_SESSION['stud_id'] 	= $sid;
 	$_SESSION['mod_id']		= $mid;
-	
+
 	$smc 	= new StudentModuleController();
 	$mc 	= new ModuleController();
 	$ec 	= new ExerciseController();
@@ -55,38 +55,39 @@
 </div>
 
 <div id="content">
-<div class="wrap">
+<div class="wrap module-results">
 		<h1><?php echo _("Module Results"); ?></h1>
-		<div id="pdf-button">
-			<a href="php/generate-result.php" target="_blank"><img src="images/pdf.png" alt="Download PDF" title="Download PDF" /></a>
-			<a href="#" id="email-btn"><img src="images/mail.png" alt="Email PDF" title="Email PDF" /></a>
+		<div id="pdf-button" class="btn">
+			<a class="btn fleft" href="php/generate-result.php" target="_blank"><i class="fa fa-file-pdf-o"></i><?php echo _('PDF'); ?></a>
+			<a id="email-btn" class="btn fleft" href="#"><i class="fa fa-envelope"></i><?php echo _('Email'); ?></a>
 		</div>
+		<div class="clear"></div>
+		<br>
 		<div id="results">
-			
-			<table border="0" id="info">
+			<table border="0" id="info" class="details">
 				<tr>
-					<td class="bold alignright"><?php echo _("Name"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Name"); ?></td>
 					<td><?php echo _($u->getFirstname() . ' ' . $u->getLastname()); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Module"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Module"); ?></td>
 					<td><?php echo _($m->getModule_name()); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Date Started"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Date"); ?></td>
 					<td><?php echo date('F j, Y H:i:s',strtotime($sm['date_started'])); ?></td>
 				</tr>
 				<tr>
-					<td class="bold alignright"><?php echo _("Date Finished"); ?> :&nbsp;&nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Date"); ?></td>
 					<td><?php echo date('F j, Y H:i:s',strtotime($sm['date_finished'])); ?></td>
 				</tr>
 				<tr>
-					<td class="bold"><?php echo _("Score Percentage"); ?> :&nbsp;&nbsp;&nbsp;</td>
-					<td><h2 id="score"></h2></td>
+					<td class="bold"><?php echo _("Score"); ?></td>
+					<td><span id="score"></span></td>
 				</tr>
 			</table>
-			
-			<h3 class="center"><?php echo _("Quick Check Results"); ?></h3><br>
+			<div class="clear"></div>
+			<br><h3><?php echo _("Quick Check Results"); ?></h3><br>
 			<?php foreach ($qc as $exercise) {
 				$eq = $qnc->loadQuestions($exercise['exercise_ID']);
 
@@ -142,9 +143,9 @@
 						<td><?php echo _($question['correct_answer']); ?></td>
 						<td>
 							<?php if($img == 'correct') { ?>
-								<img src="images/correct.png" alt="<?php echo $img; ?>"/>
+								<i class="fa fa-check"></i>
 							<?php } else { ?>
-								<img src="images/wrong.png" alt="<?php echo $img; ?>"/>
+								<i class="fa fa-times"></i>
 							<?php } ?>
 						</td>
 
@@ -235,9 +236,9 @@
 					<td><?php echo _($question['correct_answer']); ?></td>
 					<td>
 						<?php if($img == 'correct') { ?>
-							<img src="images/correct.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-check"></i>
 						<?php } else { ?>
-							<img src="images/wrong.png" alt="<?php echo $img; ?>"/>
+							<i class="fa fa-times"></i>
 						<?php } ?>
 					</td>
 				</tr>
@@ -272,16 +273,13 @@
 				$answer = $mac->getProblemAnswer($sm['student_module_ID'],$problem['meta_ID']);
 			?>
 			<br/>
-			<table border="0" class="valigntop">
+			<table border="0" class="problem-solving">
 				<tr>
-					<td class="bold"><?php echo _("Problem:"); ?> &nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Problem"); ?></td>
 					<td><?php echo _($problem['meta_desc']); ?></td>
 				</tr>
 				<tr>
-					<td colspan="2">&nbsp;</td>
-				</tr>
-				<tr>
-					<td class="bold"><?php echo _("Solution:"); ?> &nbsp;&nbsp;</td>
+					<td class="bold"><?php echo _("Solution"); ?></td>
 					<td><?php echo _($answer); ?></td>
 				</tr>
 			</table>
@@ -312,7 +310,7 @@
 					</tr>
 				</table>
 				<input type="hidden" name="resultcontent" id="emailcontent" value="" />
-				<input name="sendresults" type="submit" value="<?php echo _('Send'); ?>">
+				<input name="sendresults" id="email-send" type="submit" value="<?php echo _('Send'); ?>">
 			</form>
 			</div>
 		</div>

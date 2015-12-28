@@ -16,7 +16,7 @@
 		
 	$lc = new LanguageController();
 	$teacher_languages = $lc->getLanguageByTeacher(1);
-	
+	$languages = $lc->getLanguages();
 ?>
 
 <ul class="lang-menu-n">
@@ -27,8 +27,8 @@
 		<ul>
 			<?php
 			if(!empty($teacher_languages)) :
-				foreach($teacher_languages as $tl) : 
-					$lang = $lc->getLanguage($tl['language_id']);
+				foreach($languages as $tl) : 
+					$lang = $lc->getLanguage($tl['id']);
 			?>
 						<li><a href="<?php echo $_SERVER['PHP_SELF'];?>?lang=<?php echo $lang->getLanguage_code(); ?>" <?php if($_SESSION['lang'] == $lang->getLanguage_code()) { ?> class="active-lang" <?php } ?>><?php echo $lang->getShortcode(); ?></a></li>
 			<?php endforeach; ?>

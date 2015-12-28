@@ -149,7 +149,7 @@ $(document).ready(function() {
 				url		: "../validate-user.php",
 				data	: {	userid: uid },
 				success : function(data) {
-					if(data == 1) { 
+					if(data == 1 && uid != '') { 
 						$('#check').attr('src','../images/accept.png');
 						$('#save').prop('disabled',false);
 					} else { 
@@ -163,60 +163,42 @@ $(document).ready(function() {
 			$('#save').prop('disabled',false);
 		}
 	});
+
 });
 
-$.validate({
-  form : '#edit-account'
-});
 </script>
-      <!-- Tip Content -->
-    <ol id="joyRideTipContent">
-		<li data-id="Username" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Update your <strong>username</strong> to something that you can easily remember. This is optional so you can leave it as it is if you prefer."); ?></p>
-		</li>
-		<li data-id="Password" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Enter a new password. If you do not wish to change the password you used in the free trial form, leave this blank."); ?></p>
-		</li>
-		<li data-id="FirstName" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade;">
-			<p><?php echo _("Enter in your first name"); ?></p>
-		</li>
-		<li data-id="LastName" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Enter in your last name"); ?></p>
-		</li>
-		<li data-id="Gradelevel" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Enter your <strong>grade level</strong>. This should be a number."); ?></p>
-		</li>
-		<li data-id="gender" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Select your <strong>gender</strong>."); ?></p>
-		</li>
-		<li data-id="squestion" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future."); ?></p>
-		</li>
-		<li data-id="sanswer" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Enter the answer to your security question. This is case sensitive."); ?></p>
-		</li>
-		<li data-id="dlang" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _("Choose a language that you want to use for all modules and the dashboard interface."); ?></p>
-		</li>
-		<li data-class="nbtn" 			data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade;">
-			<p><?php echo _("Click this button to save your changes and go to the next page."); ?></p>
-		</li>
-    </ol>
 
-	<script>
-	$.noConflict();
-	  function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
-	</script>
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_left" data-tourtarget="#Username">
+		<p><?php echo _("Update your <strong>username</strong> to something that you can easily remember. This is optional so you can leave it as it is if you prefer."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#Password">
+		<p><?php echo _("Enter a new password. If you do not wish to change the password you used in the free trial form, leave this blank."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#FirstName">
+		<p><?php echo _("Enter in your first name"); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#LastName">
+		<p><?php echo _("Enter in your last name"); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#Gradelevel">
+		<p><?php echo _("Enter your <strong>grade level</strong>. This should be a number."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#gender">
+		<p><?php echo _("Select your <strong>gender</strong>."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#squestion">
+		<p><?php echo _("Choose a security question and enter in your answer for that question. This will be used to change your password if you forget it in the future."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#sanswer">
+		<p><?php echo _("Enter the answer to your security question. This is case sensitive."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#dlang">
+		<p><?php echo _("Choose a language that you want to use for all modules and the dashboard interface."); ?></p>
+	  </li>
+	  <li class="tlypageguide_left" data-tourtarget="#nbtn">
+		<p><?php echo _("Click this button to save your changes and go to the next page."); ?></p>
+	  </li>
+	</ul>
+
 <?php include "footer.php"; ?>

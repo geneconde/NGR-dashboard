@@ -16,7 +16,8 @@
 	$module_set	= $mc->loadModule($mid);
 	
 	$dtc		= new DiagnosticTestController();
-	$tests		= $dtc->getAllModuleTestsByTeacher($mid, $userid);
+	$testsA		= $dtc->getTotalDiagnosticTest($userid, $mid, 1);
+	$testsB		= $dtc->getTotalDiagnosticTest($userid, $mid, 2);
 
 	$sgc		= new StudentGroupController();
 	$groups		= $sgc->getActiveGroups($userid);
@@ -30,11 +31,6 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
-<style>
-	.joyride-tip-guide { width: 22%; }
-	.joyride-tip-guide:nth-child(8) .joyride-content-wrapper { margin-top: -174px !important; }
-</style>
-
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = ''; ?>
@@ -46,194 +42,191 @@
 <div id="content">
 <div class="wrap">
 	<h1><?php echo _($module_set->getModule_name()); ?></h1>
-	<center>
-	<h2><?php echo _("Groups"); ?></h2>
-	<table border="0" class="result morepad">
-		<tr>
-			<th class="bold" id="group"><?php echo _("Group"); ?></th>
-			<th class="bold"><?php echo _("Module Status"); ?></th>
-			<th class="bold"><?php echo _("Pre-test"); ?></th>
-			<th class="bold"><?php echo _("Active?"); ?></th>
-			<th class="bold"><?php echo _("Post-test"); ?></th>
-			<th class="bold"><?php echo _("Active?"); ?></th>
-			<th class="bold"><?php echo _("Action"); ?></th>
-		</tr>
-	<?php
-		if($groups):
-
-		foreach($groups as $group):
-			$gm = $gmc->getModuleGroupByID($group['group_id'], $mid); ?>
-		<tr>
-			<td>
-				<a class="link" href="student-accounts.php"><?php echo $group['group_name']; ?></a>
-			</td>
-			<td class="ta-center">
-				<?php if($gm && $gm[0]['review_active']) :?>
-					<span class="green"><?php echo _("Active"); ?></span>
-				<?php else: ?>
-					<span class="red"><?php echo _("Not Active"); ?></span>
-				<?php endif; ?>
-			</td>
-			<td>
-				<center>
-				<?php 
-					if($gm):
-						$pt = $dtc->getDiagnosticTestByID($gm[0]['pretest_id']);
-						if($pt) echo $pt->getTestName();
-						else echo _("N/A");
-					else:
-						echo _("N/A");
-					endif;
-				?>
-				</center>
-			</td>
-			<td>
-				<center>
-				<?php if($gm && $gm[0]['pre_active']): ?>
-					<span class="green"><?php echo _("Yes"); ?></span>
-				<?php else: ?>
-					<span class="red"><?php echo _("No"); ?></span>
-				<?php endif; ?>
-				</center>
-			</td>
-			<td>
-				<center>
-				<?php
-					if($gm):
-						$pt = $dtc->getDiagnosticTestByID($gm[0]['posttest_id']); 
-						if($pt) echo $pt->getTestName();
-						else echo _("N/A");
-					else:
-						echo _("N/A");
-					endif;
-				?>
-				</center>
-			</td>
-			<td>
-				<center>
-				<?php if($gm && $gm[0]['post_active']): ?>
-					<span class="green"><?php echo _("Yes"); ?></span>
-				<?php else: ?>
-					<span class="red"><?php echo _("No"); ?></span>
-				<?php endif; ?>
-				</center>
-			</td>
-			<td>
-				<?php $action = ($gm ? "edit" : "set"); ?>
-				<a id="edit" class="button1" href="edit-group-module.php?module_id=<?php echo $mid; ?>&group_id=<?php echo $group['group_id']; ?>&action=<?php echo $action; ?>">
-					<?php 
-						if($gm) echo _("Edit");
-						else echo _("Set");
-					?>
-				</a>
-			</td>
-		</tr>
-	<?php 
-			endforeach;
-		else:
-	?>
-		<tr>
-			<td colspan="7"><center><?php echo _("You have not created any groups yet."); ?></center></td>
-		</tr>
-	<?php
-		endif;
-	?>
-	</table>
-	<h2><?php echo _("Pre-Diagnostic Tests"); ?></h2>
-	<table border="0" class="result morepad">
-		<tr>
-			<th class="bold" id="pre-diag"><?php echo _("Test Title"); ?></th>
-			<th class="bold"><?php echo _("# of Questions"); ?></th>
-			<th class="bold"><?php echo _("Action"); ?></th>
-		</tr>
-		<?php 
-			if($tests):
-
-				foreach($tests as $test):
-					if($test['mode'] == 1):
-		?>
-		<tr>
-			<td><?php echo $test['test_name']; ?></td>
-			<td>
-				<center>
-				<?php
-					$count = count(explode(',',$test['qid']));
-					echo $count;
-				?>
-				</center>
-			</td>
-			<td>
-				<a class="button1 pre-link" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
-				<?php echo _("Edit"); ?>
-				</a>
-				<a class="button1 dt-del" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
-				<?php echo _("Delete"); ?>
-				</a>
-			</td>
-		</tr>
-		<?php 
-					endif;
-				endforeach;
-			else:
-		?>
-			<tr>
-				<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
-			</tr>
-		<?php endif; ?>
-	</table>
-	<a class="button1" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?></a>
-	<div class="clear"></div>
+	<p class="dash-message"><?php echo _("This is the Module Settings page. On this page, you can activate this module on groups as well as create, assign, activate and deactivate pre-dianostic tests and post-diagnostic tests."); ?></p>
 	<br>
 
-	<h2><?php echo _("Post-Diagnostic Tests"); ?></h2>
-	<table border="0" class="result morepad">
-		<tr>
-			<th class="bold"  id="post-test"><?php echo _("Test Title"); ?></th>
-			<th class="bold"><?php echo _("# of Questions"); ?></th>
-			<th class="bold"><?php echo _("Action"); ?></th>
-		</tr>
-		<?php 
-			if($tests):
-			
-				foreach($tests as $test):
-					if($test['mode'] == 2):
-		?>
-		<tr>
-			<td><?php echo $test['test_name']; ?></td>
-			<td>
-				<center>
-				<?php
-					$count = count(explode(',',$test['qid']));
-					echo $count;
-				?>
-				</center>
-			</td>
-			<td>
-				<a class="button1 post-link" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
-				<?php echo _("Edit"); ?>
-				</a>
-				<a class="button1 dt-del" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
-				<?php echo _("Delete"); ?>
-				</a>
-			</td>
-		</tr>
-		<?php 
-					endif;
-				endforeach;
-			else:
-		?>
-			<tr>
-				<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
-			</tr>
-		<?php endif; ?>
-	</table>
-	<a class="button1" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?></a>
+	<div class="fleft dotted-border">
+		<button class="btn-portfilter active" data-toggle="portfilter" data-target="<?php echo _('Group Activation'); ?>"><?php echo _('Group Activation'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Pre-diagnostic tests'); ?>"><?php echo _('Pre-diagnostic tests'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Post-diagnostic tests'); ?>"><?php echo _('Post-diagnostic tests'); ?></button>
+	</div>
+
 	<div class="clear"></div>
-	<br>
-	<?php if ($user->getType() == 4) { ?>
-		<a class="button1" href="add-dt-question.php?module_id=<?php echo $mid; ?>&f=0"><?php echo _("Add questions to this module"); ?></a>
-	<?php } ?>
-	</center>
+
+	<ul class="thumbnails gallery module-settings">
+		<li class="clearfix settings-group" data-tag='<?php echo _("Group Activation"); ?>'>
+			<h2><?php echo _("Group Activation"); ?></h2>
+			<div class="search-container">
+				<input type="text" class="search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+				<span><?php echo _('Type group names and test names. You can also filter by typing "Module Inactive", "Pre-test Active", etc.'); ?></span>
+			</div>
+			<table border="0" class="result morepad" id="group-table">
+				<thead>
+				<tr>
+					<th class="bold" id="group"><?php echo _("Group Name"); ?></th>
+					<th class="bold"><?php echo _("Module Status"); ?></th>
+					<th class="bold"><?php echo _("Pre-test"); ?></th>
+					<th class="bold"><?php echo _("Post-test"); ?></th>
+					<th class="bold"><?php echo _("Action"); ?></th>
+				</tr>
+				</thead>
+				<tbody>
+			<?php
+				if($groups):
+
+				foreach($groups as $group):
+					$gm = $gmc->getModuleGroupByID($group['group_id'], $mid); ?>
+				<tr>
+					<td>
+						<a class="link-group" href="student-accounts.php"><?php echo $group['group_name']; ?></a>
+					</td>
+					<td class="ta-center">
+						<div class="fleft status-buttons">
+							<div class="<?php echo ($gm && $gm[0]['review_active'] ? 'status-active' : 'status-inactive'); ?>"><?php echo ($gm && $gm[0]['review_active'] ? _('Module Active') : _('Module Inactive')); ?></div>
+						</div>
+					</td>
+					<td>
+						<div class="fleft status-buttons">
+							<div class="<?php echo ($gm && $gm[0]['pre_active'] ? 'status-active' : 'status-inactive'); ?>"><?php echo ($gm && $gm[0]['pre_active'] ? _('Pre-Test Active') : _('Pre-Test Inactive')); ?></div>
+						</div>
+					</td>
+					<td>
+						<div class="fleft status-buttons">
+							<div class="<?php echo ($gm && $gm[0]['post_active'] ? 'status-active' : 'status-inactive'); ?>"><?php echo ($gm && $gm[0]['post_active'] ? _('Post-Test Active') : _('Post-Test Inactive')); ?></div>
+						</div>
+					</td>
+					<td>
+						<?php $action = ($gm ? "edit" : "set"); ?>
+						<a id="edit" class="button1 cool-btn" href="edit-group-module.php?module_id=<?php echo $mid; ?>&group_id=<?php echo $group['group_id']; ?>&action=<?php echo $action; ?>">
+							<?php 
+								if($gm) echo _("Edit");
+								else echo _("Set");
+							?>
+						</a>
+					</td>
+				</tr>
+			<?php 
+					endforeach;
+				else:
+			?>
+				<tr>
+					<td colspan="7"><center><?php echo _("You have not created any groups yet."); ?></center></td>
+				</tr>
+			<?php
+				endif;
+			?>
+				</tbody>
+			</table>
+		</li>
+
+		<li class="clearfix settings-pre" data-tag='<?php echo _("Pre-diagnostic tests"); ?>'>
+			<h2><?php echo _("Pre-Diagnostic Tests"); ?></h2>
+			<a class="button1 create-test-btn" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=pre&action=new"><?php echo _("Create Pre-Diagnostic Test"); ?></a>
+			<div class="search-container">
+				<input type="text" class="search pre-test-search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+			</div>
+			<table border="0" class="result morepad">
+				<thead>
+					<tr>
+						<th class="bold" id="pre-diag"><?php echo _("Test Title"); ?></th>
+						<th class="bold"><?php echo _("# of Questions"); ?></th>
+						<th class="bold"><?php echo _("Action"); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if($testsA): ?>
+						<?php foreach($testsA as $test): ?>
+					<tr>
+						<td><?php echo $test['test_name']; ?></td>
+						<td>
+							<center>
+							<?php
+								$count = count(explode(',',$test['qid']));
+								echo $count;
+							?>
+							</center>
+						</td>
+						<td>
+							<a class="button1 pre-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
+								<span>
+									<i class="fa fa-pencil-square-o"></i>
+									<!-- <?php echo _("Edit"); ?> -->
+								</span>
+							</a>
+							<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
+								<span>
+									<i class="fa fa-trash-o"></i>
+									<!-- <?php echo _("Delete"); ?> -->
+								</span>
+							</a>
+						</td>
+					</tr>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						</tr>
+					<?php endif; ?>
+				</tbody>
+			</table>
+		</li>
+
+		<li class="clearfix settings-post" data-tag='<?php echo _("Post-diagnostic tests"); ?>'>
+			<h2><?php echo _("Post-Diagnostic Tests"); ?></h2>
+			<a class="button1 create-test-btn" href="dt-item.php?module_id=<?php echo $mid; ?>&mode=post&action=new"><?php echo _("Create Post-Diagnostic Test"); ?></a>
+			<div class="search-container">
+				<input type="text" class="search pre-test-search" id="search-table" placeholder="<?php echo _('Search...'); ?>">
+			</div>
+			<table border="0" class="result morepad">
+				<thead>
+					<tr>
+						<th class="bold"  id="post-test"><?php echo _("Test Title"); ?></th>
+						<th class="bold"><?php echo _("# of Questions"); ?></th>
+						<th class="bold"><?php echo _("Action"); ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php if($testsB): ?>
+						<?php foreach($testsB as $test): ?>
+					<tr>
+						<td><?php echo $test['test_name']; ?></td>
+						<td>
+							<center>
+							<?php
+								$count = count(explode(',',$test['qid']));
+								echo $count;
+							?>
+							</center>
+						</td>
+						<td>
+							<a class="button1 post-link cool-btn" href="dt-item.php?dtid=<?php echo $test['dt_id']; ?>&action=edit" data-id="<?php echo $test['dt_id']; ?>">
+								<span>
+									<i class="fa fa-pencil-square-o"></i>
+									<!-- <?php echo _("Edit"); ?> -->
+								</span>
+							</a>
+							<a class="button1 danger-btn" href="delete-dt.php?dtid=<?php echo $test['dt_id']; ?>&module_id=<?php echo $mid; ?>&mode=pre">
+								<span>
+									<i class="fa fa-trash-o"></i>
+									<!-- <?php echo _("Delete"); ?> -->
+								</span>
+							</a>
+						</td>
+					</tr>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<tr>
+							<td colspan="3"><center><?php echo _("You have not created any tests yet."); ?></center></td>
+						</tr>
+					<?php endif; ?>
+				</tbody>
+			</table>
+		</li>
+		<br>
+		<?php if ($user->getType() == 4) { ?>
+			<a class="button1" href="add-dt-question.php?module_id=<?php echo $mid; ?>&f=0"><?php echo _("Add questions to this module"); ?></a>
+		<?php } ?>
+	</ul>
 	<div class="clear"></div>
 </div>
 <script>
@@ -275,10 +268,10 @@ $(document).ready(function() {
 	});
 });
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="group" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _("In this page, you can initiate actions to activate/deactivate the module, as well as the pre and post diagnostic tests, for a group. The columns are defined as follows:"); ?></p>
+
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_left" data-tourtarget="#group">
+    <p><?php echo _("In this page, you can initiate actions to activate/deactivate the module, as well as the pre and post diagnostic tests, for a group. The columns are defined as follows:"); ?></p>
 		<ul style="padding-left: 20px; font-size: 14px;">
 			<li><?php echo _("Group - student group's name"); ?></li>
 			<li><?php echo _("Module Status - indicates whether a module is active or not"); ?></li>
@@ -288,35 +281,40 @@ $(document).ready(function() {
 			<li><?php echo _("Active? - indicates whether the post-diagnostic test is active or not"); ?></li>
 			<li><?php echo _("Action - shows either <strong>Set</strong> or <strong>Edit</strong> button to activate/deactivate the module, pre-test and post-test. You can also set the time limit for both tests."); ?></li>
 		</ul>
-		<p></p>
-	</li>
-	<li data-id="edit" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to <strong>Set</strong> or <strong>Edit</strong> the settings of the module, pre-diagnostic test and post-diagnostic test for a group."); ?></p>
-	</li>
-	<li data-id="pre-diag" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _("This table shows the available pre-diagnostic tests for this module that you have created. You can create several pre-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one pre-diagnostic test."); ?></p>
-		<p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
-		<p><?php echo _("To create a pre-diagnostic test, click the <strong>Create Pre-Diagnostic Test</strong> button."); ?></p>
-	</li>
-	<li data-id="post-test" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:left;tipAnimation:fade">
-		<p><?php echo _("This table shows the available post-diagnostic tests for this module that you have created. You can create several post-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one post-diagnostic test."); ?></p>
-		<p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
-		<p><?php echo _("To create a post-diagnostic test, click the <strong>Create Post-Diagnostic Test</strong> button."); ?></p>
-	</li>
-</ol>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#edit">
+    <p><?php echo _("Click this button to <strong>Set</strong> or <strong>Edit</strong> the settings of the module, pre-diagnostic test and post-diagnostic test for a group."); ?></p>
+  </li>
+  <li class="tlypageguide_left" data-tourtarget="#pre-diag">
+    <p><?php echo _("This table shows the available pre-diagnostic tests for this module that you have created. You can create several pre-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one pre-diagnostic test."); ?></p>
+    <p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
+    <p><?php echo _("To create a pre-diagnostic test, click the <strong>Create Pre-Diagnostic Test</strong> button."); ?></p>
+  </li>
+  <li class="tlypageguide_left" data-tourtarget="#post-test">
+    <p><?php echo _("This table shows the available post-diagnostic tests for this module that you have created. You can create several post-diagnostic tests so that you can create different tests for different student groups. The table also shows the number of questions included in the test. Please note that each student (or student group) can take only one post-diagnostic test."); ?></p>
+	<p><?php echo _("You can click the <strong>Edit</strong> or <strong>Delete</strong> button (in the Action column) to update or delete a test. Please note that if you delete a test and students have already taken it, the data of the students will be deleted as well."); ?></p>
+	<p><?php echo _("To create a post-diagnostic test, click the <strong>Create Post-Diagnostic Test</strong> button."); ?></p>
+  </li>
+</ul>
+
 <script>
-  	function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-  	}
+	$('.btn-portfilter').click(function () {
+		$('.btn-portfilter').removeClass('active');
+		$(this).addClass('active');
+
+		$('#tlyPageGuideWrapper #tlyPageGuideMessages .tlypageguide_close').trigger('click');
+	});
+
+	$(".search").keyup(function(){
+        _this = this;
+        $.each($("table tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
+    });
 </script>
+<script src="scripts/bootstrap-portfilter.min.js"></script>
 <?php require_once "footer.php"; ?>

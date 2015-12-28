@@ -72,16 +72,22 @@
 	$mode		= $dt_set->getMode();
 	$mid		= $dt_set->getModuleid();
 ?>
-<style> #dbguide { display: none; } </style>
-<div id="container">
-<?php if($_GET['page']=="comparative") { ?>
-<a class="link back" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back to Students Comparative Results"); ?></a>
-<?php } else if($_GET['page']=="all") { ?>
-<a class="link back" href="all-students-ct-results.php">&laquo; <?php echo _("Go Back to Students Cumulative Results"); ?></a>
-<?php } ?>
-<br><br>
-<?php
 
+<div class="top-buttons">
+	<div class="wrap">
+		<?php $active = ''; ?>
+		<?php include "menu.php"; ?>
+		<?php if($_GET['page']=="comparative") { ?>
+		<a class="link back" href="all-students-results.php?gid=<?php echo $gid; ?>&mid=<?php echo $mid; ?>">&laquo; <?php echo _("Go Back"); ?></a>
+		<?php } else if($_GET['page']=="all") { ?>
+		<a class="link back" href="all-students-ct-results.php">&laquo; <?php echo _("Go Back"); ?></a>
+		<?php } ?>
+	</div>
+</div>
+
+<div id="content">
+<div class="wrap">
+<?php
 if($language == "ar_EG") {
 	echo "
 	<script>
@@ -99,12 +105,14 @@ if($language == "ar_EG") {
 }
 
 ?>
-<h1><?php echo _("Diagnostic Question Item Statistics"); ?>
-<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
-<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
-<h3><?php echo _("Question Item Information"); ?></h3>
-<br/>
-<table border="0" class="result morepad">
+<h1><?php echo _("Diagnostic Question Item Statistics"); ?></h1>
+<div class="btn">
+	<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+</div>
+<div class="clear"></div>
+<h3 class="result-title"><?php echo _("Question Item Information"); ?></h3>
+
+<table border="0" class="result morepad dt-stat">
 	<tr>
 		<td class="bold"><?php echo _("Diagnostic Test Title"); ?></td>
 		<td>
@@ -136,8 +144,7 @@ if($language == "ar_EG") {
 		<td><?php echo $answer; ?></td>
 	</tr>
 </table>
-<h3><?php echo _("Student Answer Statistics"); ?></h3>
-<br/>
+<h3 class="result-title"><?php echo _("Student Answer Statistics"); ?></h3>
 <p><?php echo _("The following pie chart shows the students' answers for this question and how many answered each question item's choices."); ?></p>
 <div id="piechart1" style="width: 100%; height: 350px;"></div>
 <br>
@@ -145,13 +152,31 @@ if($language == "ar_EG") {
 <br/>
 </div>
 <?php
-	   
+$tempChart1 = array();
 foreach($choices as $choice):
 	$ch = array($choice['order'].". "._($choice['choice']), $answers[$choice['order']]);
 	array_push($arr, $ch);
+	array_push($tempChart1, $choice['order']);
 endforeach;
 
 $piedata1 = json_encode($arr);
+$temoC = json_encode($tempChart1);
+$temp = str_replace('[["",""],', '', $temoC);
+$temp = str_replace('[', '', $temp);
+$temp = str_replace(']', '', $temp);
+$arr2 = explode(",", $temp);
+$arrTemp = array();
+
+foreach ($arr2 as $value) {
+	if(is_numeric($value)) unset($value);
+	else array_push($arrTemp, $value); 
+}
+if(in_array('"'._($answer).'"', $arrTemp)){
+	$index = array_search('"'._($answer).'"', $arrTemp);
+}
+foreach ($arr2 as $value) {
+	if(is_numeric($value)) unset($value);
+}
 
 $arr	= 	array(
 				array('',''),
@@ -167,8 +192,12 @@ $piedata2 = json_encode($arr);
       function drawChart() {
         var data1 = google.visualization.arrayToDataTable(<?php echo $piedata1; ?>);
 		var data2 = google.visualization.arrayToDataTable(<?php echo $piedata2; ?>);
-        var options1 = { is3D: true };
-		var options2 = { is3D: true, colors: ['green', 'firebrick'] }
+        var options1 = { is3D: true, colors: ['#FF0000','#FF3030','#FF4040','#FF6666','#FFC1C1'],
+	        	slices: {
+		            <?php echo $index; ?>: { color: 'green' },
+		        }
+	        };
+		var options2 = { is3D: true, colors: ['green', 'red'] }
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
 		var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
 		

@@ -50,7 +50,7 @@
     background-color: #C2C2C2;
     color: #444444;
 }
-.back {
+.nbtn.back {
     float: left;
 }
 .left {
@@ -85,6 +85,7 @@
 .input-label {
     font-size: 15px;
     margin-bottom: 3px;
+    width: 189px;
 }
 .sup {
     margin-top: 15px;
@@ -183,4 +184,10 @@ table.modules {
     line-height: -10px !important;
     color: #A9A9A9 !important;
     font-weight: bold;
+}
+td.category {
+    font-size: 25px;
+    text-align: left;
+    padding-top: 25px;
+    text-transform: uppercase;
 }

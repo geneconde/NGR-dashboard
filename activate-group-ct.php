@@ -5,6 +5,11 @@
 	include_once 'controller/StudentCt.Controller.php';
 	include_once 'controller/StudentGroup.Controller.php';
 
+	if($language == "ar_EG") $lang = "-ar";
+	else if($language == "es_ES") $lang = " spanish";
+	else if($language == "zh_CN") $lang = " chinese";
+	else if($language == "en_US") $lang = "";
+
 	$userid 	= $user->getUserid();
 	$ctid 		= $_GET['ctid'];
 
@@ -26,12 +31,10 @@
 
 <div id="content">
 <div class="wrap">
-	<center>
-	<br><br>
-	<h2><?php echo _("Cumulative Test Activation"); ?></h2>
-	<?php if (isset($_GET['m']) && $_GET['m'] == 1) echo '<p class="green">Cumulative Test activated for selected groups below.</p>'; ?>
+	<h1><?php echo _("Cumulative Test Activation"); ?></h1>
+	<?php if (isset($_GET['m']) && $_GET['m'] == 1) echo '<p class="green" style="padding: 10px 0">'._('Cumulative Test activated for selected groups below.').'</p>'; ?>
 	<form action="activate-ct.php?ctid=<?php echo $ctid; ?>" method="post">
-		<table border="0" class="result morepad">
+		<table border="0" class="result morepad activate-group-ct">
 			<tr>
 				<th><?php echo _("Group Name"); ?></th>
 				<th id="gcheck"><?php echo _("Activate"); ?></th>
@@ -48,9 +51,13 @@
 							<tr>
 								<td><?php echo $group['group_name']; ?></td>
 								<td>
-									<center>
-										<input type="checkbox" <?php echo $checked; ?> name="groups[<?php echo $group['group_id']; ?>]" class="activate" data-gid="<?php echo $group['group_id']; ?>">
-									</center>
+									<div class="onoffswitch">
+										<input type="checkbox" name="groups[<?php echo $group['group_id']; ?>]" class="onoffswitch-checkbox activate" id="groups[<?php echo $group['group_id']; ?>]" data-gid="<?php echo $group['group_id']; ?>" <?php echo $checked; ?>>
+										<label class="onoffswitch-label" for="groups[<?php echo $group['group_id']; ?>]">
+											<div class="onoffswitch-inner<?php echo $lang; ?>" ></div>
+											<div class="onoffswitch-switch<?php echo ($lang == '-ar' ? $lang : ''); ?>"></div>
+										</label>
+									</div>
 								</td>
 							</tr>
 			<?php
@@ -58,9 +65,11 @@
 					
 				endforeach;
 			?>
-		<table>
-		<input id="activate" type="submit" class="button1" value="<?php echo _('Activate Cumulative Test'); ?>">
+		</table>
+		<input id="activate" type="submit" class="button1 save-changes" value="<?php echo _('Save Changes'); ?>">
+		<a href="ct-test.php" class="button1 cancel-changes"><?php echo _("Cancel"); ?></a>
 	</form>
+</div>
 </div>
 <script>
 (function(){
@@ -93,28 +102,14 @@
 	});
 })();
 </script>
-<!-- Tip Content -->
-<ol id="joyRideTipContent">
-	<li data-id="gcheck" 		data-text="<?php echo _('Next'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
-	</li>
-	<li data-id="activate" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-		<p><?php echo _("Click this button to save your changes."); ?></p>
-	</li>
-</ol>
 
-<script>
-  function guide() {
-  	$('#joyRideTipContent').joyride({
-      autoStart : true,
-      postStepCallback : function (index, tip) {
-      if (index == 10) {
-        $(this).joyride('set_li', false, 1);
-      }
-    },
-    'template' : {
-        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-      }
-    });
-  }
-</script>
+<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+  <li class="tlypageguide_right" data-tourtarget="#gcheck">
+    <p><?php echo _("This column lists the student groups that the cumulative test is activated for."); ?></p>
+  </li>
+  <li class="tlypageguide_right" data-tourtarget="#activate">
+    <p><?php echo _("Click this button to save your changes."); ?></p>
+  </li>
+</ul>
+
+<?php require_once "footer.php"; ?>

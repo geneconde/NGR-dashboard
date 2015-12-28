@@ -42,6 +42,14 @@ class DtQuestionController {
 		return $result;
 	}
 
+	public function getModules() {
+		$db = new DB();
+		$db->connect();
+		$result = $db->selectDistinct("dt_pool", null, 'module_id', null);
+		$db->disconnect();		
+		return $result;
+	}
+
 	public function getDTPool($mid) {
 		$where = array();
 		$where['module_id'] = $mid;

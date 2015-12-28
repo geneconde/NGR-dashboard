@@ -69,7 +69,7 @@
 </div>
 
 <div id="content">
-<div class="wrap">
+<div class="wrap ct-stat">
 <?php
 if($language == "ar_EG") {
 	echo "
@@ -89,23 +89,22 @@ if($language == "ar_EG") {
 
 ?>
 
-<h1><?php echo _("Question Item Statistics"); ?>
-<a href="http://www.printfriendly.com" style="float: right; color:#6D9F00;text-decoration:none;" class="printfriendly" onclick="window.print();return false;" title="Printer Friendly and PDF">
-<img style="border:none;-webkit-box-shadow:none;box-shadow:none;" src="http://cdn.printfriendly.com/button-print-grnw20.png" alt="Print Friendly and PDF"/></a></h1>
-<h3><?php echo _("Question Item Information"); ?></h3>
-<br/>
-<table border="0" class="result morepad">
+<h1><?php echo _("Question Item Statistics"); ?></h1>
+<div class="btn">
+	<a href="http://www.printfriendly.com" id="print" class="btn fleft" onclick="window.print();return false;" title="Printer Friendly and PDF"><span><i class="fa fa-print"></i><?php echo _('Print'); ?></span></a>
+</div>
+<div class="clear"></div>
+
+<h3 class="result-title"><?php echo _("Question Item Information"); ?></h3>
+
+<table border="0" class="result morepad details">
 	<tr>
-		<td class="bold"><?php echo _("Test Title"); ?>:</td>
-		<td>
-			<?php echo _("Cumulative Test"); ?>
-		</td>
+		<td class="bold"><?php echo _("Test Title"); ?></td>
+		<td><?php echo _("Cumulative Test"); ?></td>
 	</tr>
 	<tr>
 		<td class="bold"><?php echo _("Question"); ?></td>
-		<td>
-			<?php echo _($question[0]['question']); ?>
-		</td>
+		<td><?php echo _($question[0]['question']); ?></td>
 	</tr>
 	<tr>
 		<td class="bold vtop"><?php echo _("Choices"); ?></td>
@@ -122,8 +121,8 @@ if($language == "ar_EG") {
 		<td><?php echo $answer; ?></td>
 	</tr>
 </table>
-<h3><?php echo _("Student Answer Statistics"); ?></h3>
-<br/>
+
+<h3 class="result-title"><?php echo _("Student Answer Statistics"); ?></h3>
 <p><?php echo _("The pie chart below shows the students' answers to the question and the percentage for each selected letter choice."); ?></p>
 <div id="piechart1" style="width: 100%; height: 350px;"></div>
 <br>

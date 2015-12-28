@@ -22,7 +22,6 @@
 <div id="content">
 	<div class="wrap">
 		<br><br>
-		<center>
 		<h2><?php echo _("Student Groups"); ?></h2>
 		<table border="0" class="result morepad">
 			<tr>
@@ -32,32 +31,16 @@
 			<?php foreach($groups as $group): ?>
 			<tr>
 				<td><?php echo $group['group_name']; ?></td>
-				<td id="result"><a class="button1" href="student-results.php?gid=<?php echo $group['group_id']; ?>&mid=<?php echo $mid; ?>"><?php echo _("View Results"); ?></a></td>
+				<td id="result"><a class="button1 cool-btn" href="student-results.php?gid=<?php echo $group['group_id']; ?>&mid=<?php echo $mid; ?>"><?php echo _("View Results"); ?></a></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>
-		</center>
 	</div>
-	<!-- Tip Content -->
-	<ol id="joyRideTipContent">
-		<li data-id="result" 		data-text="<?php echo _('Close'); ?>" data-options="tipLocation:top;tipAnimation:fade">
-			<p><?php echo _('Click this button to view the module and test results of a student group.'); ?></p>
-		</li>
-	</ol>
 
-	<script>
-	  function guide() {
-	  	$('#joyRideTipContent').joyride({
-	      autoStart : true,
-	      postStepCallback : function (index, tip) {
-	      if (index == 10) {
-	        $(this).joyride('set_li', false, 1);
-	      }
-	    },
-	    'template' : {
-	        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-	      }
-	    });
-	  }
-	</script>
+	<ul id="tlyPageGuide" data-tourtitle="Step by Step Page Guide">
+	  <li class="tlypageguide_right" data-tourtarget="#result">
+	    <p><?php echo _("Click this button to view the module and test results of a student group."); ?></p>
+	  </li>
+	</ul>
+
 <?php require_once "footer.php"; ?>

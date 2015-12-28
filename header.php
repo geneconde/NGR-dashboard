@@ -5,8 +5,9 @@
 	if (isset($_SESSION['uname'])) {
 		$type = $user->getType();
 		$lc = new LanguageController();
+		$userid = $user->getUserid();
 		$teacher_id = $user->getUserid();
-		if($type=2) $teacher_id = $user->getTeacher();
+		if($type==2) { $teacher_id = $user->getTeacher(); }
 		$languages = $lc->getAllLanguages();
 		$teacher_languages = $lc->getLanguageByTeacher($teacher_id);
 		$ufl = $user->getFirstLogin();
@@ -21,8 +22,14 @@
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link rel="stylesheet" type="text/css" href="styles/layerslider.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.countdown.css" />
-<link rel="stylesheet" href="libraries/joyride/joyride-2.1.css">
 <link rel="stylesheet" type="text/css" href="lgs.css">
+<link rel="stylesheet" type="text/css" href="styles/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="styles/font-awesome.min.css">
+<?php if($language == "ar_EG") : ?>
+	<link rel="stylesheet" href="styles/pageguide.min-ar.css" />
+<?php else : ?>
+	<link rel="stylesheet" href="styles/pageguide.min.css" />
+<?php endif; ?>
 
 <script type="text/javascript" src="scripts/jquery-1.8.3.min.js" ></script>
 <script type="text/javascript" src="scripts/jquery.dataTables.min.js"></script>
@@ -31,18 +38,16 @@
 <script type="text/javascript" src="scripts/jquery-ui.js"></script>
 <script type="text/javascript" src="scripts/jquery.plugin.js"></script>
 <script type="text/javascript" src="scripts/jquery.countdown.js"></script>
-<script type="text/javascript" src="libraries/joyride/jquery.cookie.js"></script>
-<script type="text/javascript" src="libraries/joyride/modernizr.mq.js"></script>
-<script type="text/javascript" src="libraries/joyride/jquery.joyride-2.1.js"></script>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();</script>
+<script>var pfHeaderImgUrl = '';var pfHeaderTagline = '';var pfdisableClickToDel = 0;var pfHideImages = 0;var pfImageDisplayStyle = 'block';var pfDisablePDF = 0;var pfDisableEmail = 0;var pfDisablePrint = 0;var pfCustomCSS = '';var pfBtVersion='1';(function(){var js, pf;pf = document.createElement('script');pf.type = 'text/javascript';if('https:' == document.location.protocol){js='https://pf-cdn.printfriendly.com/ssl/main.js'}else{js='http://cdn.printfriendly.com/printfriendly.js'}pf.src=js;document.getElementsByTagName('head')[0].appendChild(pf)})();
+</script>
 
 </head>
 <body>
 <div id="header">
 	<div class="wrap">
-		<a class="logo fleft" href="<?php echo $link; ?>"><img src="images/logo2.png"></a>
+		<a class="logo fleft" href="index.php"><img src="images/logo.png"></a>
 		<?php if (isset($user)) {
 			$type = $user->getType();
 		?>
@@ -51,10 +56,10 @@
 				<?php if($ufl == 1) : ?>
 				<span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <a class="link" id="logout" href="logout.php"><?php echo _("Logout?"); ?></a>
 				<?php else : ?>
-				<span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <?php if($type==0) { ?><a class="link" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a><?php } ?> | <a class="link" id="logout" href="logout.php"><?php echo _("Logout?"); ?></a>
+				<span class="note"><?php echo _("Welcome"); ?></span>, <span class="upper bold"><?php echo $user->getUsername(); ?></span>! <?php if($type==0) { ?><a id="my-account" class="link" href="edit-account.php?user_id=<?php echo $userid; ?>"/><?php echo _("Manage My Account"); ?></a><?php } ?> | <a class="link" id="logout" href="logout.php"><?php echo _("Logout?"); ?></a>
 				<?php endif; ?>
 			</div>
-			<div class="languages">
+			<div class="languages fright">
 				<?php if(!empty($teacher_languages)) :
 					foreach($teacher_languages as $tl) : 
 						$lang = $lc->getLanguage($tl['language_id']); ?>

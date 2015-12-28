@@ -24,10 +24,6 @@
 		}
 	}
 ?>
-<style>
-	span.form-error { position: absolute; margin-top: 3px; font-size: 12px !important; }
-	.guide { display: none; }
-</style>
 
 <div class="top-buttons">
 	<div class="wrap">
@@ -39,37 +35,27 @@
 
 <div id="content">
 <div class='wrap'>
-<br><br>
 <form method="post" id="change-pw" action=""><!-- save-pw.php?user_id=<?php echo $userid; ?> -->
-	<center>
-		<table>
+		<h2 class="info-title"><?php echo _("Change Password"); ?></h2>
+		<table class='details'>
 			<?php 
 				if(isset($_GET['s'])) { ?>
 					<tr>
 						<td colspan="2">
-			<?php	if($_GET['s'] == 1) { ?>
+			<?php if($_GET['s'] == 1) { ?>
 							<center><span class='green'><?php echo _("You have successfully changed your password."); ?></span></center>
-			<?php 	} else if ($_GET['s'] == 0) { ?>
+			<?php } else if ($_GET['s'] == 0) { ?>
 							<center><span class='red'><?php echo _("Incorrect password."); ?></span></center>
-			<?php 	} else if ($_GET['s'] == 2) { ?>
+			<?php } else if ($_GET['s'] == 2) { ?>
 							<center><span class='red'><?php echo _("Password must differ from old password."); ?></span></center>
-			<?php 	} ?>
+			<?php } ?>
 						</td>
 					</tr>
-			<?php 
-				} 
-			?>	
+			<?php } ?>
 			<tr>
 				<td colspan="2">
 					<center>
-						<strong><?php echo _("Change Password"); ?></strong>
-					</center>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<center>
-						<p>Please copy the password somewhere so you have a copy of it.</p>
+						<p><?php echo _("Please copy the password somewhere so you have a copy of it."); ?></p>
 					</center>
 				</td>
 			</tr>
@@ -97,16 +83,8 @@
 					<input type="password" name="confirm" id="confirm" data-validation="confirmation">
 				</td>
 			</tr>
-			<tr>
-				<td colspan="2">
-					<br>
-					<center>
-						<input id="edit" class="button1" type="submit" name="edit" id="cpw" value="<?php echo _("Change Password"); ?>">
-					</center>
-				</td>
-			</tr>
 		</table>
-	</center>
+		<input id="edit" class="button1 save-changes" type="submit" name="edit" id="cpw" value="<?php echo _("Change Password"); ?>">
 </form>
 </div>
 <script>
@@ -119,7 +97,6 @@ $(document).ready(function() {
 	});
 });
 
-$.noConflict();
 $.validate({
   form : '#change-pw'
 });
