@@ -478,6 +478,7 @@ ini_set('display_errors', 1);
 	function create_account($data) 
 	{
 		$data["params"]["username"] = trim($data["params"]["username"]);
+		$data["params"]["password"] = "123456";
 		// phpgrid_error(print_r($data["params"]));
 	}
 	function update_client($data) 

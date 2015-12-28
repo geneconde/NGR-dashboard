@@ -424,6 +424,7 @@ ini_set('display_errors', 1);
 			<a class="uppercase fright manage-box active" href="manage-students.php" id="student-accounts"/><?php echo _("Student Accounts"); ?></a>
 			<a class="uppercase fright manage-box" href="../student-accounts.php" id="student-groups"/><?php echo _("Student Groups"); ?></a>
 			<a class="uppercase fright manage-box" href="../ct-test.php" id="cumulative-test"><?php echo _("Cumulative Test"); ?></a>
+		<a class="uppercase fright manage-box <?php echo ($active=='question-library' ? 'active' : ''); ?>" href="../question-library.php"><?php echo _("Test Item Library"); ?></a>
 			<a class="uppercase fright manage-box" href="../dt-test.php" id="diagnostic-test"><?php echo _("Diagnostic Test"); ?></a>
 			<a class="uppercase fright manage-box" href="../teacher.php" id="dashboard"><?php echo _("Dashboard"); ?></a>
 		</div>
