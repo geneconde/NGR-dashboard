@@ -92,7 +92,7 @@ if($language == "ar_EG") {
 <?php foreach ($eq as $question) { ?>
 <h3 class="result-title"><?php echo _("Question") . " " . _($question['section']); ?> - <?php echo _($question['title']); ?></h3>
 <?php echo _("Correct Answer"); ?>: <span class="green bold upper"><?php echo _($question['correct_answer']); ?> </span><br/>
-<div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div>
+<!-- <div id="<?php echo 'q1_'.$question['section'].$question['title']; ?>" class="pchart p1"></div> -->
 <div id="<?php echo 'q2_'.$question['section'].$question['title']; ?>" class="pchart p2"></div>
 <div class="clear"></div>
 <?php } ?>
@@ -126,10 +126,10 @@ if($language == "ar_EG") {
 				$arr = array(array('Tst','t'),array(_('Correct'), $c),array(_('Wrong'), $w));
 				$cwpie = json_encode($arr);
 		?>
-		data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
-		options = { is3D: true, colors: ['green', 'red'], title: '<?php echo _("Correct and Wrong Statistics"); ?>' }
-		chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q1_'.$question['section'].$question['title']; ?>'));
-		chart.draw(data, options);
+		// data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
+		// options = { is3D: true, colors: ['green', 'red'], title: '<?php echo _("Correct and Wrong Statistics"); ?>' }
+		// chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q1_'.$question['section'].$question['title']; ?>'));
+		// chart.draw(data, options);
 		
 		<?php 
 			$uniques = array_count_values($values);
