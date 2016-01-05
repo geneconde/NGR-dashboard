@@ -305,7 +305,7 @@ $main_view = $grid->render("list1");
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="lib/js/themes/redmond/jquery-ui.custom.css"></link>	
+	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/custom/jquery-ui.custom.css"></link>
 	<link rel="stylesheet" type="text/css" media="screen" href="lib/js/jqgrid/css/ui.jqgrid.css"></link>	
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
@@ -416,7 +416,7 @@ $main_view = $grid->render("list1");
 	  <li class="tlypageguide_bottom" data-tourtarget=".ui-custom-icon">
 	    <p>2. <?php echo _('Click the pencil icon <small class="ui-icon ui-icon-pencil"></small> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 	  </li>
-	  <li class="tlypageguide_bottom" data-tourtarget="tr.jqgrow td .cbox">
+	  <li class="tlypageguide_left" data-tourtarget="tr.jqgrow td .cbox">
 	    <p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <small class="ui-icon ui-icon-pencil "></small> at the bottom left of the table.'); ?></p>
 	  </li>
 	  <li class="tlypageguide_left" data-tourtarget="#cb_list1">

@@ -49,11 +49,15 @@
 	<p><?php echo _("This page shows all tests and modules taken by the student."); ?></p>
 	<br>
 	<h3><?php echo _("Cumulative Tests"); ?></h3>
-	<table border="0" class="result morepad">
-		<tr>
-			<th><?php echo _("Test Name"); ?></th>
-			<th><?php echo _("Action"); ?></th>
-		</tr>
+	<input type="text" class="search search-portfolio" id="portfolio-cumulative" placeholder="<?php echo _('Search...'); ?>">
+	<table border="0" class="result morepad" id="cumulative">
+		<thead>
+			<tr>
+				<th><?php echo _("Test Name"); ?></th>
+				<th><?php echo _("Action"); ?></th>
+			</tr>
+		</thead>
+		<tbody>
 		<?php
 			$ct_set 	= $ctc->getCumulativeTests($userid);
 			$sct_set	= $sct->getCtByStudent($studentid);
@@ -91,15 +95,20 @@
 					<td colspan="2"><center><?php echo _("No cumulative tests yet."); ?></center></td>
 				</tr>
 		<?php } ?>
+		</tbody>
 	</table>
 	<br/>
 	<h3><?php echo _("Module"); ?></h3>
-	<table border="0" class="result morepad">
-		<tr>
-			<th class="bold"><?php echo _("Module"); ?></th>
-			<th class="bold"><?php echo _("Portfolio"); ?></th>
-			<th class="bold" colspan="2"><?php echo _("Diagnostic Tests"); ?></th>
-		</tr>
+	<input type="text" class="search search-portfolio" id="portfolio-modules" placeholder="<?php echo _('Search...'); ?>">
+	<table border="0" class="result morepad" id="modules">
+		<thead>
+			<tr>
+				<th class="bold"><?php echo _("Module"); ?></th>
+				<th class="bold"><?php echo _("Portfolio"); ?></th>
+				<th class="bold" colspan="2"><?php echo _("Diagnostic Tests"); ?></th>
+			</tr>
+		</thead>
+		<tbody>
 		<?php 
 			foreach($modules as $module): 
 				foreach($tm_set as $tm):
@@ -186,6 +195,7 @@
 				endforeach;
 			endforeach;
 		?>
+		</tbody>
 	</table>
 	
 </div>
@@ -205,4 +215,26 @@
   </li>
 </ul>
 
+<script>
+	$("#portfolio-cumulative").keyup(function(){
+        _this = this;
+        $.each($("table#cumulative tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
+    });
+	$("#portfolio-modules").keyup(function(){
+        _this = this;
+        $.each($("table#modules tbody").find("tr"), function() {
+            console.log($(this).text());
+            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) == -1)
+                $(this).hide();
+            else
+                $(this).show();                
+        });
+    });
+</script>
 <?php require_once "footer.php"; ?>

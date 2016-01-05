@@ -376,11 +376,11 @@ ini_set('display_errors', 1);
 	#list1_act {
 		width: auto !important;
 	}
-	tr input { width: 90% !important; }
 	.ui-jqgrid .ui-search-input input { width: 100% !important; }
 	.ui-pg-input { width: auto !important; }
 	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
 	a.current { color: gray; cursor: default; }
+	input.delete-rule.ui-del { width: 13px; }
 </style>
 
 <div class="top-buttons">
@@ -393,16 +393,16 @@ ini_set('display_errors', 1);
 <div id="content">
 <div class='wrap'>
 
-	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $sub->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("In this Account Management page, you can manage your students' information."); ?>
+	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
 	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
 			<div class="sub-headers">
 				<h1><?php echo _('List of Students'); ?></h1>
-				
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
-				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+
+				<p> * <?php echo _("In this Account Management page, you can manage your students' information."); ?></p>
+				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p>
+				<p> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
 					<a href="index.php" class="link" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 

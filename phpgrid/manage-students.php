@@ -348,8 +348,8 @@ ini_set('display_errors', 1);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/redmond/jquery-ui.custom.css"></link>	
-	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>	
+	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/themes/custom/jquery-ui.custom.css"></link>
+	<link rel="stylesheet" type="text/css" media="screen" href="../phpgrid/lib/js/jqgrid/css/ui.jqgrid.css"></link>
 	
 	<link rel="stylesheet" type="text/css" href="../style.css" />
 	<?php if($language == "ar_EG") : ?>
@@ -371,15 +371,13 @@ ini_set('display_errors', 1);
 			color: #fff;
 		}
 		#list1_act { width: auto !important; }
-		tr input { width: 90% !important; }
 		.ui-jqgrid .ui-search-input input { width: 100% !important; }
 		.ui-pg-input { width: auto !important; }
 		.ui-icon-pencil { float: none; }
 		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
 		.ui-pg-input { width: 25px !important; }
 		.phpgrid input.editable { width: 90% !important; }
-		.link.back { left: 68px; margin-top: 6px; }
-		html[dir="rtl"] .link.back { right: 68px; }
+		input.delete-rule.ui-del { width: 13px; }
 	</style>
 
 	<script src="../phpgrid/lib/js/jquery.min.js" type="text/javascript"></script>
@@ -426,6 +424,7 @@ ini_set('display_errors', 1);
 			<a class="uppercase fright manage-box active" href="manage-students.php" id="student-accounts"/><?php echo _("Student Accounts"); ?></a>
 			<a class="uppercase fright manage-box" href="../student-accounts.php" id="student-groups"/><?php echo _("Student Groups"); ?></a>
 			<a class="uppercase fright manage-box" href="../ct-test.php" id="cumulative-test"><?php echo _("Cumulative Test"); ?></a>
+		<a class="uppercase fright manage-box <?php echo ($active=='question-library' ? 'active' : ''); ?>" href="../question-library.php"><?php echo _("Test Item Library"); ?></a>
 			<a class="uppercase fright manage-box" href="../dt-test.php" id="diagnostic-test"><?php echo _("Diagnostic Test"); ?></a>
 			<a class="uppercase fright manage-box" href="../teacher.php" id="dashboard"><?php echo _("Dashboard"); ?></a>
 		</div>
@@ -455,7 +454,6 @@ ini_set('display_errors', 1);
 
 	<div class="clear"></div>
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
-	<p><?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>
 	<!-- <p><?php echo _("You are only allowed to create " . $student_limit . " students"); ?> -->
   
 	<div class="wrap-container">
@@ -464,6 +462,7 @@ ini_set('display_errors', 1);
 			<div class="sub-headers">
 				<h1><?php echo _('List of Students'); ?></h1>
 				<!-- <a onclick="showMultipleAddForm()" id="showmutiplebutton" class="link"><?php echo _('Add Students'); ?></a><br/><br/> -->
+				<p> * <?php echo _("This is your Dashboard. In this page, you can manage your students information"); ?>
 				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></li></p>
 				<p> * <?php echo _("Note: If the students request for a password reset, please change the student's password to something that's easy to remember. Once the spreadsheet is updated, the student will be able to use the new password."); ?></p>
 				<!-- <div class="fright">
@@ -521,7 +520,7 @@ ini_set('display_errors', 1);
 	  <li class="tlypageguide_bottom" data-tourtarget=".ui-custom-icon">
 	    <p>2. <?php echo _('Click the pencil icon <small class="ui-icon ui-icon-pencil"></small> in the <strong>Actions</strong> column to update all cells then press Enter; or'); ?></p>
 	  </li>
-	  <li class="tlypageguide_bottom" data-tourtarget="tr.jqgrow td .cbox">
+	  <li class="tlypageguide_left" data-tourtarget="tr.jqgrow td .cbox">
 	    <p>3. <?php echo _('Click the checkbox in the first column of any row then click the pencil icon <small class="ui-icon ui-icon-pencil "></small> at the bottom left of the table.'); ?></p>
 	  </li>
 	  <li class="tlypageguide_left" data-tourtarget="#cb_list1">

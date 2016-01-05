@@ -126,8 +126,8 @@ if($language == "ar_EG") {
 				$arr = array(array('Tst','t'),array(_('Correct'), $c),array(_('Wrong'), $w));
 				$cwpie = json_encode($arr);
 		?>
-		data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
-		options = { is3D: true, colors: ['green', 'red'], title: '<?php echo _("Correct and Wrong Statistics"); ?>' }
+		// data = google.visualization.arrayToDataTable(<?php echo $cwpie; ?>);
+		// options = { is3D: true, colors: ['green', 'red'], title: '<?php echo _("Correct and Wrong Statistics"); ?>' }
 		// chart = new google.visualization.PieChart(document.getElementById('<?php echo 'q1_'.$question['section'].$question['title']; ?>'));
 		// chart.draw(data, options);
 		

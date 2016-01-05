@@ -569,11 +569,11 @@ ini_set('display_errors', 0);
 	}
 	#list1_act { width: auto !important; }
 	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
-	tr input { width: 90% !important; }
 	.ui-jqgrid .ui-search-input input { width: 100% !important; }
 	.ui-pg-input { width: auto !important; }
 	.DataTD input { width: 88% !important; }
 	a.current { color: gray; cursor: default; }
+	input.delete-rule.ui-del { width: 13px; }
 </style>
 
 	<?php if(isset($_GET['err'])) : ?>
@@ -613,7 +613,6 @@ ini_set('display_errors', 0);
 		endif;
 	endif;
 	?>
-	<p><?php echo _("This is the Account Management page, where you can manage all teachers, sub-admins and students accounts under you."); ?>
 
 	<div class="wrap-container">
 		<div id="wrap">
@@ -624,8 +623,9 @@ ini_set('display_errors', 0);
 				<h1><?php echo _('List of Accounts'); ?></h1>
 				<?php } ?>
 				
-				<p class="fleft"> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p><br>
-				<p class="fleft"> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
+				<p> * <?php echo _("This is the Account Management page, where you can manage all teachers, sub-admins and students accounts under you."); ?></p>
+				<p> * <?php echo _('Click the column title to filter it Ascending or Descending.'); ?></p>
+				<p> * <?php echo _('Refresh your browser to fix the table.'); ?></p>
 				<br><br>
 				<div class="fright">
 					<a href="index.php" class="link current" style="display: inline-block;"><?php echo _('Manage Accounts'); ?></a> | 
