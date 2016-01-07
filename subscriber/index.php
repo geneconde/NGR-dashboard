@@ -8,7 +8,7 @@
  */
 
 /*NGR Files*/
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 	require_once '../session.php';
 	require_once 'locale.php';
 	include_once '../controller/DiagnosticTest.Controller.php';

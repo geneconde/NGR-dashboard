@@ -76,6 +76,7 @@ ini_set('display_errors', 0);
 				}
 			}
 			$subheads[$value['username']] = $teachers;
+
 			$teachers = array();
 		}
 	}
@@ -113,6 +114,11 @@ ini_set('display_errors', 0);
 		}
 		return $arr;
 	}
+
+
+	// echo "<pre>";
+	// print_r($subheads);
+	// echo "</pre>";
 ?>
 <?php require_once 'header.php'; ?>
 
@@ -194,7 +200,7 @@ ini_set('display_errors', 0);
 							$students = $uc->select_custom($q);
 						?>
 						<tr class="even_gradeC" id="4">
-							<td><?php echo $teacher['username']; ?></td>
+							<td><?php echo $teacher['last_name'].", ".$teacher['first_name']; ?></td>
 						<!-- start pre test -->
 							<?php $temp1 = 0; ?>
 							<?php foreach ($all_modules as $module) : ?>
@@ -302,9 +308,17 @@ ini_set('display_errors', 0);
 								<td>
 								<?php $check = $uc->getUserByUN($key); ?>
 								<?php if($check[0]['type'] == '4'){ ?>
-									<a href='statistics.php?u=<?php echo $key; ?>'><?php echo $key; ?></a>
+									<a href='statistics.php?u=<?php echo $key; ?>'> 
+										<?php 
+										// echo $key; 
+										echo $check[0]['last_name'].", ". $check[0]['first_name'];
+										?> 
+									</a>
 								<?php } else { ?>
-									<?php echo $key; ?>
+									<?php 
+										// echo $key; 
+										echo $check[0]['last_name'].", ". $check[0]['first_name'];
+									?>
 								<?php } ?>
 								</td>
 							<?php
