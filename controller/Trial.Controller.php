@@ -12,10 +12,7 @@ if(!class_exists('Utils')) {
 	require_once($_SERVER['DOCUMENT_ROOT'].'/model/Utils.class.php');
 }
 
-if(!class_exists('DB')) {
-	require_once($_SERVER['DOCUMENT_ROOT'].'/model/db.inc.php');
-}
-
+	require_once($_SERVER['DOCUMENT_ROOT'].'/model/db.inc.demo.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/Trial.Class.php');
 
 ini_set('track_errors', true);
@@ -26,7 +23,7 @@ class TrialController {
 	public function getAllTrialUsers() {
 		$users = array();
 		
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users");
 		$db->disconnect();
@@ -43,7 +40,7 @@ class TrialController {
 		$data = array();
 		$data = $this->setValues($values);
 				
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$tid = $db->insertReturn("trial_users", $data);
 		$db->disconnect();
@@ -58,7 +55,7 @@ class TrialController {
 		$data = array();
 		$data['date_current'] = $new_curr_date;
 		
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->update("trial_users", $where, $data);
 		$db->disconnect();
@@ -68,7 +65,7 @@ class TrialController {
 		$where = array();
 		$where['id'] = $subid;
 		
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users", $where);
 		$db->disconnect();
@@ -82,7 +79,7 @@ class TrialController {
 	public function checkEmailExistsTrial($email) {
 		$where = array();
 		$where['email'] = $email;
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users", $where);
 		
@@ -108,7 +105,7 @@ class TrialController {
 		$where = array();
 		$where['demo_ID'] = $id_demo;
 		
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users", $where);
 		$db->disconnect();
@@ -123,7 +120,7 @@ class TrialController {
 		$where = array();
 		$where['date_created'] = $newdate;
 	
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users", $where);
 		$db->disconnect();
@@ -136,7 +133,7 @@ class TrialController {
 
 		$users = array();
 		
-		$db = new DB();
+		$db = new DB_DEMO();
 		$db->connect();
 		$result = $db->select("trial_users", $where);
 		$db->disconnect();
