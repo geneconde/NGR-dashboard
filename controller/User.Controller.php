@@ -17,6 +17,7 @@ if(!class_exists('DB')) {
 }
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/User.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/php/functions.php');
 
 ini_set('track_errors', true);
 
@@ -314,10 +315,20 @@ class UserController {
 	}
  
 	public function loginUser($username, $password) {
+		$where = array();
+		$where['username'] = $username;
+		$data = array();
+		$data['last_login'] = date("Y-m-d H:i:s");
+		$data['last_login_ip'] = get_client_ip();
+
 		if ($user = $this->loadUser($username)) {
 			$hashedpass = $password;
 			
 			if ($user->getPassword() == $hashedpass) {
+				$db = new DB();
+				$db->connect();
+				$db->update("users", $where, $data);
+				$db->disconnect();
 				return $user;
 			} else { 
 				return Error::ERROR_WRONG_PASSWORD;

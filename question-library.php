@@ -34,7 +34,7 @@
 
 		<div class="fleft dotted-border">
 			<button class="btn-portfilter active" data-toggle="portfilter" data-target="Test Item List"><?php echo _('Test Item List'); ?></button>
-			<button class="btn-portfilter" data-toggle="portfilter" data-target="Submit Test Item"><?php echo _('Submit Test Item'); ?></button>
+			<button class="btn-portfilter" id="sumit-test"><?php echo _('Submit Test Item'); ?></button>
 			<button class="btn-portfilter" data-toggle="portfilter" data-target="Submitted Test Items"><?php echo _('Submitted Test Items'); ?></button>
 		</div>
 		
@@ -105,9 +105,6 @@
 					</tbody>
 				</table>
 			</li>
-			<li class="clearfix submit-test-item" data-tag='Submit Test Item'>
-				<h2><?php echo _("Submit Test Item"); ?></h2>
-			</li>
 			<li class="clearfix submitted-test-items" data-tag='Submitted Test Items'>
 				<h2><?php echo _("Submitted Test Items"); ?></h2>
 			</li>
@@ -142,17 +139,13 @@ $('.btn-portfilter').click(function () {
 });
 
 $('#select-module').on('change', function() {
-    	
     var selected = $( "#select-module option:selected" ).text();
     var string = selected.replace(/^\s+|\s+$/g, "");
-
     $('#test-list').dataTable().fnFilter(string);
-
     if(selected == 'All')
     {
     	$('#test-list').dataTable().ajax.reload();
     }
-
 });
 
 </script>
