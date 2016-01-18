@@ -1,0 +1,68 @@
+#animation {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#leftleg {
+	animation: legs1 0.5s linear 0s infinite alternate;
+	-webkit-animation: legs1 0.5s linear 0s infinite alternate;
+	-moz-animation: legs1 0.5s linear 0s infinite alternate;
+}
+
+#rightleg {
+	animation: legs2 0.5s linear 0s infinite alternate;
+	-webkit-animation: legs2 0.5s linear 0s infinite alternate;
+	-moz-animation: legs2 0.5s linear 0s infinite alternate;
+}
+
+#sweat {
+	-webkit-animation: sweat 1s linear 0s infinite;
+	-moz-animation: sweat 1s linear 0s infinite;
+	animation: sweat 1s linear 0s infinite;
+}
+
+@keyframes legs1 {
+	from { transform: rotate(-60deg); }
+	to { transform: rotate(10deg); }
+}
+
+@-webkit-keyframes legs1 {
+	from { -webkit-transform: rotate(-60deg); }
+	to { -webkit-transform: rotate(10deg); }
+}
+
+@-moz-keyframes legs1 {
+	from { -moz-transform: rotate(-60deg); }
+	to { -moz-transform: rotate(10deg); }
+}
+
+@keyframes legs2 {
+	from { transform: rotate(40deg); }
+	to { transform: rotate(0deg); }
+}
+
+@-webkit-keyframes legs2 {
+	from { -webkit-transform: rotate(40deg); }
+	to { -webkit-transform: rotate(0deg); }
+}
+
+@-moz-keyframes legs2 {
+	from { -moz-transform: rotate(40deg); }
+	to { -moz-transform: rotate(0deg); }
+}
+
+@keyframes sweat {
+	from { transform: rotate(40deg); }
+	to { transform: rotate(0deg); }
+}
+
+@-webkit-keyframes sweat {
+	from { opacity: 0 top: 190px; }
+	to { opacity: 0; top: 320px; }
+}
+
+@-moz-keyframes sweat {
+	from { -moz-transform: rotate(40deg); }
+	to { -moz-transform: rotate(0deg); }
+}

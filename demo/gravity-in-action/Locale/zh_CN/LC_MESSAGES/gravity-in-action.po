@@ -1,0 +1,844 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: module\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh\n"
+
+# Common Translations
+msgid "Start"
+msgstr "開始"
+
+msgid "Next"
+msgstr "下一個"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Read More"
+msgstr "閱讀更多"
+
+msgid "Check Answer"
+msgstr "對答案"
+
+msgid "Please select your answer."
+msgstr "請選擇你的答案"
+
+msgid "Please select your answers."
+msgstr "請選擇你的答案（複選）"
+
+msgid "Please type your answer."
+msgstr "請輸入你的答案"
+
+msgid "Quick Check #1"
+msgstr "快速測驗#1"
+
+msgid "Quick Check #2"
+msgstr "快速測驗#2"
+
+msgid "Quick Check #3"
+msgstr "快速測驗#3"
+
+msgid "Quick Check #4"
+msgstr "快速測驗#4"
+
+msgid "Please check your answers."
+msgstr "請確認你的答案"
+
+msgid "How did I do?"
+msgstr "我應該怎麼做？"
+
+msgid "You answered..."
+msgstr "你回答了"
+
+msgid "select"
+msgstr "選擇"
+
+msgid "Play"
+msgstr "播放"
+
+msgid "Pause"
+msgstr "暫停"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Mute"
+msgstr "靜音"
+
+msgid "Unmute"
+msgstr "取消靜音"
+
+msgid "Max volume"
+msgstr "最大聲"
+
+msgid "Full screen"
+msgstr "全螢幕"
+
+msgid "Restore screen"
+msgstr "還原螢幕"
+
+msgid "Repeat"
+msgstr "重複"
+
+msgid "Repeat off"
+msgstr "關閉重複"
+
+msgid "Update Required"
+msgstr "要求更新"
+
+msgid "To play the media you will need to either update your browser to a recent version or update your"
+msgstr "為了播放你的媒體，你需要將你的瀏覽器更新至最新版本或是更新你的"
+
+msgid "Flash plugin"
+msgstr "Flash插件（外掛程式）"
+
+msgid "Click, hold and slide your mouse up and down to rotate the box and select your answer."
+msgstr "點擊，按住滑鼠並上下移動來轉動方塊和選擇你的答案。"
+
+msgid "Browse through the slides below by clicking the left and right arrows."
+msgstr "點選左、右鍵頭來瀏覽下方的頁面。"
+
+msgid "The Situation"
+msgstr "情況"
+
+msgid "The Scenario"
+msgstr "場景"
+
+msgid "Your Task"
+msgstr "你的任務"
+
+msgid "The Task"
+msgstr "任務"
+
+msgid "The Problem"
+msgstr "問題"
+
+msgid "Your Assignment"
+msgstr "你的作業"
+
+msgid "Close me!"
+msgstr "關閉我！"
+
+msgid "Click here to start typing your answer..."
+msgstr "點擊這裡以開始輸入你的答案"
+
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "回答接下來的六個考驗問題可以讓你知道你已經了解什麼，還有需要進一步學習哪些內容。"
+
+msgid "Click the NEXT button when you are ready."
+msgstr "當你準備好了，請點擊下一步按鈕。"
+
+msgid "Quiz Question #1"
+msgstr "考驗問題#1"
+
+msgid "Quiz Question #2"
+msgstr "考驗問題#2"
+
+msgid "Quiz Question #3"
+msgstr "考驗問題#3"
+
+msgid "Quiz Question #4"
+msgstr "考驗問題#4"
+
+msgid "Quiz Question #5"
+msgstr "考驗問題#5"
+
+msgid "Quiz Question #6"
+msgstr "考驗問題#6"
+
+msgid "Congratulations, "
+msgstr "恭喜"
+
+msgid "You can check how you did on the 'Quick Check' and 'Quiz Questions' for this review by clicking the button below."
+msgstr "你可以點擊下方的按鈕來確認在這次的複習中“快速測驗”與“考驗問題”表現得如何。"
+
+msgid "Go to dashboard"
+msgstr "到儀表板"
+
+msgid "Let's begin"
+msgstr "讓我們開始吧"
+
+msgid "Are you ready,"
+msgstr "你準備好了嗎？"
+
+msgid "Preparing your first quick check..."
+msgstr "準備好你的第一次快速測驗..."
+
+msgid "Ready for your last quick check?"
+msgstr "準備開始你的最後一次快速測驗？"
+
+msgid "Ready for your last quiz question?"
+msgstr "準備開始你的最後一次考驗問題？"
+
+msgid "Putting it all together..."
+msgstr "把它們都放在一起……"
+
+msgid "Words and explanations"
+msgstr "單字與解釋"
+
+msgid "Let's check what you now know"
+msgstr "來看看你知道了什麼"
+
+msgid "And the first quiz question is..."
+msgstr "接著第一個考驗問題是……"
+
+msgid "You're done!"
+msgstr "你完成了！"
+
+# 1
+msgid "Welcome to the Gravity in Action module"
+msgstr "歡迎來到引力作用模組"
+
+# 2
+msgid "Thinking about... gravity in action"
+msgstr "想想有關於……引力作用"
+
+msgid "Have you ever seen a tug of war between two teams? Each team holding the rope is separated by a certain distance and both are trying to pull the other over a line. It might be hard to imagine a tug of war game without a rope, but such a contest is constantly taking place as objects throughout the universe pull on other objects with a force called <span class='key'>gravity</span>."
+msgstr "你曾經看過兩個隊伍拔河嗎？每隊都拉著繩子分別在兩側的一定距離，且他們都試著將另一隊拉過線。很難去想像一場沒有繩子的拔河比賽，但是像這樣的比賽的情形，是在宇宙中的每一個物體拉著另一個物體發生時的力，稱作為引力。"
+
+# 3
+msgid "Checking what you already know about... gravity in action"
+msgstr "看看你已經知道哪些有關……引力作用"
+
+msgid "You may have heard that all objects exert a gravitational force on other objects. You may also have wondered, then, why you don't feel this force. Although the force between most paired objects cannot be felt, you can indeed feel the force between the earth and you. "
+msgstr "你可能聽過所有的物體對其他的物體施予引力。你可能也曾想過，如果這樣，為什麼你不會感覺到這些力。雖然這些在兩兩物體之間的力無法被感覺到，你可以確實的感受到地球與你之間的力。它被感覺到就如你的體重。"
+
+msgid " It is felt as your weight. If you jump up in the air, you can count on being pulled back toearth. But what do you think would happen if you jumped up and there was no such thing as gravity? Think about your experience with gravity, for example, jumping to grab an apple from a tree or watching rain falling from a dark cloud. Based on your experience, how would you describe gravity's force?"
+msgstr "如果你跳躍到空中，你可以指望會被拉回地面。但是你想想如果你跳起來且那裡沒有像是引力的東西會發生什麼事？想想看你經驗中的引力，舉例來說，跳起來抓住樹上的蘋果或是觀看從黑雲降下的雨。根據你的經驗，你會如何描述引力？"
+
+msgid "Gravity is a force that pushes objects in opposite directions."
+msgstr "引力是將物體推向反方向的力。"
+
+msgid "Gravity is a force that pulls objects toward each other."
+msgstr "引力是拉物體相互接近的力。"
+
+msgid "Gravity is a force that can both push and pull on objects."
+msgstr "引力是可以拉與推物體的力。"
+
+msgid "Gravity is a force that acts when objects touch each other."
+msgstr "引力是當物體相互觸碰時會作用的力。"
+
+msgid "Gravity definitely is a force that acts between any two or more objects. But there are some special ways that gravity acts that might surprise you. Learn more about how gravity acts in this module."
+msgstr "引力無疑是一個作用在兩個或更多物體之間的力。但是有更多引力作用的特別方式，可能會讓你感到驚訝。在這個模組中學習更多有關引力如何作用的內容。"
+
+msgid "Jumping up in the air..."
+msgstr "跳躍到空中……"
+
+# 4
+msgid "Reviewing big ideas about... gravity in action"
+msgstr "複習有關主要的概念……引力作用"
+
+msgid "A <span class='key'>force</span> is a push or a pull. For example, you have to exert a force to push your friend on a swing or to pull them in a wagon. <span class='key'>Gravity</span> is also a force, but it is special in several ways. Gravity acts only to pull objects toward each other, whether the objects are touching or not."
+msgstr "一個力會是推或拉。舉例來說，你施力推一位在鞦韆上的朋友或是拉坐在馬車上的他們。引力也是一種力，但是它有很多特別的地方。引力作用只有讓物體相互拉近，無論物體是不是正在接觸中。"
+
+msgid "There are two factors that affect how much the force of gravity will pull two or more objects together. The first factor is the masses of the objects involved. The more massive the objects are, the greater the gravitational force between them will be. For example, the gravitational force between a 10kg and a 5kg object is twice as strong as between two 5 kg objects; and the gravitational force between two 10kg objects is four times as strong as between two 5 kg objects."
+msgstr "有兩個因素會影響引力拉兩個或是更多物體在一起的程度。第一個因素是物體的的質量。當物體的質量越大，它們之間的引力也就會越大。舉例來說，十公斤跟五公斤物體間的引力是兩個五公斤物體間引力的兩倍；且兩個十公斤物體間的引力是兩個五公斤物體間引力的四倍。"
+
+msgid "The force of gravity between objects is measured in <span class='key'>Newtons</span>. If one object is many times more massive than another object, we refer to the gravitational force on the smaller object as its weight. So when you weigh yourself on a standard bathroom scale, your weight is the gravitational force between you and the Earth."
+msgstr "物體間的引力用牛頓來作為測量單位。如果有一個物體是另一個物體質量的好幾倍，我們會參考較小物體的的引力作為它的重量。所以當你在一個浴室用的標準磅秤上秤你自己的重量，你的重量是你與地球之間的引力。"
+
+msgid "Massive objects exert a stronger pull than less massive objects."
+msgstr "巨大的物體會比較小的物體產生更大的拉力。"
+
+msgid "Astronauts weigh much less on the moon than on Earth because the moon’s mass is much smaller than the mass of the earth. So the gravitational force between the moon and a person is less than the gravitational force between the earth and that same person."
+msgstr "太空人在月球上會比地球上重量輕很多，因為月球的質量比地球小了很多。所以月球與人之間的引力會比同一個人與地球之間的引力來得小。"
+
+msgid "The second factor affecting gravitational force is the distance between objects. The farther away two objects are from each other, the weaker the gravitational force is between them. The closer they are, the stronger the force is. So, unlike pushing or pulling a wagon where you have to be in contact with the wagon, the gravitational force between objects acts across distance—the objects don't have to touch!"
+msgstr "第二個影響引力的因素是物體之間的距離。兩個物體之間的距離越遠，它們之間的引力就會越弱。它們越接近，力量就會越強。所以，不像是在推或拉一部馬車時你需要接觸到馬車，物體之間的引力作用是超越距離的—物體間不需要接觸！"
+
+msgid "Given equal masses, objects that are far apart exert less gravitational force on each other than objects that are close together."
+msgstr "給予相等的質量，相距很遠的物體所產生的引力比相近在一起的物體引力來得小。"
+
+msgid "Moon"
+msgstr "月亮"
+
+msgid "Mass = 72 kg."
+msgstr "質量= 72公斤"
+
+msgid "Weight = 12 kg. (26 lbs.)"
+msgstr "重量= 12 公斤 (26 磅)"
+
+msgid "Earth"
+msgstr "地球"
+
+msgid "Weight = 72 kg. (158 lbs.)"
+msgstr "重量= 72公斤(158磅)"
+
+msgid "Pushing the swing..."
+msgstr "推鞦韆……"
+
+# 5
+msgid "Question A. Use what you know about the relationship between mass and gravitational force to rank the celestial bodies (the planets and the Sun in our solar system). Drag the boxes of the celestial bodies up and down to sort them from highest to lowest based on gravitational force they possess. The highest gravity should be at the top."
+msgstr "問題A。請用你知道有關質量與引力之間的關係來排列這些天體（在我們太陽系裡的行星和太陽）。上下拖曳天體的方塊來依據它們擁有的引力將它們分為從最高到最低。最高引力者應該在最上方。"
+
+msgid "Celestial Body Mass"
+msgstr "天體質量"
+
+msgid "Earth 5.97 x 10<sup>24</sup> Kilograms"
+msgstr "地球5.97 x 10<sup>24</sup>公斤"
+
+msgid "Jupiter 1,900 x 10<sup>24</sup> Kilograms"
+msgstr "木星1,900 x 10<sup>24</sup>公斤"
+
+msgid "Mars 0.641 x 10<sup>24</sup> Kilograms"
+msgstr "火星0.641 x 10<sup>24</sup>公斤"
+
+msgid "Mercury 0.330 x 10<sup>24</sup> Kilograms"
+msgstr "水星0.330 x 10<sup>24</sup>公斤"
+
+msgid "Neptune 102 x 10<sup>24</sup> Kilograms"
+msgstr "海王星102 x 10<sup>24</sup>公斤"
+
+msgid "Saturn 568 x 10<sup>24</sup> Kilograms"
+msgstr "土星568 x 10<sup>24</sup>公斤"
+
+msgid "Sun 1,989,000 x 10<sup>24</sup> Kilograms"
+msgstr "太陽1,989,000 x 10<sup>24</sup>公斤"
+
+msgid "Uranus 86.8 x 10<sup>24</sup> Kilograms"
+msgstr "天王星86.8 x 10<sup>24</sup>公斤"
+
+msgid "Venus 4.87 x 10<sup>24</sup> Kilograms"
+msgstr "金星4.87 x 10<sup>24</sup>公斤"
+
+msgid "Question B. A 1-liter bottle of water on earth has a mass of approximately 1 kilogram and weighs about 10 newtons. If that bottle is transported to a planet that has less mass than that of Earth, mark <span class='blink'>all</span> of the following that will be <span class='blink'>true</span>."
+msgstr "問題B。一個一公升瓶裝的水在地球上的質量約1公斤且重約10牛頓。如果瓶子被運送到一個質量小於地球的行星，請標出以下是對的狀況。"
+
+msgid "The weight of the bottle of water will remain the same."
+msgstr "瓶中水的重量依舊會相同。"
+
+msgid "The weight of the bottle will be less than that on earth."
+msgstr "瓶子的重量會比在地球上小。"
+
+msgid "The mass of the bottle of water will be more than that on earth."
+msgstr "瓶中水的質量會比在地球上來得大。"
+
+msgid "The mass of the bottle of water will be the same."
+msgstr "瓶中水的質量會相同。"
+
+msgid "Correct! The total mass (amount of matter) of the bottle of water will not change, but because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr "正確! 瓶中的水的總 質量（物質的量）不會改變，但由於該行星的質量小於地球，那麼重力會較 地球少一些，也就表示瓶中水的重量會較輕。"
+
+msgid "Not quite! The total mass (amount of matter) of the bottle of water will not change. Because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr "不完全正確! 瓶中的水的總質量（物質的量）不會改變。由於該行星的質量小於地球，那麼重力會較地球少一些，也就表示瓶中水的重量會較輕。"
+
+# 6
+msgid "All objects exert a gravitational pull on other objects. This holds true in the case of the Earth’s moon. Just as the earth is pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</span> are caused by the gravitational pull of the moon on the mass of water in the earth’s oceans. Because ocean water is a liquid and can move, it “bulges up” from the pull of the moon’s gravity towards the moon’s position on any given day."
+msgstr "所有的物體都會產生引力拉其他的物體。在地球的月球這個例子裡是成立的。就像是地球拉著月球，月球拉著地球。海洋潮汐是由月球對地球的海洋裡大量的水的引力造成。因為海洋是液體且可以移動的，它在在不同日子裡對向月球的位置所施的引力使它會隆起。"
+
+msgid "A \"bulge\" of ocean water is created as the moon's gravity pulls in a direct line between the earth and the moon. The moon's gravitational pull is the strongest along a direct line between the earth and the moon. It is at that place a bulge of water occurs. That bulge is known as a <span class='key'>lunar tide</span>, which is also called high tide. The bulge is always found in that direct line, but as the earth rotates on its axis, the bulge is seen to move from east to west on Earth's surface."
+msgstr "海水的隆起是地球與月亮成一條直線時由月亮的引力拉著。月球引力的拉力在地球與月球成為一直線時是最大的。在那個位置時會發生水的隆起。那個隆起被認為是月亮潮汐，也被稱作高潮。這個隆起總是在成一直線時被發現，但是地球繞著它的自轉軸轉動，所以隆起看起來像是在地表上從東向西的移動。"
+
+msgid "Tidal bulge due to inertia"
+msgstr "潮汐隆起是因為慣性"
+
+msgid "Tidal bulge due to gravity"
+msgstr "潮汐隆起是因為引力"
+
+msgid "Moon's <br><br> gravitational <br><br> pull"
+msgstr "月球的引力拉動"
+
+msgid "The green shows the relative magnitude of the forces – not the height of the water level changes. The actual change in water level from high tide to low tide is just a few feet."
+msgstr "綠色部分顯示了力的相對大小－並不是水位高度的變化。事實上水位從高潮變化到低潮只有幾呎而已。"
+
+msgid "There is also an ocean bulge on the other side of the earth that is opposite the moon on the same direct line. The two bulges are what cause high tides twice each day. The tidal bulge of water on the other side of the earth from the moon is caused by centrifugal force, also called inertia, from the earth spinning on its axis. Low tides are the areas of the earth’s oceans in-between the two high tide bulges."
+msgstr "有另一個海洋隆起發生在地球的另一端，那是月亮在同一條線上的相反位置。這兩個隆起就是造成一天的兩次高潮。這從月球作用在地球的另一邊水的潮汐隆起，是由地球在自轉軸上轉動的離心力，也被稱為慣性，所造成。地球上海洋低潮地區是在－兩個高潮隆起之間。"
+
+msgid "High tide or low tide?"
+msgstr "高潮或低潮？"
+
+# 7
+msgid "Question A. Read the sentences below and select the statement that is <span class='blink'>not correct</span>."
+msgstr "問題A. 閱讀下方句子並選擇不正確的敘述。"
+
+msgid "High and low tides are related to the force of the moon pulling on Earth."
+msgstr "高低潮汐與月亮拉地球的力有關。"
+
+msgid "Just as the earth is pulling on the moon, the moon is pulling on the earth."
+msgstr "就像是地球在拉月亮，月亮也在拉地球。"
+
+msgid "Ocean tides are caused by the gravitational pull of the moon."
+msgstr "海洋的潮汐是由月亮引力所造成。"
+
+msgid "The phases of the moon cause the high tides."
+msgstr "月相造成高潮。"
+
+msgid "Question B. Which of the following is <span class='blink'>true</span> considering the moon's force of gravity exerts a pulling force on Earth's oceans that then creates a \"bulge\" of water?"
+msgstr "問題B. 請考慮月亮引力所施予地球海洋的拉力造成水的隆起，下方哪一個是正確的？"
+
+msgid "A high tide will occur whenever the moon is directly  overhead or directly opposite a location on earth."
+msgstr "高潮發生在每當月亮在頭頂或是在地球對面的位置。"
+
+msgid "A low tide will occur whenever the moon is directly overhead."
+msgstr "低潮發生在每當月亮在頭頂時。"
+
+msgid "A high tide will generally occur when the moon is new."
+msgstr "高潮一般發生在新月時。"
+
+msgid "A high tide will generally occur when the moon is full."
+msgstr "高潮一般發生在滿月時。"
+
+msgid "Looking at the moon..."
+msgstr "看著月亮……"
+
+msgid "No, this sentence is true. Tides are caused by the pull of the moon, sun, and Earth rotating on its axis."
+msgstr "否，這個句子是對的。潮汐是由月亮、太陽、地球在軸上旋轉的拉力造成。"
+
+msgid "No, this sentence is true. All objects exert a gravitational pull on other objects. We might not feel it all the time, but it works both ways."
+msgstr "否，這個句子是對的。所有物體對其它物體施予引力。我們可能無法在所有時刻都感受到，但它是如此作用著。"
+
+msgid "Correct! This sentence is false. The bulge does not disappear; it is seen to move from east to west on Earth's surface."
+msgstr "對的！這句話是錯的。潮起不會消失，它看起來是從東到西的移動著。"
+
+msgid "Correct! A high tide will generally occur whenever the moon is directly overhead. And remember, there will also be another high tide on the opposite side of the earth at the same time. "
+msgstr "對的！高潮一般發生在當月亮在頭頂時。且記住，在同一時間會有另一個高潮出現在地球的對邊。"
+
+msgid "Nope! A high tide, not a low tide, will generally occur whenever the moon is directly overhead or directly opposite a location on earth."
+msgstr "沒有！是高潮，不是低潮，一般發生在當月亮在頭頂或是在地球對面的位置。"
+
+msgid "Nope! High and low tides occur daily during all phases of the moon."
+msgstr "沒有！高潮與低潮發生在每日所有的月相狀況下。"
+
+# 8
+msgid "More big ideas about... gravity in action"
+msgstr "更多相關的主要概念……引力作用"
+
+msgid ""
+"Because we live on Earth, most people experience (or observe) the phenomena of gravity as things \"falling to Earth\". But if all things that went up truly fell back to Earth, devices such as cell phones and TVs would not work as they do today. That's because such devices depend upon connections with a communication <span class='key'>satellite</span> that is rocketed up to a distance where the earth's gravity is much weaker. If we were able to turn off Earth's gravity, the satellite boosted into space would keep going. But we can't turn off gravity. It follows that the satellite begins to fall back to earth. But rather than falling straight back, the satellite begins to \"curve\" back to Earth until it enters a stable orbit around the planet. A stable orbit requires a balance of enough speed to keep the object from "
+"falling completely back to Earth but not so much speed that it shoots off into space."
+msgstr "因為我們生活在這個世界上，大多數的人感受（或觀察）到引力的現象是當東西掉到地上時。但是如果所有上升的東西都會掉回地上，一些設備像是行動電話與電視就不會像它們現在這樣運作。那是因為這些設計是靠著連結到那些被發射到地球之外的通訊衛星，在那裏的地球引力較弱。如果我們可以關閉地球的引力，衛星會繼續升高至太空中。但是我們無法關閉引力。發生的話衛星會掉回到地球上。但是比起直直地墜回地球，衛星會開始盤旋回地球直到它進入行星周圍穩定的軌道。一個穩定的軌道需要足夠的速度來平衡才能保持物體不會完全墜回地球，但是也不能速度太快讓它衝進太空中。"
+
+msgid "Much like the example with the satellite above, the Moon can be described as Earth's satellite. Indeed, a moon is defined as both a celestial body and a natural satellite. It is a <span class='key'>celestial body</span> because it is an object found in space and it is a <span class='key'>natural satellite</span> because the moon orbits the earth. Like the communication satellites revolving around Earth, the moon is in a perfect balance of motion. If the moon had any more <span class='key'>velocity</span>, it would fly off into space. But if the moon had any less velocity, it would spiral toward Earth until it crashed into Earth's surface. Thus, the Earth-Moon system is another example of a satellite system--a perfect balance of motion and gravity."
+msgstr "就像是上一個有關衛星的例子來說，月球可以被描述成是地球的衛星。的確，月球被同時定義為星體與天然衛星。它是一個星體因為它是在太空中被發現的物體，而且它是一個天然衛星因為月球繞著地球運行。就像是通訊衛星環繞著地球，月球在運動中達到完美的平衡。如果月球有快一點的速度，它便可能會飛進太空中。但是如果月球有比較慢的速度，它便可能向地球盤旋直到它撞向地球的表面。因此，這個地球－月亮系統是另一個衛星系統的例子－一個運動與引力的完美平衡。"
+
+msgid "Stabilizing speed..."
+msgstr "穩定速度"
+
+# 9
+msgid "Question A. Read the following statements and click on the <span class='blink'>correct</span> answer."
+msgstr "問題A. 閱讀下方的敘述並點選正確的答案。"
+
+msgid "The force of gravity causes all objects launched up into the sky to fall back down to Earth."
+msgstr "引力的力造成所有拋到空中的物體掉回地球表面。"
+
+msgid "Communication satellites are rocketed into space to a distance where Earth's gravity is much stronger."
+msgstr "通訊衛星被發射到太空中，在那裏的地球引力強很多。"
+
+msgid "Artificial satellites are like the moon in that they both orbit the earth."
+msgstr "人造衛星就像月球一樣它們都是繞著地球轉。"
+
+msgid "If the moon had more velocity than it does while orbiting, it would spiral downward until it crashed into Earth's surface."
+msgstr "如果月球有比它在軌道運行較快的速度，它可能向下盤旋直到撞上地球表面。"
+
+msgid "Question B. Click on <span class='blink'>all</span> the statements that are <span class='blink'>true</span>."
+msgstr "問題B. 請點擊正確的敘述。"
+
+msgid "For satellites to get into orbit, gravity is turned off."
+msgstr "為了讓衛星進入軌道，引力會關閉。"
+
+msgid "Natural satellites are celestial bodies."
+msgstr "天然衛星是天體。"
+
+msgid "A communication satellite is a type of artificial satellite."
+msgstr "通訊衛星是一種人造衛星。"
+
+msgid "Gravity affects the balance of motion of natural satellites, but does not affect artificial satellites."
+msgstr "引力影響天然衛星的運動平衡，但是它不會影響人造衛星。"
+
+msgid "Gravity affects the balance of motion of natural and artificial satellites."
+msgstr "引力影響天然衛星和人造衛星的運動平衡。"
+
+msgid "Repairing satellites..."
+msgstr "修復衛星……"
+
+msgid "This is not correct since some objects launched from Earth go into orbit as satellites."
+msgstr "某些物體從地球被像衛星一樣送到軌道中是錯誤的"
+
+msgid "Just the opposite! Satellites are rocketed into space to a distance where Earth's gravity is much weaker. Remember, the force of gravity between two objects decreases as distance increases."
+msgstr "剛好相反！衛星被發射到太空中的位置，在那裏的地球引力弱很多。記得，兩個物體之間的引力隨著距離增加而減弱。"
+
+msgid "Correct, the moon is in perfect balance of motion and gravity with the earth. Communication satellites try to simulate that balance."
+msgstr "對的，月球和地球間的運動與引力是個完美的平衡。通訊衛星嘗試去模擬那個平衡。"
+
+msgid "Nope. If the moon had less velocity, it would spiral downward. If it had more velocity, the moon would continue on a path away from Earth."
+msgstr "否。如果月球有較慢的速度，它會向下盤旋。如果它有更快的速度，月球可能會繼續的遠離地球。"
+
+msgid "Correct! Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr "答對了！天然衛星是星體且通訊衛星是人造衛星。天然與人造衛星的運動平衡依據引力而定。通訊衛星被發射到太空中的位置，在那裏的地球引力微弱很多－引力是不會被關閉的。"
+
+msgid "Not quite... Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr "不盡然……天然衛星都是天體且通訊衛星都是人造衛星。天然與人造衛星的運動平衡都是取決於引力。通訊衛星被發射到太空中，在那裡的地球引力比較弱－引力不能被關閉。"
+
+# 10
+msgid "More big ideas... about gravity in action"
+msgstr "更多主要概念……有關引力作用"
+
+msgid "<span class='key'>Velocity</span> is the speed of a moving object. Sometimes objects move at a constant speed – like a car driving down the highway at 105 kilometers per hour (Km/h). But usually, moving objects speed-up or slow down. <span class='key'>Acceleration</span> is how quickly that happens. Does the car accelerate quickly – going from 0 to 105 Km/h in 6 seconds? Or does it accelerate slowly going from 0 to 105 Km/h in 30 seconds?"
+msgstr "或是 它在30秒內從每小時0公里慢慢加速至每小時105公里"
+
+msgid "Studying gravity..."
+msgstr "研究引力……"
+
+# 11
+msgid "After learning about the acceleration due to gravity on free-falling objects, answer the following questions. Ignore the factor of air resistance in your answers. "
+msgstr "在學習了有關加速度是因為引力對自由落體物體作用後，請回答接下來的問題。請在你答案中忽略空氣阻力這個因素。"
+
+msgid "Question A. A punted football is falling back to the field after reaching its peak height. How fast will it be moving when it is caught 3 seconds later? (acceleration due to gravity = 9.8 m/s2)"
+msgstr "問題A. 一個被踢起的足球從達到最高點後掉落到回地上。當在3秒後它被接住，它的移動速度會有多快？（引力造成的加速度=9.8公尺/秒平方）"
+
+msgid "0 meters per second"
+msgstr "每秒0公尺"
+
+msgid "9.8 m/s2"
+msgstr "9.8公尺/秒平方"
+
+msgid "19.6 meters"
+msgstr "19.6公尺"
+
+msgid "29.4 meters per second"
+msgstr "每秒29.4公尺"
+
+msgid "Question B. A watermelon and a marble are dropped from the same height. Which of the following is true?"
+msgstr "問題B. 一個西瓜跟一個大理石被從同一個高度放開。下列哪一個敘述是正確的？"
+
+msgid "Because it is heavier, the watermelon will accelerate more than the marble."
+msgstr "因為它比較重，西瓜的加速會大於大理石。"
+
+msgid "Because it is lighter, the marble will reach the ground later than the watermelon."
+msgstr "因為它比較輕，大理石會比西瓜慢到達地板上。"
+
+msgid "Because the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects, both the watermelon and marble will reach the ground at the same time (ignoring air resistance)."
+msgstr "因為加速度是受到9.8公尺/秒平方地引力與自由落體相同，西瓜與大理石兩者都會同時抵達地板（忽略空氣阻力）。"
+
+msgid "The watermelon and the marble will be accelerated at different amounts based on their sizes."
+msgstr "西瓜跟大理石的加速度不同是因為它們的大小。"
+
+msgid "Nope! The football has gained speed as it falls due to the force of gravity accelerating it."
+msgstr "否！足球會增加速度就像在掉落時引力對它的加速。"
+
+msgid "Nope! This is the acceleration due to gravity, not the speed of the football after falling for 3 seconds."
+msgstr "否！這個加速度是因為引力，不是在足球掉落3秒後的速度。"
+
+msgid "Nope! This is the distance the football will have traveled in its fall after 2 seconds, not its speed after falling for 3 seconds."
+msgstr "否！這個距離是足球在它經歷2秒的墜落之後，不是墜落3秒之後的速度。"
+
+msgid "Correct!  After 3 seconds of free-fall, the football would have a speed of 29.4 meters per second."
+msgstr "對的！過了3秒的自由落體，足球可能會有每秒29.4公尺的速度。"
+
+msgid "Nope! Even though the watermelon is heavier, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "否！就算西瓜比較重，但是因為重力加速度是9.8公尺/秒平方，所以對自由落體來說都是一樣的。"
+
+msgid "Nope! Even though the marble is lighter, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "否！即使是大理石比較輕，但是因為重力加速度是9.8公尺/秒平方所以對自由落體來說都是一樣的。"
+
+msgid "Right!  Ignoring air resistance, both will reach the ground at the same time because of the acceleration due to gravity being the same for each."
+msgstr "對的！忽略空氣阻力，兩者都會同時抵達地面，因為所受到的引力而生的加速度是相同的。"
+
+msgid "Nope! The acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "否！因為重力加速度是9.8公尺/秒平方，所以對自由落體都是一樣的。"
+
+# 12
+msgid "Using what you now know about... gravity in action... to solve a problem"
+msgstr "運用你所知道有關……引力作用……來解決問題"
+
+msgid "Astronauts need to be able to communicate with Earth on their new voyages to the moon and planet Mars. You are an engineer, part of NASA’s new mission to send satellites to orbit where astronauts are - the moon and Mars."
+msgstr "太空人在前往月球與火星的新航行中需要能夠與地球聯繫。你是一位工程師，NASA的一項新任務是將衛星送到太空人所在的軌道上－月球與火星。"
+
+msgid "What would you have to consider to figure out where and how to set the artificial satellite into orbit? Using what you know about how satellites orbit the earth, what would you need to know to solve this problem? You can use the internet to find the facts you need."
+msgstr "有哪些是你需要去考慮解決的，要從哪裡並如何將人造衛星送到軌道中？運用你所知道有關於衛星如何環繞地球的知識，有什麼是你需要知道才能來解決這個問題？你可以用網路來找出你所需要知道的事實。"
+
+msgid "Preparing for new mission..."
+msgstr "準備好迎接新任務……"
+
+# 13
+msgid "Summarizing big ideas about... gravity in action"
+msgstr "歸納關於引力作用的主要概念……"
+
+msgid ""
+"All objects in the universe exert a gravitational force on each other. The force of <span class='key'>gravity</span> pulls objects together without the objects actually being in physical contact with each other. There are two factors that affect the strength of gravity. The first is the mass of the object and the second is the distance between objects. The larger the mass, the greater the gravitational force it exerts. The farther away two objects are from each other, the weaker the gravitational force is between them. It's important to note that all objects exert a gravitational force on all other objects. Just as the earth is pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</span> are caused by the gravitational pull of the moon. Earth's gravitational force extends far space. In "
+"outer space, gravitational forces of planets and stars account for the order and structure of solar systems and galaxies. The system of the moon orbiting Earth depends on a perfect balance of motion and gravity. In the case of <span class='key'>satellites</span> in general, a stable orbit requires a balance of enough speed to keep the object from falling completely back to Earth, but not so much speed that it shoots off into space."
+msgstr "所有在宇宙中的物體都會產生引力且相互作用。引力可以將物體拉在一起且不需要真的直接有物理上的相互接觸。其中有兩項因素會影響引力的強度。第一是物體的質量，而第二是物體之間的距離。較大的質量，會產生較大的引力。兩個物體之間的距離越遠，兩者之間的的引力就會越弱。還有一點需要注意的是所有的物體所產生的引力是對所有其他的物體作用的。就像是地球拉住月球，月球拉住地球。海洋潮汐是受到月球引力的拉力所造成。地球的引力延伸很大的空間。在外太空，行星與星體的引力和太陽系與銀河系的秩序與結構有關。月球環繞地球的系統建立在一個運動與引力的完美平衡之上。在一般衛星的例子中，一個穩定的軌道需要足夠的速度來平衡避免物體完全墜回地球，但是不會太快到衝到太空中。"
+
+# 14
+msgid "Reviewing key vocabulary related to... gravity in action"
+msgstr "複習相關的關鍵字……引力作用"
+
+msgid "Gravity"
+msgstr "引力"
+
+msgid "The natural attraction of all matter to other matter. This force is directly proportional to the mass of the two objects, and indirectly proportional to their distance apart from one another."
+msgstr "所有物質對其他物質的自然引力。這個力與兩個物體的質量成正比，並與它們和對方之間的距離成反比。"
+
+msgid "Force"
+msgstr "力"
+
+msgid "An external effort which causes an object to undergo some sort of change. This change may be in its movement, direction, or construction, depending on the type of force applied, as well as the conditions of the object itself."
+msgstr "一個外部作用會造成物體經歷一些改變。這個改變可能是它的運動、方向、或是結構，依照提供力的種類而定，及物體本身的狀態。"
+
+msgid "Newton"
+msgstr "牛頓"
+
+msgid "A unit of measurement to describe force. Defined as the force of 1 kg*m/s<sup>2</sup>, or the force needed to accelerate one kilogram of matter one meter per second per second."
+msgstr "用來敘述測量力的單位。被定義為1公斤*公尺／秒平方，或是一公斤的物質加速到每秒一公尺的速度所需的力。"
+
+msgid "Acceleration"
+msgstr "加速度"
+
+msgid "The rate a moving object’s velocity changes with time. How fast it speeds up, slows down, or changes direction."
+msgstr "物體在時間內改變速度的程度。加速的有多快，減慢或是改變方向。"
+
+msgid "Lunar Tide"
+msgstr "潮汐"
+
+msgid "The change in sea level due to the gravity of the moon, and to a smaller extent, the sun. The moon and sun's gravity pull on the water on Earth, altering sea levels depending on where they are."
+msgstr "海平面高度的改變是因為月球的引力，以及小部分是太陽的影響。月球與太陽的引力拉著地球上的水，海平面的改變受到它們的位置而定。"
+
+msgid "Satellite"
+msgstr "衛星"
+
+msgid "An object that orbits a larger object in space. There are many man-made satellites orbiting the earth, but the moon is also an Earth satellite. Likewise, the earth is a satellite orbiting the sun."
+msgstr "在太空中一個環繞著較大物體的物體。有很多人造衛星環繞著地球，但是月球一樣也是地球的衛星。同樣的，地球是環繞著太陽的衛星。"
+
+msgid "Celestial Body"
+msgstr "天體"
+
+msgid "A term used to describe any piece of solid matter that is not on Earth. A celestial body can be anything from a tiny asteroid, to a planet, to a star."
+msgstr "一個用來描述任何一個非地球上固體物質的詞彙。天體可以是任何東西，從微小的小行星、到行星、到恆星。"
+
+msgid "Natural Satellite"
+msgstr "天然衛星"
+
+msgid "An object that orbits a larger object in space, which was not put there by humans. Examples would include the moon orbiting Earth and the eight planets orbiting our sun."
+msgstr "在太空中一個環繞著更大物體的物體，它不是由人為所造。實際的例子包含月球環繞地球，還有八個行星環繞著我們的太陽。"
+
+msgid "Velocity"
+msgstr "速度"
+
+msgid "An object's motion in a specific direction, described in units of distance traveled per unit of time and the direction of the motion. Example: A person ran at 2 meters per second, north by northwest."
+msgstr "在特定方向中物體的運動，描述每單位時間中所經歷的單位距離還有運動的方向。例如：一個人每秒跑了兩公尺，從西北向北。"
+
+# 15
+msgid "Checking what you now know about... gravity in action"
+msgstr "檢查你知道哪些有關於……引力作用"
+
+# 16
+msgid "Look at the two sets of images, 1 and 2. Considering the factors that affect gravitational forces, which statement below is <span class='blink'>correct</span>?"
+msgstr "請看這兩組圖，1和2。請考慮影響引力的因素，下列哪個敘述是正確的？"
+
+msgid "<span class='key'>Image 1</span>"
+msgstr "圖1"
+
+msgid "Far"
+msgstr "遠"
+
+msgid "Big mass"
+msgstr "大質量"
+
+msgid "Small mass"
+msgstr "小質量"
+
+msgid "<span class='key'>Image 2</span>"
+msgstr "圖2"
+
+msgid "Close"
+msgstr "關閉"
+
+msgid "Bigger mass"
+msgstr "較大質量"
+
+msgid "The gravitational force in image 1 is stronger because there is more total mass and the objects are closer together than those in image 2."
+msgstr "在圖1中的引力比較大，因為比圖2中的總質量多且物體之間更靠近。"
+
+msgid "The gravitational force in image 1 is stronger because there is less total mass and the objects are farther apart than in image 2."
+msgstr "在圖1中的引力比較大，因為比圖2中的總質量少且物體之間更遙遠。"
+
+msgid "The gravitational force in image 1 is stronger because the total mass of both objects is more than that in image 2."
+msgstr "在圖1中的引力比較大，因為比圖2中的總質量多。"
+
+msgid "The gravitational force in image 2 is stronger because there is more total mass and the objects are closer together than in image 1."
+msgstr "在圖2中的引力比較大，因為比圖1中的總質量多且物體之間更靠近。"
+
+msgid "Your first quiz question is..."
+msgstr "你的第一個考驗問題是……"
+
+msgid "Nope! The total of the masses is smaller and the distance between the masses is greater than in image 2. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "否！總質量比較小且這些物質之間的距離比圖2中來得大。引力在兩個物體距離縮小時增加，且物體質量增加時也會增加。"
+
+msgid "Nope! Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "否！引力在兩個物體距離縮小時增加，且物體質量增加時也會增加。"
+
+msgid "Correct. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "答對了！引力在兩個物體距離縮小時增加，且物體質量增加時也會增加。"
+
+# 17
+msgid "In science, the numbers we get from measurements are meaningless without units. Which of the following is a unit of gravitational force?"
+msgstr "在科學中，如果測量得到了數字而沒有單位則是沒有意義的。下面哪一個是引力的單位？"
+
+msgid "Kilometer"
+msgstr "公尺"
+
+msgid "Kilogram"
+msgstr "公斤"
+
+msgid "Newtons per Kilogram"
+msgstr "每公斤牛頓"
+
+msgid "Finding gravitational strength..."
+msgstr "找出引力強度……"
+
+msgid "Correct! The newton (abbreviated 'N') was named in honor of Sir Isaac Newton, who discovered the three laws of motion."
+msgstr "對了！牛頓（縮寫N）的命名用來紀念艾薩克牛頓爵士，他發現三個運動定律。"
+
+msgid "Nope. A kilometer is a measure of distance."
+msgstr "否。公尺是一個測量距離的單位。"
+
+msgid "Nope. A kilogram is a measure of mass."
+msgstr "否。公斤是一個測量質量的單位。"
+
+msgid "Not quite, but you were close. Newton is the unit of gravity."
+msgstr "不完全正確，但是你已經很接近了。牛頓是引力的單位。"
+
+# 18
+msgid "Imagine a catastrophic event in which a huge asteroid slammed into the moon in a head-on collision. The moon remained about the same in terms of mass and shape after the collision, but the moon's orbital velocity was significantly slowed due to the force of the impact. Which of the following statements would be <span class='blink'>true</span> following the collision?"
+msgstr "想像一個災難性的事件，一個巨大的小行星猛烈的迎面撞上月球。在撞擊之後月球保持著相同的質量與外型，但是月球環繞軌道的速度受到衝擊影響明顯的下降。下列哪一個敘述會在撞擊後發生？"
+
+msgid "The phases of the moon as seen from Earth would change."
+msgstr "從地球看到的月相會改變。"
+
+msgid "The moon would begin to slowly spiral down to Earth."
+msgstr "月球會開始向地球盤旋下降。"
+
+msgid "The moon would start to move closer to the sun."
+msgstr "月球會開始移動接近太陽。"
+
+msgid "The moon's orbit would not change."
+msgstr "月球的軌道不會改變。"
+
+msgid "Colliding asteroids..."
+msgstr "小行星碰撞……"
+
+msgid "Nope! The phases of the moon are the result of the moon's position in orbit and sunlight reflecting from it."
+msgstr "否。月相是因月亮在軌道的位置及反射陽光所造成。"
+
+msgid "You got it! The impact would cause the moon to slow down, which then would cause the moon to slowly start to spiral down to Earth."
+msgstr "你懂了！撞擊會造成月球變慢，這會造成月球開始向地球盤旋下降。"
+
+msgid "Not bad thinking! But the gravitational force between the moon and Earth would still be much greater than the gravitational force between the moon and the sun, so the moon would not start to move toward the sun."
+msgstr "不錯的想法！但是地球與月球之間的引力還是會比月球與太陽之間的引力要大很多，所以月球並不會向太陽移動。"
+
+msgid "Just the opposite! The moon's orbit would begin to change as it spiraled into Earth."
+msgstr "剛好相反！月球的軌道會開始改變，它會盤旋向地球。"
+
+# 19
+msgid "An astronaut lands on Planet X. This planet is much less massive than Earth. Which of the following statements is <span class='blink'>TRUE</span>?"
+msgstr "太空人在X星球登陸。這個行星的質量遠比地球來的小。下列哪一個的敘述是正確的？"
+
+msgid "The astronaut's body mass would be the same as on Earth."
+msgstr "太空人的身體質量會與在地球上相同。"
+
+msgid "The astronaut's body weight would be more than that on Earth."
+msgstr "太空人的身體重量會比在地球上來得多。"
+
+msgid "The astronaut's body mass would be more than that on Earth."
+msgstr "太空人的身體質量會比在地球上來得多。"
+
+msgid "The astronaut's body weight would be the same than that on Earth."
+msgstr "太空人的身體重量會與在地球上相同。"
+
+msgid "Walking on the moon..."
+msgstr "在月球上行走……"
+
+msgid "Correct! The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "答對了！太空人在X星球上會比在地球上來的輕，但是她的質量還是維持相同。"
+
+msgid "Nope. The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "否。太空人在X星球上會比在地球上來的輕，但是她的質量還是維持相同。"
+
+msgid "No, the astronaut's body mass would be the same as on Earth."
+msgstr "否，太空人的身體質量會與在地球上相同。"
+
+msgid "No, the astronaut's body weight would be less than that on Earth."
+msgstr "否，太空人的身體重量會比在地球上來的輕。"
+
+# 20
+msgid "Click on <span class='blink'>all</span> the statements that are an example of a satellite."
+msgstr "請點選所有可以作為衛星實例的敘述。"
+
+msgid "The moon orbits around the earth."
+msgstr "月球環繞地球。"
+
+msgid "The earth orbits around the sun."
+msgstr "地球環繞太陽。"
+
+msgid "A comet orbiting the sun."
+msgstr "彗星環繞太陽。"
+
+msgid "The north star shines in the night sky. "
+msgstr "北極星在夜晚空中發亮。"
+
+msgid "Orbiting satellites..."
+msgstr "在軌道運行的彗星……"
+
+msgid "Correct! The moon, the earth and comet are all examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun."
+msgstr "答對了！月球、地球和彗星都是衛星的例子，因為月球環繞地球旅行，且地球與彗星環繞太陽旅行。"
+
+msgid "Nope! The moon, the earth and comet are examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun. But the north star is not a satellite because it does not travel around any other celestial body."
+msgstr "否！月球、地球和彗星都是衛星的例子，因為月球環繞地球旅行，且地球與彗星環繞太陽旅行。但是北極星並不是一個衛星，因為它並不會隨著其他天體環繞。"
+
+# 21
+msgid "Look at the figure below. Which statement is <span class='key'>TRUE</span>? (Note: Be careful! The size of the object doesn’t represent the mass of the object!)"
+msgstr "請看下方的圖片。哪一個敘述是正確的？（注意：物體的大小並不表示該物體的質量。）"
+
+msgid "1 - A \"lead\" ball having a mass of 100 kilograms"
+msgstr "1－一個質量是100公斤的鉛球。"
+
+msgid "2 - An \"aluminum\" ball having a mass of 75 kilograms"
+msgstr "2－一個質量是75公斤的鋁球。"
+
+msgid "3 - A \"steel\" ball having a mass of 50 kilograms."
+msgstr "3－一個質量是50公斤的鋼球。"
+
+msgid "Being the most massive, only Object 1 exerts a gravitational force on the other objects."
+msgstr "作為最巨大的，物體1對其他物體產生引力。"
+
+msgid "Having a mass between Objects 1 and 3, Object 2 exerts the greatest force on the other objects."
+msgstr "擁有物體1與物體3之間的質量，物體2對其他物體產生最大的力。"
+
+msgid "The gravitational force between Objects 1 and 2 is greater than the force between Objects 1 and 3."
+msgstr "物體1與物體2之間的引力比物體1與物體3之間的引力來得大。"
+
+msgid "The gravitational force between Objects 1 and 2 and Objects 1 and 3 is the same."
+msgstr "物體1與物體2和物體1與物體3之間的引力是一樣的。"
+
+msgid "Nope. All objects with mass exert a gravitational force on other objects."
+msgstr "否。所有有質量的物體都會對其他物體產生引力。"
+
+msgid "Nope. Object 1, being the most massive, exerts the greatest gravitational force."
+msgstr "否。物體1，擁有最大質量，產生最大的引力。"
+
+msgid "Correct. Due to the larger mass of Object 1, the gravitational force exerted between Objects 1 and 2 is greater than that between Objects 2 and 3."
+msgstr "對的。因為物體1質量較大，物體1與物體2之間的引力比物體2與物體3之間的引力來得大。"
+
+msgid "Nope. A gravitational force is exerted by each object on the others. Their masses affect the amount of force they exert."
+msgstr "否。每個物體都會對其他物體產生引力。它們的質量大小會影響它們產生的力。"
+
+# 22
+msgid "You've completed the Gravity in Action module."
+msgstr "你已經完成了引力作用的模組。"
+
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "你可以點擊下方的按鈕來檢視你在這個模組中“快速測驗”與“問題考驗”的表現。"
+
+msgid "Congratulations"
+msgstr "恭喜"
+
+msgid "Gravity causes free-falling objects to fall to Earth at a constant acceleration of 9.8 meters per second, per second. Thus, a ball that is from rest dropped from a cliff will be falling, not accounting for air resistance, at 9.8 meters per second after one second. After two seconds, it will be falling at 9.8 x 2 = 19.6 meters per second. And after three seconds, the ball will be falling at 9.8 x 3 = 29.4 meters per second. Thus, objects increase in speed as they are falling, covering more distance each second they are in the air. The following image of a falling basketball demonstrates this. The ball’s position, beginning with it being held and dropped at the top, is pictured after each 1/20th of a second. Notice how the basketball is covering more distance during each additional 1/20th of a second that it falls."
+msgstr ""

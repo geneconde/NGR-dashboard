@@ -1,0 +1,861 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: module\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"Language: ar\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+
+# Common Translations
+msgid "Start"
+msgstr "إبدأ"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Back"
+msgstr "السابق"
+
+msgid "Read More"
+msgstr "إقرأ المزيد"
+
+msgid "Check Answer"
+msgstr "تأكد من الإجابة"
+
+msgid "Please select your answer."
+msgstr "الرجاء اختيار إجابتك."
+
+msgid "Please select your answers."
+msgstr "يرجى إختيار إجاباتك."
+
+msgid "Please type your answer."
+msgstr "يرجى طباعة إجابتك"
+
+msgid "Quick Check #1"
+msgstr "تقويم سريع رقم 1"
+
+msgid "Quick Check #2"
+msgstr "تقويم سريع رقم 2"
+
+msgid "Quick Check #3"
+msgstr "إختبار قصير رقم 3"
+
+msgid "Quick Check #4"
+msgstr "تقويم سريع رقم 4"
+
+msgid "Please check your answers."
+msgstr "من فضلك تأكد من إجاباتك."
+
+msgid "How did I do?"
+msgstr "كيف أجبت؟"
+
+msgid "You answered..."
+msgstr "إجابتك كانت..."
+
+msgid "select"
+msgstr "اختر"
+
+msgid "Play"
+msgstr "شغَل"
+
+msgid "Pause"
+msgstr "وقف مؤقت"
+
+msgid "Stop"
+msgstr "توقف"
+
+msgid "Mute"
+msgstr "صامت"
+
+msgid "Unmute"
+msgstr "غير صامت"
+
+msgid "Max volume"
+msgstr "أعلى صوت"
+
+msgid "Full screen"
+msgstr "شاشة كاملة"
+
+msgid "Restore screen"
+msgstr "استعادة الشاشة"
+
+msgid "Repeat"
+msgstr "كرر"
+
+msgid "Repeat off"
+msgstr "إيقاف التكرار"
+
+msgid "Update Required"
+msgstr "التحديث مطلوب"
+
+msgid "To play the media you will need to either update your browser to a recent version or update your"
+msgstr "لتشغيل الوسائط ستحتاج إما إلى تحديث المتصفح للنسخة الأخيرة أو تحديث  "
+
+msgid "Flash plugin"
+msgstr "أدخل الفلاش"
+
+msgid "Click, hold and slide your mouse up and down to rotate the box and select your answer."
+msgstr "انقر فوق، وحرك الفأرة صعودا وهبوطا لتدوير الصندوق وحدد إجابتك."
+
+msgid "Browse through the slides below by clicking the left and right arrows."
+msgstr "تصفح الشرائح المختلفة بالنقر على الأسهم اليسار واليمين"
+
+msgid "The Situation"
+msgstr "الحالة"
+
+msgid "The Scenario"
+msgstr "السيناريو"
+
+msgid "Your Task"
+msgstr "مهمتك هي"
+
+msgid "The Task"
+msgstr "المهمة"
+
+msgid "The Problem"
+msgstr "المشكلة"
+
+msgid "Your Assignment"
+msgstr "واجبك هو "
+
+msgid "Close me!"
+msgstr "أغلق الشاشة!"
+
+msgid "Click here to start typing your answer..."
+msgstr "انقر هنا لتبدأ بطباعة إجابتك..."
+
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "إجابة الأسئلة القصيرة الستة سيعطيك فكرة عما تعرف الآن وماذا تحتاج لأن تعرف."
+
+msgid "Click the NEXT button when you are ready."
+msgstr "انقر على زر التالي عندما تكون مستعدا."
+
+msgid "Quiz Question #1"
+msgstr "السؤال القصير رقم 1"
+
+msgid "Quiz Question #2"
+msgstr " السؤال القصير رقم 2"
+
+msgid "Quiz Question #3"
+msgstr "السؤال القصير رقم 3"
+
+msgid "Quiz Question #4"
+msgstr "السؤال القصير رقم 4"
+
+msgid "Quiz Question #5"
+msgstr "السؤال القصير رقم 5"
+
+msgid "Quiz Question #6"
+msgstr "السؤال القصير رقم 6"
+
+msgid "Congratulations, "
+msgstr "مبروك، "
+
+msgid "You can check how you did on the 'Quick Check' and 'Quiz Questions' for this review by clicking the button below."
+msgstr "بإمكانك التأكد من كيفية إجابتك للإختبار السريع وللأسئلة القصيرة لهذه المراجعة بالنقر على الزر في الأسفل. "
+
+msgid "Go to dashboard"
+msgstr "اذهب إلى اللوحة التوجيهية."
+
+msgid "Let's begin"
+msgstr "دعنا نبدأ"
+
+msgid "Are you ready,"
+msgstr "هل أنت مستعد،"
+
+msgid "Preparing your first quick check..."
+msgstr "تحضير أول تقويم سريع..."
+
+msgid "Ready for your last quick check?"
+msgstr "أمستعد لقويمك السريع الأخير؟"
+
+msgid "Ready for your last quiz question?"
+msgstr "هل أنت مستعد للتحقق من سؤال الاختبار الاخير؟"
+
+msgid "Putting it all together..."
+msgstr "إجمعها مع بعضها ..."
+
+msgid "Words and explanations"
+msgstr "كلمات وتفسيرات"
+
+msgid "Let's check what you now know"
+msgstr "دعنا نتأكد مما تعرف الآن"
+
+msgid "And the first quiz question is..."
+msgstr "و أول سؤال قصير هو... "
+
+msgid "You're done!"
+msgstr "أنهيت!"
+
+# 1
+msgid "Welcome to the Gravity in Action module"
+msgstr "مرحبا بكم في وحدة عمل الجاذبية "
+
+# 2
+msgid "Thinking about... gravity in action"
+msgstr "التفكير ... بعمل الجاذبية"
+
+msgid "Gravity in Action"
+msgstr "بعمل الجاذبية"
+
+msgid "Have you ever seen a tug of war between two teams? Each team holding the rope is separated by a certain distance and both are trying to pull the other over a line. It might be hard to imagine a tug of war game without a rope, but such a contest is constantly taking place as objects throughout the universe pull on other objects with a force called <span class='key'>gravity</span>."
+msgstr "هل سبق لك أن رأيت لعبة شد الحبل بين فريقين؟ يتم فصل كل فريق يمسك الحبل لمسافة معينة، ويحاول كلاهما أن يسحب الآخر خارج الخط.  قد يكون من الصعب أن نتصور لعبة شد الحبل دون حبل، ولكن تعتبر مثل هذه المسابقة والتي تحدث باستمرار في جميع أنحاء العالم كأشياء تقوم بسحب أشياء اخرى باستخدام القوة  وتعرف <span class='key'>بالجاذبية."
+
+# 3
+msgid "Checking what you already know about... gravity in action"
+msgstr "تحقق مما كنت تعرفه سابقا عن..  عمل الجاذبية "
+
+msgid "You may have heard that all objects exert a gravitational force on other objects. You may also have wondered, then, why you don't feel this force. Although the force between most paired objects cannot be felt, you can indeed feel the force between the earth and you. "
+msgstr ""
+"ربما سمعت أن جميع الأشياء تمارس قوة الجاذبية على أشياء أخرى. وربما قد تساءلت ، عندها، لماذا لا تشعر بهذه القوة.  على الرغم من أن القوة بين الأشياء المقترنة لا يمكن الإحساس بها، يمكنك أن تشعر  بالقوة بينك وبين الأرض حقا.  إنه كالإحساس بوزنك. إن قفزت في الهواء، يمكنك التأكد من أنه سيتم سحبك مرة أخرى إلى الأرض. ولكن ماذا  سيحدث برأيك إذا قفزت ولم يكن هناك شيء مثل الجاذبية؟ فكر في تجربتك مع الجاذبية، على سبيل المثال، عندما تقفز لتلتقط تفاحة من "
+"شجرة أو مشاهدة المطر الذي يسقط من سحابة داكنة. بناء على تجربتك، كيف تصف قوة الجاذبية؟"
+
+msgid "Gravity is a force that pushes objects in opposite directions."
+msgstr "الجاذبية هي القوة التي تدفع الأشياء في اتجاهين معاكسين."
+
+msgid "Gravity is a force that pulls objects toward each other."
+msgstr "الجاذبية هي القوة التي تجذب الأشياء نحو بعضها البعض."
+
+msgid "Gravity is a force that can both push and pull on objects."
+msgstr "الجاذبية هي القوة التي يمكنها دفع وجذب الأشياء."
+
+msgid "Gravity is a force that acts when objects touch each other."
+msgstr "الجاذبية هي القوة التي تعمل عندما تلمس الأشياء بعضها البعض."
+
+msgid "Gravity definitely is a force that acts between any two or more objects. But there are some special ways that gravity acts that might surprise you. Learn more about how gravity acts in this module."
+msgstr "الجاذبية هي بالتأكيد القوة التي تحصل بين اثنين أو أكثر من الأشياء.  ولكن هناك بعض الطرق الخاصة التي تقوم بها الجاذبية والتي قد تفاجئك. تعلم المزيد حول كيفية عمل الجاذبية في هذه الوحدة. "
+
+msgid "Jumping up in the air..."
+msgstr "القفز في الهواء "
+
+# 4
+msgid "Reviewing big ideas about... gravity in action"
+msgstr "مراجعة الأفكار الكبيرة حول ... عمل الجاذبية"
+
+msgid "A <span class='key'>force</span> is a push or a pull. For example, you have to exert a force to push your friend on a swing or to pull them in a wagon. <span class='key'>Gravity</span> is also a force, but it is special in several ways. Gravity acts only to pull objects toward each other, whether the objects are touching or not."
+msgstr "<span class='key'>القوة</span> هي دفع أو جذب.  على سبيل المثال، يجب أن تمارس القوة لدفع صديقك على الأرجوحة أو سحبه من العربة.  <span class='key'>الجاذبية</span> هي أيضا قوة، ولكنها  خاصة بعدة طرق.  الجاذبية تعمل لجذب الأشياء تجاه بعضهما البعض فقط، سواء تلامست هذه الأشياءمع بعضها أم لا."
+
+msgid ""
+"There are two factors that affect how much the force of gravity will pull two or more objects together. The first factor is the masses of the objects involved. The more massive the objects are, the greater the gravitational force between them will be. For example, the gravitational force between a 10kg and a 5kg object is twice as strong as between two 5 kg objects; and the gravitational force between two 10kg objects is four times as strong "
+"as between two 5 kg objects."
+msgstr "هناك نوعان من العوامل التي تؤثر على مقدار قوة الجاذبية التي ستجذب اثنين او اكثر من الأشياء. العامل الأول هو كتل الأشياء المعنية. كلما كانت كتلة الأشياء ضخمة، فإن قوة الجاذبية ستكون أكبر بينهما. على سبيل المثال، قوة الجاذبية بين شيء يزن 10 كيلوغرام وآخر 5 كيلوغرام تكون قوتها ضعفي القوة بين الأشياء التي تزن 5 كيلوغرام؛ وقوة الجاذبية بين شيئين وزنهما 10 كيلوغرام هي أربع أضعاف ما كان بين اثنين من الاشياء التي تزن 5 كيلوغرام."
+
+msgid "The force of gravity between objects is measured in <span class='key'>Newtons</span>. If one object is many times more massive than another object, we refer to the gravitational force on the smaller object as its weight. So when you weigh yourself on a standard bathroom scale, your weight is the gravitational force between you and the Earth."
+msgstr "يتم قياس قوة الجاذبية بين الأشياء بوحدة <span class='key'>النيوتن</span> .  إذا كان الجسم الواحد أضخم بعدة مرات من الجسم الآخر، فإننا نشير إلى قوة الجاذبية للشيءالأصغر حسب وزنه. لذلك عندما  تزن نفسك بميزان الحمام ، يكون وزنك هو قوة الجاذبية بينك وبين الأرض."
+
+msgid "Massive objects exert a stronger pull than less massive objects."
+msgstr "الأجسام الضخمة تمارس الجذب بشكل أقوى من الأشياء الأقل ضخامة"
+
+msgid "Astronauts weigh much less on the moon than on Earth because the moon’s mass is much smaller than the mass of the earth. So the gravitational force between the moon and a person is less than the gravitational force between the earth and that same person."
+msgstr "يزن رواد الفضاء  أقل على سطح القمر من على الأرض لأن كتلة القمر أصغر بكثير من كتلة الارض. وبالتالي فإن قوة الجاذبية بين القمر والشخص هي أقل من قوة الجاذبية بين الأرض و الشخص نفسه."
+
+msgid "The second factor affecting gravitational force is the distance between objects. The farther away two objects are from each other, the weaker the gravitational force is between them. The closer they are, the stronger the force is. So, unlike pushing or pulling a wagon where you have to be in contact with the wagon, the gravitational force between objects acts across distance—the objects don't have to touch!"
+msgstr "أما العامل الثاني الذي يؤثر على قوة الجاذبية هو المسافة بين الأشياء. وكلما كان الشيئين بعيدين عن بعضهما البعض، كلما ضعفت قوة الجاذبية بينهما. وكلما اقتربا من بعضهما البعض،كلما كانت قوة الجاذبية أقوى. لذلك، وتختلف عن دفع أو جذب العربة حيث يجب ان تمسك العربة، تعمل قوة الجاذبية بين الأشياء عبر المسافة بينهما وليس من الضروري أن تتلامس."
+
+msgid "Given equal masses, objects that are far apart exert less gravitational force on each other than objects that are close together."
+msgstr " الكتل متساوية، الأشياء البعيدة تمارس قوة جاذبية أقل على بعضها البعض من الأشياء القريبة من بعضها البعض."
+
+msgid "Moon"
+msgstr "قمر"
+
+msgid "Mass = 72 kg."
+msgstr "كتلة = 72 كغ."
+
+msgid "Weight = 12 kg. (26 lbs.)"
+msgstr "الوزن = 12 كغم. (26 رطلا.)"
+
+msgid "Earth"
+msgstr "الأرض"
+
+msgid "Weight = 72 kg. (158 lbs.)"
+msgstr "الوزن = 12 كغم. (158 رطلا.)"
+
+msgid "Pushing the swing..."
+msgstr "دفع الأرجوحة ..."
+
+# 5
+msgid "Question A. Use what you know about the relationship between mass and gravitational force to rank the celestial bodies (the planets and the Sun in our solar system). Drag the boxes of the celestial bodies up and down to sort them from highest to lowest based on gravitational force they possess. The highest gravity should be at the top."
+msgstr "السؤال أ. استخدم ما تعرفه عن العلاقة بين الكتلة وقوة الجاذبية لتصنيف الأجرام السماوية (الكواكب والشمس في نظامنا الشمسي). اسحب المربعات من الأجرام السماوية أعلى وأسفل  لفرزها من الأعلى إلى الأدنى على أساس قوة الجاذبية التي تمتلكها. الجاذبية الأعلى يجب أن تكون أعلى."
+
+msgid "Celestial Body Mass"
+msgstr "كتلة الأجرام السماوية"
+
+msgid "Earth 5.97 x 10<sup>24</sup> Kilograms"
+msgstr "الأرض 5.97*10<sup>24</sup> كغم"
+
+msgid "Jupiter 1,900 x 10<sup>24</sup> Kilograms"
+msgstr "المشتري 1.900*10 <sup>24</sup> كيلوغرام"
+
+msgid "Mars 0.641 x 10<sup>24</sup> Kilograms"
+msgstr "المريخ 0.641*10 <sup>24</sup> كيلوغرام"
+
+msgid "Mercury 0.330 x 10<sup>24</sup> Kilograms"
+msgstr "عطارد 0.330*10 <sup>24</sup> كيلوغرام"
+
+msgid "Neptune 102 x 10<sup>24</sup> Kilograms"
+msgstr "نبتون 102*10 <sup>24</sup> كيلوغرام"
+
+msgid "Saturn 568 x 10<sup>24</sup> Kilograms"
+msgstr "زحل 568*10 <sup>24</sup> كيلوغرام"
+
+msgid "Sun 1,989,000 x 10<sup>24</sup> Kilograms"
+msgstr "الشمس 1.989.000*10 <sup>24</sup> كيلوغرام"
+
+msgid "Uranus 86.8 x 10<sup>24</sup> Kilograms"
+msgstr "أورانوس 86.8*10 <sup>24</sup> كيلوغرام"
+
+msgid "Venus 4.87 x 10<sup>24</sup> Kilograms"
+msgstr "الزهرة 4.87*10 <sup>24</sup> كيلوغرام"
+
+msgid "Question B. A 1-liter bottle of water on earth has a mass of approximately 1 kilogram and weighs about 10 newtons. If that bottle is transported to a planet that has less mass than that of Earth, mark <span class='blink'>all</span> of the following that will be <span class='blink'>true</span>."
+msgstr "السؤال ب. تزن كتلة لتر من الماء على الأرض حوالي 1 كيلوغرام وتزن حوالي 10 نيوتن. في حالة نُقلت الزجاجة لكوكب كتلته أقل من كتلة الأرض، حدد <span class='blink'>جميع</span>  الخيارات <span class='blink'>الصحيحة</span>  مما يلي:"
+
+msgid "The weight of the bottle of water will remain the same."
+msgstr " يبقى وزن زجاجة المياه هو نفسه."
+
+msgid "The weight of the bottle will be less than that on earth."
+msgstr "وزن الزجاجة سيكون أقل من وزنها على الأرض."
+
+msgid "The mass of the bottle of water will be more than that on earth."
+msgstr "كتلة زجاجة الماء ستكون أكثر من كتلتها على الأرض."
+
+msgid "The mass of the bottle of water will be the same."
+msgstr "ستكون كتلة زجاجة المياه  هي نفسها."
+
+msgid "Correct! The total mass (amount of matter) of the bottle of water will not change, but because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr "صحيح! فإن الكتلة الإجمالية (كمية المادة) من زجاجة  المياه لن تتغير، ولكن لأن كتلة المريخ أقل من كتلة الأرض،  ستكون قوة الجاذبية فيها أقل - وسوف تزن الزجاجة أقل."
+
+msgid "Not quite! The total mass (amount of matter) of the bottle of water will not change. Because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr "ليس تماما! فإن الكتلة الإجمالية (كمية المادة) من زجاجة المياه لن تتغير.   لأن كتلة المريخ أقل من كتلة الأرض،ستكون قوة الجاذبية بعد ذلك أقل - وسوف زجاجة تزن أقل."
+
+# 6
+msgid ""
+"All objects exert a gravitational pull on other objects. This holds true in the case of the Earth’s moon. Just as the earth is pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</span> are caused by the gravitational pull of the moon on the mass of water in the earth’s oceans. Because ocean water is a liquid and can move, it “bulges up” from the pull of the moon’s gravity towards the moon’s position on any "
+"given day."
+msgstr "تؤثر كافة الأجسام بجاذبية شد أو دفع على الأجسام الأخرى.  وهذا صحيح بالنسبة لكوكب قمر الأرض.  تماما كما هي الجاذبية على سطح القمر، القمر يجذب الأرض.  تحدث <span class='key'>موجات المحيط</span>  بسبب جذب القمر لكتلة المياه في محيطات الأرض.  ولأن مياه المحيطات سائلة ويمكنها التحرك، فهي تتمدد بسبب قوة جاذبية القمر باتجاه موقع القمر في أي يوم من الأيام."
+
+msgid ""
+"A \"bulge\" of ocean water is created as the moon's gravity pulls in a direct line between the earth and the moon. The moon's gravitational pull is the strongest along a direct line between the earth and the moon. It is at that place a bulge of water occurs. That bulge is known as a <span class='key'>lunar tide</span>, which is also called high tide. The bulge is always found in that direct line, but as the earth rotates on its axis, the bulge "
+"is seen to move from east to west on Earth's surface."
+msgstr "تتكون تمددات مياه المحيط عند جذب جاذبية القمر في خط مباشر بين الأرض والقمر.  جاذبية القمر هي الأقوى على امتداد الخط المباشر بين الأرض والقمر.  وهي في المكان الذي يحذث فيه ارتفاع  المياه.  ويسمى هذا الانتفاخ <span class='key'>بالموجة القمرية</span> ، و يسمى أيضا بانتفاخ المد.يحدث الانتفاخ دائما في هذا الخط المباشر، ولكن عندما تدور الأرض حول محورها، ينتقل الانتفاخ من الشرق إلى الغرب على سطح الأرض."
+
+msgid "Tidal bulge due to inertia"
+msgstr "يحدث تمدد الموجة بسبب القصور الذاتي"
+
+msgid "Tidal bulge due to gravity"
+msgstr "يحدث تمدد الموجة بسبب الجاذبية"
+
+msgid "Moon's <br><br> gravitational <br><br> pull"
+msgstr "شد <br><br>جاذبية <br><br>القمر"
+
+msgid "The green shows the relative magnitude of the forces – not the height of the water level changes. The actual change in water level from high tide to low tide is just a few feet."
+msgstr "اللون الأخضر يبين الحجم النسبي للقوى – وليس إرتفاع  مستوى المياه المتغيرة. التغير الفعلي في مستوى المياه من المنخفض هو الموجة المرتفعة إلى المنخفضة هو فقط بضعة أقدام."
+
+msgid "There is also an ocean bulge on the other side of the earth that is opposite the moon on the same direct line. The two bulges are what cause high tides twice each day. The tidal bulge of water on the other side of the earth from the moon is caused by centrifugal force, also called inertia, from the earth spinning on its axis. Low tides are the areas of the earth’s oceans in-between the two high tide bulges."
+msgstr "هناك أيضا انتفاخ في المحيط على الجانب الآخر من الأرض المقابل للقمر على امتداد الخط المباشر.  والانتفاخات هي ما يتسبب بالموجات العالية مرتين كل يوم.  ويتسبب انتفاخ المد والجزر من الماء على الجانب الآخر من الأرض للقمر عن طريق قوة الطرد المركزي، وتعرف أيضا بالقصور الذاتي، من دوران الأرض حول محورها. الموجات المنخفضة هي مناطق من المحيطات الأرضية تحدث فيما بين  موجتين مرتفعتين عاليتين."
+
+msgid "High tide or low tide?"
+msgstr "الموجات العالية أو الموجات المنخفضة؟"
+
+# 7
+msgid "Question A. Read the sentences below and select the statement that is <span class='blink'>not correct</span>."
+msgstr "السؤال أ. إقرأ الجمل أدناه وحدد العبارة <span class='blink'>غيرالصحيحة"
+
+msgid "High and low tides are related to the force of the moon pulling on Earth."
+msgstr "ترتبط الموجات العالية والمنخفضة بقوة جذب القمر للأرض."
+
+msgid "Just as the earth is pulling on the moon, the moon is pulling on the earth."
+msgstr "تماما كما تجذب الأرض القمر، يقوم القمر بجذب الأرض."
+
+msgid "Ocean tides are caused by the gravitational pull of the moon."
+msgstr "تحدث الموجات المحيطية بسبب قوة جاذبية القمر."
+
+msgid "The phases of the moon cause the high tides."
+msgstr "تحدث أطوار القمر بسبب ارتفاع الموجات العالية."
+
+msgid "Question B. Which of the following is <span class='blink'>true</span> considering the moon's force of gravity exerts a pulling force on Earth's oceans that then creates a \"bulge\" of water?"
+msgstr "السؤال ب. أي مما يلي صحيحا بأخذ قوة جاذبية القمر بالإعتبار التي تسبب قوة الجذب على محيطات الأرض مما يتسبب بعد ذلك بارتفاع الماء؟"
+
+msgid "A high tide will occur whenever the moon is directly  overhead or directly opposite a location on earth."
+msgstr "يحدث ارتفاع المد كلما كان القمر مباشرة فوق أو على الجانب الآخر من الأرض."
+
+msgid "A low tide will occur whenever the moon is directly overhead."
+msgstr "يحدث الجزر  كلما كان القمر فوق المنطقة مباشرة."
+
+msgid "A high tide will generally occur when the moon is new."
+msgstr "ويحدث المد العالي عادة هناك عندما يكون القمر جديدا."
+
+msgid "A high tide will generally occur when the moon is full."
+msgstr "ويحدث المد العالي عادة عندما يكون القمر بدرا."
+
+msgid "Looking at the moon..."
+msgstr " النظر إلى القمر "
+
+msgid "No, this sentence is true. Tides are caused by the pull of the moon, sun, and Earth rotating on its axis."
+msgstr "كلا، هذه الجملة صحيحة.  يحدث المد والجزر بسبب جاذبية القمر، والشمس، ودوران الأرض حول محورها."
+
+msgid "No, this sentence is true. All objects exert a gravitational pull on other objects. We might not feel it all the time, but it works both ways."
+msgstr "لا، هذه الجملة صحيحة. تمارس جميع الأجسام الجاذبية على الأجسام الأخرى.  ونحن قد لا نشعر بها في كل الأوقات، ولكنها تعمل في كلا الاتجاهين."
+
+msgid "Correct! This sentence is false. The bulge does not disappear; it is seen to move from east to west on Earth's surface."
+msgstr "صحيح! هذه الجملة خاطئة.  لا يختفي المد ؛ فقد شوهد بأنه ينتقل من الشرق إلى الغرب على سطح الأرض."
+
+msgid "Correct! A high tide will generally occur whenever the moon is directly overhead. And remember, there will also be another high tide on the opposite side of the earth at the same time. "
+msgstr "صحيح! ويحدث انتفاخ  المد عموما كلما كان القمر فوق المنطقة مباشرة.  وتذكر بأنه سوف يكون هناك انتفاخ آخر في المد على الجانب الآخر من الأرض في نفس الوقت أيضا. "
+
+msgid "Nope! A high tide, not a low tide, will generally occur whenever the moon is directly overhead or directly opposite a location on earth."
+msgstr "كلا! موجة مرتفعة، وليست منخفضة ستحدث عموماً، وسوف يحدث  كلما كان القمر مباشرة فوق أو على الجانب الآخر من الأرض ."
+
+msgid "Nope! High and low tides occur daily during all phases of the moon."
+msgstr "كلا! يحدث المد والجزر يوميا خلال جميع مراحل تكون القمر."
+
+# 8
+msgid "More big ideas about... gravity in action"
+msgstr "المزيد من الأفكار الكبيرة حول ...  عمل الجاذبية "
+
+msgid ""
+"Because we live on Earth, most people experience (or observe) the phenomena of gravity as things \"falling to Earth\". But if all things that went up truly fell back to Earth, devices such as cell phones and TVs would not work as they do today. That's because such devices depend upon connections with a communication <span class='key'>satellite</span> that is rocketed up to a distance where the earth's gravity is much weaker. If we were able to "
+"turn off Earth's gravity, the satellite boosted into space would keep going. But we can't turn off gravity. It follows that the satellite begins to fall back to earth. But rather than falling straight back, the satellite begins to \"curve\" back to Earth until it enters a stable orbit around the planet. A stable orbit requires a balance of enough speed to keep the object from falling completely back to Earth but not so much speed that it "
+"shoots off into space."
+msgstr ""
+"لأننا نعيش على الأرض، يختبر أو يراقب معظم الناس ظواهر الجاذبية كسقوط الأشياء على الأرض.  ولكن إذا سقطت كل الأشياء التي ارتفعت على الأرض مرة أخرى، فإن الأجهزة مثل الهواتف المحمولة وأجهزة التلفاز لن تعمل كما تعمل اليوم.  ذلك لأن هذه الأجهزة تعتمد على اتصالات <span class='key'>الأقمار الصناعية</span> التي تم انطلاقها لمسافة حيث تكون الجاذبية الأرضية أضعف من ذلك بكثير.  إذا كنا قادرين على إيقاف جاذبية الأرض،سوف تستمر الأقمار الصناعية المعززة في "
+"الفضاء بعملها . ولكن لا يمكننا إيقاف الجاذبية.  ويتبع ذلك القمر الصناعي الذي يبدأ في السقوط مرة أخرى على الأرض. ولكن بدلا من السقوط مباشرة، يبدأ القمر الصناعي بالسقوط بشكل منحني على الأرض، إلى أن يدخل في مدار مستقر حول الكوكب. المدار المستقر يتطلب توازنا كافيا من السرعة للحفاظ على الجسم من السقوط كليا على الأرض ولكن ليس بالكثير من السرعة ليجعله منطلقاً في الفضاء."
+
+msgid ""
+"Much like the example with the satellite above, the Moon can be described as Earth's satellite. Indeed, a moon is defined as both a celestial body and a natural satellite. It is a <span class='key'>celestial body</span> because it is an object found in space and it is a <span class='key'>natural satellite</span> because the moon orbits the earth. Like the communication satellites revolving around Earth, the moon is in a perfect balance of "
+"motion. If the moon had any more <span class='key'>velocity</span>, it would fly off into space. But if the moon had any less velocity, it would spiral toward Earth until it crashed into Earth's surface. Thus, the Earth-Moon system is another example of a satellite system--a perfect balance of motion and gravity."
+msgstr ""
+"يشبه إلى حد كبير مثال القمر الصناعي أعلاه، يمكن وصف القمر كالأقمار الصناعية للأرض. وبالفعل تم تعريف القمر كجرم سماوي وكقمر طبيعي.  وهو  <span class='key'>جرم سماوي</span> لأنه جسم وجد في الفضاء ـ  وهو <span class='key'>قمر طبيعي</span> لأن القمر يدور حول الأرض.  مثل أقمار الاتصالات التي تدور حول الأرض.  القمر متوازن تماما في الحركة.  إذا كانت <span class='key'> سرعة</span> حركة القمر أكثر ، فإنه سيطير في الفضاء.  ولكن إذا كان القمر أقل سرعة، "
+"فإنه سيسقط بشكل لولبي نحو الأرض حتى يتحطم على سطح الأرض.  وهكذا، فإن نظام الأرض والقمر هما مثالان آخران على نظام الأقمار الصناعية - توازن مثالي في الحركة والجاذبية."
+
+msgid "Stabilizing speed..."
+msgstr "استقرار السرعة ..."
+
+# 9
+msgid "Question A. Read the following statements and click on the <span class='blink'>correct</span> answer."
+msgstr "السؤال أ. اقرأ العبارات التالية وانقر على الإجابة <span class='key'>الصحيحة</span> ."
+
+msgid "The force of gravity causes all objects launched up into the sky to fall back down to Earth."
+msgstr "قوة الجاذبية تسبب سقوط كل الأجسام المنطلقة في السماء على الأرض."
+
+msgid "Communication satellites are rocketed into space to a distance where Earth's gravity is much stronger."
+msgstr "تطلق أقمار الاتصالات في الفضاء إلى مسافة حيث تكون جاذبية الأرض أقوى بكثير."
+
+msgid "Artificial satellites are like the moon in that they both orbit the earth."
+msgstr "الأقمار الصناعية هي مثل القمر حيث يدور كل منهما حول الأرض."
+
+msgid "If the moon had more velocity than it does while orbiting, it would spiral downward until it crashed into Earth's surface."
+msgstr "لو كانت سرعة القمر أكثر حين يدور، فإنه سيدور بشكل لولبي حتى يتحطم على سطح الأرض"
+
+msgid "Question B. Click on <span class='blink'>all</span> the statements that are <span class='blink'>true</span>."
+msgstr "السؤال ب. انقر على <span class='blink'>جميع</span>  العبارات <span class='blink'>الصحيحة</span> "
+
+msgid "For satellites to get into orbit, gravity is turned off."
+msgstr "لتصل الأقمار الصناعية الى المدار،  تتوقف الجاذبية."
+
+msgid "Natural satellites are celestial bodies."
+msgstr "الأقمار الصناعية الطبيعية هي الأجرام السماوية."
+
+msgid "A communication satellite is a type of artificial satellite."
+msgstr "قمر الاتصال هو نوع من القمر الصناعي."
+
+msgid "Gravity affects the balance of motion of natural satellites, but does not affect artificial satellites."
+msgstr "تؤثر الجاذبية على توازن حركة الأقمار الصناعية الطبيعية، ولكنها لا تؤثر على الأقمار الصناعية."
+
+msgid "Gravity affects the balance of motion of natural and artificial satellites."
+msgstr "تؤثر الجاذبية على توازن حركة الأقمار الصناعية الطبيعية والاصطناعية."
+
+msgid "Repairing satellites..."
+msgstr "إصلاح الأقمار الصناعية ..."
+
+msgid "This is not correct since some objects launched from Earth go into orbit as satellites."
+msgstr "هذا غير صحيح لأن بعض الأشياء التي تنطلق من الأرض تذهب في المدار كأقمار صناعية."
+
+msgid "Just the opposite! Satellites are rocketed into space to a distance where Earth's gravity is much weaker. Remember, the force of gravity between two objects decreases as distance increases."
+msgstr "على العكس! تنطلق الأقمار الصناعية  في الفضاء لمسافة حيث تكون جاذبية الأرض أضعف بكثير. تذكر، قوة الجاذبية بين شيئين تنخفض بازدياد المسافة."
+
+msgid "Correct, the moon is in perfect balance of motion and gravity with the earth. Communication satellites try to simulate that balance. "
+msgstr "صحيح، يكون القمر في توازن مثالي بين الحركة والجاذبية مع الأرض. تحاول أقمار الاتصالات محاكاة هذا التوازن."
+
+msgid "Nope. If the moon had less velocity, it would spiral downward. If it had more velocity, the moon would continue on a path away from Earth."
+msgstr "كلا. إذا كانت سرعة  القمر أقل ، سيهبط بشكل لولبي. إذا كانت سرعته أكثر ، فإن القمر سيبقى في مسار بعيد عن الأرض."
+
+msgid "Correct! Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr "صحيح! الأقمار الصناعية الطبيعية هي الأجرام السماوية وأقمار الاتصالات هي الأقمار الصناعية.  يعتمد توازن الحركة من الأقمار الصناعية الطبيعية والاصطناعية على قوة الجاذبية.  وأقمار الاتصالات تنطلق في الفضاء لمسافة معينة حيث تكون جاذبية الأرض أضعف بكثير - لا يمكن أن تتوقف الجاذبية."
+
+msgid "Not quite... Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr "ليس تماما... الأقمار الصناعية الطبيعية هي الأجرام السماوية وأقمار الاتصالات هي الأقمار الصناعية. يعتمد توازن الحركة من الأقمار الصناعية الطبيعية والاصطناعية على قوة الجاذبية.  وأقمار الاتصالات تنطلق في الفضاء لمسافة معينة حيث تكون جاذبية الأرض أضعف بكثير - لا يمكن أن تتوقف الجاذبية."
+
+# 10
+msgid "More big ideas... about gravity in action"
+msgstr "المزيد من الأفكار الكبيرة ... حول عمل الجاذبية "
+
+msgid ""
+"<span class='key'>Velocity</span> is the speed of a moving object. Sometimes objects move at a constant speed – like a car driving down the highway at 105 kilometers per hour (Km/h). But usually, moving objects speed-up or slow down. <span class='key'>Acceleration</span> is how quickly that happens. Does the car accelerate quickly – going from 0 to 105 Km/h in 6 seconds? Or does it accelerate slowly going from 0 to 105 Km/h in 30 seconds?"
+"accelerate slowly going from 0 to 103 Km/h in 30 seconds"
+msgstr "السرعة هي سرعة الجسم المتحرك. تتحرك الأشياء أحيانا بسرعة ثابتة - مثل قيادة السيارة عبر الطريق السريع عند 105 كيلومترا في الساعة (كم / ساعة). ولكن عادة، الأجسام المتحركة تسرع أو تبطئ.  <span class='key'>التسارع هو مدى سرعة حدوث ذلك. هل تتسارع السيارة بشكل سريع - من 0 كم/الساعة إلى 105 كم / ساعة في 6 ثوان؟ أو هل تتسارع ببطء من0-103 كم / ساعة في 30 ثانية"
+
+msgid "Studying gravity..."
+msgstr "دراسة الجاذبية ..."
+
+# 11
+msgid "After learning about the acceleration due to gravity on free-falling objects, answer the following questions. Ignore the factor of air resistance in your answers. "
+msgstr "بعد التعرف على التسارع الناتج عن الجاذبية الواقعة على الأجسام ذات السقوط الحر، أجب عن الأسئلة التالية.  تجاهل عامل مقاومة الهواء في إجاباتك."
+
+msgid "Question A. A punted football is falling back to the field after reaching its peak height. How fast will it be moving when it is caught 3 seconds later? (acceleration due to gravity = 9.8 m/s2)"
+msgstr "السؤال أ. مسار كرة القدم في الملعب أثناء سقوطها بعد أن وصلت إلى ذروة الإرتفاع.  كم ستبلغ سرعتها وهي تتحرك عندما يتم التقاطها بعد ثلاثة ثوان؟ (التسارع الناتج عن الجاذبية = 9.8 م "
+
+msgid "0 meters per second"
+msgstr " 0 متر في الثانية"
+
+msgid "9.8 m/s2"
+msgstr " 9.8 م/ث2"
+
+msgid "19.6 meters"
+msgstr "19.6 متر"
+
+msgid "29.4 meters per second"
+msgstr "29.4 متر في الثانية"
+
+msgid "Question B. A watermelon and a marble are dropped from the same height. Which of the following is true?"
+msgstr "السؤال ب. يتم إسقاط بطيخة وكرة زجاجية من نفس الإرتفاع. أي من التالي صحيحاً؟"
+
+msgid "Because it is heavier, the watermelon will accelerate more than the marble."
+msgstr "لأنها أثقل، فسيكون تسارع البطيخة أكثر من الكرة الزجاجية"
+
+msgid "Because it is lighter, the marble will reach the ground later than the watermelon."
+msgstr "لأنها أخف وزنا، فستصل الكرة الزجاجية  الأرض بعد وصول البطيخة"
+
+msgid "Because the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects, both the watermelon and marble will reach the ground at the same time (ignoring air resistance)."
+msgstr "لأن التسارع الناتج عن الجاذبية من 9.8 م هو نفسه بالنسبة لجميع االأجسام ذات السقوط الحر،فإن كل من البطيخة والكرة الزجاجية ستصلان إلى الأرض في نفس الوقت (عند إهمال مقاومة الهواء)."
+
+msgid "The watermelon and the marble will be accelerated at different amounts based on their sizes."
+msgstr "سيتم قياس تسارع البطيخة والكرة الزجاجية بكميات مختلفة حسب حجمها."
+
+msgid "Nope! The football has gained speed as it falls due to the force of gravity accelerating it."
+msgstr "كلا! لقد اكتسبت كرة القدم سرعة أثناء سقوطها لأن قوة الجاذبية تقوم بتسارعها."
+
+msgid "Nope! This is the acceleration due to gravity, not the speed of the football after falling for 3 seconds."
+msgstr "كلا! هذا هو التسارع الناتج عن الجاذبية، وليس سرعة الكرة بعد سقوطها بثلاثة ثواني."
+
+msgid "Nope! This is the distance the football will have traveled in its fall after 2 seconds, not its speed after falling for 3 seconds."
+msgstr "كلا! هذه هي المسافة التي سارتها الكرة أثناء سقوطها بعد 2 ثانية، وليس سرعتها بعد سقوطها مدة 3 ثوان."
+
+msgid "Correct!  After 3 seconds of free-fall, the football would have a speed of 29.4 meters per second."
+msgstr "صحيح! بعد 3 ثوان من السقوط الحر، فإن سرعة كرة القدم هي  29.4 متر في الثانية الواحدة."
+
+msgid "Nope! Even though the watermelon is heavier, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "كلا! على الرغم من أن البطيخة أثقل وزنا، فالتسارع الناتج عن الجاذبية 9.8 م/ث2 هو نفسه لكافة الأجسام ذات السقوط الحر."
+
+msgid "Nope! Even though the marble is lighter, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "كلا! على الرغم من أن الكرة الزجاجية أخف وزنا، يكون التسارع الناتج عن الجاذبية من 9.8 م/ث2 هو نفسه لكافة الأجسام ذات السقوط الحر"
+
+msgid "Right!  Ignoring air resistance, both will reach the ground at the same time because of the acceleration due to gravity being the same for each."
+msgstr "صحيح! تجاهل مقاومة الهواء، ستصل كلتاهما إلى الأرض بنفس الوقت بسبب التسارع الناتج عن الجاذبية على كل منهما."
+
+msgid "Nope! The acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "كلا! التسارع بسبب الجاذبية 9.8 م /ث2 هو نفسه لكافة الأجسام حرة السقوط."
+
+# 12
+msgid "Using what you now know about... gravity in action... to solve a problem"
+msgstr "استخدام ما تعرفه الآن عن ... عمل الجاذبية  من أجل ... حل مشكلة"
+
+msgid "Astronauts need to be able to communicate with Earth on their new voyages to the moon and planet Mars. You are an engineer, part of NASA’s new mission to send satellites to orbit where astronauts are - the moon and Mars."
+msgstr "يحتاج رواد الفضاء أن يكونوا قادرين على التواصل مع الأرض في رحلاتهم الجديدة إلى القمر وكوكب المريخ.  أنت مهندس ، جزء من مهمة ناسا الجديدة هي إرسال الأقمار الصناعية إلى المدار حيث رواد الفضاء - القمر والمريخ."
+
+msgid "What would you have to consider to figure out where and how to set the artificial satellite into orbit? Using what you know about how satellites orbit the earth, what would you need to know to solve this problem? You can use the internet to find the facts you need."
+msgstr "ما الذي عليك أن تراعيه لمعرفة أين وكيف يُضبط القمر الصناعي في المدار؟ باستخدام ما تعرفه حول كيفية دوران الأقمار الصناعية حول الأرض، ما الذي قد تحتاج إلى معرفته لحل هذه المشكلة؟ يمكنك استخدام الإنترنت للعثور على الحقائق التي تحتاج إليها."
+
+msgid "Preparing for new mission..."
+msgstr "التحضير لمهمة جديدة ..."
+
+# 13
+msgid "Summarizing big ideas about... gravity in action"
+msgstr "تلخيص الأفكار الكبيرة حول ... عمل الجاذبية "
+
+msgid ""
+"All objects in the universe exert a gravitational force on each other. The force of <span class='key'>gravity</span> pulls objects together without the objects actually being in physical contact with each other. There are two factors that affect the strength of gravity. The first is the mass of the object and the second is the distance between objects. The larger the mass, the greater the gravitational force it exerts. The farther away two "
+"objects are from each other, the weaker the gravitational force is between them. It's important to note that all objects exert a gravitational force on all other objects. Just as the earth is pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</span> are caused by the gravitational pull of the moon. Earth's gravitational force extends far space. In outer space, gravitational forces of planets and stars account "
+"for the order and structure of solar systems and galaxies. The system of the moon orbiting Earth depends on a perfect balance of motion and gravity. In the case of <span class='key'>satellites</span> in general, a stable orbit requires a balance of enough speed to keep the object from falling completely back to Earth, but not so much speed that it shoots off into space."
+msgstr ""
+"لكل الأشياء في الكون قوة جاذبية على بعضها البعض. تسحب قوة <span class='key'>الجاذبية</span> الأشياء معا دون أن يكون بينها أي اتصال فيزيائي.  هناك عاملان يؤثران على قوة الجاذبية.  الأول هو كتلة الشيء والثاني هو المسافة بين الأشياء.  كلما كانت الكتلة أكبر كلما كانت قوة الجاذبية المؤثرة عليها أكثر.  وكلما كانت الأشياء بعيدة عن بعضها البعض، كلما كانت الجاذبية بينهما أضعف.  من المهم ملاحظة أن جميع الأجسام تؤثر بقوة الجاذبية على كافة الأجسام الأخرى. "
+"مثلما جذب الأرض للقمر، القمر يجذب الأرض.  يحدث <span class='key'>المد والجزر</span> في المحيط  بسبب جاذبية القمر.  قوة الجاذبية الأرضية تمتد الى الفضاء البعيد.  ففي الفضاء الخارجي، قوة الجاذبية للكواكب والنجوم تشكل النظام وهيكلية أنظمة الطاقة الشمسية والمجرات.  نظام القمر الذي يدور حول الأرض يعتمد على توازن مثالي بين الحركة والجاذبية.  وفي حالة <span class='key'>الأقمار الصناعية</span> بشكل عام، فالمدار المستقر يتطلب توازنا بما يكفي من السرعة "
+"للحفاظ على الجسم من السقوط على الأرض كليا، ولكن ليس الكثير من السرعة المنطلقة في الفضاء."
+
+# 14
+msgid "Reviewing key vocabulary related to... gravity in action"
+msgstr "مراجعة المفردات الرئيسية المتعلقة ... بعمل الجاذبية"
+
+msgid "Gravity"
+msgstr "الجاذبية"
+
+msgid "The natural attraction of all matter to other matter. This force is directly proportional to the mass of the two objects, and indirectly proportional to their distance apart from one another."
+msgstr "الجذب الطبيعي لكل مادة لمادة أخرى.  هذه القوة تتناسب طرديا مع كتلة هذين الجسمين، وتتناسب بشكل غير مباشر في المسافة  بعيدا عن بعضها البعض."
+
+msgid "Force"
+msgstr "قوة"
+
+msgid "An external effort which causes an object to undergo some sort of change. This change may be in its movement, direction, or construction, depending on the type of force applied, as well as the conditions of the object itself."
+msgstr "الجهد الخارجي الذي يتسبب بتغير شيء معين .  قد يكون هذا التغيير في الحركة او الإتجاه أو البنية، اعتمادا على نوع  القوة المستخدمة، بالإضافة إلى ظروف الشيء نفسه."
+
+msgid "Newton"
+msgstr "نيوتن"
+
+msgid "A unit of measurement to describe force. Defined as the force of 1 kg*m/s<sup>2</sup>, or the force needed to accelerate one kilogram of matter one meter per second per second."
+msgstr "وحدة قياس لوصف القوة. تعرف بأنها قوة 1 كغ * م / ث <sup> 2 <sup> أو القوة اللازمة لتسريع كيلوغرام واحد من مادة مسافة متر واحد في الثانية الواحدة."
+
+msgid "Acceleration"
+msgstr "التسارع"
+
+msgid "The rate a moving object’s velocity changes with time. How fast it speeds up, slows down, or changes direction."
+msgstr "معدل تغير سرعة جسم متحرك مع الزمن.  مدى سرعته، تباطؤه أو تغيير اتجاهه."
+
+msgid "Lunar Tide"
+msgstr "المد والجزر القمري"
+
+msgid "The change in sea level due to the gravity of the moon, and to a smaller extent, the sun. The moon and sun's gravity pull on the water on Earth, altering sea levels depending on where they are."
+msgstr "التغير في مستوى سطح البحر نتيجة لجاذبية القمر، وإلى حد أقل، الشمس. القمر وجاذبية الشمس يجذبان المياه على الارض مغيران مستويات البحار تبعا لمكان وجودهما."
+
+msgid "Satellite"
+msgstr "قمر صناعي"
+
+msgid "An object that orbits a larger object in space. There are many man-made satellites orbiting the earth, but the moon is also an Earth satellite. Likewise, the earth is a satellite orbiting the sun."
+msgstr "الجسم الذي يدور حول جسم أكبر في الفضاء. هناك العديد من الأقمار الصناعية من صنع الانسان تدور حول الأرض، ولكن يعد القمر أيضا قمرا صناعيا على كوكب الأرض. وبالمثل، فإن الأرض هي القمر الذي يدور حول الشمس."
+
+msgid "Celestial Body"
+msgstr "الجرم السماوي"
+
+msgid "A term used to describe any piece of solid matter that is not on Earth. A celestial body can be anything from a tiny asteroid, to a planet, to a star."
+msgstr " مصطلح يستخدم لوصف أي قطعة من المواد الصلبة التي لا توجد على الأرض. الجرم السماوي يمكن أن يكون أي شيء يتحول من كويكب صغير، إلى كوكب،ثم إلى نجم."
+
+msgid "Natural Satellite"
+msgstr "قمر طبيعي"
+
+msgid "An object that orbits a larger object in space, which was not put there by humans. Examples would include the moon orbiting Earth and the eight planets orbiting our sun."
+msgstr "جسم يدور حول جسم أكبر في الفضاء، الذي لم يوضع من قبل البشر. وتشمل الأمثلة دوران القمر حول الأرض والتي تضم ثمانية كواكب تدور حول شمسنا."
+
+msgid "Velocity"
+msgstr "السرعة"
+
+msgid "An object's motion in a specific direction, described in units of distance traveled per unit of time and the direction of the motion. Example: A person ran at 2 meters per second, north by northwest."
+msgstr "توجه حركة الجسم باتجاه معين،موصوفة في وحدات المسافة لكل وحدة من الوقت واتجاه الحركة.  مثال: شخص ركض 2  متر في الثانية الواحدة، من الشمال الى الشمال الغربي."
+
+# 15
+msgid "Checking what you now know about... gravity in action"
+msgstr "التحقق مما تعرفه مسبقاً عن ... عمل الجاذبية "
+
+# 16
+msgid "Look at the two sets of images, 1 and 2. Considering the factors that affect gravitational forces, which statement below is <span class='blink'>correct</span>?"
+msgstr "انظر الى مجموعتي الصور، 1 و 2.  مراعيا العوامل التي تؤثر على قوى الجاذبية، أي عبارة أدناه <span class='blink'>صحيحة<sup>؟"
+
+msgid "<span class='key'>Image 1</span>"
+msgstr "<span class='key'>الصورة 1 </span>"
+
+msgid "Far"
+msgstr "بعيد"
+
+msgid "Big mass"
+msgstr "كتلة كبيرة"
+
+msgid "Small mass"
+msgstr "كتلة صغيرة"
+
+msgid "<span class='key'>Image 2</span>"
+msgstr "<span class='key'>الصورة 2 </span>"
+
+msgid "Close"
+msgstr "أغلق"
+
+msgid "Bigger mass"
+msgstr "كتلة أكبر"
+
+msgid "The gravitational force in image 1 is stronger because there is more total mass and the objects are closer together than those in image 2."
+msgstr "قوة الجاذبية في الصورة 1 هي أقوى لأن هناك الكتل الإجمالية أكثر  والأجسام معا أقرب من تلك الموجودة في الصورة 2."
+
+msgid "The gravitational force in image 1 is stronger because there is less total mass and the objects are farther apart than in image 2."
+msgstr "قوة الجاذبية في الصورة 1 هي أقوى لأن  الكتل الإجمالية أقل والأجسام بعيدة عن بعضهما البعض مما كانت عليه في الصورة 2."
+
+msgid "The gravitational force in image 1 is stronger because the total mass of both objects is more than that in image 2."
+msgstr "قوة الجاذبية في الصورة 1 هي أقوى لأن الكتلة الإجمالية لكلا الجسمين هي أكثر من  الصورة 2."
+
+msgid "The gravitational force in image 2 is stronger because there is more total mass and the objects are closer together than in image 1."
+msgstr "قوة الجاذبية في الصورة 2 هي أقوى لأن الكتل الإجمالية أكثر  والأجسام أقرب لبعضها أكثر من الصورة 1."
+
+msgid "Your first quiz question is..."
+msgstr "أول سؤال قصير هو ..."
+
+msgid "Nope! The total of the masses is smaller and the distance between the masses is greater than in image 2. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "كلا! الكتل الإجمالية أقل والمسافة بين الكتل أكبر من الكتل في الصورة 2.  تزداد قوة الجاذبية عندما تقل المسافة بين الجسمين و عند ازدياد كتلة الأجسام."
+
+msgid "Nope! Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "كلا! تزداد قوة الجاذبية عندما تقل المسافة بين الجسمين وعند ازدياد كتلة الأجسام."
+
+msgid "Correct. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "صحيح.  تزداد قوة الجاذبية بين جسمين عندما تقل المسافة بينهما وعند ازدياد كتلة الأجسام."
+
+# 17
+msgid "In science, the numbers we get from measurements are meaningless without units. Which of the following is a unit of gravitational force?"
+msgstr "في العلوم،الأرقام التي نحصل عليها من القياسات لا معنى لها دون وحدات.  أي مما يلي هو وحدة تابعة لقوة الجاذبية؟"
+
+msgid "Kilometer"
+msgstr "كيلومتر"
+
+msgid "Kilogram"
+msgstr "كيلوغرام"
+
+msgid "Newtons per Kilogram"
+msgstr "نيوتن لكل كيلوغرام"
+
+msgid "Finding gravitational strength..."
+msgstr "إيجاد قوة الجاذبية ..."
+
+msgid "Correct! The newton (abbreviated 'N') was named in honor of Sir Isaac Newton, who discovered the three laws of motion."
+msgstr "صحيح!  نيوتن (واختصاره N) تكريما للسير إسحاق نيوتن، الذي اكتشف قوانين الحركة الثلاثة."
+
+msgid "Nope. A kilometer is a measure of distance."
+msgstr "كلا.  الكيلومتر هو قياس للمسافة."
+
+msgid "Nope. A kilogram is a measure of mass."
+msgstr "كلا.  الكيلوغرام هو قياس للكتلة"
+
+msgid "Not quite, but you were close. Newton is the unit of gravity."
+msgstr "ليس تماما، لقد كنت قريبا من الإجابة.  نيوتن هو وحدة الجاذبية."
+
+# 18
+msgid "Imagine a catastrophic event in which a huge asteroid slammed into the moon in a head-on collision. The moon remained about the same in terms of mass and shape after the collision, but the moon's orbital velocity was significantly slowed due to the force of the impact. Which of the following statements would be <span class='blink'>true</span> following the collision?"
+msgstr "تخيل حصول حدث كارثي حيث سقط جسم فضائي ضخم على القمر في حادث تصادم بالرأس.  ظل القمر كما هو من حيث الكتلة والشكل بعد الاصطدام، ولكن تباطأت السرعة المدارية للقمر بشكل كبير نظرا لقوة التأثير.  أي من العبارات التالية يمكن أن يكون <span class='blink'>صحيحا</span> بعد الاصطدام؟"
+
+msgid "The phases of the moon as seen from Earth would change."
+msgstr " أطوار القمر كما تُشاهد من الأرض قد تتغير."
+
+msgid "The moon would begin to slowly spiral down to Earth."
+msgstr "سوف يبدأ القمر بالهبوط بشكل لولبي باتجاه الأرض."
+
+msgid "The moon would start to move closer to the sun."
+msgstr "سيبدأ  القمر بالتحرك أقرب نحو الشمس."
+
+msgid "The moon's orbit would not change."
+msgstr "لن يتغير مدار القمر "
+
+msgid "Colliding asteroids..."
+msgstr "اصطدام الكويكبات ..."
+
+msgid "Nope! The phases of the moon are the result of the moon's position in orbit and sunlight reflecting from it."
+msgstr "كلا! مراحل القمر هي نتيجة لموقع القمر في المدار وأشعة الشمس المنعكسة عليه."
+
+msgid "You got it! The impact would cause the moon to slow down, which then would cause the moon to slowly start to spiral down to Earth."
+msgstr "لقد أصبت! ان التأثير يتسبب بإبطاء القمر ، والذي سيتسبب بتباطؤ القمر ثم إلى هبوطه بشكل لولبي باتجاه الأرض."
+
+msgid "Not bad thinking! But the gravitational force between the moon and Earth would still be much greater than the gravitational force between the moon and the sun, so the moon would not start to move toward the sun."
+msgstr " ليس تفكيرا سيئا! ولكن قوة الجاذبية بين القمر والأرض ستظل أكبر بكثير من قوة الجاذبية بين القمر والشمس، وبالتالي فإن القمر لن يبدأ بالتحرك نحو الشمس."
+
+msgid "Just the opposite! The moon's orbit would begin to change as it spiraled into Earth."
+msgstr "على العكس تماما!  مدار القمر سيبدأ في التغير حيث سيسقط بشكل لولبي نحو الأرض"
+
+# 19
+msgid "An astronaut lands on Planet X. This planet is much less massive than Earth. Which of the following statements is <span class='blink'>TRUE</span>?"
+msgstr " رائد فضاء يهبط على كوكب X.  هذا الكوكب هو أقل ضخامة  من كوكب الأرض بكثير . أي من العبارات التالية <span class='blink'>صحيحة</span>؟"
+
+msgid "The astronaut's body mass would be the same as on Earth."
+msgstr " كتلة جسم رائد الفضاء تكون هي نفسها  على الأرض."
+
+msgid "The astronaut's body weight would be more than that on Earth."
+msgstr " وزن جسم رائد الفضاء سيكون أكثر  على الأرض."
+
+msgid "The astronaut's body mass would be more than that on Earth."
+msgstr " كتلة جسم رائد الفضاء تكون أكبر  على الأرض."
+
+msgid "The astronaut's body weight would be the same than that on Earth."
+msgstr "وزن جسم رائد الفضاء يكون نفس الوزن على الأرض."
+
+msgid "Walking on the moon..."
+msgstr "المشي على سطح القمر ..."
+
+msgid "Correct! The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "صحيح!  يزن رائد الفضاء أقل على الكوكب X منه على الأرض، لكن كتلته لا تزال هي نفسها."
+
+msgid "Nope. The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "كلا. يزن رائد الفضاء أقل على الكوكب X من على وزنه  الأرض، لكن كتلته لا تزال نفسها"
+
+msgid "No, the astronaut's body mass would be the same as on Earth."
+msgstr "لا،  كتلة جسم رائد الفضاء هي نفس كتلته  على الأرض."
+
+msgid "No, the astronaut's body weight would be less than that on Earth."
+msgstr "لا، وزن جسم رائد الفضاء سيكون أقل من وزنه على الأرض."
+
+# 20
+msgid "Click on <span class='blink'>all</span> the statements that are an example of a satellite."
+msgstr "انقر على <span class='blink'>جميع</span>  العبارات التي تعد مثالا على الأقمار الصناعية."
+
+msgid "The moon orbits around the earth."
+msgstr "يدور القمر حول الأرض."
+
+msgid "The earth orbits around the sun."
+msgstr "تدور الأرض حول الشمس."
+
+msgid "A comet orbiting the sun."
+msgstr "أحد المذنبات التي تدور حول الشمس."
+
+msgid "The north star shines in the night sky. "
+msgstr "نجم الشمال يضيء في سماء الليل."
+
+msgid "Orbiting satellites..."
+msgstr " الأقمار الصناعية التي تدور ..."
+
+msgid "Correct! The moon, the earth and comet are all examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun."
+msgstr "صحيح! القمر، والأرض والمذنب كلها أمثلة على الأقمار الصناعية لأن القمر يسافر حول الأرض، وتسافر كل من الأرض و المذنب حول الشمس."
+
+msgid "Nope! The moon, the earth and comet are examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun. But the north star is not a satellite because it does not travel around any other celestial body."
+msgstr "كلا! القمر والأرض والمذنب أمثلةعلى الأقمار الصناعية لأنه القمر يسافر حول الأرض،و تسافر الأرض، والمذنب حول الشمس. ولكن نجم الشمال ليس قمرا صناعيا لأنه لا يدور حول أي جسم سماوي آخر."
+
+# 21
+msgid "Look at the figure below. Which statement is <span class='key'>TRUE</span>? (Note: Be careful! The size of the object doesn’t represent the mass of the object!"
+msgstr "انظر إلى الشكل أدناه.  أي من العبارات التالية <span class='blink'>صحيحة</span>؟ (ملاحظة: كن حذراً! حجم الجسم لا يمثل كتلته!)"
+
+msgid "1 - A \"lead\" ball having a mass of 100 kilograms"
+msgstr "كرة من الرصاص كتلتها 100 كيلوغرام"
+
+msgid "2 - An \"aluminum\" ball having a mass of 75 kilograms"
+msgstr "كرة من الألمنيوم كتلتها 75 كيلوغرام"
+
+msgid "3 - A \"steel\" ball having a mass of 50 kilograms."
+msgstr "كرة من الفولاذ كتلتها 50 كيلوغرام"
+
+msgid "Being the most massive, only Object 1 exerts a gravitational force on the other objects."
+msgstr "كونه الأكثر ضخامة،  يؤثر جسم واحد فقط بقوة جاذبية على الأجسام الأخرى."
+
+msgid "Having a mass between Objects 1 and 3, Object 2 exerts the greatest force on the other objects."
+msgstr "وجود كتلة ما بين الجسم 1 و 3، يؤثر الجسم 2  بأكبر قوة على الأجسام الأخرى."
+
+msgid "The gravitational force between Objects 1 and 2 is greater than the force between Objects 1 and 3."
+msgstr "قوة الجاذبية بين الأجسام 1 و 2 أكبر من القوة بين الأجسام 1 و 3."
+
+msgid "The gravitational force between Objects 1 and 2 and Objects 1 and 3 is the same."
+msgstr "القوة التجاذبية بين الأجسام 1 و 2 والأجسام 1 و  3 هي نفسها."
+
+msgid "Nope. All objects with mass exert a gravitational force on other objects."
+msgstr "كلا. كافة الأجسام ذات الكتل تؤثر  بقوة جاذبية على أجسام أخرى."
+
+msgid "Nope. Object 1, being the most massive, exerts the greatest gravitational force."
+msgstr "كلا. الجسم1، كونه الأكثر ضخامة، يؤثر بقوة جاذبية أكبر"
+
+msgid "Correct. Due to the larger mass of Object 1, the gravitational force exerted between Objects 1 and 2 is greater than that between Objects 2 and 3."
+msgstr "صحيح. بسبب أن كتلة الجسم 1 هي الأكبر، فإن قوة الجاذبية المؤثرة بين الأجسام 1 و 2 ستكون أكبر من القوة بين الأجسام 2 و 3."
+
+msgid "Nope. A gravitational force is exerted by each object on the others. Their masses affect the amount of force they exert."
+msgstr "كلا. تؤثر قوة الجاذبية في كل جسم على الأجسام الأخرى. و تؤثر كتلتهما على مقدار القوة المؤثرة."
+
+# 22
+msgid "You've completed the Gravity in Action module."
+msgstr " لقد أكملت وحدة الجاذبية."
+
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "بإمكانك التأكد من كيفية إجابتك على التحققات السريعة وعلى أسئلة الإختبارات لهذه الوحدة  بالنقر على الزر في الأسفل. "
+
+msgid "Congratulations"
+msgstr "مبروك"

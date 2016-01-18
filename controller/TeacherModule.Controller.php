@@ -84,7 +84,6 @@ class TeacherModuleController {
 		$db->connect();
 		$result = $db->query($query);
 		$db->disconnect();		
-		
 		return $result;
 	}
 

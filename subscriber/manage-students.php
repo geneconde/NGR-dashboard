@@ -8,7 +8,7 @@
  */
 
 /*NGR Files*/
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 	require_once '../session.php';
 	require_once 'locale.php';
 	include_once '../controller/DiagnosticTest.Controller.php';
@@ -169,21 +169,6 @@ ini_set('display_errors', 1);
 	$col["search"] = false;
 	$col["export"] = false;
 	# fetch data from database, with alias k for key, v for value
-	// $q = "SELECT * FROM users WHERE subhead_id IS NOT NULL";
-	// $grid->select_command = $q;	
-	// $id = [];
-
-	// $result = mysql_query($q);
-	// //$data = mysql_fetch_array($result,MYSQL_ASSOC);
-	// while($row = mysql_fetch_array($result, MYSQL_ASSOC))
-	// {
-	// 	echo '<pre>';
-	// 	print_r($row['subhead_id']);
-	// 	echo '</pre>';
-	// }
-	// $count = mysql_num_rows($result);	
-	
-
 	$str = $grid->get_dropdown_values("select distinct user_ID as k, concat(first_name, ' ',last_name) as v from users where subscriber_id = $subid and type=0");
 		
 	$col["editoptions"] = array("value"=>$str); 
@@ -259,10 +244,14 @@ ini_set('display_errors', 1);
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
 
+
 	$grid->set_options($opt);
 
 	$e["on_insert"] = array("add_student", null, true);
 	$e["on_update"] = array("update_student", null, true);
+
+
+
 	$grid->set_events($e);
 
 	function update_student($data)
@@ -382,18 +371,16 @@ ini_set('display_errors', 1);
 	a.current { color: gray; cursor: default; }
 	input.delete-rule.ui-del { width: 13px; }
 </style>
-
 <div class="top-buttons">
 	<div class="wrap">
 		<?php $active = 'dashboard'; ?>
 		<?php include "menu.php"; ?>
 	</div>
 </div>
-
 <div id="content">
 <div class='wrap'>
-
 	<h1><?php echo _("Welcome"); ?>, <span class="upper bold"><?php echo $user->getFirstName(); ?></span>!</h1>
+
 	<!-- <p><br/><?php echo _("Total allowed student accounts: " . $sub->getStudents() . ""); ?></p> -->
 	<div class="wrap-container">
 		<div id="wrap">
@@ -412,7 +399,6 @@ ini_set('display_errors', 1);
 				</div>
 			</div>		
 			<div class="clear"></div>
-
 			<script>
 				/*var opts = {
 				    errorCell: function(res,stat,err)
@@ -425,7 +411,6 @@ ini_set('display_errors', 1);
 				    }
 				};	*/
 			</script>
-
 			<div style="margin:10px 0" class="phpgrid">
 				<?php echo $main_view; ?>
 			</div>
@@ -501,11 +486,82 @@ ini_set('display_errors', 1);
 		    });
 		  }
 		  
-	function cdl(event, element){
-		var cdl = confirm("Are you sure you want to delete this student account?");
-		if(!cdl){
-			event.stopPropagation();
-		}
+
+	// function cdl(){
+ //  		var temp ="";
+	//     $( "#dialog-confirm3" ).dialog({
+	//       resizable: false,
+	//       height:140,
+	//       modal: true,
+	//       buttons: {
+	//         Yes: function() {
+	//           $( this ).dialog( "close" );
+	//           temp = "ok";
+	//         },
+	//         No: function() {
+	//           $( this ).dialog( "close" );
+	//           temp = "no";
+
+	//         }
+	//       }
+	//     });
+	//     return temp;
+	// 	event.stopPropagation();
+	// }
+	function cdl(){
+	  this.render = function(dialog,callback){
+	    /* Dimensions */
+	    var winW = window.innerWidth;
+	    var winH = window.innerHeight;
+	    var body = document.body,
+	    html = document.documentElement;
+	    var pageH = Math.max( body.scrollHeight, body.offsetHeight, 
+	   	html.clientHeight, html.scrollHeight, html.offsetHeight );
+	    /* Alert box elements */
+	    var dialogoverlay = document.getElementById('dialogoverlay');
+	    var dialogbox = document.getElementById('dialogbox');
+	    /* Alert box style */
+	    dialogoverlay.style.display = "block";
+	    dialogoverlay.style.height = pageH+"px";
+	    dialogbox.style.left = (winW/2) - (300/2)+"px";
+	    dialogbox.style.top = "100px";
+	    dialogbox.style.display = "block";
+	    /* Alert text */
+	    document.getElementById('dialogboxhead').innerHTML = "Required Field";
+	    document.getElementById('dialogboxbody').innerHTML = dialog;
+	    document.getElementById('dialogboxfoot').innerHTML = '';
+	    var button = document.createElement('button');
+	    button.onclick = function(){Alert.ok(); callback();};
+	    button.innerHTML = 'OK';
+	    document.getElementById('dialogboxfoot').appendChild(button);
+	  }
+	  this.ok = function(){
+	    document.getElementById('dialogbox').style.display = "none";
+	    document.getElementById('dialogoverlay').style.display = "none";
+	  }	
+	  // alert("this is working");
 	}
+	var Alert = new cdl();
+
+	function check(){
+	  if(document.theform.fname.value.length==0){
+	  Alert.render('Please enter your first name', function()  {document.theform.fname.focus()});
+	  return false;
+	}
+	if(document.theform.lname.value.length==0){
+	  Alert.render('Please enter your last name', function(){document.theform.lname.focus()});
+	  return false;
+	}
+	if(document.theform.email.value.length==0){
+	  Alert.render('Please enter your email address', function(){document.theform.email.focus()});
+	  return false;
+	}
+	if(document.theform.message.value.length==0){
+	  Alert.render('Please enter your inquiry', function(){document.theform.message.focus()});
+	  return false;
+	}
+	  document.theform.submit();
+	}
+
 	</script>
 <?php require_once "footer.php"; ?>

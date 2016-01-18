@@ -324,6 +324,7 @@ ini_set('display_errors', 0);
 							<?php
 								$total_arr = array();
 								$total_arr2 = array();
+								
 							?>
 							<?php foreach ($sub as $teacher) : ?>
 							<?php

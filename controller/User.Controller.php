@@ -453,6 +453,8 @@ class UserController {
 		$result = $db->select("users", $where);
 		return $result;
 	}
+
+	
 	
 	public function hashPassword($password){
 		$salt = sha1(md5($password));
