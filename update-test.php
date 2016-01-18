@@ -1,7 +1,9 @@
 <?php
 	require_once 'session.php';	
 	require_once 'controller/DiagnosticTest.Controller.php';
+	require_once 'controller/Events.Controller.php';
 	
+	$ev = new EventsController();
 	$userid 	= $user->getUserid();
 	$mid 		= $_POST['mid'];
 	$mode		= $_POST['mode'];
@@ -35,6 +37,10 @@
 				"qid"		=> $finalqs,
 				"mode"		=> $mode,
 			);
+			$userid = $user->getUserid();
+			$username = $user->getUsername();
+			if($mode==1){ $ev->create_pre_test($userid, $username, $name); }
+			elseif($mode==2){ $ev->create_post_test($userid, $username, $name); }
 			$dtc->addDiagnosticTest($values);
 		else:
 			$dtc->updateDiagnosticTest($dtid, $name, $qid);

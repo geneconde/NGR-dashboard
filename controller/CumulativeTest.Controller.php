@@ -112,7 +112,18 @@ class CumulativeTestController {
 		$result = $db->update("ct", $where, $data);
 		$db->disconnect();
 	}
-	
+
+	public function getCTName($ctid) {
+		$where = array();
+		$where['ct_id'] = $ctid;
+		
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("ct", $where, "test_name");
+		$db->disconnect();
+		return $result[0];
+	}
+
 	public function deactivateCT($ctid) {
 		$where = array();
 		$where['ct_id'] 	= $ctid;

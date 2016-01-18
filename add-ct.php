@@ -2,8 +2,11 @@
 	require_once 'session.php';
 	include_once 'controller/CumulativeTest.Controller.php';
 	include_once 'controller/TeacherModule.Controller.php';
-
+	require_once 'controller/Events.Controller.php';
+	
+	$ev = new EventsController();
 	$userid = $user->getUserid();
+	$username = $user->getUsername();
 
 	$ctc 	= new CumulativeTestController();
 
@@ -32,6 +35,7 @@
 			'isactive'		=> $active
 		);
 
+	$ev->create_cumulative_test($userid, $username, $_POST['test-name']);
 	$ctc->addCumulativeTest($values);
 
 	$tmc		= new TeacherModuleController();

@@ -345,7 +345,7 @@
 			
 			$.ajax({
 				type	: "POST",
-				url		: "update-module-group.php?group_id=<?php echo $groupid; ?>&module_id=<?php echo $mid; ?>",
+				url		: "update-module-group.php?group_id=<?php echo $groupid; ?>&module_id=<?php echo $mid; ?>&pren="+pre+"&postn="+post,
 				data	: {	preid: pre, postid: post, ractive: review, preactive: preact, postactive: postact, pretl: pret, posttl: postt },
 				success	: function(json) {
 					if(json.error) return;

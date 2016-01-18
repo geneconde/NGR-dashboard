@@ -17,6 +17,7 @@ if(!class_exists('DB')) {
 }
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/includes/StudentModule.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/controller/Events.Controller.php');
 
 ini_set('track_errors', true);
  
@@ -71,6 +72,8 @@ class StudentModuleController {
 	public function finishModule($smid) {
 		$where = array();
 		$where['student_module_ID'] = $smid;
+
+		finish_module($smid);
 		
 		$data = array();
 		$data['date_finished'] = date("Y-m-d H:i:s");

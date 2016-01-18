@@ -6,7 +6,10 @@
 	require_once 'controller/CumulativeTest.Controller.php';
 	require_once 'controller/DtQuestion.Controller.php';
 	require_once 'controller/StudentCt.Controller.php';
-	
+	require_once 'controller/Events.Controller.php';
+
+	$ev = new EventsController();
+	$username = $user->getUsername();
 	$userid 		= $user->getUserid();
 	$ctid			= $_GET['ctid'];
 	
@@ -24,6 +27,8 @@
 	if(isset($_GET['i'])) $index = $_GET['i'];
 	else $index = 0;
 	
+	if($index==0 && !isset($_GET['i'])) $ev->take_cumulative($userid, $username);
+
 	$count 	= $index + 1;
 	$cq		= $questions[$index];
 	
