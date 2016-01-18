@@ -1,9 +1,9 @@
 <?php
-include_once 'controller/DtQuestion.Controller.php';
-include_once 'controller/DiagnosticTest.Controller.php';
-include_once 'controller/StudentDt.Controller.php';
-include_once 'controller/TeacherModule.Controller.php';
-include_once 'controller/StudentModule.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/DtQuestion.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/DiagnosticTest.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/StudentDt.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/TeacherModule.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/StudentModule.Controller.php';
 
 function getQuestionIDs($moduleid, $userid, $mode) {
 	$dtc 		= new DiagnosticTestController();
@@ -226,4 +226,22 @@ function addDate($startdate, $timelimit) {
 	return $newdate;
 }
 
+function get_client_ip() {
+    $ipaddress = '';
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+       $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
 ?>

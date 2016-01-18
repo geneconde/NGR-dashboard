@@ -37,7 +37,7 @@ class DtQuestionController {
 	public function getAllQuestions() {
 		$db = new DB();
 		$db->connect();
-		$result = $db->select("dt_pool");
+		$result = $db->select("dt_pool", "", "*", "module_ID");
 		$db->disconnect();		
 		return $result;
 	}
@@ -45,7 +45,7 @@ class DtQuestionController {
 	public function getModules() {
 		$db = new DB();
 		$db->connect();
-		$result = $db->selectDistinct("dt_pool", null, 'module_id', null);
+		$result = $db->selectDistinct("dt_pool", null, 'module_id', "module_ID");
 		$db->disconnect();		
 		return $result;
 	}

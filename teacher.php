@@ -83,8 +83,10 @@
 			endif;
 		endif;
 	?>
-	<p class="dash-message"><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p>
-	<br><br>
+	<p class="dash-message"><?php echo _("This is your Dashboard. On this page, you can preview the modules available for your students, adjust modules settings and view the students' results."); ?></p><br>
+
+
+	<br>
 
 	<div class="fleft module-filter">
 		<button class="btn-portfilter active" data-toggle="portfilter" data-target="<?php echo _('all'); ?>"><?php echo _('View All'); ?></button>
@@ -92,6 +94,7 @@
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Life Science'); ?>"><?php echo _('Life Science'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('Physical Science'); ?>"><?php echo _('Physical Science'); ?></button>
 		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('STEM Skills and Practices'); ?>"><?php echo _('Stem Skills and Practices'); ?></button>
+		<button class="btn-portfilter" data-toggle="portfilter" data-target="<?php echo _('New Modules'); ?>"><?php echo _('New Modules'); ?></button>
 	</div>
 	<div class="clear"></div>
 	<ul class="thumbnails gallery">

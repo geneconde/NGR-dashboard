@@ -478,12 +478,16 @@ ini_set('display_errors', 0);
 	function create_account($data) 
 	{
 		$data["params"]["username"] = trim($data["params"]["username"]);
-		$data["params"]["password"] = "123456";
+		if($data["params"]["type"]==2) {
+			$data["params"]["password"] = "123456";
+		}
 		// phpgrid_error(print_r($data["params"]));
 	}
 	function update_client($data) 
 	{
-		$data['params']['teacher_id'] = 0;
+		if($_GET['type']!=0){
+			$data['params']['teacher_id'] = 0;
+		}
 		$data["params"]["username"] = trim($data["params"]["username"]);
 		$sid = $data['params']['subhead_id'];
 		$thisId = $data['params']['user_ID'];

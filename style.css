@@ -761,7 +761,7 @@ table.exam td { padding: 10px; }
 }
 
 tr.trline {border-top:1px dashed #888;}
-tr.trline td.check { vertical-align: top; }
+tr.trline td.check, td.mname { vertical-align: top; }
 tr.trline input[type="radio"] { vertical-align: middle; line-height: 13px; cursor: pointer; }
 tr.trline input[type="radio"] + label { margin-left: 10px; cursor: pointer; }
 tr.trline .letters.correct-ans {
@@ -1965,6 +1965,17 @@ html[dir="rtl"] .status-inactive {
     border-left: 0;
     border-right: 5px solid #999999;
 }
+.status-rejected {
+    padding: 8px 6px;
+    margin-bottom: 4px;
+    background-color: #FFC9C9;
+    border-left: 5px solid #F58A8A;
+    color: #E03232;
+}
+html[dir="rtl"] .status-rejected {
+    border-left: 0;
+    border-right: 5px solid #F58A8A;
+}
 div.status {
     display: inline-block;
     text-align: left;
@@ -2015,6 +2026,10 @@ div.status label {
 }
 .dt-test .inner-table a { margin: 0 3px; }
 
+.question-library-test-name {
+    line-height: 20px;
+    margin: 0px 0px 15px 0px;
+}
 .dt-test-name {
     line-height: 20px;
     margin: 15px 0;
@@ -2023,7 +2038,7 @@ div.status label {
     line-height: 17px;
     margin-bottom: 15px;
 }
-.dt-test-name #test-name, #search-test {
+#test-name, #search-test {
     padding: 3px 2px;
     width: 285px;
 }
@@ -2186,13 +2201,12 @@ table.dataTable.no-footer{
     border-bottom: #fff !important;
 }
 div#test_question_list table {
-    border-collapse: collapse;
-    border-spacing: 1px;
+    /* border-spacing: 1px; */
 }
-div#test_question_list table td:nth-child(2), div#test_question_list table th:nth-child(2) {
+div#test_question_list table td:nth-child(3), div#test_question_list table th:nth-child(3) {
     text-align: left;
 }
-div#test_question_list table td:first-child {
+div#test_question_list table td:first-child, div#test_question_list table td:nth-child(2) {
     vertical-align: top;
 }
 div#test_question_list #select-module {
@@ -2243,4 +2257,13 @@ table.activate-group-ct {
 .teacher-dash .status-buttons {
     margin-left: 5px;
     margin-top: 6px;
+}
+.valignMid {
+    vertical-align: middle !important;
+}
+.qlibrary {
+    margin-top: 0px !important;
+}
+#submitted-test-list th:nth-child(3), #submitted-test-list td:nth-child(3) {
+    text-align: center !important;
 }

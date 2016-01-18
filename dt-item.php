@@ -32,7 +32,12 @@
 	else if($language == "zh_CN") $lang = " chinese";
 	else if($language == "en_US") $lang = "";
 ?>
-
+<style type="text/css">
+	div#choice_size img {
+	    width: 208px !important;
+	    height: 117px !important;
+	}
+</style>
 <div class="top-buttons">
 	<div class="wrap">
 		<?php if($ufl != 1) : ?>
@@ -96,11 +101,22 @@
 					$choices = $dtq->getQuestionChoices($row['qid']);
 				?>
 				<br/>
-				<small><?php echo _("Choices"); ?>:<br/>
-				<?php foreach($choices as $choice): ?>
-					<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>"><?php echo $choice['order']; ?>. <?php echo _($choice['choice']); ?></span><br>
-				<?php endforeach; ?>
-				<br/><?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
+				<small>
+					<?php echo _("Choices"); ?>: 
+					<br/>
+					<?php foreach($choices as $choice): ?>
+					<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>">
+						<?php 	echo $choice['order']; ?>. <?php echo _($choice['choice']); 
+								if(empty($choice['image'])){
+								}else{
+									echo '<div id="choice_size"><img src="'.$choice['image'].'"></div>';
+								}
+						?>
+					</span>
+					<br>
+					<?php endforeach; ?> 
+					<br/>
+					<?php echo _("Answer"); ?>: <?php echo $row['answer']; ?>
 				</small>
 				</td>
 			</tr>
