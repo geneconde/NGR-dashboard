@@ -7,7 +7,7 @@ $name = $_POST['tname'];
 $qids = $_POST['qids'];
 
 $stc = new SubmittedTestController();
-$tests 	= $stc->getTest($userid, $name);
+$tests 	= $stc->getAllTestOfUser($userid);
 
 $same = 0;
 foreach($tests as $test):

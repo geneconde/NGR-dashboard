@@ -1193,8 +1193,8 @@ html[dir="rtl"] .dataTables_wrapper {
 }
 
 #submit-test, #check-results {
-    /* float: right; */
-    /* margin-right: 120px; */
+    float: right;
+    margin-right: 120px;
 }
 
 #dt-back { padding: 4px 8px; }
@@ -2260,4 +2260,10 @@ table.activate-group-ct {
 }
 .valignMid {
     vertical-align: middle !important;
+}
+.qlibrary {
+    margin-top: 0px !important;
+}
+#submitted-test-list th:nth-child(3), #submitted-test-list td:nth-child(3) {
+    text-align: center !important;
 }

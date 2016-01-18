@@ -1,6 +1,6 @@
 <?php
 	require_once 'session.php';	
-	include 'controller/DiagnosticTest.Controller.php';
+	require_once 'controller/DiagnosticTest.Controller.php';
 	
 	$userid 	= $user->getUserid();
 	$mid 		= $_POST['mid'];

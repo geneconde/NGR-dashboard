@@ -34,10 +34,21 @@ class SubmittedTestController {
 		return $result;
 	}
 
-	public function getAllTest($userid) {
+	public function getAllTestOfUser($userid) {
+		$where = array();
+		$where['user_id'] = $userid;
+	
 		$db = new DB();
 		$db->connect();
-		$result = $db->select("submitted_test");
+		$result = $db->select("submitted_test", $where);
+		$db->disconnect();
+		return $result;
+	}
+
+	public function getAllTest() {
+		$db = new DB();
+		$db->connect();
+		$result = $db->select("submitted_test", "", "*", "date_submitted DESC");
 		$db->disconnect();
 		return $result;
 	}

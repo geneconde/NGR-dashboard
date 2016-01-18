@@ -1,9 +1,9 @@
 <?php
-include_once 'controller/DtQuestion.Controller.php';
-include_once 'controller/DiagnosticTest.Controller.php';
-include_once 'controller/StudentDt.Controller.php';
-include_once 'controller/TeacherModule.Controller.php';
-include_once 'controller/StudentModule.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/DtQuestion.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/DiagnosticTest.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/StudentDt.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/TeacherModule.Controller.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/controller/StudentModule.Controller.php';
 
 function getQuestionIDs($moduleid, $userid, $mode) {
 	$dtc 		= new DiagnosticTestController();

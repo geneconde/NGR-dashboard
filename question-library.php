@@ -37,7 +37,6 @@
 
 		<div class="fleft dotted-border">
 			<button class="btn btn-portfilter active" data-toggle="portfilter" data-target="Test Item List"><?php echo _('Test Item List'); ?></button>
-			<button class="btn-portfilter" id="submit-test"><?php echo _('Submit Test Item'); ?></button>
 			<button class="btn btn-portfilter" data-toggle="portfilter" data-target="Submitted Test Items"><?php echo _('Submitted Test Items'); ?></button>
 		</div>
 		
@@ -122,6 +121,8 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
+				<a href="#" class="qlibrary button1 save-changes" id="submit-test-item"><?php echo _("Submit Test Item"); ?></a>
+				<a href="#" class="qlibrary button1 cancel-changes" id="clear"><?php echo _("Cancel"); ?></a>
 			</li>
 			<li class="clearfix submitted-test-items" data-tag='Submitted Test Items'>
 				<h2><?php echo _("Submitted Test Items"); ?></h2>
@@ -168,6 +169,7 @@
 <script src="scripts/bootstrap-portfilter.min.js"></script>
 <script>
 var selected = [];
+var dtable;
 $(document).ready(function() {
 	$('#test-list').DataTable({
     	"iDisplayLength": 15,
@@ -181,7 +183,7 @@ $(document).ready(function() {
 	    }
     });
     
-    $('#submitted-test-list').DataTable();
+    dtable = $('#submitted-test-list').DataTable();
 
 	$("#search-test").keyup(function(){
         $('#test-list').dataTable().fnFilter(this.value);
@@ -206,7 +208,7 @@ $('.q-cb').click(function(){
 	}
 });
 
-$("#submit-test").click(function (){
+$("#submit-test-item").click(function (){
 	var questions = selected.join(',');
 	var name = $('#test-name').val();
 	if(questions == ''){
@@ -230,6 +232,14 @@ $("#submit-test").click(function (){
 			}
 		});
 	}
+});
+
+$("#clear").click(function (){
+	var conf = confirm("Are you sure you want to cancel?");
+	if(conf)
+		location.reload();
+	else
+		event.preventDefault();
 });
 
 $('.btn.btn-portfilter').click(function () {
