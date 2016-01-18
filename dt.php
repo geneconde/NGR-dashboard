@@ -1,3 +1,9 @@
+<style type="text/css">
+	div#choice_size img {
+	    width: 208px !important;
+	    height: 117px !important;
+	}
+</style>
 <?php 
 	require_once 'session.php';	
 	require_once 'locale.php';	
@@ -161,7 +167,14 @@
 							<?php if($choicetype == "image"): ?>
 								<img src="<?php echo $choice['image']; ?>"><br>
 							<?php endif; ?>
-							<span class='letters'><?php echo $choice['order']; ?>. </span><?php echo _($choice['choice']); ?>
+							<span class='letters'>
+								<?php 	echo $choice['order']; ?>.<?php echo _($choice['choice']); 
+										if(empty($choice['image'])){
+										}else{
+											echo '<div id="choice_size"><img src="'.$choice['image'].'"></div>';
+										}
+								?>
+							</span>
 						</label>
 				<?php
 						if($choicetype == "normal") echo "<br>";
