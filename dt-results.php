@@ -1,3 +1,9 @@
+<style type="text/css">
+	div#choice_size img {
+	    width: 208px !important;
+	    height: 117px !important;
+	}
+</style>
 <?php 
 	require_once 'session.php';
 	require_once 'locale.php';
@@ -145,7 +151,16 @@ if($end == '0000-00-00 00:00:00' && $id == $uid && $user->getType() == 2) : ?>
 				<br><br>
 				<?php echo _("Choices"); ?>:<br/>
 				<?php foreach($choices as $choice): ?>
-					<span class='letters'><?php echo $choice['order']; ?></span>. <?php echo _($choice['choice']); ?><br>
+					<span class='letters'>
+						<?php 	echo $choice['order']; ?>.<?php echo _($choice['choice']); 
+								if(empty($choice['image'])){
+								}else{
+									echo '<div id="choice_size"><img src="'.$choice['image'].'"></div>';
+								}
+						?>
+					</span>
+
+					<br>
 				<?php endforeach; ?>
 				<br/>
 				<?php 

@@ -1,0 +1,976 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: module\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"Language: es\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Eduardo Guzmán <eguzmanfdez@gmail.com>\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+# Common Translations
+msgid "Start"
+msgstr "Inicio"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Back"
+msgstr "Regresar"
+
+msgid "Read More"
+msgstr "Leer Más"
+
+msgid "Check Answer"
+msgstr "Verificar Respuesta"
+
+msgid "Please select your answer."
+msgstr "Por favor, selecciona tu respuesta."
+
+msgid "Please select your answers."
+msgstr "Por favor, selecciona tus respuestas."
+
+msgid "Please type your answer."
+msgstr "Por favor escribe tu respuesta."
+
+msgid "Quick Check #1"
+msgstr "Revisión Rápida #1"
+
+msgid "Quick Check #2"
+msgstr "Revisión Rápida #2"
+
+msgid "Quick Check #3"
+msgstr "Revisión Rápida #3"
+
+msgid "Quick Check #4"
+msgstr "Revisión Rápida #4"
+
+msgid "Please check your answers."
+msgstr "Por favor revisa tus respuestas."
+
+msgid "How did I do?"
+msgstr "¿Cómo lo hice?"
+
+msgid "You answered..."
+msgstr "Tú respondiste..."
+
+msgid "select"
+msgstr "seleccionar"
+
+msgid "Play"
+msgstr "Reproducir"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Stop"
+msgstr "Detener"
+
+msgid "Mute"
+msgstr "Silencio"
+
+msgid "Unmute"
+msgstr "Activar sonido"
+
+msgid "Max volume"
+msgstr "Volumen máximo"
+
+msgid "Full screen"
+msgstr "Pantalla completa"
+
+msgid "Restore screen"
+msgstr "Restaurar pantalla"
+
+msgid "Repeat"
+msgstr "Repetir"
+
+msgid "Repeat off"
+msgstr "No repetir"
+
+msgid "Update Required"
+msgstr "Actualización Requerida"
+
+msgid "To play the media you will need to either update your browser to a recent version or update your"
+msgstr "Para reproducir los contenidos multimedia, necesitas actualizar tu navegador a una versión más reciente o actualizar tu"
+
+msgid "Flash plugin"
+msgstr "Lector Flash"
+
+msgid "Browse through the slides below by clicking the left and right arrows."
+msgstr "Navega entre las diapositivas debajo dando clic en las flechas de izquierda y derecha."
+
+msgid "Click, hold and slide your mouse up and down to rotate the box and select your answer."
+msgstr "Da clic, sostén y desliza tu mouse hacia arriba y hacia abajo para girar la caja y seleccionar tu respuesta."
+
+msgid "The Situation"
+msgstr "La Situación"
+
+msgid "The Scenario"
+msgstr "El Escenario"
+
+msgid "Your Task"
+msgstr "Tu Tarea"
+
+msgid "The Task"
+msgstr "La Tarea"
+
+msgid "The Problem"
+msgstr "El Problema"
+
+msgid "Your Assignment"
+msgstr "Tu Tarea"
+
+msgid "Close me!"
+msgstr "¡Ciérrame!"
+
+msgid "Click here to start typing your answer..."
+msgstr "Haz clic aquí para empezar a escribir tu respuesta..."
+
+msgid "Answering the following six (6) quiz questions will give you an idea of what you now know and what you still need to study."
+msgstr "Contestar las siguientes seis (6) preguntas de evaluación te dará una idea acerca de lo que sabes ahora y lo que aún necesitas estudiar."
+
+msgid "Click the NEXT button when you are ready."
+msgstr "Haz clic en el botón de SIGUIENTE cuando estés listo/a."
+
+msgid "Quiz Question #1"
+msgstr "Pregunta de Evaluación #1"
+
+msgid "Quiz Question #2"
+msgstr "Pregunta de Evaluación #2"
+
+msgid "Quiz Question #3"
+msgstr "Pregunta de Evaluación #3"
+
+msgid "Quiz Question #4"
+msgstr "Pregunta de Evaluación #4"
+
+msgid "Quiz Question #5"
+msgstr "Pregunta de Evaluación #5"
+
+msgid "Quiz Question #6"
+msgstr "Pregunta de Evaluación #6"
+
+msgid "Congratulations, "
+msgstr "Felicitaciones,"
+
+msgid "You can check how you did on the 'Quick Check' and 'Quiz Questions' for this review by clicking the button below."
+msgstr "Puedes revisar cómo lo hiciste en la 'Revisión Rápida' y 'Preguntas de Evaluación' de esta revisión dando clic en el botón de abajo."
+
+msgid "Go to dashboard"
+msgstr "Ir al tablero de inicio"
+
+msgid "Let's begin!"
+msgstr "¡Iniciemos!"
+
+msgid "Are you ready,"
+msgstr "Estás listo/a,"
+
+msgid "Preparing your first quick check..."
+msgstr "¡Preparando tu primera revisión rápida!"
+
+msgid "Ready for your last quick check?"
+msgstr "¿Listo/a para tu última revisión rápida?"
+
+msgid "Ready for your last quiz question?"
+msgstr "¿Listo/a para tu última pregunta de evaluación?"
+
+msgid "Putting it all together..."
+msgstr "Uniéndolo todo..."
+
+msgid "Words and explanations"
+msgstr "Palabras y explicaciones"
+
+msgid "Let's check what you now know"
+msgstr "Revisemos lo que sabes ahora"
+
+msgid "And the first quiz question is..."
+msgstr "Y la primera pregunta de evaluación es..."
+
+msgid "You're done!"
+msgstr "¡Terminaste!"
+
+# 1
+msgid "Welcome to the Gravity in Action module"
+msgstr "Bienvenido/a al módulo de la Gravedad en Acción"
+
+# 2
+msgid "Thinking about... gravity in action"
+msgstr "Pensando acerca de... la gravedad en acción"
+
+msgid ""
+"Have you ever seen a tug of war between two teams? Each team holding the rope is separated by a certain distance and both are trying to pull the other over a line. It might be hard to imagine a tug of war game "
+"without a rope, but such a contest is constantly taking place as objects throughout the universe pull on other objects with a force called <span class='key'>gravity</span>."
+msgstr ""
+"¿Alguna vez has visto un tira y afloja entre dos equipos? Cada equipo que sostiene la cuerda está separado del otro por una cierta distancia, y ambos están tratando de hacer que el otro equipo cruce una línea. Es "
+"difícil imaginar un juego de tira y afloja sin una cuerda, pero un duelo similar está sucediendo constantemente, mientras objetos en todo el universo tiran de otros con una fuera llamada <span class='key'>gravedad"
+
+# 3
+msgid "Checking what you already know about... gravity in action"
+msgstr "Revisando lo que ya sabes acerca de... la gravedad en acción"
+
+msgid ""
+"You may have heard that all objects exert a gravitational force on other objects. You may also have wondered, then, why you don't feel this force. Although the force between most paired objects cannot be felt, you "
+"can indeed feel the force between the earth and you. "
+msgstr ""
+"Quizá hayas escuchado que todos los objetos ejercen una fuerza gravitacional sobre otros objetos. Quizá también te hayas preguntado por qué no sientes dicha fuerza. Aunque la fuerza entre la mayoría de los objetos "
+"en pares no puede sentirse, definitivamente puedes sentir la fuerza entre la Tierra y tú. La sientes como tu peso. Si saltas, puedes estar seguro de que te atraerá de regreso a la Tierra. Pero, ¿qué crees que "
+"sucedería si saltaras y la gravedad no existiera? Piensa acerca de tu experiencia con la gravedad, por ejemplo, cuando saltas para tomar una manzana de un árbol o cuando vez la lluvia caer de una nube oscura. "
+"Basándote en tu experiencia, ¿cómo describirías la fuerza gravitacional? "
+
+msgid "Gravity is a force that pushes objects in opposite directions."
+msgstr "La gravedad es una fuerza que empuja a los objetos en direcciones opuestas."
+
+msgid "Gravity is a force that pulls objects toward each other."
+msgstr "La gravedad es una fuerza que atrae los objetos entre sí."
+
+msgid "Gravity is a force that can both push and pull on objects."
+msgstr "La gravedad es una fuerza que puede tanto empujar como atraer objetos."
+
+msgid "Gravity is a force that acts when objects touch each other."
+msgstr "La gravedad es una fuerza que actúa cuando los objetos se tocan entre sí."
+
+msgid "Gravity definitely is a force that acts between any two or more objects. But there are some special ways that gravity acts that might surprise you. Learn more about how gravity acts in this module."
+msgstr ""
+"La gravedad definitivamente es una fuerza que actúa entre dos o más objetos. Pero hay algunas maneras especiales en que la gravedad actúa que quizá te sorprendan. Aprenderás más acerca de cómo actúa la gravedad en "
+"este módulo."
+
+msgid "Jumping up in the air..."
+msgstr "Saltando en el aire..."
+
+# 4
+msgid "Reviewing big ideas about... gravity in action"
+msgstr "Revisando ideas importantes acerca de... la gravedad en acción"
+
+msgid ""
+"A <span class='key'>force</span> is a push or a pull. For example, you have to exert a force to push your friend on a swing or to pull them in a wagon. <span class='key'>Gravity</span> is also a force, but it is "
+"special in several ways. Gravity acts only to pull objects toward each other, whether the objects are touching or not."
+msgstr ""
+"Una <span class='key'>fuerza</span> es un empujón o un tirón. Por ejemplo, tienes que ejercer una fuerza para empujar a tu amigo en un columpio o para tirar de ellos en un vagón. La <span class='key'>gravedad</span> "
+"también es una fuerza, pero es especial de varias maneras. La gravedad actúa sólo para atraer objetos el uno hacia el otro, sin importar si los objetos están en contacto o no."
+
+msgid ""
+"There are two factors that affect how much the force of gravity will pull two or more objects together. The first factor is the masses of the objects involved. The more massive the objects are, the greater the "
+"gravitational force between them will be. For example, the gravitational force between a 10kg and a 5kg object is twice as strong as between two 5 kg objects; and the gravitational force between two 10kg objects is "
+"four times as strong as between two 5 kg objects."
+msgstr ""
+"Hay dos factores que afectan la cantidad de fuerza con que la gravedad tirará de dos o más objetos. El primer factor es la masa de los objetos involucrados. Entre más masivos son los objetos, mayor es la fuerza "
+"gravitacional entre ellos. Por ejemplo, la fuerza gravitacional entre un objeto de 10 kg y un objeto de 5 kg es dos veces más fuerte que entre dos objetos de 5 kg; y la fuerza gravitacional entre dos objetos de 10 "
+"kg es cuatro veces tan fuerte como entre dos objetos de 5 kg."
+
+msgid ""
+"The force of gravity between objects is measured in <span class='key'>Newtons</span>. If one object is many times more massive than another object, we refer to the gravitational force on the smaller object as its "
+"weight. So when you weigh yourself on a standard bathroom scale, your weight is the gravitational force between you and the Earth."
+msgstr ""
+"La fuerza de la gravedad entre los objetos se mide en <span class='key'>Newtons</span>. Si un objeto es muchas veces más masivo que otro objeto, nos referimos a la fuerza gravitacional sobre el objeto más pequeño "
+"como su peso. Así que cuando tú te pesas en una báscula de baño estándar, tu peso es la fuerza gravitacional entre tú y la Tierra."
+
+msgid "Massive objects exert a stronger pull than less massive objects."
+msgstr "Objetos más masivos  ejercen una atracción más fuerte que objetos menos masivos."
+
+msgid ""
+"Astronauts weigh much less on the moon than on Earth because the moon’s mass is much smaller than the mass of the earth. So the gravitational force between the moon and a person is less than the gravitational force "
+"between the earth and that same person."
+msgstr ""
+"Los astronautas pesan mucho menos en la luna que en la Tierra, ya que la masa de la luna es mucho menor que la masa de la Tierra. Así que la fuerza de la gravedad entre la luna y una persona es menor que la fuerza "
+"gravitacional entre la Tierra y esa misma persona."
+
+msgid ""
+"The second factor affecting gravitational force is the distance between objects. The farther away two objects are from each other, the weaker the gravitational force is between them. The closer they are, the "
+"stronger the force is. So, unlike pushing or pulling a wagon where you have to be in contact with the wagon, the gravitational force between objects acts across distance—the objects don't have to touch!"
+msgstr ""
+"El segundo factor que afecta la fuerza gravitacional es la distancia entre los objetos. Cuanto más lejos están dos objetos entre sí, más débil es la fuerza gravitacional entre ellos. Cuanto más cerca estén, más "
+"fuerte es. Así que, a diferencia de empujar o tirar de un vagón donde tienes que estar en contacto con él, la fuerza gravitatoria entre objetos actúa a través de la distancia: ¡los objetos se tienen que tocarse!"
+
+msgid "Given equal masses, objects that are far apart exert less gravitational force on each other than objects that are close together."
+msgstr "Con masas iguales, los objetos que se encuentran más lejos ejercen menos fuerza gravitacional sobre otros que aquellos que están más cerca."
+
+msgid "Moon"
+msgstr "Luna"
+
+msgid "Mass = 72 kg."
+msgstr "Masa = 72 Kg."
+
+msgid "Weight = 12 kg. (26 lbs.)"
+msgstr "Peso = 12 Kg. (26 lbs.)"
+
+msgid "Earth"
+msgstr "Tierra"
+
+msgid "Weight = 72 kg. (158 lbs.)"
+msgstr "Peso = 72 kg. (158 lbs.)"
+
+msgid "Pushing the swing..."
+msgstr "Empujando el columpio..."
+
+# 5
+msgid "Question A. Read the sentences below and select the statement that is <span class='blink'>not correct</span>."
+msgstr ""
+"Pregunta A. Utiliza lo que sabes acerca de la relación entre la masa y la fuerza gravitacional para ordenar los cuerpos celestes (los planetas y el Sol en nuestro sistema solar). Arrastra los cuadros de los cuerpos "
+"celestes hacia arriba y hacia abajo para ordenarlos de mayor a menor basados en la fuerza gravitacional que poseen. La gravedad más alta debe estar hasta arriba."
+
+msgid "Celestial Body Mass"
+msgstr "Masa de Cuerpo Celeste"
+
+msgid "Earth 5.97 x 10<sup>24</sup> Kilograms"
+msgstr "Tierra 5.97 x 10<sup>24</sup> Kilogramos"
+
+msgid "Jupiter 1,900 x 10<sup>24</sup> Kilograms"
+msgstr "Júpiter 1,900 x 10<sup>24</sup> Kilogramos"
+
+msgid "Mars 0.641 x 10<sup>24</sup> Kilograms"
+msgstr "Marte 0.641 x 10<sup>24</sup> Kilogramos"
+
+msgid "Mercury 0.330 x 10<sup>24</sup> Kilograms"
+msgstr "Mercurio 0.330 x 10<sup>24</sup> Kilogramos"
+
+msgid "Neptune 102 x 10<sup>24</sup> Kilograms"
+msgstr "Neptuno 102 x 10<sup>24</sup> Kilogramos"
+
+msgid "Saturn 568 x 10<sup>24</sup> Kilograms"
+msgstr "Saturno 568 x 10<sup>24</sup> Kilogramos"
+
+msgid "Sun 1,989,000 x 10<sup>24</sup> Kilograms"
+msgstr "Sol 1,989,000 x 10<sup>24</sup> Kilogramos"
+
+msgid "Uranus 86.8 x 10<sup>24</sup> Kilograms"
+msgstr "Urano 86.8 x 10<sup>24</sup> Kilogramos"
+
+msgid "Venus 4.87 x 10<sup>24</sup> Kilograms"
+msgstr "Venus 4.87 x 10<sup>24</sup> Kilogramos"
+
+msgid ""
+"Question B. A 1-liter bottle of water on earth has a mass of approximately 1 kilogram and weighs about 10 newtons. If that bottle is transported to a planet that has less mass than that of Earth, mark <span "
+"class='blink'>all</span> of the following that will be <span class='blink'>true</span>."
+msgstr ""
+"Pregunta B. Una botella de 1 litro de agua en la Tierra tiene aproximadamente 1 kilogramo de masa y pesa alrededor de 10 newtons.  Si esa botella es transportada a un planeta que tiene menos masa que la Tierra, "
+"marca <span class='blink'>todas</span> las declaraciones que serán <span class='blink'>verdad</span>."
+
+msgid "The weight of the bottle of water will remain the same."
+msgstr "El peso de la botella de agua seguirá siendo el mismo."
+
+msgid "The weight of the bottle will be less than that on earth."
+msgstr "El peso de la botella será menor que en la Tierra."
+
+msgid "The mass of the bottle of water will be more than that on earth."
+msgstr "La masa de la botella será mayor que en la Tierra."
+
+msgid "The mass of the bottle of water will be the same."
+msgstr "La masa de la botella de agua será la misma."
+
+msgid "Correct! The total mass (amount of matter) of the bottle of water will not change, but because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr ""
+"¡Correcto! La masa total (cantidad de materia) de la botella de agua no va a cambiar, pero debido a que la masa de ese planeta es menor que la de la Tierra, entonces las fuerzas gravitacionales serán menores y la "
+"botella tendrá un peso menor"
+
+msgid "Not quite! The total mass (amount of matter) of the bottle of water will not change. Because the mass of that planet is less than Earth, then the gravitational forces will be less--the bottle will weigh less."
+msgstr ""
+"¡No exactamente! La masa total (cantidad de materia) de la botella deagua no va a cambiar. Debido a que la masa de ese planeta es menor quela de la Tierra, entonces las fuerzas gravitacionales serán menores yla "
+"botella tendrá un peso menor."
+
+# 6
+msgid ""
+"All objects exert a gravitational pull on other objects. This holds true in the case of the Earth’s moon. Just as the earth is pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</"
+"span> are caused by the gravitational pull of the moon on the mass of water in the earth’s oceans. Because ocean water is a liquid and can move, it “bulges up” from the pull of the moon’s gravity towards the moon’s "
+"position on any given day."
+msgstr ""
+"Todos los objetos ejercen una atracción gravitacional sobre otros objetos. Esto es cierto en el caso de la luna de la Tierra. Así como la Tierra tira de la luna, la luna tira de la Tierra. Las <span "
+"class='key'>mareas oceánicas</span> son causadas por la atracción gravitacional de la luna sobre la masa de agua en los océanos de la Tierra. Debido a que el agua del océano es un líquido y se puede mover, se "
+"\"abulta\" debido a la atracción de la gravedad lunar hacia la posición lunar en un día determinado."
+
+msgid ""
+"A \"bulge\" of ocean water is created as the moon's gravity pulls in a direct line between the earth and the moon. The moon's gravitational pull is the strongest along a direct line between the earth and the moon. "
+"It is at that place a bulge of water occurs. That bulge is known as a <span class='key'>lunar tide</span>, which is also called high tide. The bulge is always found in that direct line, but as the earth rotates on "
+"its axis, the bulge is seen to move from east to west on Earth's surface."
+msgstr ""
+"Un \"bulto\" de agua de océano se crea conforme la gravedad de la luna tira del agua en línea directa entre la Tierra y la luna. La atracción gravitacional de la luna es lo más fuerte posible a lo largo de una línea "
+"directa entre la Tierra y la luna. Es en ese lugar que se produce un bulto de agua. Dicho bulto se llama <span class='key'>marea lunar</span>, también conocida como marea alta. El bulto siempre se encuentra en esa "
+"línea directa, pero a medida que la Tierra gira sobre su eje, el bulto se mueve de este a oeste de la superficie terrestre."
+
+msgid "Tidal bulge due to inertia"
+msgstr "Abultamiento de la marea debido a la inercia"
+
+msgid "Tidal bulge due to gravity"
+msgstr "Abultamiento de la marea debido a la gravedad"
+
+msgid "Moon's <br><br> gravitational <br><br> pull"
+msgstr "La atracción <br><br> gravitacional <br><br> de la luna"
+
+msgid "The green shows the relative magnitude of the forces – not the height of the water level changes. The actual change in water level from high tide to low tide is just a few feet."
+msgstr "El verde muestra la magnitud relativa de las fuerzas - no la altura de los cambios de nivel en el agua. El cambio real en el nivel de agua entre una marea alta y una marea baja son sólo unos pocos metros."
+
+msgid ""
+"There is also an ocean bulge on the other side of the earth that is opposite the moon on the same direct line. The two bulges are what cause high tides twice each day. The tidal bulge of water on the other side of "
+"the earth from the moon is caused by centrifugal force, also called inertia, from the earth spinning on its axis. Low tides are the areas of the earth’s oceans in-between the two high tide bulges."
+msgstr ""
+"También hay un abultamiento en el océano en el otro lado de la Tierra que está opuesto a la luna sobre la misma línea directa. Estos dos bultos son lo que causa las mareas altas dos veces al día. El abultamiento de "
+"agua de la marea del lado de la Tierra opuesto a la luna, es provocado por la fuerza centrífuga, también llamada inercia, de la Tierra girando sobre su eje. Las mareas bajas son las áreas de los océanos terrestres "
+"que están entre los dos bultos de marea alta."
+
+msgid "High tide or low tide?"
+msgstr "¿Marea alta o marea baja?"
+
+# 7
+msgid "Question A. Read the sentences below and select the statement that is <span class='blink'>not correct"
+msgstr "Pregunta A. Lee las siguientes oraciones y selecciona la afirmación que <span class='blink'>no</span> es correcta."
+
+msgid "High and low tides are related to the force of the moon pulling on Earth."
+msgstr "Las mareas altas y bajas se relacionan con la fuerza de la luna tirando de la Tierra."
+
+msgid "Just as the earth is pulling on the moon, the moon is pulling on the earth."
+msgstr "Así como la Tierra está tirando de la luna, la luna está tirando de la Tierra."
+
+msgid "Ocean tides are caused by the gravitational pull of the moon."
+msgstr "Las mareas oceánicas son causadas por la atracción gravitacional de la luna."
+
+msgid "The phases of the moon cause the high tides."
+msgstr "Las fases de la luna provocan las mareas altas."
+
+msgid "Question B. Which of the following is <span class='blink'>true</span> considering the moon's force of gravity exerts a pulling force on Earth's oceans that then creates a \"bulge\" of water?"
+msgstr ""
+"Pregunta B. ¿Cuál de las siguientes frases es <span class='blink'>verdadera</span> considerando que la gravedad de la luna ejerce una fuerza de atracción sobre los océanos de la Tierra, creando un \"bulto\" de agua?"
+
+msgid "A high tide will occur whenever the moon is directly  overhead or directly opposite a location on earth."
+msgstr "Una marea alta se producirá cuando la luna esté directamente encima o directamente opuesta a un lugar en la tierra."
+
+msgid "A low tide will occur whenever the moon is directly overhead."
+msgstr "Una marea baja se producirá cuando la luna esté directamente arriba."
+
+msgid "A high tide will generally occur when the moon is new."
+msgstr "Una marea alta por lo general se producirá cuando hay luna nueva."
+
+msgid "A high tide will generally occur when the moon is full."
+msgstr "Una marea alta por lo general se producirá cuando hay luna llena."
+
+msgid "Looking at the moon..."
+msgstr "Mirando la luna..."
+
+msgid "No, this sentence is true. Tides are caused by the pull of the moon, sun, and Earth rotating on its axis."
+msgstr "No, esta frase es verdadera. Las mareas son causadas por la atracción de la luna y el sol y la Tierra girando sobre su propio eje."
+
+msgid "No, this sentence is true. All objects exert a gravitational pull on other objects. We might not feel it all the time, but it works both ways."
+msgstr "No, esta frase es verdadera. Todos los objetos ejercen una fuerza gravitacional sobre los otros objetos. Podemos no sentirla todo el tiempo, pero funciona en ambos sentidos."
+
+msgid "Correct! This sentence is false. The bulge does not disappear; it is seen to move from east to west on Earth's surface."
+msgstr "¡Correcto! Esta frase es falsa. El bulto no desaparece; se le ve moverse de este a oeste sobre la superficie de la Tierra."
+
+msgid "Correct! A high tide will generally occur whenever the moon is directly overhead. And remember, there will also be another high tide on the opposite side of the earth at the same time. "
+msgstr "¡Correcto! Una marea alta por lo general ocurre cuando la luna está directamente encima. Y recuerda, también habrá otra marea alta en el lado opuesto de la Tierra al mismo tiempo."
+
+msgid "Nope! A high tide, not a low tide, will generally occur whenever the moon is directly overhead or directly opposite a location on earth."
+msgstr "¡Nop! En general se producirá una marea alta, no una marea baja, cuando la luna esté directamente encima o en el punto directamente opuesto de un lugar en la Tierra."
+
+msgid "Nope! High and low tides occur daily during all phases of the moon."
+msgstr "¡Nop! Mareas altas y bajas se producen a diario durante todas las fases de la luna."
+
+# 8
+msgid "More big ideas about... gravity in action"
+msgstr "Más ideas importantes acerca de... la gravedad en acción"
+
+msgid ""
+"Because we live on Earth, most people experience (or observe) the phenomena of gravity as things \"falling to Earth\". But if all things that went up truly fell back to Earth, devices such as cell phones and TVs "
+"would not work as they do today. That's because such devices depend upon connections with a communication <span class='key'>satellite</span> that is rocketed up to a distance where the earth's gravity is much "
+"weaker. If we were able to turn off Earth's gravity, the satellite boosted into space would keep going. But we can't turn off gravity. It follows that the satellite begins to fall back to earth. But rather than "
+"falling straight back, the satellite begins to \"curve\" back to Earth until it enters a stable orbit around the planet. A stable orbit requires a balance of enough speed to keep the object from falling completely "
+"back to Earth but not so much speed that it shoots off into space."
+msgstr ""
+"Porque vivimos en la Tierra, la mayoría de las personas experimentan (u observan) el fenómeno de la gravedad por medio de que las cosas \"caen a la Tierra\". Pero si todas las cosas que suben realmente cayeran de "
+"nuevo a la Tierra, aparatos como los teléfonos celulares y las televisiones no funcionarían como lo hacen en la actualidad. Eso sucede porque dichos aparatos dependen de conectarse con un <span class='key'>satélite</"
+"span> de comunicaciones, que es llevado en cohete hasta una distancia en la cual la gravedad de la Tierra es mucho más débil. Si fuésemos capaces de eliminar la gravedad de la Tierra, el satélite que se lleva al "
+"espacio, seguiría alejándose. Pero no podemos apagar la gravedad. Lo que sucede después, es que el satélite comienza a caer de nuevo hacia la Tierra. Pero en lugar de caer directamente, el satélite comienza a "
+"\"trazar una curva\" de regreso a la Tierra hasta que entra en una órbita estable alrededor del planeta. Una órbita estable requiere un equilibrio de suficiente velocidad para evitar que el objeto caiga de nuevo a "
+"la Tierra del todo, pero no tanta velocidad que salga volando al espacio."
+
+msgid ""
+"Much like the example with the satellite above, the Moon can be described as Earth's satellite. Indeed, a moon is defined as both a celestial body and a natural satellite. It is a <span class='key'>celestial body</"
+"span> because it is an object found in space and it is a <span class='key'>natural satellite</span> because the moon orbits the earth. Like the communication satellites revolving around Earth, the moon is in a "
+"perfect balance of motion. If the moon had any more <span class='key'>velocity</span>, it would fly off into space. But if the moon had any less velocity, it would spiral toward Earth until it crashed into Earth's "
+"surface. Thus, the Earth-Moon system is another example of a satellite system--a perfect balance of motion and gravity."
+msgstr ""
+"De forma similar al ejemplo anterior con el satélite, la luna puede ser descrita como el satélite de la Tierra. De hecho, la luna se define tanto como un cuerpo celeste como un satélite natural. Es un <span "
+"class='key'>cuerpo celeste</span> porque es un objeto que se encuentra en el espacio, y es un <span class='key'>satélite natural</span> porque la luna orbita la Tierra. Como los satélites de comunicaciones que dan "
+"vuelta alrededor de la Tierra, la luna está en un perfecto equilibrio de movimiento. Si la luna tuviese más <span class='key'>velocidad</span>, saldría volando al espacio. Pero si la luna tuviese menos velocidad, "
+"orbitaría en espiral hacia la Tierra hasta chocar sobre la superficie terrestre. Por lo tanto, el sistema Tierra-luna es otro ejemplo de un sistema satelital - un equilibrio perfecto de movimiento y gravedad."
+
+msgid "Stabilizing speed..."
+msgstr "Estabilizando la velocidad ..."
+
+# 9
+msgid "Question A. Read the following statements and click on the <span class='blink'>correct</span> answer."
+msgstr "Pregunta A. Lee las siguientes declaraciones y da clic en la respuesta <span class='blink'>correcta</span>."
+
+msgid "The force of gravity causes all objects launched up into the sky to fall back down to Earth."
+msgstr "La fuerza de la gravedad provoca que todos los objetos lanzados hacia el cielo caigan de nuevo a la Tierra."
+
+msgid "Communication satellites are rocketed into space to a distance where Earth's gravity is much stronger."
+msgstr "Los satélites de comunicaciones se llevan con un cohete hacia el espacio a una distancia donde la gravedad de la Tierra es mucho más fuerte."
+
+msgid "Artificial satellites are like the moon in that they both orbit the earth."
+msgstr "Los satélites artificiales son como la luna ya que ambos orbitan alrededor de la Tierra."
+
+msgid "If the moon had more velocity than it does while orbiting, it would spiral downward until it crashed into Earth's surface."
+msgstr "Si la luna llevase una velocidad mayor de la actual al avanzar por su órbita, iría en espiral hacia abajo hasta estrellarse contra la superficie terrestre."
+
+msgid "Question B. Click on <span class='blink'>all</span> the statements that are <span class='blink'>true</span>."
+msgstr "Pregunta B. Da clic en <span class='blink'>todas</span> las declaraciones que son <span class='blink'>verdaderas</span>."
+
+msgid "For satellites to get into orbit, gravity is turned off."
+msgstr "Para que los satélites entren en órbita, hay que apagar la gravedad."
+
+msgid "Natural satellites are celestial bodies."
+msgstr "Los satélites naturales son cuerpos celestes."
+
+msgid "A communication satellite is a type of artificial satellite."
+msgstr "Un satélite de comunicaciones es un tipo de satélite artificial."
+
+msgid "Gravity affects the balance of motion of natural satellites, but does not affect artificial satellites."
+msgstr "La gravedad afecta al equilibrio de movimiento de los satélites naturales, pero no afecta a los satélites artificiales."
+
+msgid "Gravity affects the balance of motion of natural and artificial satellites."
+msgstr "La gravedad afecta el equilibrio de movimiento tanto de los satélites naturales, como de los artificiales."
+
+msgid "Repairing satellites..."
+msgstr "Reparando satélites..."
+
+msgid "This is not correct since some objects launched from Earth go into orbit as satellites."
+msgstr "Esto no es correcto ya que algunos objetos que se elevan desde la Tierra, entran en órbita como satélites."
+
+msgid "Just the opposite! Satellites are rocketed into space to a distance where Earth's gravity is much weaker. Remember, the force of gravity between two objects decreases as distance increases."
+msgstr ""
+"¡Justo lo contrario! Los satélites se llevan con un cohete al espacio hasta una distancia en la que la gravedad de la Tierra es mucho más débil. Recuerda, la fuerza de la gravedad entre dos objetos disminuye "
+"conforme la distancia aumenta."
+
+msgid "Correct, the moon is in perfect balance of motion and gravity with the earth. Communication satellites try to simulate that balance."
+msgstr "Correcto, la luna está en perfecto equilibrio de movimiento y gravedad con la Tierra. Los satélites de comunicaciones intentan simular dicho equilibrio."
+
+msgid "Nope. If the moon had less velocity, it would spiral downward. If it had more velocity, the moon would continue on a path away from Earth."
+msgstr "Nop. Si la luna tuviese menor velocidad, avanzaría en espiral hacia abajo. Si tuviera mayor velocidad, la luna continuaría su camino alejándose de la Tierra."
+
+msgid ""
+"Correct! Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication "
+"satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr ""
+"¡Correcto! Los satélites naturales son cuerpos celestes y los satélites de comunicaciones son satélites artificiales. El equilibrio de movimiento de los satélites naturales y artificiales depende de las fuerzas "
+"gravitacionales. Los satélites de comunicaciones se llevan al espacio hasta una distancia en la que la gravedad de la Tierra es mucho más débil - la gravedad no se puede apagar."
+
+msgid ""
+"Not quite... Natural satellites are celestial bodies and communication satellites are artificial satellites. The balance of motion of natural and artificial satellites depends on gravitational forces. Communication "
+"satellites are rocketed into space to a distance where Earth's gravity is much weaker - gravity can't be turned off."
+msgstr ""
+"No exactamente... los satélites naturales son cuerpos celestes y los satélites de comunicaciones son satélites artificiales. El equilibrio de movimiento de los satélites naturales y artificiales depende de las "
+"fuerzas gravitacionales. Los satélites de comunicaciones se llevaron en un cohete hacia el espacio hasta una distancia donde la gravedad de la Tierra es mucho más débil - la gravedad no se puede apagar."
+
+# 10
+msgid ""
+"<span class='key'>Velocity</span> is the speed of a moving object. Sometimes objects move at a constant speed – like a car driving down the highway at 105 kilometers per hour (Km/h). But usually, moving objects "
+"speed-up or slow down. <span class='key'>Acceleration</span> is how quickly that happens. Does the car accelerate quickly – going from 0 to 105 Km/h in 6 seconds? Or does it accelerate slowly going from 0 to 105 Km/"
+"h in 30 seconds?"
+msgstr ""
+"La <span class='key'>velocidad</span> es cuán rápido es un objeto en movimiento. A veces, los objetos se mueven a una velocidad constante - como un auto que avanza por la autopista a 105 kilómetros por hora (Km/h). "
+"Pero por lo general, los objetos en movimiento aumentan y reducen su velocidad. La aceleración es cuán rápido sucede esto. ¿Acaso el auto acelera <span class='key'>rápidamente</span> - va desde 0 hasta 105 Km/h en 6 "
+"segundos? ¿O va acelerando lentamente de 0 a 105 Km/h en 30 segundos?"
+
+msgid "Studying gravity..."
+msgstr "Estudiando la gravedad..."
+
+# 11
+msgid "After learning about the acceleration due to gravity on free-falling objects, answer the following questions. Ignore the factor of air resistance in your answers. "
+msgstr "Tras aprender sobre la aceleración debido a la gravedad sobre objetos que caen, responde a las siguientes preguntas. Ignora el factor de la resistencia del aire en tus respuestas."
+
+msgid "Question A. A punted football is falling back to the field after reaching its peak height. How fast will it be moving when it is caught 3 seconds later? (acceleration due to gravity = 9.8 m/s2)"
+msgstr ""
+"Pregunta A. Un balón que fue pateado, va cayendo de nuevo al campo tras alcanzar su altura máxima. ¿Qué tan rápido se estará moviendo cuando lo atrapen 3 segundos más tarde? (aceleración debido a la gravedad = 9.8 m/"
+"s2)"
+
+msgid "0 meters per second"
+msgstr "0 metros por segundo"
+
+msgid "9.8 m/s2"
+msgstr "9.8 m/s2"
+
+msgid "19.6 meters"
+msgstr "19.6 metros"
+
+msgid "29.4 meters per second"
+msgstr "29.4 metros por segundo"
+
+msgid "Question B. A watermelon and a marble are dropped from the same height. Which of the following is true?"
+msgstr "Pregunta B. Una sandía y una canica se dejan caer desde la misma altura. ¿Cuál de las siguientes afirmaciones es cierta?"
+
+msgid "Because it is heavier, the watermelon will accelerate more than the marble."
+msgstr "Ya que es más pesada, la sandía acelerará más que la canica."
+
+msgid "Because it is lighter, the marble will reach the ground later than the watermelon."
+msgstr "Ya que es más ligera, la canica alcanzará el suelo después que la sandía."
+
+msgid "Because the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects, both the watermelon and marble will reach the ground at the same time (ignoring air resistance)."
+msgstr "Ya que la aceleración debido a la gravedad de 9.8 m/s2 es la misma para todos los objetos en caída libre, tanto la sandía como la canica llegarán al suelo al mismo tiempo (ignorando la resistencia del aire)."
+
+msgid "The watermelon and the marble will be accelerated at different amounts based on their sizes."
+msgstr "La sandía y la canica acelerarán diferentes cantidades en función de sus tamaños."
+
+msgid "Nope! The football has gained speed as it falls due to the force of gravity accelerating it."
+msgstr "¡Nop! El balón ha ganado velocidad a medida que cae debido a que la fuerza de gravedad lo acelera."
+
+msgid "Nope! This is the acceleration due to gravity, not the speed of the football after falling for 3 seconds."
+msgstr "¡Nop! Ésta es la aceleración debido a la gravedad, no la velocidad del balón después de caer durante 3 segundos."
+
+msgid "Nope! This is the distance the football will have traveled in its fall after 2 seconds, not its speed after falling for 3 seconds."
+msgstr "¡Nop! Ésta es la distancia que el balón habrá recorrido en su caída después de 2 segundos, no su velocidad después de caer por 3 segundos."
+
+msgid "Correct!  After 3 seconds of free-fall, the football would have a speed of 29.4 meters per second."
+msgstr "¡Correcto! Después de 3 segundos de caída libre, el balón tendría una velocidad de 29.4 metros por segundo."
+
+msgid "Nope! Even though the watermelon is heavier, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "¡Nop! A pesar de que la sandía es más pesada, la aceleración debido a la gravedad de 9.8 m/s2 es la misma para todos los objetos en caída libre."
+
+msgid "Nope! Even though the marble is lighter, the acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "¡Nop! A pesar de que la canica es más ligera, la aceleración debido a la gravedad de 9.8 m/s2 es la misma para todos los objetos en caída libre."
+
+msgid "Right!  Ignoring air resistance, both will reach the ground at the same time because of the acceleration due to gravity being the same for each."
+msgstr "¡Muy bien! Haciendo caso omiso de la resistencia del aire, ambos llegarán al suelo al mismo tiempo debido a que la aceleración por la gravedad es la misma para ambos."
+
+msgid "Nope! The acceleration due to gravity of 9.8 m/s2 is the same for all free-falling objects."
+msgstr "¡Nop! La aceleración debido a la gravedad de 9.8 m/s2 es la misma para todos los objetos en caída libre."
+
+# 12
+msgid "Using what you now know about... gravity in action... to solve a problem"
+msgstr "Utilizando lo que sabes ahora acerca de... la gravedad en acción... para resolver un problema"
+
+msgid ""
+"Astronauts need to be able to communicate with Earth on their new voyages to the moon and planet Mars. You are an engineer, part of NASA’s new mission to send satellites to orbit where astronauts are - the moon and "
+"Mars."
+msgstr ""
+"Los astronautas tienen que ser capaces de comunicarse con la Tierra en sus nuevos viajes a la luna y el planeta Marte. Tú eres un/a ingeniero/a, que forma parte de la nueva misión de la NASA para enviar satélites a "
+"la órbita donde están los astronautas - la luna y Marte."
+
+msgid ""
+"What would you have to consider to figure out where and how to set the artificial satellite into orbit? Using what you know about how satellites orbit the earth, what would you need to know to solve this problem? "
+"You can use the internet to find the facts you need."
+msgstr ""
+"¿Qué tendrías que considerar para deducir hacia dónde y cómo configurar el satélite artificial para que entre en órbita? Utilizando lo que sabes acerca de cómo los satélites orbitan la tierra, ¿qué necesitarías "
+"saber para resolver este problema? Puedes utilizar el internet para encontrar la información que necesitas."
+
+msgid "Preparing for new mission..."
+msgstr "Preparándose para una nueva misión..."
+
+# 13
+msgid "Summarizing big ideas about... gravity in action"
+msgstr "Resumiendo ideas importantes acerca de... la gravedad en acción"
+
+msgid ""
+"All objects in the universe exert a gravitational force on each other. The force of <span class='key'>gravity</span> pulls objects together without the objects actually being in physical contact with each other. "
+"There are two factors that affect the strength of gravity. The first is the mass of the object and the second is the distance between objects. The larger the mass, the greater the gravitational force it exerts. The "
+"farther away two objects are from each other, the weaker the gravitational force is between them. It's important to note that all objects exert a gravitational force on all other objects. Just as the earth is "
+"pulling on the moon, the moon is pulling on the earth. <span class='key'>Ocean tides</span> are caused by the gravitational pull of the moon. Earth's gravitational force extends far space. In outer space, "
+"gravitational forces of planets and stars account for the order and structure of solar systems and galaxies. The system of the moon orbiting Earth depends on a perfect balance of motion and gravity. In the case of "
+"<span class='key'>satellites</span> in general, a stable orbit requires a balance of enough speed to keep the object from falling completely back to Earth, but not so much speed that it shoots off into space."
+msgstr ""
+"Todos los objetos en el universo ejercen una fuerza gravitacional sobre los otros. La fuerza de <span class='key'>gravedad</span> atrae de los objetos entre sí sin que los objetos estén en contacto físico el uno con "
+"el otro realmente. Hay dos factores que afectan la fuerza de la gravedad. El primero es la masa del objeto y el segundo es la distancia entre los objetos. Entre más grande sea la masa, mayor será la fuerza "
+"gravitacional que ejerce. Entre más lejos estén dos objetos el uno del otro, más débil será la fuerza gravitacional entre ellos. Es importante destacar que todos los objetos ejercen una fuerza gravitacional sobre "
+"todos los otros objetos. Justo como la Tierra tira de la luna, la luna tira de la Tierra. Las <span class='key'>mareas oceánicas</span> son provocadas por la atracción gravitacional de la luna. La fuerza "
+"gravitacional de la Tierra se extiende a lo largo del espacio. En el espacio exterior, las fuerzas gravitacionales de los planetas y estrellas dan raíz al orden y estructura de los sistemas solares y galaxias. El "
+"sistema de la luna orbitando la Tierra, depende de un equilibrio perfecto entre movimiento y gravedad. En el caso de los <span class='key'>satélites</span> en general, una órbita estable requiere un equilibrio de "
+"suficiente velocidad para evitar que el objeto caiga del todo de nuevo hacia la Tierra, pero no tanta velocidad que salga disparado al espacio."
+
+# 14
+msgid "Reviewing key vocabulary related to... gravity in action"
+msgstr "Revisando vocabulario clave relacionado con... la gravedad en acción"
+
+msgid "Gravity"
+msgstr "Gravedad"
+
+msgid "The natural attraction of all matter to other matter. This force is directly proportional to the mass of the two objects, and indirectly proportional to their distance apart from one another."
+msgstr "La atracción natural de toda la materia hacia otra materia. Esta fuerza es directamente proporcional a la masa de los dos objetos, e indirectamente proporcional a la distancia que hay entre uno y otro."
+
+msgid "Force"
+msgstr "Fuerza"
+
+msgid ""
+"An external effort which causes an object to undergo some sort of change. This change may be in its movement, direction, or construction, depending on the type of force applied, as well as the conditions of the "
+"object itself."
+msgstr ""
+"Un esfuerzo externo que provoca que un objeto se someta a algún tipo de cambio. Este cambio puede ser en su movimiento, dirección, o construcción, dependiendo del tipo de fuerza aplicada, así como las condiciones "
+"del propio objeto."
+
+msgid "Newton"
+msgstr "Newton"
+
+msgid "A unit of measurement to describe force. Defined as the force of 1 kg*m/s<sup>2</sup>, or the force needed to accelerate one kilogram of matter one meter per second per second."
+msgstr "Una unidad de medida para describir la fuerza. Se define como la fuerza de 1 kg*m/s<sup>2</sup>, o la fuerza necesaria para acelerar un kilogramo de materia un metro por segundo por segundo."
+
+msgid "Acceleration"
+msgstr "Aceleración"
+
+msgid "The rate a moving object’s velocity changes with time. How fast it speeds up, slows down, or changes direction."
+msgstr "La tasa de cambio en la velocidad de un objeto en movimiento en base al tiempo. Qué tan rápido aumenta su velocidad, la disminuye, o cambia de dirección."
+
+msgid "Lunar Tide"
+msgstr "Marea Lunar"
+
+msgid "The change in sea level due to the gravity of the moon, and to a smaller extent, the sun. The moon and sun's gravity pull on the water on Earth, altering sea levels depending on where they are."
+msgstr ""
+"El cambio en el nivel del mar debido a la gravedad de la luna, y en menor medida, del sol. La gravedad de la luna y del sol tiran del agua en la Tierra, alterando los niveles del mar dependiendo del lugar donde se "
+"encuentren."
+
+msgid "Satellite"
+msgstr "Satélite"
+
+msgid "An object that orbits a larger object in space. There are many man-made satellites orbiting the earth, but the moon is also an Earth satellite. Likewise, the earth is a satellite orbiting the sun."
+msgstr ""
+"Un objeto que orbita alrededor de un objeto más grande en el espacio. Hay muchos satélites artificiales que orbitan alrededor de la tierra, pero la luna también es un satélite de la Tierra. Del mismo modo, la Tierra "
+"es un satélite en órbita alrededor del sol."
+
+msgid "Celestial Body"
+msgstr "Cuerpo Celeste"
+
+msgid "A term used to describe any piece of solid matter that is not on Earth. A celestial body can be anything from a tiny asteroid, to a planet, to a star."
+msgstr "Un término utilizado para describir cualquier pieza de materia sólida que no está en la Tierra. Un cuerpo celeste puede ser cualquier cosa, desde un pequeño asteroide, a un planeta, a una estrella."
+
+msgid "Natural Satellite"
+msgstr "Satélite Natural"
+
+msgid "An object that orbits a larger object in space, which was not put there by humans. Examples would include the moon orbiting Earth and the eight planets orbiting our sun."
+msgstr ""
+"Un objeto que orbita alrededor de un objeto más grande en el espacio, que no fue puesto allí por los seres humanos. Los ejemplos incluyen la luna que orbita a la Tierra y los ocho planetas que orbitan nuestro sol."
+
+msgid "Velocity"
+msgstr "Rapidez"
+
+msgid "An object's motion in a specific direction, described in units of distance traveled per unit of time and the direction of the motion. Example: A person ran at 2 meters per second, north by northwest."
+msgstr ""
+"El movimiento de un objeto en una dirección específica, que se describe con unidades de distancia recorrida por unidad de tiempo y la dirección del movimiento. Ejemplo: Una persona corrió a 2 metros por segundo, "
+"hacia el nor-noroeste."
+
+# 15
+msgid "Checking what you now know about... gravity in action"
+msgstr "Revisando lo que sabes ahora acerca de... la gravedad en acción"
+
+# 16
+msgid "Look at the two sets of images, 1 and 2. Considering the factors that affect gravitational forces, which statement below is <span class='blink'>correct</span>?"
+msgstr "Mira las dos series de imágenes, 1 y 2. Teniendo en cuenta los factores que afectan a las fuerzas gravitacionales, ¿cuál de las siguientes afirmaciones es <span class='blink'>correcta</span>?"
+
+msgid "<span class='key'>Image 1</span>"
+msgstr "<span class='key'>Image 1</span>"
+
+msgid "Far"
+msgstr "Lejos"
+
+msgid "Big mass"
+msgstr "Masa  grande"
+
+msgid "Small mass"
+msgstr "Masa pequeña"
+
+msgid "<span class='key'>Image 2</span>"
+msgstr "<span class='key'>Imagen 2</span>"
+
+msgid "Close"
+msgstr "Cerca"
+
+msgid "Bigger mass"
+msgstr "Masa mayor"
+
+msgid "The gravitational force in image 1 is stronger because there is more total mass and the objects are closer together than those in image 2."
+msgstr "La fuerza gravitacional en la imagen 1 es más fuerte porque hay más masa total, y los objetos están más cerca entre sí que los de la imagen 2."
+
+msgid "The gravitational force in image 1 is stronger because there is less total mass and the objects are farther apart than in image 2."
+msgstr "La fuerza gravitacional en la imagen 1 es más fuerte porque hay menos masa total y los objetos están más separados que en la imagen 2."
+
+msgid "The gravitational force in image 1 is stronger because the total mass of both objects is more than that in image 2."
+msgstr "La fuerza gravitacional en la imagen 1 es más fuerte porque la masa total de los dos objetos es más que la de la imagen 2."
+
+msgid "The gravitational force in image 2 is stronger because there is more total mass and the objects are closer together than in image 1."
+msgstr "La fuerza gravitacional en la imagen 2 es más fuerte porque hay más masa total, y los objetos están más cercanos que en la imagen 1."
+
+msgid "Your first quiz question is..."
+msgstr "Tu primera pregunta de evaluación es..."
+
+msgid ""
+"Nope! The total of the masses is smaller and the distance between the masses is greater than in image 2. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects "
+"increases."
+msgstr ""
+"¡No! El total de las masas es más pequeño y la distancia entre las masas es mayor que en la imagen 2. Las fuerzas gravitacionales aumentan a medida que la distancia entre los dos objetos disminuye y conforme la masa "
+"de los objetos aumenta."
+
+msgid "Nope! Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "¡Nop! Las fuerzas gravitacionales aumentan a medida que la distancia entre los dos objetos disminuye y conforme la masa de los objetos aumenta."
+
+msgid "Correct. Gravitational forces increase as the distance between the two objects decreases and as the mass of the objects increases."
+msgstr "Correcto. Las fuerzas gravitacionales aumentan a medida que la distancia entre los dos objetos disminuye y conforme la masa de los objetos aumenta."
+
+# 17
+msgid "In science, the numbers we get from measurements are meaningless without units. Which of the following is a unit of gravitational force?"
+msgstr "En la ciencia, los números que obtenemos de mediciones no tienen sentido sin unidades.  ¿Cuál de las siguientes es una unidad de fuerza gravitacional?"
+
+msgid "Kilometer"
+msgstr "Kilómetro"
+
+msgid "Kilogram"
+msgstr "Kilogramo"
+
+msgid "Newtons per Kilogram"
+msgstr "Newtons por Kilogramo"
+
+msgid "Finding gravitational strength..."
+msgstr "Encontrando la fuerza gravitacional..."
+
+msgid "Correct! The newton (abbreviated 'N') was named in honor of Sir Isaac Newton, who discovered the three laws of motion."
+msgstr "¡Correcto! El newton (Abreviado 'N') obtiene su nombre en honor de Sir Isaac Newton, quien descubrió las tres leyes del movimiento."
+
+msgid "Nope. A kilometer is a measure of distance."
+msgstr "Nop. Un kilómetro es una medida de distancia."
+
+msgid "Nope. A kilogram is a measure of mass."
+msgstr "Nop. Un kilogramo es una medida de masa."
+
+msgid "Not quite, but you were close. Newton is the unit of gravity."
+msgstr "No exactamente, pero casi. El Newton es una unidad de gravedad."
+
+# 18
+msgid ""
+"Imagine a catastrophic event in which a huge asteroid slammed into the moon in a head-on collision. The moon remained about the same in terms of mass and shape after the collision, but the moon's orbital velocity "
+"was significantly slowed due to the force of the impact. Which of the following statements would be <span class='blink'>true</span> following the collision?"
+msgstr ""
+"Imagina un evento catastrófico en el que un enorme asteroide golpea a la luna en una colisión directa.  La luna permanece igual en términos de masa y forma tras la colisión, pero la velocidad orbital de la luna "
+"disminuye significativamente debido a la fuerza del impacto.  ¿Cuál de las siguientes afirmaciones sería <span class='blink'>cierta</span> después de la colisión?"
+
+msgid "The phases of the moon as seen from Earth would change."
+msgstr "Las fases de la luna vistas desde la Tierra cambiarán."
+
+msgid "The moon would begin to slowly spiral down to Earth."
+msgstr "La luna lentamente comenzaría a bajar en espiral hacia la Tierra."
+
+msgid "The moon would start to move closer to the sun."
+msgstr "La luna comenzaría a acercarse al sol."
+
+msgid "The moon's orbit would not change."
+msgstr "La órbita de la luna no cambiaría."
+
+msgid "Colliding asteroids..."
+msgstr "Asteroides colisionando..."
+
+msgid "Nope! The phases of the moon are the result of the moon's position in orbit and sunlight reflecting from it."
+msgstr "¡Nop! Las fases de la luna son el resultado de la posición de la luna sobre su en órbita y la luz solar reflejándose en ella."
+
+msgid "You got it! The impact would cause the moon to slow down, which then would cause the moon to slowly start to spiral down to Earth."
+msgstr "¡Acertaste! El impacto provocaría que la luna redujera su velocidad, lo que a su vez provocaría que la luna comenzar a bajar en espiral hacia la Tierra."
+
+msgid ""
+"Not bad thinking! But the gravitational force between the moon and Earth would still be much greater than the gravitational force between the moon and the sun, so the moon would not start to move toward the sun."
+msgstr ""
+"¡No es una mala idea! Pero la fuerza de la gravedad entre la luna y la Tierra seguiría siendo mucho mayor que la fuerza gravitacional entre la luna y el sol, por lo que la luna no empezaría a moverse hacia el sol."
+
+msgid "Just the opposite! The moon's orbit would begin to change as it spiraled into Earth."
+msgstr "¡Todo lo contrario! La órbita de la luna comenzará a cambiar a medida que bajara en espiral hacia la Tierra."
+
+# 19
+msgid "An astronaut lands on Planet X. This planet is much less massive than Earth. Which of the following statements is <span class='blink'>TRUE</span>?"
+msgstr "Un astronauta aterriza en el Planeta X.  Este planeta es mucho más pequeño que la Tierra. ¿Cuál de las siguientes afirmaciones es <span class='blink'>VERDADERA</span>?"
+
+msgid "The astronaut's body mass would be the same as on Earth."
+msgstr "La masa corporal del astronauta sería la misma que en la Tierra."
+
+msgid "The astronaut's body weight would be more than that on Earth."
+msgstr "El peso corporal del astronauta sería mayor que en la Tierra"
+
+msgid "The astronaut's body mass would be more than that on Earth."
+msgstr "La masa corporal del astronauta sería mayor que en la Tierra"
+
+msgid "The astronaut's body weight would be the same than that on Earth."
+msgstr "El peso corporal del astronauta sería el mismo que en la Tierra"
+
+msgid "Walking on the moon..."
+msgstr "Caminando sobre la luna ..."
+
+msgid "Correct! The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "¡Correcto! El astronauta pesaría menos en el Planeta X que en la Tierra, pero su masa seguiría siendo la misma."
+
+msgid "Nope. The astronaut would weigh less on Planet X than on Earth, but her mass would remain the same."
+msgstr "Nop. El astronauta pesaría menos en el Planeta X que en la Tierra, pero su masa seguiría siendo la misma."
+
+msgid "No, the astronaut's body mass would be the same as on Earth."
+msgstr "No, la masa corporal del astronauta sería la misma que en la Tierra."
+
+msgid "No, the astronaut's body weight would be less than that on Earth."
+msgstr "No, el peso corporal del astronauta sería menor que en la Tierra."
+
+# 20
+msgid "Click on <span class='blink'>all</span> the statements that are an example of a satellite."
+msgstr "Da clic sobre <span class='blink'>todas</span> las declaraciones que son un ejemplo de un satélite."
+
+msgid "The moon orbits around the earth."
+msgstr "La luna orbita alrededor de la Tierra."
+
+msgid "The earth orbits around the sun."
+msgstr "La Tierra orbita alrededor del sol."
+
+msgid "A comet orbiting the sun."
+msgstr "Un cometa orbitando al sol."
+
+msgid "The north star shines in the night sky."
+msgstr "La estrella del norte brilla en el cielo nocturno."
+
+msgid "Orbiting satellites..."
+msgstr "Satélites orbitando..."
+
+msgid "Correct! The moon, the earth and comet are all examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun."
+msgstr "¡Correcto! La luna, la Tierra y el cometa, son todos ejemplos de satélites porque la luna se desplaza alrededor de la Tierra, y la Tierra y el cometa viajan alrededor del sol."
+
+msgid ""
+"Nope! The moon, the earth and comet are examples of satellites because the moon travels around the earth, and the earth and comet travel around the sun. But the north star is not a satellite because it does not "
+"travel around any other celestial body."
+msgstr ""
+"¡Correcto! La luna, la Tierra y el cometa, son todos ejemplos de satélites porque la luna se desplaza alrededor de la Tierra, y la Tierra y el cometa viajan alrededor del sol. Pero la estrella del norte no es un "
+"satélite porque no viaja alrededor de ningún otro cuerpo celeste."
+
+# 21
+msgid "Look at the figure below. Which statement is <span class='blink'>TRUE</span>? (Note: Be careful! The size of the object doesn’t represent the mass of the object!)"
+msgstr "Mira la siguiente imagen. ¿Cuál declaración es <span class='blink'>CIERTA</span>? (Nota: ¡Ten cuidado! ¡El tamaño del objeto no representa la masa del objeto!)"
+
+msgid "1 - A \"lead\" ball having a mass of 100 kilograms"
+msgstr "1 - Una bola de \"plomo\" que tiene una masa de 100 kilogramos"
+
+msgid "3 - A \"steel\" ball having a mass of 50 kilograms."
+msgstr "3 - Una bola de \"acero\" que tiene una masa de 50 kilogramos."
+
+msgid "Being the most massive, only Object 1 exerts a gravitational force on the other objects."
+msgstr "Siendo el más masivo, sólo el Objeto 1 ejerce una fuerza gravitacional sobre los otros objetos."
+
+msgid "Having a mass between Objects 1 and 3, Object 2 exerts the greatest force on the other objects."
+msgstr "Al tener una masa intermedia entre los Objetos 1 y 3, el Objeto 2 ejerce la mayor fuerza sobre los otros objetos."
+
+msgid "The gravitational force between Objects 1 and 2 is greater than the force between Objects 1 and 3."
+msgstr "La fuerza gravitacional entre los Objetos 1 y 2 es mayor que la fuerza entre los Objetos 1 y 3."
+
+msgid "The gravitational force between Objects 1 and 2 and Objects 1 and 3 is the same."
+msgstr "La fuerza gravitacional entre los Objetos 1 y 2 y los Objetos 1 y 3 es la misma."
+
+msgid "Nope. All objects with mass exert a gravitational force on other objects."
+msgstr "Nop. Todos los objetos con masa ejercen una fuerza gravitacional sobre otros objetos."
+
+msgid "Nope. Object 1, being the most massive, exerts the greatest gravitational force."
+msgstr "Nop. El Objeto 1, siendo el más masivo, ejerce la mayor fuerza gravitacional."
+
+msgid "Correct. Due to the larger mass of Object 1, the gravitational force exerted between Objects 1 and 2 is greater than that between Objects 2 and 3."
+msgstr "Correcto. Debido a la masa mayor del Objeto 1, la fuerza gravitacional ejercida entre los Objetos 1 y 2 es mayor que entre los Objetos 2 y 3."
+
+msgid "Nope. A gravitational force is exerted by each object on the others. Their masses affect the amount of force they exert."
+msgstr "Nop. La fuerza gravitacional es ejercida por cada objeto sobre los otros. Sus masas afectan la cantidad de fuerza que ejercen."
+
+# 22
+msgid "You've completed the Gravity in Action module."
+msgstr "Has completado el módulo de Gravedad en Acción."
+
+msgid "You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this module by clicking the button below."
+msgstr "Puedes revisar cómo lo hiciste en la 'Revisión Rápida' y 'Preguntas de Evaluación' de este módulo dando clic en el botón de abajo."
+
+msgid "Congratulations"
+msgstr "Felicitaciones"
+
+msgid "2 - An \"aluminum\" ball having a mass of 75 kilograms"
+msgstr "2 - Una bola de \"acero\" que tiene una masa de 75 kilogramos."

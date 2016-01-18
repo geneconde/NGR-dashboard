@@ -1,0 +1,1369 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gathering Data\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+# Global
+msgid "Back"
+msgstr "上一個"
+
+msgid "Next"
+msgstr "下一個"
+
+msgid "Check Answer"
+msgstr "查看答案"
+
+msgid "Read More"
+msgstr "繼續閱讀"
+
+msgid "You answered..."
+msgstr "您的回答是..."
+
+msgid "Please select your answer."
+msgstr "請選擇你的答案。"
+
+msgid "Please select your answers."
+msgstr "請選擇你的答案。"
+
+msgid "Please type your answer."
+msgstr "請輸入您的答案。"
+
+msgid "Close me!"
+msgstr "關閉！"
+
+msgid "Quick Check #1"
+msgstr "小練習 #1"
+
+msgid "Quick Check #2"
+msgstr "小練習 #2"
+
+msgid "Quick Check #3"
+msgstr "小練習 #3"
+
+msgid "Quick Check #4"
+msgstr "小練習 #4"
+
+msgid "Quiz Question #1"
+msgstr "小測驗 #1"
+
+msgid "Quiz Question #2"
+msgstr "小測驗 #2"
+
+msgid "Quiz Question #3"
+msgstr "小測驗 #3"
+
+msgid "Quiz Question #4"
+msgstr "小測驗 #4"
+
+msgid "Quiz Question #5"
+msgstr "小測驗＃5"
+
+msgid "Quiz Question #6"
+msgstr "小測驗 #6"
+
+msgid "How did I do?"
+msgstr "我做得如何呢？"
+
+msgid "select"
+msgstr "選擇"
+
+msgid "Select"
+msgstr "選擇"
+
+msgid "Go to dashboard"
+msgstr "回到主選單"
+
+msgid "Browse through the slides below by clicking the left and right arrows"
+msgstr "請點擊左右箭頭瀏覽投影片"
+
+# Preloader
+msgid "Let's begin!"
+msgstr "準備開始囉！"
+
+msgid "Are you ready,"
+msgstr "準備好了嗎,"
+
+msgid "Disinfecting medical instruments..."
+msgstr "消毒醫療器械..."
+
+msgid "Collecting data..."
+msgstr "收集數據..."
+
+msgid "Preparing your first quick check..."
+msgstr "準備你的第一個小練習..."
+
+msgid "Counting the steps to the bus stop..."
+msgstr "計算到公車站的步數..."
+
+msgid "Scaling 3 red apples..."
+msgstr "秤一下3個紅蘋果..."
+
+msgid "Collecting evidence..."
+msgstr "收集證據..."
+
+msgid "Students experimenting on laboratory..."
+msgstr "學生在實驗室作實驗..."
+
+msgid "Converting metric units..."
+msgstr "公制單位換算..."
+
+msgid "Ready for your last quick check?"
+msgstr "準備好你的最後一個小練習？"
+
+msgid "Excavating dinosaur bones..."
+msgstr "挖掘恐龍骨骼..."
+
+msgid "Putting it all together..."
+msgstr "全部放在一起......"
+
+msgid "Words and explanations"
+msgstr "名詞與解釋"
+
+msgid "Let's check what you now know"
+msgstr "讓我們看看你現在知道了什麼"
+
+msgid "Your first quiz question is..."
+msgstr "你的第一個小測驗的問題是..."
+
+msgid "Playing with pets..."
+msgstr "跟寵物玩..."
+
+msgid "Racing with the dogs..."
+msgstr "跟狗賽跑..."
+
+msgid "Averaging measurements..."
+msgstr "平均測量值..."
+
+msgid "Brushing blonde hair..."
+msgstr "梳一梳頭髮..."
+
+msgid "Ready for your last quiz question?"
+msgstr "準備好你最後一個小測驗的問題嗎？"
+
+msgid "You're done!"
+msgstr "大功告成！"
+
+# 1
+msgid "Start"
+msgstr "開始"
+
+msgid "Welcome to the Gathering Data module, "
+msgstr "歡迎來到「收集數據」單元, "
+
+# 2
+msgid "Thinking about... gathering data"
+msgstr "想一想...關於「收集數據」"
+
+msgid ""
+"Scientists, like everyone else, use their five senses to gather <span "
+"class='key'>data</span>. The word data is another word for information. So "
+"scientists try and figure out ways to extend or improve their senses with "
+"instruments. <span class='key'>Instruments</span> are tools scientists use to "
+"extend their senses to make observations and measurements. A hand lens and a "
+"microscope are examples of instruments scientists use to make things look "
+"bigger so they can see things they can't see with their eyes alone. A ruler "
+"is an example of a tool scientists use to measure things. What are some "
+"different kinds of data scientists collect and what tools or instruments do "
+"scientists use to help them?"
+msgstr ""
+"科學家和其他人一樣，用人類的五種感官(五感)來收集<span class='key'>數據</"
+"span>──數據是「資訊」的另一個名詞。科學家們也會用儀器來擴展或增進感官能力； "
+"<span class='key'>儀器</span>是科學家擴展感官能力的工具。例如：科學家們利用放"
+"大鏡和顯微鏡用使物體看起來更大，以看到以往無法單獨用肉眼看到的東西。 尺是這些"
+"工具的另一個例子，科學家用尺來量測事物。你知道，科學家收集的數據有哪些不同類"
+"型？那些工具或儀器可用來幫助科學家呢？"
+
+# 3
+msgid "Checking what you know... about gathering data"
+msgstr "來看看你所知道的...關於「收集數據」"
+
+msgid ""
+"You have probably used some tools or instruments to help you gather different "
+"kinds of data. Doctors use instruments to extend and improve their senses all "
+"the time to gather data about their patients."
+msgstr ""
+"你可能曾用工具或儀器來幫助你收集不同類型的數據。醫生隨時都使用儀器來擴展和增進"
+"他們的感官能力，以收集病人的數據。"
+
+msgid ""
+"Look at each picture and click on the sense doctors try to extend or improve "
+"when they use the instrument."
+msgstr ""
+"下列圖片是醫生使用的儀器，請問它是用來擴展和增進哪一樣的感官能力。請點選。"
+
+msgid "Sight"
+msgstr "視覺"
+
+msgid "Hearing"
+msgstr "聽覺"
+
+msgid "Touch"
+msgstr "觸覺"
+
+msgid "Taste"
+msgstr "味覺"
+
+msgid "Smell"
+msgstr "嗅覺"
+
+msgid "X-ray"
+msgstr "X光"
+
+msgid "Thermometer"
+msgstr "溫度計"
+
+msgid "Stethoscope"
+msgstr "聽診器"
+
+msgid ""
+"The thermometer is used to extend the doctors sense of touch so she can be "
+"more accurate than just \"the patient feels warm\" and get a true measurement "
+"of her temperature. The stethoscope is used to extend the doctor's hearing, "
+"to better listen to the patient's heartbeat and breathing. X-rays are taken "
+"to help the doctor see the bones inside the patient's body which cannot "
+"otherwise be seen."
+msgstr ""
+"溫度計是用來補強醫生的觸覺，所以它可比只說：＂病人有點發燒＂，更準確的真實測量"
+"到病人的體溫。聽診器是用來擴展醫生的聽覺，好讓他更能聽到病人的心跳和呼吸。X光"
+"用來幫助醫生看到病人身體內本來無法看見的骨骼。"
+
+# 4
+msgid "Reviewing big ideas... about gathering data"
+msgstr "複習核心觀念...關於收集數據"
+
+msgid ""
+"Scientists use data to help them answer questions and explain things. The "
+"data can be a measure of some amount or a description of some characteristic "
+"or behavior. Data that can be stated in terms of an amount or number are "
+"called <span class='key'>quantitative data</span>. Data that are a "
+"description of some characteristic or behavior that do not involve numbers "
+"are called <span class='key'>qualitative data</span>. Quantitative and "
+"qualitative data usually go hand-in-hand in most scientific investigations."
+msgstr ""
+"科學家利用「數據」來幫助他們回答問題及解釋事情。數據可以是對某種數量的測量或某"
+"些特徵或行為的描述。用數量或數字來描述的數據，稱為<span class='key'>定量數據</"
+"span>；用某些特徵或行為來描述且不涉及數量的數據，稱為<span class='key'>定性數"
+"據</span>。「定量」和「定性」的數據在大部分的科學的探究中，通常會同時出現。"
+
+msgid "Healthy"
+msgstr "好健康"
+
+msgid "Fast"
+msgstr "相當快"
+
+msgid "Happy"
+msgstr "心情快樂"
+
+msgid "Quantitative"
+msgstr "定量"
+
+msgid "Qualitative"
+msgstr "定性"
+
+msgid ""
+"Instruments are designed mainly to make it easier to gather data. For "
+"example, a hand lens and a microscope make it possible to see very small "
+"things that cannot be seen with our eyes alone. Telescopes allow us to see "
+"things at great distances that we could not see with our eyes alone. A hand "
+"lens, microscope and telescope all extend our sense of sight. Similarly, a "
+"sound detector can extend our sense of hearing by helping us hear soft sounds "
+"that could not be heard with our ears alone."
+msgstr ""
+"儀器的主要目的是讓收集數據更容易。例如，放大鏡和顯微鏡讓我們能看到肉眼看不到的"
+"微小事物；望遠鏡讓我們能看到肉眼看不到的遠方事物。放大鏡、顯微鏡和望遠鏡都擴展"
+"了我們的「視覺」。同樣地，聲音探測器可以幫助我們擴展「聽覺」，讓我們聽到耳朵聽"
+"到聽不到的微小聲音。"
+
+msgid ""
+"Other instruments are designed to give us quantitative measurements of "
+"things.  For example, a thermometer allows us to measure temperature, and a "
+"balance allows us to measure mass."
+msgstr ""
+"還有各種其它儀器能讓我們對事物定量測量。例如，溫度計讓我們可以測量溫度、天平讓"
+"我們能測量重量。"
+
+# 5
+msgid ""
+"Below is a list of data of an oil painting. What kind of data (quantitative "
+"or qualitative) does each of the following represent?"
+msgstr ""
+"同學研究一張油畫，並記錄下數據如下。請問各項數據是「定量」還是「定性」？"
+
+msgid "Weighs 8.5 pounds"
+msgstr "重約4公斤(約8.5磅)"
+
+msgid "Blue/green color, gold frame"
+msgstr "藍色/綠色，金色邊框"
+
+msgid "Picture is"
+msgstr "圖畫大小"
+
+msgid "Smells old and musty"
+msgstr "聞起來老舊發霉"
+
+msgid "Texture shows brush strokes of oil paint"
+msgstr "畫中可以看出油畫的筆觸"
+
+msgid "Masterful brush strokes"
+msgstr "嫻熟的運筆"
+
+msgid "With frame is"
+msgstr "連同框架大小"
+
+msgid "Surface area of painting is 140 sq. in."
+msgstr "畫的表面面積是140平方英寸"
+
+msgid "Cost $300"
+msgstr "價值300元"
+
+msgid "Peaceful scene of the country"
+msgstr "鄉村平靜的景象"
+
+msgid "ANSWER"
+msgstr "答案"
+
+msgid "Picture is 25 x 36 cm"
+msgstr "圖畫大小是約 25 X 36公分"
+
+msgid "With frame is 36 x 45 cm"
+msgstr "連同框架大小約 36 X 45 公分"
+
+# 6
+msgid "More big ideas... about gathering data"
+msgstr "更多核心觀念...關於「收集數據」"
+
+msgid ""
+"To gather data sometimes it is not necessary to make measurements with "
+"special instruments. Sometimes an <span class='key'>estimate</span> of the "
+"measurement will do. An estimate is a measurement that is close to the actual "
+"measurement but isn't exact. For example, if you know your foot is about 12 "
+"inches long, you might estimate the length of fallen tree by walking heel-to-"
+"toe on the tree and counting how many \"feet\" it is. It is not an exact way "
+"to gather data, but often scientist use estimations before using instruments."
+msgstr ""
+"收集數據有時不一定需要特別精密的儀器。有時<span class='key'>估測</span>也是很"
+"有用的，所謂「估測」就是接近但並不精確的測量。例如，如果你知道你的腳是大約30公"
+"分(約12英寸)長，你可以用腳跟貼腳趾看走多少步來「估測」一棵倒下的樹的長度是多"
+"少。這也是為何，英文中的\"英尺(foot)\"就是＂腳掌＂的原因。雖然，「估測」並不是"
+"收集數據的精確方法，但科學家使用儀器前常會先稍微進行「估測」。"
+
+msgid ""
+"When scientists use instruments, they do not always get the same value or "
+"number every time they use the instrument. So measurements are never exact—"
+"there is always some amount of <span class='key'>error</span> in any "
+"measurement. For example, the scales at the supermarket that weigh fruits and "
+"vegetables are usually only <span class='key'>accurate</span> to the nearest "
+"pound. That means when you buy 2 pounds of grapes you may have actually be "
+"paying for a little more or a little less than the 2 pounds of grapes."
+msgstr ""
+"當科學家使用儀器進行多次測量時並不一定能得到相同的數值。因為，測量總有些許"
+"<span class='key'>誤差</span>，測量是不可能完全準確的。例如，在超市秤重水果和"
+"蔬菜時通常只能<span class='key'>精確</span>到最近的單位，例如是斤(公斤或英"
+"鎊)。這意味著，當你購買2斤葡萄時，你實際上可能付出的是比2斤葡萄稍微多一點或是"
+"少一點的錢。"
+
+msgid ""
+"One way to reduce the error in measuring something is to make more than one "
+"measurement and <span class='key'>average</span> them.  You can find an "
+"average by adding the measurements together and dividing by the number of "
+"measurements made. For example, if you wanted to know how long it takes for "
+"the school bus to get from your stop to school, you could time the trip for 5 "
+"days and average them."
+msgstr ""
+"減少測量誤差的一種方法是進行「多次測量」，然後<span class='key'>平均</span>這"
+"些數據──也就是將測量值全部加起來，並除以測量的次數。例如，如果一個每天搭公車上"
+"學的學生想知道，從上車到學校需要多長時間，但又擔心只測量一天會有大的誤差，他就"
+"可以進行「多次測量」──例如，測量5天，然後平均這些數據。"
+
+msgid ""
+"After gathering your data for days you want to figure out how long it "
+"normally takes to get to school."
+msgstr "他進行了「多次測量」所收集的5天的數據如下："
+
+msgid ""
+"So you figure out the average by adding up the time spent each day on the bus:"
+msgstr ""
+"於是，他就可以計算每天花在車上的時間的平均時間是多少。首先他將5天的時間，加"
+"總："
+
+msgid "Then divide the total by the number of days you gathered the data:"
+msgstr "然後將總分鐘數除以收集數據的天數："
+
+msgid ""
+"So 18 is the average number of minutes it takes the school bus to get from "
+"your stop to school."
+msgstr "所以答案出來，18分鐘就是他搭車從上車到學校花費的平均時間。"
+
+msgid "minutes"
+msgstr "分鐘"
+
+msgid "Day"
+msgstr "天"
+
+# 7
+msgid ""
+"Question A. On a scale in the fruit section of a grocery store, a shopper "
+"weighed out 3 pounds of apples that were selling for $1 per pound. But when "
+"the shopper got to the checkout lane, the cashier weighed the apples again "
+"and instead of paying $3 for the apples, the shopper paid only $2.90. Why did "
+"the shopper most likely not have to pay $3 for the apples?"
+msgstr ""
+"問題A. 在大超市中，一個購物者看到蘋果每斤10元，他自己先用旁邊公用秤秤了3斤，並"
+"準備要支付30元。但到了結帳櫃台，收銀員用櫃台邊的秤再秤一次，告訴他總價是29元。"
+"請問他不是支付30元的最可能原因是？"
+
+msgid "There was a discount the shopper was not aware of."
+msgstr "購物者並不知道在打折。"
+
+msgid ""
+"The scale in the fruit section of the grocery store showed more than the "
+"accurate weight of the apples."
+msgstr "秤都可能有誤差；第一個公用秤，秤出來的比較重。"
+
+msgid ""
+"The scale in the fruit section of the grocery store showed less than the "
+"accurate weight of the apples."
+msgstr "秤都可能有誤差；第一個公用秤，秤出來的比較輕。"
+
+msgid "The cashier just estimated the weight to be less."
+msgstr "收銀員少算了重量。"
+
+msgid ""
+"Question B. Based on the data gathered of the performances of five mice shown "
+"below, what is the average time for a mouse to finish the maze? Click on the "
+"calculator below to do your calculations."
+msgstr ""
+"問題B. 根據以下顯示，所收集到的5隻小老鼠完成迷宮時間的數據，請問平均完成時間是"
+"多少？請用下面的計算機中幫助計算。"
+
+msgid "205 seconds"
+msgstr "205秒"
+
+msgid "45 seconds"
+msgstr " 45秒"
+
+msgid "41 seconds"
+msgstr " 41秒"
+
+msgid "32 seconds"
+msgstr " 32秒"
+
+msgid "Mouse"
+msgstr "老鼠"
+
+msgid "Time"
+msgstr "時間"
+
+msgid "took 53 seconds"
+msgstr "需要53秒"
+
+msgid "took 32 seconds"
+msgstr "需要32秒"
+
+msgid "took 34 seconds"
+msgstr "需要34秒"
+
+msgid "took 30 seconds"
+msgstr "需要30秒"
+
+msgid "took 56 seconds"
+msgstr "需要56秒"
+
+msgid ""
+"The scale at the grocery store fruit section wasn't accurate. It read 3 lbs. "
+"But the scale at the grocery checkout lane was more accurate and the "
+"vegetables actually weighed 2.9 lbs."
+msgstr "秤都可能有誤差；第一次秤重（3斤）顯示比第二次秤重（2.9斤）還重。"
+
+msgid ""
+"Correct! The first scale showed more (3 pounds) than what was actually "
+"weighed (2.9 pounds)."
+msgstr "正確！秤都可能有誤差；第一次秤重（3斤）顯示比第二次秤重（2.9斤）還重。"
+
+msgid ""
+"Probably not. The scale the customer used to weigh the apples was probably "
+"not accurate."
+msgstr "應該不是吧！購物者秤出的蘋果重量可能是不準確的。"
+
+msgid ""
+"Nope! The first scale actually showed more than what was actually weighed."
+msgstr ""
+"不對喔！秤都可能有誤差；第一次秤重（3斤）顯示比第二次秤重（2.9斤）還重。"
+
+msgid ""
+"Probably not. Estimates are not used in stores where items are sold by weight."
+msgstr "應該不對吧！在商店裡按重量賣東西是不會使用估算的。"
+
+msgid ""
+"You got it! If you add the 5 times and divide by 5, the answer is 41 seconds."
+msgstr "你答對了！將5次時間加總並除以5，答案為41秒。"
+
+msgid ""
+"Nope! 205 seconds is the total of all the times combined, not an average."
+msgstr "不對喔！205秒是每一次的總和，而不是平均值。"
+
+msgid "No, but close. Check your calculations again."
+msgstr "不對，但接近了再次檢查你的計算。"
+
+msgid "Nope! The average is somewhere between the highest and lowest time."
+msgstr "不對喔！將5次時間加總並除以5，答案為41秒。"
+
+# 8
+msgid ""
+"Whether by accurate measurement, or just observation, scientists gather data "
+"as part of how they investigate nature. In the process of science, gathering "
+"data is one of the most important things scientists do. Scientists make "
+"observations, ask questions, and then make a first explanation called a <span "
+"class=\"key\">hypothesis</span> as to what they think the answer to their "
+"question or problem might be. Then, to check and see whether their "
+"explanation is correct or not, they test their hypothesis by conducting "
+"investigations and gathering a lot of data."
+msgstr ""
+"無論是使用精確測量或者只是簡單觀察，「收集數據」都是科學家們發現大自然過程中，"
+"必要而且也是最重要的事情之一。科學家們經由「觀察」、「提出問題」，然後對這個問"
+"題他們認為可能的答案的初步解釋──這稱為「<span class=\"key\">提出假說</ span"
+"＞」，接著，他們透過調查與收集大量數據來「驗證假說」，以看看當時的解釋是否正"
+"確。"
+
+msgid ""
+"<span class=\"key\">Evidence</span> is the information (data) that scientists "
+"use to test their hypotheses and support their explanations. Research "
+"evidence is what makes explanations in science special. It sounds like a "
+"simple idea, but it is the basis of all science. Scientific statements, or "
+"claims, must be confirmed and supported with a lot of solid evidence; "
+"otherwise it is just a guess."
+msgstr ""
+"<span class=\"key\">證據</span>是科學家們用來「驗證假說」與支持其解釋的資訊"
+"（數據），研究的證據讓科學裡的解釋變得特別有意義。這些聽起來只是簡單的想法，但"
+"這是所有科學的基礎。科學的「敘述」或「主張」，都必須被驗證並以大量的有效證據支"
+"持；否則它就只能稱作是一個「猜測」罷了。"
+
+msgid ""
+"Science needs both claims (the explanations scientists make about how nature "
+"works) and evidence (the facts and data to support those claims) in order to "
+"continually move forward in our understanding about nature. Scientists can "
+"then use those claims and evidence to develop even newer and better ideas "
+"they can test. This is the process by which the study of science understands "
+"more and more about the natural world around us."
+msgstr ""
+"科學探究中，有了「主張（科學家對大自然如何運作的解釋）」和「證據（事實和數據來"
+"支持這些主張）」，我們才能不斷的對大自然有更多的認識。然後，科學家才可以繼續利"
+"用這些主張和證據，去發展他們可以測試的一些更新更好的想法。這是科學研究讓我們對"
+"周圍自然環境有愈來愈多了解的過程。"
+
+# 9
+msgid ""
+"Question A. Click on the statement about a hypothesis that is <span "
+"class='blink'>not</span> correct."
+msgstr ""
+"問題A. 請選出下列，關於「假說」的<span class=\"blink\">錯誤</span>敘述。"
+
+msgid ""
+"A hypothesis is a possible explanation or solution to a scientific question "
+"or problem."
+msgstr "「假說」是對一個科學問題可能的解釋或解決方法。"
+
+msgid ""
+"Making observations and asking questions help lead to forming a hypothesis."
+msgstr "「觀察」與「提出問題」，能幫助形成一個「假說」。"
+
+msgid "All hypothesis are correct because of all the data one gathers."
+msgstr "只要把所有的數據收集完全，一定可以證明「假說」是正確的。"
+
+msgid "Experiments are conducted to see if a hypothesis is correct."
+msgstr "「實驗」是用來檢測「假說」是否正確的。"
+
+msgid ""
+"Question B. What usually happens <span class=\"blink\">before</span> "
+"formulating a hypothesis?"
+msgstr "問題B. 通常<span class=\"blink\">在形成假說前</span>會先進行..."
+
+msgid "Evidence is stated"
+msgstr "證據說明"
+
+msgid "Conduct an experiment"
+msgstr "進行實驗"
+
+msgid "Make observations"
+msgstr "進行觀察"
+
+msgid "Solve a problem"
+msgstr "解決問題"
+
+msgid ""
+"Correct! This statement is not true. Even though a lot of data may be "
+"gathered, it does not always mean a hypothesis is correct. Experiments can be "
+"conducted to test a hypothesis."
+msgstr ""
+"你選對了，這是錯誤的敘述！儘管我們可以大量的收集數據，但這無法代表「假說」一定"
+"會是正確的。實驗可以用來測試假說。"
+
+msgid ""
+"Nope! This statement is correct. A hypothesis is a scientific guess as to "
+"what the answer to a question or problem might be."
+msgstr "你選錯囉，這是對的敘述！假說是對問題的可能答案進行具有科學基礎的猜測。"
+
+msgid ""
+"Nope! This statement is correct. Data are gathered in many ways before a "
+"hypothesis is formed."
+msgstr ""
+"你選錯囉，這是對的敘述！「觀察」與「提出問題」，能幫助形成一個「假說」。也就是"
+"說，在假說形成之前就可能開始收集數據了。"
+
+msgid ""
+"Nope! This statement is correct. To check and see if a hypothesis is correct "
+"or not, scientists conduct experiments and gather a lot of data."
+msgstr ""
+"不對喔！這種說法是正確的。要驗證一個假說是否正確，科學家進行實驗並收集大量數"
+"據。"
+
+msgid ""
+"Correct! Observations are made and questions are asked before making a "
+"hypothesis."
+msgstr "正確！做出假說之前會先觀察並提問。"
+
+msgid ""
+"Nope! Evidence is the information scientists use to support their hypothesis "
+"after it is formed."
+msgstr "不對喔！證據是科學家用來支持他們所形成的假說的資訊。"
+
+msgid "Nope! Experiments are conducted to test a hypothesis once it is formed."
+msgstr "不對！實驗是用來測試一個已形成的假說。"
+
+msgid "Nope! Even after a hypothesis is formed the problem may not be solved."
+msgstr "不對喔！假說形成後，問題都還沒被解決喔！"
+
+msgid ""
+"People in the United States use the US system of measurements for measuring "
+"length, mass, volume and temperature. But scientists and people in other "
+"countries use the metric system. Scientists prefer to use the <span class="
+"\"key\">metric system</span> because measures in the metric system are "
+"related by factors of 10. For example, 1 meter (m) is equal to 100 "
+"centimeters (cm) or 10 x 10 cm and 1 kilogram (kg) is equal to 1000 grams (g) "
+"or 10 x 10 x10 gs. You will use the metric system in science classes in the "
+"near future. The following table shows how US and metric system measurements "
+"compare. Click on the pink tabs below to learn more about measurements."
+msgstr ""
+"在美國，人們使用英制的測量系統來測量長度、重量、體積和溫度。但是，科學家和其它"
+"國家的人使用公制系統。科學家們偏好使用<span class=\"key\">公制</span>是因為公"
+"制系統都是與10相關。例如，1公尺（m）等於100公分（cm）或10×10公分，而1公斤"
+"（kg）等於1000克（g）或10×10×10 克。你在未來的科學課程多數也將使用公制系統。下"
+"表顯示英制和公制測量系統的比較。請點選下面粉紅色標籤，以了解更多有關測量的資"
+"訊。"
+
+msgid "Length or distance"
+msgstr "長度或距離"
+
+msgid "1 inch is a little bit more than 2 times a centimeter (cm)"
+msgstr "1英寸是1公分(cm)的2倍再多一點點"
+
+msgid "1 meter (m) is a little bit longer than a 3 feet or 1 yard"
+msgstr "1公尺（m）比3英尺或1碼長一點點"
+
+msgid "1 kilometer (km) is a little more than half a mile"
+msgstr "1公里（km）比半英哩還長一點"
+
+msgid "US quarter coin"
+msgstr "硬幣"
+
+msgid "Baseball bat"
+msgstr "棒球棒"
+
+msgid "Football pitch"
+msgstr "足球場"
+
+msgid "1 ounce is about 28 times more than 1 gram (g)"
+msgstr "1盎司是比1克（g）多約28倍以上"
+
+msgid "1 kilogram (kg) is about 2 pounds"
+msgstr "1公斤（kg）約為2磅"
+
+msgid "Pen"
+msgstr "筆"
+
+msgid "16 pound bowling ball"
+msgstr "16磅保齡球"
+
+msgid "1 liquid ounce is about 30 milliliters (ml)"
+msgstr "盎司也可以是體積單位，1盎司約30毫升（ml）"
+
+msgid "1 liter (l) is a about 1 liquid ounce more than a 32 ounce quart"
+msgstr "1公升（l）約是1/4加侖"
+
+msgid ""
+"Example: A 2-liter soda bottle equals about the same volume as a ½ gallon "
+"milk bottle"
+msgstr "例如：A 2公升的保特瓶約等於半加侖牛奶瓶的容量。"
+
+msgid "Time is measured the same in both metric and US systems"
+msgstr "公制和英制的時間單位都是相同的"
+
+msgid "Wrist watch"
+msgstr "腕錶"
+
+# 10
+msgid "Mass"
+msgstr "重量"
+
+msgid "Volume"
+msgstr "體積"
+
+# 11
+msgid ""
+"Question A. If we want to make quantitative observations to gather data, we "
+"make measurements. Connect each unit of measurement on the left to the "
+"situation on the right by dragging any of the circles at the left column to "
+"another circle in the right column. <span class=\"instruc\">Click the \"Start "
+"Over\" button to remove the lines and connect again.</span>"
+msgstr ""
+"問題A. 如果我們想使用定量觀察來收集數據，我們會進行測量。請透過拖拉將左邊的測"
+"量單位的黑點連接到右欄相對項目的黑點上。 <span class=\"instruc\">可點選\"重新"
+"開始\"按鈕以刪除線條重新連線。</span>"
+
+msgid "Start Over"
+msgstr "重新開始"
+
+msgid "Kilograms or pounds"
+msgstr "公斤或磅"
+
+msgid "Liquid ounce or milliliter"
+msgstr "盎司或毫升"
+
+msgid "Kilometers or miles"
+msgstr "公里或英里"
+
+msgid "Inches or centimeters"
+msgstr "英寸或公分"
+
+msgid "Seconds or minutes"
+msgstr "秒鐘或分鐘"
+
+msgid "Length of a bridge"
+msgstr "橋的長度"
+
+msgid "Amount of water in a squirt gun"
+msgstr "水槍裡的水量"
+
+msgid "How much you weigh"
+msgstr "你的體重是多少"
+
+msgid "How long you can stay under water"
+msgstr "你可以在水下停留多久"
+
+msgid "The width of your TV screen"
+msgstr "電視機屏幕的寬度"
+
+msgid ""
+"Question B. Which of the following would probably be measured in liters or "
+"milliliters?"
+msgstr "問題B. 下列何者可用「公升」或「毫升」為單位？"
+
+msgid "The area of your classroom."
+msgstr "教室的面積。"
+
+msgid "The length of your book."
+msgstr "你的書本長度。"
+
+msgid "The volume of your water bottle."
+msgstr "你的水瓶體積。"
+
+msgid "The weight of your book bag."
+msgstr "你的書包的重量。"
+
+msgid ""
+"Correct! The volume of a container for a liquid, such as a water bottle, is "
+"usually measured in liters or milliliters in the metric system."
+msgstr "正確！一個裝液體的容器體積，如水瓶，通常以公升或公制系統的毫升來測量。"
+
+msgid ""
+"Nope! The area of your classroom would be measured in square feet or meters."
+msgstr "不對喔！教室的面積以平方英呎或公尺來測量。"
+
+msgid ""
+"Nope! The length of your book would be measured in inches or centimeters."
+msgstr "不對喔！你的書本長度會以英寸或公分來測量。"
+
+msgid "Nope! The weight of your book bag would be measured in kilos or pounds."
+msgstr "不對喔！你的書包的重量會以公斤或磅來測量。"
+
+# 12
+msgid "Using what you know... about gathering data... to solve a problem"
+msgstr "使用你知道的......關於「收集數據」...來解決問題"
+
+msgid "The Problem"
+msgstr "問題"
+
+msgid ""
+"As a paleontologist (a scientist who studies fossils) working at a natural "
+"history museum, you are studying the skull of an unknown dinosaur to "
+"determine what it likely ate. You know that there is a link between dinosaurs "
+"and their teeth. The skull fossil has no visible teeth, but the skull was "
+"found with some fossilized bones of a much smaller animal and some fossils of "
+"animal droppings."
+msgstr ""
+"身為一名古生物學家（研究化石的科學家）在自然歷史博物館工作，你正在研究一個不知"
+"名的恐龍頭骨來推定它可能吃什麼。你知道恐龍和牠們的牙齒的形狀之間有一些關係。這"
+"個頭骨化石沒看到牙齒，但是這個頭骨跟一些糞便化石和更小的動物骨骼化石一起被發"
+"現。"
+
+msgid "The Assignment"
+msgstr "任務"
+
+msgid ""
+"Using what you know about gathering data to support a claim or explanation, "
+"enter in the text box provided what you think the dinosaur mostly ate—was it "
+"an herbivore (a plant eater) or a carnivore (a meat eater) -- and how you "
+"came to that conclusion."
+msgstr ""
+"使用你所知有關「收集數據」的知識來提出：你認為恐龍是一種草食性或肉食性動物呢？"
+"並請說明你是如何得到這個結論的。 請在框中輸入你的看法和說明。"
+
+msgid "Click here to start typing your answer..."
+msgstr "點選這裡開始輸入你的答案..."
+
+# 13
+msgid "Summarizing big ideas... about gathering data"
+msgstr "總結核心主題...關於「收集數據」"
+
+msgid ""
+"The term <span class=\"key\">data</span> refers to information gathered "
+"through observation. <span class=\"key\">Instruments</span> are tools "
+"designed to help us extend our senses. Data that consist of descriptions of "
+"characteristics or behaviors without numbers are called <span class=\"key"
+"\">qualitative data</span>. Data that consist of measured amounts or things "
+"that can be counted are called <span class=\"key\">quantitative data</span>. "
+"All measurements have some amount of <span class=\"key\">error</span>. It is "
+"a good idea to take several measurements and <span class=\"key\">average</"
+"span> them to reduce error. The <span class=\"key\">metric system</span> is "
+"used in science and many other countries because measures in the metric "
+"system are related by factors of 10. When exact measurements are not needed, "
+"the measurement can be estimated. An <span class=\"key\">estimate</span> is a "
+"measurement or answer that is close to the real measurement or answer."
+msgstr ""
+"<span class=\"key\">數據</span>，是指透過觀察收集到的資訊。 <span class=\"key"
+"\">儀器</span>，是幫助我們擴展我們感官的工具。對特徵或行為描述而不包含數字的數"
+"據被稱為<span class=\"key\">定性數據</span>；數據中含有測量數量或可被計算的事"
+"物被稱為<span class=\"key\">定量數據</span>。所有的測量都有一些<span class="
+"\"key\">誤差</span>，測量數次並進行<span class=\"key\">平均</span>可以減小誤"
+"差。<span class=\"key\">公制系統</span>用於科學以及許多國家，因為公制系統是10"
+"相關。當不需要精確的測量時，可以使用估測，<span class=\"key\">估測</span>只能"
+"盡量接近真實的測量值或答案。"
+
+# 14
+msgid "Reviewing key vocabulary related to... gathering data"
+msgstr "複習重要詞彙...關於「收集數據」"
+
+msgid "Instrument"
+msgstr "儀器"
+
+msgid "Qualitative data"
+msgstr "定性數據"
+
+msgid "Quantitative data"
+msgstr "定量數據"
+
+msgid "Metric system"
+msgstr "公制"
+
+msgid "Estimate"
+msgstr "估算"
+
+msgid "Error"
+msgstr "誤差"
+
+msgid "Accurate"
+msgstr "準確的"
+
+msgid "Average"
+msgstr "平均值"
+
+msgid "Hypothesis"
+msgstr "假說"
+
+msgid "Evidence"
+msgstr "證據"
+
+msgid "Data"
+msgstr "數據"
+
+msgid ""
+"Instruments are objects used to extend or improve senses in order to obtain "
+"data. A stethoscope is an example of an instrument. It amplifies the sense of "
+"hearing in order to measure a person's heart rate and breathing."
+msgstr ""
+"「儀器」是為了得到數據而擴展或增進感官的工具。聽診器是一種儀器的例子，它擴展了"
+"聽覺，用以測量一個人的心跳和呼吸。"
+
+msgid ""
+"Data that are a description of some characteristic or behavior that do not "
+"involve numbers are called qualitative data."
+msgstr "描述特性或行為，但不含有數字的數據，被稱為「定性數據」。"
+
+msgid ""
+"Data that can be stated in terms of an amount or number are called "
+"quantitative data."
+msgstr "可以用數量或數字表述的數據，被稱為「定量數據」。"
+
+msgid ""
+"The metric system is a decimal system for measuring mass, volume, and length. "
+"The metric system uses grams to measure mass, liters to measure volume, and "
+"meters to measure length."
+msgstr ""
+"「公制」是十進位制，用於測量重量、體積和長度。公制系統使用克來測量重量、公升來"
+"測量體積、公尺來測量長度。"
+
+msgid ""
+"The metric system was introduced in France in 1790, it is based on units of "
+"tens. For example, a decimeter is 1/ 10 of a meter, a centimeter is 1/ 100 of "
+"a meter and a kilometer is 1000 meters."
+msgstr ""
+"公制在1790年引進法國，它以十為單位。例如，公寸是公尺的1/10，公分是公尺的"
+"1/100，1公里是1000公尺。"
+
+msgid ""
+"An estimate is a measurement or answer that is close to the real measurement "
+"or answer. When exact measurements are not needed, the measurement can be "
+"estimated."
+msgstr ""
+"「估測」是儘可能接近真實的測量或答案。在不需要精確測量時，可以僅進行「估測」。"
+
+msgid ""
+"An error is like a mistake. If you measure something once and it is different "
+"from the second time you measure it, you can see there is error in "
+"measurement. One of the measurements, or both of them might have been "
+"slightly wrong- that is considered an error. Instruments we use have some "
+"amount of error, so we take several measurements and average them to make the "
+"error less."
+msgstr ""
+"「誤差」就好像是錯誤的程度。如果你測量兩次測量，但結果卻不同，你可以發現這裡面"
+"一定有測量誤差存在。這兩次，都可能有些微的錯誤──也就是，測量會有誤差。我們使用"
+"的儀器也有一定的誤差量，因此，我們常採取「多次測量」後進行平均，以減少誤差。"
+
+msgid ""
+"Accurate means to be correct and make no mistakes. When you measure "
+"something, you can be accurate by making the correct measurements. If you "
+"measure more or less than the right amount, you are not being accurate."
+msgstr ""
+"「準確的」，是用來描述測量正確的情形。當測量的時候，方法越正確，測量就會越「準"
+"確」。如果測量的結果和正確值差異的越多，就越不準確。"
+
+msgid ""
+"In science, it is important to provide accurate information when you do an "
+"experiment. It will help you to be accurate if you do things very carefully."
+msgstr ""
+"在科學裡，作實驗時重要的是提供準確的資訊。如果你進行實驗越小心，它就會準確。"
+
+msgid ""
+"An average is a single value or number that is meant to best represent a list "
+"of values. There are a few different ways to determine an average. For "
+"example, you might measure the height of three different plants to be 11 "
+"inches, 12 inches, and 16 inches. One way to determine the average height is "
+"to identify the middle value, which in this case would be 12 inches. But a "
+"more accurate way to determine the average height would be to add all of the "
+"values and divide by the number of values, as shown below. (11 + 12 + 16) / 3 "
+"= 13 inches average "
+msgstr ""
+"「平均值」是一個用來代表一連串數值的最佳單一數值。舉例來說：當你測量得到甲乙丙"
+"三株植物的高度是28公分(11英寸)、30公分(約12英寸)和41公分(16英寸)。我們可以計算"
+"「平均值」，這是將A，B，C的高度全部相加，然後除以數值的個數，計算式如下： "
+"（28 +30 +41）/ 3 =33公分，這就是三棵植物的平均值。在計算平均值之外，還有其它"
+"方法來決定代表的值，其中之一就是取中間值來做為代表；在這例子裡，因為B植物的高"
+"度介在A，B中間，所以就取B植物的30公分做為這三株的代表值。"
+
+msgid ""
+"A hypothesis is like a scientific guess as to what the answer to a question "
+"or problem might be. A hypothesis is a \"for now\" explanation for an "
+"observation or scientific problem that you can test by investigating it more."
+msgstr ""
+"「假說」就是對問題可能答案的科學猜測。假說是\"現在\"對觀察或科學問題的解釋，需"
+"要透過更多的研究來檢驗這一個假說是否正確。"
+
+msgid ""
+"Evidence is the information (data) that scientists use to support their "
+"hypothesis and explanations. Scientists use different kinds of data to prove "
+"whether their hypothesis is right or not. The data they use is called "
+"evidence."
+msgstr ""
+"「證據」是科學家用來支持他的假說和解釋的資訊（數據）。科學家們使用各種的數據來"
+"證明自己的假說正確與否，其中他們所使用的「數據」就被稱為證據。"
+
+msgid ""
+"Data are bits of factual information that can be used to draw conclusions or "
+"make decisions. Factual information means that the information is true or "
+"based on something that really happened. The way that people gather data is "
+"by observing something and writing down exactly what they see. There are many "
+"different jobs in which people collect data. Scientists collect data about "
+"the world around us. Teachers collect data about the grades their students "
+"earn. Even policemen collect data about the criminals they catch."
+msgstr ""
+"「數據」是實際收集到的資訊，可以用來「下結論」或「作決定」。人們收集數據的方式"
+"是透過觀察並紀錄下他們真正看到。在許多不同的工作中，人們都要收集數據：科學家收"
+"集有關我們周圍世界的數據、教師收集有關他們學生獲得的成績數據、即使警察也收集關"
+"於所抓到罪犯的數據。"
+
+# 15
+msgid "Checking what you now know... about gathering data"
+msgstr "看看你所知道的......關於「收集數據」"
+
+msgid ""
+"Answering the following six (6) quiz questions will give you an idea of what "
+"you now know and what you still need to study."
+msgstr "回答以下6個小測驗，可以了解哪些是你已經知道的...哪些是還要再學習的？"
+
+msgid "Click the NEXT button when you are ready."
+msgstr "當您準備好了時，就請按下一步..."
+
+# 16
+msgid "Choose the best way to increase the accuracy of a measurement."
+msgstr "下列何者，是提高測量準確度比較好的方法。"
+
+msgid "Make the measurement very carefully."
+msgstr "謹慎地測量。"
+
+msgid "Make the measurements at different times."
+msgstr "在不同的時間測量。"
+
+msgid "Make several measurements and average them."
+msgstr "做多次測量並平均。"
+
+msgid "Ask someone to check your measurement."
+msgstr "請別人檢查你的測量值。"
+
+msgid ""
+"Rotate or flip the box below either up or down to set your answer. Click, "
+"hold and slide mouse up or down."
+msgstr "請向上或向下翻轉下方方塊來設置你的答案。點選，按住並上下移動滑鼠。"
+
+msgid ""
+"Nope! Care needs to be taken every time you make a measurement, but the best "
+"way to increase the accuracy of a measurement is to make several measurements "
+"and average them."
+msgstr ""
+"不對喔！每次進行測量本來就都要小心謹慎的。這些選項中，增加測量準確度最好的方法"
+"就是多次測量並平均。"
+
+msgid ""
+"Nope! You want to keep everything the same as much as possible when you are "
+"measuring or experimenting. For instance, when using a scale to weigh an "
+"object, try to place the scale in the same place each time."
+msgstr ""
+"不對喔！當你測量或實驗時你要儘可能保持各項變因都相同，如果改變在不同時間測量，"
+"又會有新的變數產生了。這些選項中，增加測量準確度最好的方法就是多次測量並平均。"
+
+msgid ""
+"Correct! Averaging your measurements is a great way to increase accuracy."
+msgstr ""
+"正確！增加測量準確度最好的方法就是多次測量並平均。平均測量值是提高精確度最好的"
+"方式。"
+
+msgid ""
+"Nope! Having someone else measure again is not the best way to make it more "
+"accurate."
+msgstr ""
+"不對喔！讓別人再次測量不是提升準確度的最佳方式。這些選項中，增加測量準確度最好"
+"的方法就是多次測量並平均。"
+
+# 17
+msgid ""
+"A fifth grade class gathered data by surveying the class to see which pets "
+"were the different students favorites. Based on the chart of their survey, "
+"which of the following statements is <span class=\"blink\">not</span> correct?"
+msgstr ""
+"一個五年級班級透過問卷調查收集數據，以看看哪些寵物是同學的最愛。根據得到的調查"
+"表格和數據，請問以下哪項敘述<span class=\"blink\">不是正確的</span>？"
+
+msgid "The data shows how many students like dogs."
+msgstr "下列數據顯示出有多少學生喜歡狗。"
+
+msgid "We can understand how many students like birds more than dogs."
+msgstr "我們可以知道，喜歡鳥的學生比喜歡狗的學生，多了多少。"
+
+msgid "We can understand why students like birds more than dogs."
+msgstr "我們可以知道，為什麼喜歡鳥的學生比喜歡狗的學生要多。"
+
+msgid ""
+"If all the students were required to choose a favorite animal, we can "
+"understand how many students were in the class from the data gathered here."
+msgstr ""
+"如果所有學生都選擇了一個最喜歡的動物了。那，我們可以從這數據了解教室裡有多少學"
+"生。"
+
+msgid "Pet"
+msgstr "的寵"
+
+msgid "Tallies"
+msgstr "吻合"
+
+msgid "Dog"
+msgstr "狗"
+
+msgid "Cat"
+msgstr "貓"
+
+msgid "Bird"
+msgstr "鳥"
+
+msgid "Correct. When we gather data it does not show why things happen."
+msgstr ""
+"你選對了，這是錯誤的敘述！當我們收集數據到數據時，不一定能知道是甚麼原因造成這"
+"種結果。"
+
+msgid ""
+"Nope! This statement is correct. There are seven students who selected dogs "
+"as their favorite pets."
+msgstr "你選錯囉，這是正確的敘述！有7名學生選擇了狗作為他們最喜愛的寵物。"
+
+msgid "Nope! This statement is correct. 3 students prefer birds to dogs."
+msgstr "你選錯囉，這是正確的敘述！喜歡鳥的學生比喜歡狗的，多了3名學生。"
+
+msgid ""
+"Nope! This statement is correct. By adding 7, 4, and 10, the data can help us "
+"understand that there are 21 students in the class."
+msgstr ""
+"你選錯囉，這是正確的敘述！7,4和10加起來，這些數據可以讓我們知道有21名學生在班"
+"上。"
+
+# 18
+msgid ""
+"Use the following data to select <span class=\"blink\">all</span> the correct "
+"sentences based on the data about kids and their pets."
+msgstr ""
+"使用下面的數據，選出有關孩子們和他們的寵物的<span class=\"blink\">所有正確敘述"
+"</span>(複選)。"
+
+msgid "Click the image to enlarge the graph."
+msgstr "點擊圖片放大。"
+
+msgid "Four kids have dogs."
+msgstr "四個孩子有狗。"
+
+msgid ""
+"The number of kids who own dogs, cats, and turtles altogether are more than "
+"the number of kids who own fish and birds altogether."
+msgstr "擁有狗、貓、烏龜的孩子總數比擁有魚和鳥的孩子總數多。"
+
+msgid "Only one kid has a turtle."
+msgstr "只有一個孩子有烏龜。"
+
+msgid ""
+"The number of kids who have dogs, is the same as the number of kids who have "
+"birds."
+msgstr "擁有狗的孩子數量跟擁有鳥的孩子，數量是一樣的。"
+
+msgid ""
+"The number of kids who own cats is one more than the number of kids who own "
+"fish."
+msgstr "擁有貓的孩子數量比擁有魚的孩子數量多一個。"
+
+msgid ""
+"Correct! The number of kids who own dogs, cats, and turtles altogether are "
+"the same as the number of kids who own fish and birds altogether. And the "
+"number of kids who own fish is one more than the number of kids who own cats."
+msgstr ""
+"正確！擁有狗、貓、和烏龜的孩子總數跟擁有魚和鳥的孩子總數相同。擁有魚的孩子數量"
+"比擁有貓的孩子數量多一個。"
+
+msgid ""
+"Not quite! The number of kids who own dogs, cats, and turtles altogether are "
+"the same as the number of kids who own fish and birds altogether. And the "
+"number of kids who own fish is one more than the number of kids who own cats."
+msgstr ""
+"不對喔！擁有狗、貓、和烏龜的孩子總數跟擁有魚和鳥的孩子總數相同。擁有魚的孩子數"
+"量比擁有貓的孩子數量多一個。"
+
+msgid "Number of Kids with Each Pet"
+msgstr "大 家都有寵物"
+
+msgid "Kids with Pets"
+msgstr "帶 著寵物"
+
+msgid "Dogs"
+msgstr "狗"
+
+msgid "Cats"
+msgstr "貓"
+
+msgid "Birds"
+msgstr "鳥"
+
+msgid "Turtles"
+msgstr "龜"
+
+msgid "Fish"
+msgstr "魚"
+
+msgid "Snakes"
+msgstr "蛇"
+
+msgid "Density"
+msgstr "密度"
+
+# 19
+msgid "Click on '&#60;select&#62;' and pull down menu to choose answer."
+msgstr "點擊「選擇」並下拉選單來選擇答案。"
+
+msgid "One inch is a little bit more than 2 times a"
+msgstr "一英寸比________的2倍多一點點呢？"
+
+msgid ""
+"One way to reduce the error in measurement is to make many measurements and"
+msgstr "減少測量誤差的一種方法是採取多次測量並將這些測量值進行"
+
+msgid "1 ounce is about 28 times more than a"
+msgstr "1盎司是比 1 ________ 多約28倍呢？"
+
+msgid "refers to information gathered through observation."
+msgstr "，來代表透過觀察收集到的資訊。"
+
+msgid "The term"
+msgstr "科學上，我們用"
+
+msgid "meter"
+msgstr "1公尺"
+
+msgid "centimeter"
+msgstr "1公分"
+
+msgid "kilometer"
+msgstr "1公里"
+
+msgid "average"
+msgstr "平均"
+
+msgid "add"
+msgstr "加"
+
+msgid "estimate"
+msgstr "估算"
+
+msgid "pound"
+msgstr "1英鎊"
+
+msgid "kilogram"
+msgstr "1公斤"
+
+msgid "gram"
+msgstr "克"
+
+msgid "instrument"
+msgstr "「儀器」"
+
+msgid "data"
+msgstr "「數據」"
+
+msgid "measurement"
+msgstr "「測量」"
+
+msgid "them."
+msgstr "他們。"
+
+msgid ""
+"You got it! Centimeter, meter, and kilometer are all units of length and "
+"distance in the metric system. Averaging measurements made is a good way to "
+"reduce error in measurement. Grams and kilograms are the units of mass in the "
+"metric systems. Data are information gathered through observation."
+msgstr ""
+"你答對了！公分、公尺和公里為公制中的長度和距離單位。將多次測量值進行平均值是減"
+"少誤差的好方法。公克和公斤是公制裡重量的單位。數據是透過觀察收集到的資訊。"
+
+msgid ""
+"Not quite! Centimeter, meter, and kilometer are all units of length and "
+"distance in the metric system. Averaging measurements made is a good way to "
+"reduce error in measurement. Grams and kilograms are the units of mass in the "
+"metric systems. Data are information gathered through observation."
+msgstr ""
+"不大對喔！公分、公尺和公里為公制中的長度和距離單位。將多次測量值進行平均值是減"
+"少誤差的好方法。公克和公斤是公制裡重量的單位。數據是透過觀察收集到的資訊。"
+
+# 20
+msgid ""
+"A student in the fifth grade class decided to see how many had a hair color "
+"other than blonde in her classroom. Use the data in the table below to decide "
+"which bar graph shows the correct data."
+msgstr ""
+"一個國際學校五年級的學生決定研究她教室裡同學頭髮顏色的情形。她得到的數據如下"
+"表，請問下面哪一個條形圖正確的表示她的調查數據。"
+
+msgid "Hair Color:"
+msgstr "頭髮顏色："
+
+msgid "Blonde"
+msgstr "金髮"
+
+msgid "Brown"
+msgstr "棕髮"
+
+msgid "Black"
+msgstr "黑髮"
+
+msgid "Red"
+msgstr "紅髮"
+
+msgid "Number of Students:"
+msgstr "學生人數："
+
+msgid ""
+"Good job! There are 12 students with blonde hair, 11 with brown, 4 with "
+"black, and 1 with red hair. Under each bar the hair color is shown."
+msgstr ""
+"答得好！有12個學生是金髮、11個是棕髮、4個是黑髮、1個是紅髮。每個欄位下顯示的是"
+"髮色。"
+
+msgid ""
+"Not quite. There are 12 students with blonde hair, 11 with brown, 4 with "
+"black, and 1 with red hair. Under each bar the hair color is shown."
+msgstr ""
+"不完全對喔！有12個學生是金髮、11個是棕髮、4個是黑髮、1個是紅髮。每個欄位下顯示"
+"的是髮色。"
+
+msgid ""
+"Click on the circle next to the word qualitative or quantitative to select "
+"the type of data you think the descriptions of chocolate milk are."
+msgstr ""
+"下表中是描述「巧克力牛奶」的數據紀錄表，左邊欄位是有關的敘述。請分別判斷各項敘"
+"述是「定性」還是「定量」。[點擊按鈕選擇正確選項]"
+
+msgid "Qualitative Data"
+msgstr "定性數據"
+
+msgid "Quantitative Data"
+msgstr "定量數據"
+
+msgid "Sweet taste"
+msgstr "有甜味"
+
+msgid "Serving temperature 150º F"
+msgstr "最佳飲用溫度為150ºF"
+
+msgid "12 ounces of hot chocolate"
+msgstr "約350 毫升(約12盎司)的巧克力飲料"
+
+msgid "Frothy appearance"
+msgstr "泡沫外觀"
+
+msgid "Strong taste"
+msgstr "濃郁的味道"
+
+msgid "Serving glass is 7 inches in height"
+msgstr "裝的玻璃杯高有18公分(約7英寸)"
+
+# 20
+msgid "You've completed the Gathering Data module."
+msgstr "你已經完成了「收集數據」單元。"
+
+msgid "Congratulations, "
+msgstr "恭喜您！"
+
+msgid ""
+"You can check how you did on the 'Quick Checks' and 'Quiz Questions' for this "
+"module by clicking the button below."
+msgstr "你可以點擊下面的按鈕，查看到你在'小練習'和'小測驗'的表現..."

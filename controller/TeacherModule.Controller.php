@@ -78,4 +78,13 @@ class TeacherModuleController {
 		return $result[0]['module_id'];
 	}
 
+	public function updateAllmodule($userid){
+		$query = "SELECT module_ID FROM module WHERE module_id NOT IN (select module_id from teacher_module where user_id = '$userid');";
+		$db = new DB();
+		$db->connect();
+		$result = $db->query($query);
+		$db->disconnect();		
+		return $result;
+	}
+
 }

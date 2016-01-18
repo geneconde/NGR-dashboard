@@ -32,6 +32,14 @@
 	<?php else : ?>
 		<script src="../scripts/pageguide.min.js"></script>
 	<?php endif; ?>
-
+	<div id="dialog-confirm1" title="Deleting Student Account">
+	  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Are you sure you want to delete this student account?</p>
+	</div>
+	<div id="dialog-confirm2" title="Deleting Student Account">
+	  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Delete Student Account(s)?</p>
+	</div>
+	<div id="dialog-confirm3" title="Deleting Student Account">
+	  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>If you want this student to be taken out from the list, you can click the unassign button insted. Do you still want to delete this account?</p>
+	</div>
 </body>
 </html>
