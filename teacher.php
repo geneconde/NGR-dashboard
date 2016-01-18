@@ -21,10 +21,15 @@
 
 	$tmc = new TeacherModuleController();
 	$tm_set = $tmc->getTeacherModule($userid);
+	$missing_module = $tmc->updateAllmodule($userid);
+	for ($i = 0; count($missing_module)>$i; $i++){
+		$x = $missing_module[$i]['module_ID'];
+		$tmc->addTeacherModule($userid, $x);
+		header("Location: index.php");
+	}
 
 	$mc = new ModuleController();
 	$gmc 		= new GroupModuleController();
-
 	$sgc		= new StudentGroupController();
 	$groups		= $sgc->getActiveGroups($userid);
 
@@ -35,6 +40,9 @@
 
 	$ufl = $user->getFirstLogin();
 	if($ufl == 1){ header("Location: account-update.php"); }
+
+
+
 ?>
 <style>
 	a.ngss_link:hover {
