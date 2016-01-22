@@ -106,7 +106,7 @@
 					<br/>
 					<?php foreach($choices as $choice): ?>
 					<span class="letters <?php echo($choice['order']==$row['answer'] ? 'correct-ans' : ''); ?>">
-						<?php 	echo $choice['order']; ?>.<?php echo _($choice['choice']); 
+						<?php 	echo $choice['order']; ?>. <?php echo _($choice['choice']); 
 								if(empty($choice['image'])){
 								}else{
 									echo '<div id="choice_size"><img src="'.$choice['image'].'"></div>';

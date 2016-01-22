@@ -213,9 +213,8 @@ ini_set('display_errors', 0);
 	// $cols[] = $col;
 
 	$col = array();
-	$col["title"] = $action;
+	$col["title"] = "";
 	$col["name"] = "act";
-	$col["width"] = "50";
 	$cols[] = $col;
 
 	$col = array();
@@ -244,6 +243,17 @@ ini_set('display_errors', 0);
 	$opt["export"]["sheetname"] = "Student Information";
 	$opt["export"]["range"] = "filtered";
 
+	$grid->set_group_header( array(
+		    "useColSpanStyle"=>true,
+		    "groupHeaders"=>array(
+		        array(
+		            "startColumnName"=> "act",
+		            "numberOfColumns"=>2,
+		            "titleText" => $action
+		        )
+			)
+		)
+	);
 
 	$grid->set_options($opt);
 
@@ -362,12 +372,12 @@ ini_set('display_errors', 0);
 	tr td:nth-child(14) a:hover, tr td:nth-child(14) a:link, tr td:nth-child(14) a:visited, tr td:nth-child(14) a:focus {
 		color: #fff;
 	}
-	#list1_act {
-		width: auto !important;
-	}
 	.ui-jqgrid .ui-search-input input { width: 100% !important; }
 	.ui-pg-input { width: auto !important; }
-	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
+	.ui-th-column-header { border-bottom: 0 !important; }
+	.ui-jqgrid-sortable { top: 1px !important; }
+	.ui-th-column:nth-child(13) { border-right: 2px solid #F1F3FA !important; }
+	#list1_act, #list1_unassign { display: none; }
 	a.current { color: gray; cursor: default; }
 	input.delete-rule.ui-del { width: 13px; }
 </style>
@@ -461,31 +471,10 @@ ini_set('display_errors', 0);
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
 		});
 
-		$("tr th:nth-child(13)").each(function() {
-		    var t = $(this);
-		    var n = t.next();
-		    t.html(t.html() + n.html());
-		    n.remove();
-		});
-
 		$("a.current").click(function(){
 			event.preventDefault();
 		});
 	});
-	function guide() {
-	  	$('#joyRideTipContent').joyride({
-		      autoStart : true,
-		      postStepCallback : function (index, tip) {
-		      if (index == 10) {
-		        $(this).joyride('set_li', false, 1);
-		      }
-		    },
-		    'template' : {
-		        'link'    : '<a href="#close" class="joyride-close-tip"><?php echo _("Close"); ?></a>'
-		      }
-		    });
-		  }
-		  
 
 	// function cdl(){
  //  		var temp ="";

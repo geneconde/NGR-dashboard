@@ -73,7 +73,8 @@ class StudentModuleController {
 		$where = array();
 		$where['student_module_ID'] = $smid;
 
-		finish_module($smid);
+		$fin = new EventsController();
+		$fin->finish_module($smid);
 		
 		$data = array();
 		$data['date_finished'] = date("Y-m-d H:i:s");

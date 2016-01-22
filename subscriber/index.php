@@ -362,32 +362,9 @@ ini_set('display_errors', 0);
 		// $col["default"] = $reset_password; // default link text
 		// $col["export"] = false; // this column will not be exported
 		// $cols[] = $col;
-
-		$col = array();
-		$col["title"] = $action;
-		$col["name"] = "act";
-		$col["width"] = "50";
-		$cols[] = $col;
-
-		$col = array();
-		$col["title"] = "";
-		$col["name"] = "unassign";
-		$col["width"] = "15";
-		$col["align"] = "center";
-		$col["search"] = false;
-		$col["sortable"] = false;
-		$col["link"] = 'javascript:
-		var conf = confirm("Are you sure you want to unassign this student?");
-		if(conf==true) window.location = "index.php?user_id={user_ID}&unassign=1";';
-		$col["default"] = "unassign";
-		$col["export"] = false;
-		$cols[] = $col;
-
 	}
 
-	//Export filename
 	$filename = "";
-	
 	if(isset($_GET['user_id']))
 	{
 		$query = $uc->getUserLevel($_GET['user_id']);
@@ -398,7 +375,37 @@ ini_set('display_errors', 0);
 		if(isset($_GET['type']))
 		{
 			if( $_GET['type'] == 0 )
-			{				
+			{
+				$col = array();
+				$col["title"] = "";
+				$col["name"] = "act";
+				$cols[] = $col;
+
+				$col = array();
+				$col["title"] = "";
+				$col["name"] = "unassign";
+				$col["width"] = "15";
+				$col["align"] = "center";
+				$col["search"] = false;
+				$col["sortable"] = false;
+				$col["link"] = 'javascript:
+				var conf = confirm("Are you sure you want to unassign this student?");
+				if(conf==true) window.location = "index.php?user_id={user_ID}&unassign=1";';
+				$col["default"] = "unassign";
+				$col["export"] = false;
+				$cols[] = $col;
+
+				$grid->set_group_header( array(
+					    "useColSpanStyle"=>true,
+					    "groupHeaders"=>array(
+					        array(
+					            "startColumnName"=> "act",
+					            "numberOfColumns"=>2,
+					            "titleText" => $action
+					        )
+						)
+					)
+				);
 				$q = "SELECT * FROM users WHERE subscriber_id =". $subid . " AND type = 2 AND teacher_id=".$_GET['user_id'];
 				$grid->select_command = $q;
 				//$student_account = true;
@@ -419,6 +426,11 @@ ini_set('display_errors', 0);
 		}
 
 	} else {
+
+		$col = array();
+		$col["title"] = $action;
+		$col["name"] = "act";
+		$cols[] = $col;
 
 		if($usertype == 4 && $subhead_id == null)
 		{
@@ -571,13 +583,18 @@ ini_set('display_errors', 0);
 	tr td:nth-child(13) a:hover, tr td:nth-child(13) a:link, tr td:nth-child(13) a:visited, tr td:nth-child(13) a:focus {
 	    color: #fff;
 	}
-	#list1_act { width: auto !important; }
-	#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
 	.ui-jqgrid .ui-search-input input { width: 100% !important; }
 	.ui-pg-input { width: auto !important; }
 	.DataTD input { width: 88% !important; }
 	a.current { color: gray; cursor: default; }
 	input.delete-rule.ui-del { width: 13px; }
+
+	<?php if(isset($_GET['type']) && $_GET['type']==0) : ?>
+		.ui-th-column-header { border-bottom: 0 !important; }
+		.ui-jqgrid-sortable { top: 1px !important; }
+		.ui-th-column:nth-child(12) { border-right: 2px solid #F1F3FA !important; }
+		#list1_act, #list1_unassign { display: none; }
+	<?php endif; ?>
 </style>
 
 	<?php if(isset($_GET['err'])) : ?>
@@ -744,19 +761,6 @@ ini_set('display_errors', 0);
 	
 	<script>
 		jQuery(document).ready(function(){
-			// binds form submission and fields to the validation engine
-			// jQuery("#add_multiple_form").validationEngine();
-
-			var type = "<?php echo $_GET['type']; ?>";
-			if(type == '0') {
-				$("tr th:nth-child(12)").each(function() {
-				    var t = $(this);
-				    var n = t.next();
-				    t.html(t.html() + n.html());
-				    n.remove();
-				});
-			}
-
 			$("a.current").click(function(){
 				event.preventDefault();
 			});

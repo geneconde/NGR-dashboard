@@ -30,6 +30,7 @@
 
 	$mc = new ModuleController();
 	$gmc 		= new GroupModuleController();
+
 	$sgc		= new StudentGroupController();
 	$groups		= $sgc->getActiveGroups($userid);
 
@@ -40,9 +41,6 @@
 
 	$ufl = $user->getFirstLogin();
 	if($ufl == 1){ header("Location: account-update.php"); }
-
-
-
 ?>
 <style>
 	a.ngss_link:hover {

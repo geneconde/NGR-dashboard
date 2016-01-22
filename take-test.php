@@ -23,9 +23,9 @@
 	if (isset($_GET['smid'])) {
 		$_SESSION['smid']= $_GET['smid']; 
 		$lastscreen = $_GET['s'];
+		$redirect = "modules/".$moduleid."/".$lastscreen.".php";
 	} else {
 		$ev->takes_module($userid, $username, $mname);
-		$redirect = "modules/".$moduleid."/".$lastscreen.".php";
 		$redirect = "start-module.php?m=".$moduleid;
 	}
 	

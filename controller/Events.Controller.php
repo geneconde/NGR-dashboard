@@ -12,8 +12,6 @@ if(!class_exists('DB')) {
 	require_once($_SERVER['DOCUMENT_ROOT'].'/model/db.inc.php');
 }
 
-ini_set('track_errors', true);
-
 class EventsController {
 	public function __construct() {}
 
@@ -52,10 +50,23 @@ class EventsController {
 		$db->connect();
 		$user_mid = $db->select("student_module", $where, "user_ID, module_ID");
 
-		$data = array();
-		$data['event'] = $user_mid[0]['user_ID'] . " finished module '" . $user_mid[0]['module_ID'] . "'";
-		$data['user_id'] = $userid;
-		$result = $db->insert("event_logs", $data);
+		$userid = $user_mid[0]['user_ID'];
+		$temp = str_replace("-", " ", $user_mid[0]['module_ID']);
+		$module = ucwords($temp);
+
+		$where2 = array();
+		$where2['user_ID'] = $userid;
+		$username_res = $db->select("users", $where2, "username");
+		$username = $username_res[0]['username'];
+
+		$sql = "Select id from event_logs where user_id=$userid and event like '%finished module \'".$module."\'%'";
+		$check = $db->query($sql);
+		if(empty($check)) {
+			$data = array();
+			$data['event'] = $username . " finished module '" . $module . "'";
+			$data['user_id'] = $userid;
+			$result = $db->insert("event_logs", $data);
+		}
 		$db->disconnect();
 	}
 

@@ -61,6 +61,7 @@ ini_set('display_errors', 1);
 	$student_portfolio = _('Student Portfolio');
 	$student_information = _('Student Accounts');
 	$view_portfolio = _('View Portfolio');
+	$action = _('Action');
 
 	/** Main Grid Table **/
 	$col = array();
@@ -226,7 +227,7 @@ ini_set('display_errors', 1);
 	$cols[] = $col;
 
 	$col = array();
-	$col["title"] = "Action";
+	$col["title"] = "";
 	$col["name"] = "act";
 	$col["width"] = "50";
 	$cols[] = $col;
@@ -261,6 +262,19 @@ ini_set('display_errors', 1);
 	$opt["export"] = array("filename"=>"Student Accounts", "heading"=>"Student Accounts", "orientation"=>"landscape", "paper"=>"a4");
 	$opt["export"]["sheetname"] = "Student Accounts";
 	$opt["export"]["range"] = "filtered";
+
+	$grid->set_group_header( array(
+		    "useColSpanStyle"=>true,
+		    "groupHeaders"=>array(
+		        array(
+		            "startColumnName"=> "act",
+		            "numberOfColumns"=>2,
+		            "titleText" => $action
+		        )
+			)
+		)
+	);
+
 	$grid->set_options($opt);
 
 	$e["on_update"] = array("update_student", null, true);
@@ -370,13 +384,13 @@ ini_set('display_errors', 1);
 		tr td:nth-child(15) a:hover, tr td:nth-child(15) a:link, tr td:nth-child(15) a:visited, tr td:nth-child(15) a:focus {
 			color: #fff;
 		}
-		#list1_act { width: auto !important; }
 		.ui-jqgrid .ui-search-input input { width: 100% !important; }
 		.ui-pg-input { width: auto !important; }
-		.ui-icon-pencil { float: none; }
-		#list1_act > #jqgh_list1_act { margin-bottom: -15px; }
-		.ui-pg-input { width: 25px !important; }
-		.phpgrid input.editable { width: 90% !important; }
+		.ui-th-column-header { border-bottom: 0 !important; }
+		.ui-jqgrid-sortable { top: 1px !important; }
+		.ui-th-column:nth-child(14) { border-right: 2px solid #F1F3FA !important; }
+		#list1_act, #list1_unassign { display: none; }
+		a.current { color: gray; cursor: default; }
 		input.delete-rule.ui-del { width: 13px; }
 	</style>
 
@@ -564,13 +578,6 @@ ini_set('display_errors', 1);
 		$('#language-menu').change(function() {
 			language = $('#language-menu option:selected').val();
 			document.location.href = "<?php echo $_SERVER['PHP_SELF'];?>?lang=" + language;
-		});
-
-		$("tr th:nth-child(14)").each(function() {
-		    var t = $(this);
-		    var n = t.next();
-		    t.html(t.html() + n.html());
-		    n.remove();
 		});
 	});
 
